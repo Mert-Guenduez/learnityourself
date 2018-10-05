@@ -1,5 +1,6 @@
 # learnityourself
-* Introduction
+This is our brand new App...
+# Introduction
 TBD
-* How to download
+# How do I use it?
 TBD
