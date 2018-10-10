@@ -1,4 +1,4 @@
-![learnityourself_logo](https://github.com/Mert-Guenduez/learnityourself/edit/master/logo_plain.png)
+![learnityourself_logo](https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Logo_plain.png)
 # learnityourself
 This is our brand new App...
 # Introduction
