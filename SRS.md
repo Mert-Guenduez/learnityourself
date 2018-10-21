@@ -17,7 +17,7 @@ This document is for internal use only and shall give directives for the project
 - [Overall Use case diagram](https://github.com/Mert-Guenduez/learnityourself/blob/master/UseCases.xml)
 ### 1.5	Overview
 The next chapters will be structured as follows:
-The second Chapter, Overall Description, gives an overview of the functionality of our app and a use case diagram.
+The second chapter, Overall Description, gives an overview of the functionality of our app and a use case diagram.
 The third chapter, the Requirements Specification lists all ressources needed for the project.
  
 
@@ -42,7 +42,8 @@ The user can logout quickly by tapping a logout Button.
 The user can change the password in the profile settings. For this, the old password is required.
 ##### 3.1.1.5 Delete Account
 The user can delete the account. In order to do this, the password needs to be re-entered.
-
+##### 3.1.1.6 Reset Password
+The user can reset the password by entering the answer for a previously set security question.
 #### 3.1.2	Group System
 
 ##### 3.1.2.1	Create a group
