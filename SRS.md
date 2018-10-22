@@ -101,6 +101,10 @@ Three to four digit registered users should be no problem regarding capacity.
 ### 3.5	Supportability
 #### 3.5.1	Conventions
 When creating the sourcecode, common Java conventions and best practices will be applied to guarantee simple extensibility.
+Furthermore the following GitHub version control conventions are to be applied: Each developer will make changes in their own
+respective branch. Pulling should be done on a regular basis to avoid massive merge conflicts and pushing is generally only allowed
+when the sourcecode works (this is especially important when merging the branch into the master). In addition, a forceful push
+should be avoided at all cost since it can generally always be avoided and has the risk of destroying others work.
 
 ### 3.6	Design Constraints
 #### 3.6.1	GitHub
