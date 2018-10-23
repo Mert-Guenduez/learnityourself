@@ -1,5 +1,15 @@
 # Software Requirements Specification
 ## 1. Introduction
+### Revision History
+
+| Date        | Version | Description | Author  |
+|-------------|---------|-------------|---------|
+| 21/Oct/18 | 0.10  | First draft  | Mert Gündüz |
+| 22/Oct/18 | 0.20  | More detail to convention part | Mert Gündüz |
+| 23/Oct/18 | 0.21  | Added revision history, git commit convention and added content to user interface section | Jannik Adam |
+
+
+
 ### 1.1 Purpose
 This Software Requirements Specification ought to give you 
 concise information about our learnityourself project. It will provide an overview of
@@ -31,7 +41,7 @@ communicate with a backend server using the RESTful API.
 ### 3.1	Functionality
 #### 3.1.1	Account System
 The learnityourself account system is held simple, so the user
-does not need to gbother with activating his/her account, for example.
+does not need to bother with activating his/her account, for example.
 ##### 3.1.1.1	Register
 The user will be able to create an Account by filling in a form to set a username and password.
 ##### 3.1.1.2	Login
@@ -101,10 +111,15 @@ Three to four digit registered users should be no problem regarding capacity.
 ### 3.5	Supportability
 #### 3.5.1	Conventions
 When creating the sourcecode, common Java conventions and best practices will be applied to guarantee simple extensibility.
-Furthermore the following GitHub version control conventions are to be applied: Each developer will make changes in their own
-respective branch. Pulling should be done on a regular basis to avoid massive merge conflicts and pushing is generally only allowed
-when the sourcecode works (this is especially important when merging the branch into the master). In addition, a forceful push
-should be avoided at all cost since it can generally always be avoided and has the risk of destroying others work.
+Furthermore the following GitHub version control conventions are to be applied:
+- Each developer will make changes in their own respective branch
+- Pulling should be done on a regular basis to avoid massive merge conflicts and pushing is generally only allowed when the sourcecode works (this is especially important when merging the branch into the master)
+- A forceful push should be avoided at all cost since it can generally always be avoided and has the risk of destroying others work.
+
+For commits in general:
+- The commit should start with the area its relevant to: `[Back]`(Backend), `[Front]`(Frontend), `[Doc]`(Documentation)
+- This should be followed by one of the following tags: `[Bug]`(Bug Fix), `[Feat]`(Feature), `[Misc]`(Miscellaneous)
+- After that you should add your actual commit message and fill the description with relevant details
 
 ### 3.6	Design Constraints
 #### 3.6.1	GitHub
@@ -123,7 +138,8 @@ n/a
 
 ### 3.9	Interfaces
 #### 3.9.1	User Interfaces
-The user interface is the app itself. Functionality is as described in "3.1 Functionality".
+If starting the application the visitor can ether sign up or register to our service.
+After the user has logged in he is able to view his account settings, an overview of current active missions and an opportunity to join or create a mission. When selecting a mission, the user is redirected to the specific mission overview as a mission member. Here the mission member can see a list of all tasks in this mission and modify the mission settings e.g. add tasks, edit Tasks, add users, leave mission and so on. If the mission member selects a task it displays more detail and can be individually set to be completed for this mission member.
 #### 3.9.2	Hardware Interfaces
 n/a
 
