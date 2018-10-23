@@ -1,5 +1,5 @@
 # Software Requirements Specification
-## 1. Introduction
+
 ### Revision History
 
 | Date        | Version | Description | Author  |
@@ -8,8 +8,7 @@
 | 22/Oct/18 | 0.20  | More detail to convention part | Mert Gündüz |
 | 23/Oct/18 | 0.21  | Added revision history, git commit convention and added content to user interface section | Jannik Adam |
 
-
-
+## 1. Introduction
 ### 1.1 Purpose
 This Software Requirements Specification ought to give you 
 concise information about our learnityourself project. It will provide an overview of
