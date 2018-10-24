@@ -53,30 +53,43 @@ The user can change the password in the profile settings. For this, the old pass
 The user can delete the account. In order to do this, the password needs to be re-entered.
 ##### 3.1.1.6 Reset Password
 The user can reset the password by entering the answer for a previously set security question.
-#### 3.1.2	Group System
+#### 3.1.2	General
 
-##### 3.1.2.1	Create a group
-The user can create a group and set a goal while doing so.
-##### 3.1.2.2	Add users to a group
-The user can search for other users and invite them to join the group.
-##### 3.1.2.3	Edit group properties
-The user can change the group properties even after the group has already been created. Examples of properties are group name, final date, tasks and task duration.
-##### 3.1.2.4	View statistics
-The user can look at dynamically created graphs comparing each user's progress.
-#### 3.1.2.5 Self-reflection
-The user can set a task as completed. In addition the user can reflect on him-/herself by giving a rating based on how well the task was completed.
-
-#### 3.1.3	Rewards
-##### 3.1.3.1	Highscore
-The user receives points upon completing a task. These points are restricted to the group the task was completed in and are used as a way of comparison between users.
-#### 3.1.3.2 Rewards
+##### 3.1.2.1	Create Missions
+The user can create a mission and set a goal while doing so.
+##### 3.1.2.2	View Missions
+The user can view all of his missions.
+##### 3.1.2.3	Join Missions
+The user can search for other missions and request to join.
+##### 3.1.2.4 Create custom rewards
 The user can create custom rewards for himself. The user may set the reward costs.
-##### 3.1.3.3	In-game currency
-The user receives in-game currency upon completing a task. The amount of money received is based on how long the task takes to complete.
-The currency system is independent of the groups and money will be allocated to the accounts. The user can spend the money for rewards.
-##### 3.1.3.3	Achievements
+##### 3.1.2.5 Spend Points on Rewards
+The user can spent his in-game-currency on rewards set up previously.
+##### 3.1.2.6	Achievements
 The user can view a list of achievements and strive to reach as many as possible. Each achievement has a unique reward such as new user icons or money.
 
+#### 3.1.3	Mission System
+##### 3.1.3.1	Edit mission properties
+The user can change the group properties even after the group has already been created. Examples of properties are group name, final date, tasks and task duration.
+##### 3.1.3.2 Add user
+The user can invite other users to join the mission.
+##### 3.1.3.3 Create task
+The user can partition the mission into several tasks. These tasks have a time estimate.
+##### 3.1.3.4 View task
+The user see can see all of his tasks individually.
+##### 3.1.3.5 Edit task
+The user can edit task properties at any time.
+##### 3.1.3.6 Complete task
+The user can set a task as completed. In addition the user can reflect on him-/herself by giving a rating based on how well the task was completed.
+##### 3.1.3.7	View statistics
+The user can look at dynamically created graphs comparing each user's progress.
+##### 3.1.3.8	Highscore
+The user receives points upon completing a task. These points are restricted to the group the task was completed in and are used as a way of comparison between users.
+##### 3.1.3.9	Get Points
+The user receives in-game currency upon completing a task. The amount of money received is based on how long the task takes to complete.
+The currency system is independent of the groups and money will be allocated to the accounts. The user can spend the money for rewards.
+##### 3.1.3.10 Leave Mission
+The user may leave a mission at any time.
 #### 3.1.4	Settings
 ##### 3.1.4.1	Change username
 The user may change the username as long as the new one isn't taken already.
