@@ -129,8 +129,8 @@ Furthermore the following GitHub version control conventions are to be applied:
 - A forceful push should be avoided at all cost since it can generally always be avoided and has the risk of destroying others work.
 
 For commits in general:
-- The commit should start with the area its relevant to: `[Back]`(Backend), `[Front]`(Frontend), `[Doc]`(Documentation)
-- This should be followed by one of the following tags: `[Bug]`(Bug Fix), `[Feat]`(Feature), `[Misc]`(Miscellaneous)
+- The commit should start with the area its relevant to: `[Back]`(Backend), `[Front]`(Frontend), `[Doc]`(Documentation), `[Other]`(affected area should be pointed out in commit message)
+- This should be followed by one of the following tags: `[Bug]`(Bug Fix), `[Feat]`(Feature), `[Misc]`(Miscellaneous, more detail in commit description), `[Test]`(Testing)
 - After that you should add your actual commit message and fill the description with relevant details
 
 ### 3.6	Design Constraints
