@@ -14,7 +14,7 @@ UML Diagram:
 ### 2.2 Mock-Up
 Mock-Up:
 
-https://www.fluidui.com/editor/live/preview/cF9Ma3d6bkxiQ0hUNHZsSXRCZTNuS2Y0cmltQjAxeGNhOQ== "Mock-Up"
+[Mock-Up](https://www.fluidui.com/editor/live/preview/cF9Ma3d6bkxiQ0hUNHZsSXRCZTNuS2Y0cmltQjAxeGNhOQ==) 
 
 ### 2.3 .feature file
 
