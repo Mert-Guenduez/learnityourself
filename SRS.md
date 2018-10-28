@@ -7,7 +7,7 @@
 | 21/Oct/18 | 0.10  | First draft  | Mert Gündüz |
 | 22/Oct/18 | 0.20  | More detail to convention part | Mert Gündüz |
 | 23/Oct/18 | 0.21  | Added revision history, git commit convention and added content to user interface section | Jannik Adam |
-
+| 25/Oct/18 | 0.30  | Added more detail to several categories  | Mert Gündüz |
 ## 1. Introduction
 ### 1.1 Purpose
 This Software Requirements Specification ought to give you 
@@ -45,7 +45,7 @@ does not need to bother with activating his/her account, for example.
 The user will be able to create an Account by filling in a form to set a username and password.
 ##### 3.1.1.2	Login
 The user can login to the app using his/her respective username and password.
-##### 3.1.1.3	Logout
+##### 3.1.1.3	Logout 
 The user can logout quickly by tapping a logout Button.
 ##### 3.1.1.4	Change password
 The user can change the password in the profile settings. For this, the old password is required.
