@@ -73,22 +73,19 @@ The user can view a list of achievements and strive to reach as many as possible
 The user can change the group properties even after the group has already been created. Examples of properties are group name, final date, tasks and task duration.
 ##### 3.1.3.2 Add user
 The user can invite other users to join the mission.
-##### 3.1.3.3 Create task
-The user can partition the mission into several tasks. These tasks have a time estimate.
-##### 3.1.3.4 View task
-The user see can see all of his tasks individually.
-##### 3.1.3.5 Edit task
-The user can edit task properties at any time.
-##### 3.1.3.6 Complete task
+##### 3.1.3.3 Manage Tasks
+Manage the Missions Tasks by editing or deleting existing tasks as well as creating new ones.
+[Manage Tasks](https://github.com/Mert-Guenduez/learnityourself/blob/master/UC_ManageTasks.md)
+##### 3.1.3.4 Complete task
 The user can set a task as completed. In addition the user can reflect on him-/herself by giving a rating based on how well the task was completed.
-##### 3.1.3.7	View statistics
+##### 3.1.3.5	View statistics
 The user can look at dynamically created graphs comparing each user's progress.
-##### 3.1.3.8	Highscore
+##### 3.1.3.6	Highscore
 The user receives points upon completing a task. These points are restricted to the group the task was completed in and are used as a way of comparison between users.
-##### 3.1.3.9	Get Points
+##### 3.1.3.7	Get Points
 The user receives in-game currency upon completing a task. The amount of money received is based on how long the task takes to complete.
 The currency system is independent of the groups and money will be allocated to the accounts. The user can spend the money for rewards.
-##### 3.1.3.10 Leave Mission
+##### 3.1.3.8 Leave Mission
 The user may leave a mission at any time.
 #### 3.1.4	Settings
 ##### 3.1.4.1	Change username
