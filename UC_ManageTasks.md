@@ -3,7 +3,7 @@
 
 ## 1. Use-Case Name 
 ### 1.1 Brief Description
-The use case allows a Mission Member to manage the Missions tasks. To access these functions the Mission Member must be within a Missions View
+This Use Case deals with enabling a User to manage a Missions tasks. To access these functions the User must be within a Missions View
 
 ## 2. Flow of Events
 ### 2.1 Basic Flow 
@@ -27,9 +27,6 @@ The user must be part of a Mission.
 ## 4. Preconditions
 ### 4.1 Learn IT App
 The user has to be logged into the App
-
-### 4.1 Mission Member
-The user has to be a member of a Mission
 
 ## 5. Postconditions 
 ### 5.1 Display updated Tasks
