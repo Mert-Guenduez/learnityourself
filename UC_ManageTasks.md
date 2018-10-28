@@ -14,11 +14,11 @@ UML Diagram:
 ### 2.2 Mock-Up
 Mock-Up:
 
-![Mock][]
+https://www.fluidui.com/editor/live/preview/cF9Ma3d6bkxiQ0hUNHZsSXRCZTNuS2Y0cmltQjAxeGNhOQ== "Mock-Up"
 
 ### 2.3 .feature file
 
-![feature][]
+To be added
 
 ## 3. Special Requirements
 ### 3.1 Mission Member
@@ -40,5 +40,4 @@ n/a
 
 <!-- picture links -->
 [UML]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/UML_ManageTasks.png "UML Diagram"
-[Mock]:  https://www.fluidui.com/editor/live/preview/cF9Ma3d6bkxiQ0hUNHZsSXRCZTNuS2Y0cmltQjAxeGNhOQ== "Mock-Up"
 [Feature]: "Feature"
