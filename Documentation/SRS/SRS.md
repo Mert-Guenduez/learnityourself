@@ -7,12 +7,14 @@
 | 21/Oct/18 | 0.10  | First draft  | Mert Gündüz |
 | 22/Oct/18 | 0.20  | More detail to convention part | Mert Gündüz |
 | 23/Oct/18 | 0.21  | Added revision history, git commit convention and added content to user interface section | Jannik Adam |
-
+| 28/Oct/18 | 0.30  | Added more detail to several categories  | Mert Gündüz |
 ## 1. Introduction
 ### 1.1 Purpose
 This Software Requirements Specification ought to give you 
 concise information about our learnityourself project. It will provide an overview of
-how our App will be structured and which functions will be covered.
+how our App will be structured and which functions will be covered. It defines its requirements and serves as a depiction of
+the scope. Not only is the Software Requirements Specification a central document to give our clients an overview of what is realistically expectable,
+but it is also useful for us developers to keep track of the direction we want go in.
 ### 1.2 Scope
 This SRS applies to the entire project, which will be realized as an Android App.
 This document is for internal use only and shall give directives for the project's development.
@@ -45,7 +47,7 @@ does not need to bother with activating his/her account, for example.
 The user will be able to create an Account by filling in a form to set a username and password.
 ##### 3.1.1.2	Login
 The user can login to the app using his/her respective username and password.
-##### 3.1.1.3	Logout
+##### 3.1.1.3	Logout 
 The user can logout quickly by tapping a logout Button.
 ##### 3.1.1.4	Change password
 The user can change the password in the profile settings. For this, the old password is required.
@@ -140,6 +142,9 @@ YouTrack as an agile management tool.
 #### 3.6.3 	MySQL
 MySQL as our single database.
 
+#### 3.6.4 MVC
+The App services are implemented using MVC architecture.
+
 ### 3.7	Online User Documentation and Help System Requirements
 n/a
 ### 3.8	Purchased Components
@@ -147,8 +152,20 @@ n/a
 
 ### 3.9	Interfaces
 #### 3.9.1	User Interfaces
-If starting the application the visitor can ether sign up or register to our service.
-After the user has logged in he is able to view his account settings, an overview of current active missions and an opportunity to join or create a mission. When selecting a mission, the user is redirected to the specific mission overview as a mission member. Here the mission member can see a list of all tasks in this mission and modify the mission settings e.g. add tasks, edit Tasks, add users, leave mission and so on. If the mission member selects a task it displays more detail and can be individually set to be completed for this mission member.
+Our App will have several Interfaces and pages depending on what the user intends to do.
+
+**Login Screen**:
+When starting the application the user will see the login screen first. It contains a welcoming message, for example the latest changes
+ that were made and can either login or register to our service, which leads to the overview screen.
+ 
+**Overview Screen**: After the user has logged in he is able to view his account settings, an overview of current active missions and has the opportunity to join or create a mission. 
+When selecting a mission, the user is redirected to the specific mission overview as a mission member. 
+Alternatively a settings button can be pressed, leading to the settings screen.
+
+**Mission Screen**: Here the mission member can see a list of all tasks in this mission and modify the mission settings e.g. add tasks, edit Tasks, add users, leave mission and so on. If the mission member selects a task it displays more detail and can be individually set to be completed for this mission member.
+
+**Settings Screen**: The settings screen is fairly simple so that the desired action is found quickly.
+For the functionalities, see **3.1.4 Settings**.
 #### 3.9.2	Hardware Interfaces
 n/a
 
