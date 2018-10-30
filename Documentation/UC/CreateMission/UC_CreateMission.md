@@ -32,5 +32,5 @@ After creating a mission, the system needs to display the new list of missions a
 n/a
 
 <!-- picture links -->
-[UML]: https://github.com/Mert-Guenduez/learnityourself/blob/master/UML_CreateMission.png "UML Diagram"
+[UML]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/CreateMission/UML_CreateMission.png "UML Diagram"
 [Feature]: "Feature"
