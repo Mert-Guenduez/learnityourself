@@ -36,5 +36,5 @@ After adding, deleting or editing tasks, the System needs to display the new Lis
 n/a
 
 <!-- picture links -->
-[UML]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/UML_ManageTasks.png "UML Diagram"
+[UML]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ManageTasks/UML_ManageTasks.png "UML Diagram"
 [Feature]: "Feature"
