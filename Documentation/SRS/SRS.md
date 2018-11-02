@@ -7,12 +7,14 @@
 | 21/Oct/18 | 0.10  | First draft  | Mert Gündüz |
 | 22/Oct/18 | 0.20  | More detail to convention part | Mert Gündüz |
 | 23/Oct/18 | 0.21  | Added revision history, git commit convention and added content to user interface section | Jannik Adam |
-
+| 28/Oct/18 | 0.30  | Added more detail to several categories  | Mert Gündüz |
 ## 1. Introduction
 ### 1.1 Purpose
 This Software Requirements Specification ought to give you 
 concise information about our learnityourself project. It will provide an overview of
-how our App will be structured and which functions will be covered.
+how our App will be structured and which functions will be covered. It defines its requirements and serves as a depiction of
+the scope. Not only is the Software Requirements Specification a central document to give our clients an overview of what is realistically expectable,
+but it is also useful for us developers to keep track of the direction we want go in.
 ### 1.2 Scope
 This SRS applies to the entire project, which will be realized as an Android App.
 This document is for internal use only and shall give directives for the project's development.
@@ -45,7 +47,7 @@ does not need to bother with activating his/her account, for example.
 The user will be able to create an Account by filling in a form to set a username and password.
 ##### 3.1.1.2	Login
 The user can login to the app using his/her respective username and password.
-##### 3.1.1.3	Logout
+##### 3.1.1.3	Logout 
 The user can logout quickly by tapping a logout Button.
 ##### 3.1.1.4	Change password
 The user can change the password in the profile settings. For this, the old password is required.
@@ -73,22 +75,19 @@ The user can view a list of achievements and strive to reach as many as possible
 The user can change the group properties even after the group has already been created. Examples of properties are group name, final date, tasks and task duration.
 ##### 3.1.3.2 Add user
 The user can invite other users to join the mission.
-##### 3.1.3.3 Create task
-The user can partition the mission into several tasks. These tasks have a time estimate.
-##### 3.1.3.4 View task
-The user see can see all of his tasks individually.
-##### 3.1.3.5 Edit task
-The user can edit task properties at any time.
-##### 3.1.3.6 Complete task
+##### 3.1.3.3 Manage Tasks
+Manage the Missions Tasks by editing or deleting existing tasks as well as creating new ones.
+[Manage Tasks](https://github.com/Mert-Guenduez/learnityourself/blob/master/UC_ManageTasks.md)
+##### 3.1.3.4 Complete task
 The user can set a task as completed. In addition the user can reflect on him-/herself by giving a rating based on how well the task was completed.
-##### 3.1.3.7	View statistics
+##### 3.1.3.5	View statistics
 The user can look at dynamically created graphs comparing each user's progress.
-##### 3.1.3.8	Highscore
+##### 3.1.3.6	Highscore
 The user receives points upon completing a task. These points are restricted to the group the task was completed in and are used as a way of comparison between users.
-##### 3.1.3.9	Get Points
+##### 3.1.3.7	Get Points
 The user receives in-game currency upon completing a task. The amount of money received is based on how long the task takes to complete.
 The currency system is independent of the groups and money will be allocated to the accounts. The user can spend the money for rewards.
-##### 3.1.3.10 Leave Mission
+##### 3.1.3.8 Leave Mission
 The user may leave a mission at any time.
 #### 3.1.4	Settings
 ##### 3.1.4.1	Change username
@@ -143,6 +142,9 @@ YouTrack as an agile management tool.
 #### 3.6.3 	MySQL
 MySQL as our single database.
 
+#### 3.6.4 MVC
+The App services are implemented using MVC architecture.
+
 ### 3.7	Online User Documentation and Help System Requirements
 n/a
 ### 3.8	Purchased Components
@@ -150,8 +152,20 @@ n/a
 
 ### 3.9	Interfaces
 #### 3.9.1	User Interfaces
-If starting the application the visitor can ether sign up or register to our service.
-After the user has logged in he is able to view his account settings, an overview of current active missions and an opportunity to join or create a mission. When selecting a mission, the user is redirected to the specific mission overview as a mission member. Here the mission member can see a list of all tasks in this mission and modify the mission settings e.g. add tasks, edit Tasks, add users, leave mission and so on. If the mission member selects a task it displays more detail and can be individually set to be completed for this mission member.
+Our App will have several Interfaces and pages depending on what the user intends to do.
+
+**Login Screen**:
+When starting the application the user will see the login screen first. It contains a welcoming message, for example the latest changes
+ that were made and can either login or register to our service, which leads to the overview screen.
+ 
+**Overview Screen**: After the user has logged in he is able to view his account settings, an overview of current active missions and has the opportunity to join or create a mission. 
+When selecting a mission, the user is redirected to the specific mission overview as a mission member. 
+Alternatively a settings button can be pressed, leading to the settings screen.
+
+**Mission Screen**: Here the mission member can see a list of all tasks in this mission and modify the mission settings e.g. add tasks, edit Tasks, add users, leave mission and so on. If the mission member selects a task it displays more detail and can be individually set to be completed for this mission member.
+
+**Settings Screen**: The settings screen is fairly simple so that the desired action is found quickly.
+For the functionalities, see **3.1.4 Settings**.
 #### 3.9.2	Hardware Interfaces
 n/a
 
