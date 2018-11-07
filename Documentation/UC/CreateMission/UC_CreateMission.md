@@ -23,7 +23,7 @@ Mock-Up:
 
 ### 2.3 .feature file
 
-To be added
+[Feature file](https://github.com/Mert-Guenduez/learnityourself/blob/master/app/src/androidTest/assets/res/CreateMission.feature)
 
 ## 4. Preconditions
 ### 4.1 Learn IT App
