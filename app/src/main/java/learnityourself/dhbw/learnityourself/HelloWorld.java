@@ -1,27 +1,24 @@
 package learnityourself.dhbw.learnityourself;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.support.v7.app.AppCompatActivity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.Socket;
+import java.net.URL;
 
-public class HelloWorld {
+public class HelloWorld extends AppCompatActivity {
 
-    public static void main(String[] args) throws IOException, JSONException {
-        Socket socket = new Socket("91.205.172.109", 0);
-        System.out.println("Connected to server");
+    public static void main(String[] args) throws IOException {
+        URL url = new URL("http://91.205.172.109/index.php/?hello=true");
+        System.out.println(url.getContent());
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream(),
-                "UTF-8"));
-
-        JSONObject jsonObject = new JSONObject(reader.readLine());
-
-        System.out.println("Message from server: " + jsonObject.toString());
-
-        socket.close();
+        BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+        String decodedString;
+        while ((decodedString = in.readLine()) != null) {
+            System.out.println(decodedString);
+        }
+        in.close();
 
     }
 }
