@@ -14,7 +14,7 @@
     <list default="true" id="3af27be7-9eff-4c84-a43d-ee6da7fbcc0e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/assets/res/CreateMission.feature" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/assets/res/CreateMission.feature" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,11 +37,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CreateMission.feature" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CreateMission.feature" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/androidTest/assets/res/CreateMission.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            <state relative-caret-position="260">
+              <caret line="35" column="72" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateMissionStepdefs.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/CreateMissionStepdefs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1995">
+              <caret line="137" column="5" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -55,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloWorld.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HelloWorld.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/HelloWorld.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-24">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="165">
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,10 +92,10 @@
       </file>
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest">
+          <provider selected="true" editor-type-id="text-editor">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="android-manifest">
             <state />
           </provider>
         </entry>
@@ -2375,8 +2384,9 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/androidTest/java/AddTaskStepdefs.java" />
         <option value="$PROJECT_DIR$/app/src/test/java/CreateMissionStepdefs.java" />
-        <option value="$PROJECT_DIR$/app/src/androidTest/java/CreateMissionStepdefs.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/HelloWorld.java" />
+        <option value="$PROJECT_DIR$/app/src/androidTest/java/CreateMissionStepdefs.java" />
+        <option value="$PROJECT_DIR$/app/src/androidTest/assets/res/CreateMission.feature" />
       </list>
     </option>
   </component>
@@ -2395,7 +2405,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2442,8 +2451,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2452,7 +2462,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -2638,8 +2648,28 @@
       <option name="project" value="LOCAL" />
       <updated>1541534872787</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
-    <servers />
+    <task id="LOCAL-00002" summary="[Front][Feat] Changed Hello World">
+      <created>1541585397479</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1541585397479</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[Front][Feat] Corrected CreateMission.feature and Stepdefs">
+      <created>1541588946678</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1541588946678</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers>
+      <YouTrack url="http://learnityourselfdhbw.myjetbrains.com/youtrack">
+        <option name="defaultSearch" value="" />
+        <password>dfe3dfc6dff9dfdfdfd9dfc3dfe8df98</password>
+        <username>angelika.sudheimer</username>
+      </YouTrack>
+    </servers>
   </component>
   <component name="TestHistory">
     <history-entry file="All_Features_in__learnityourself - 2018.11.02 at 12h 27m 31s.xml">
@@ -2657,7 +2687,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="252" y="69" width="1178" height="700" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -2665,8 +2694,8 @@
       <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50176054" side_tool="true" visible="true" weight="0.3283582" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49823943" visible="true" weight="0.3283582" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5008803" side_tool="true" visible="true" weight="0.3283582" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49823943" weight="0.3283582" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Logcat" order="7" />
@@ -2674,6 +2703,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24911971" />
+      <window_info active="true" anchor="bottom" id="YouTrack" order="7" sideWeight="0.49911973" visible="true" weight="0.3283582" />
       <window_info anchor="bottom" id="Build" order="7" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24964234" />
@@ -2686,7 +2716,6 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="YouTrack" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="DB Browser" order="2" weight="0.3297568" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -2704,7 +2733,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[Front][Feat]Created Hello World" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Front][Feat]Created Hello World" />
+    <MESSAGE value="[Front][Feat] Changed Hello World" />
+    <MESSAGE value="[Front][Feat] Corrected CreateMission.feature and Stepdefs" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Front][Feat] Corrected CreateMission.feature and Stepdefs" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -2848,20 +2879,6 @@
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/EditTaskStepdefs.java" />
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/ViewTasksStepdefs.java" />
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/AddTaskStepdefs.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/assets/res/CreateMission.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/CreateMissionStepdefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1965">
-          <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
@@ -2881,10 +2898,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
+      <provider selected="true" editor-type-id="text-editor">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="android-manifest">
         <state />
       </provider>
     </entry>
@@ -2914,6 +2931,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/HelloWorld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/CreateMissionStepdefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1995">
+          <caret line="137" column="5" selection-start-line="137" selection-start-column="5" selection-end-line="137" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -2921,13 +2955,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/HelloWorld.java">
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/assets/res/CreateMission.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-24">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="260">
+          <caret line="35" column="72" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
         </state>
       </provider>
     </entry>
