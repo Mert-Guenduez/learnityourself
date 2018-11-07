@@ -130,4 +130,10 @@ class CreateMissionStepdefs {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
+
+    @Given("^I am seeing a window to configure the new Mission$")
+    public void iAmSeeingAWindowToConfigureTheNewMission() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
