@@ -18,7 +18,7 @@ Mock-Up:
 
 ### 2.3 .feature file
 
-[Feature] (https://github.com/Mert-Guenduez/learnityourself/app/src/androidTest/assets/res/ManageTasks.feature)
+[Feature](https://github.com/Mert-Guenduez/learnityourself/app/src/androidTest/assets/res/ManageTasks.feature)
 
 ## 3. Special Requirements
 ### 3.1 Mission Member
