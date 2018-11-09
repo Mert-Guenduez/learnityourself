@@ -18,7 +18,7 @@ Mock-Up:
 
 ### 2.3 .feature file
 
-To be added
+![Feature][]
 
 ## 3. Special Requirements
 ### 3.1 Mission Member
@@ -37,4 +37,4 @@ n/a
 
 <!-- picture links -->
 [UML]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ManageTasks/UML_ManageTasks.png "UML Diagram"
-[Feature]: "Feature"
+[Feature]: learnityourself/app/src/androidTest/assets/res/ManageTasks.feature "Feature"
