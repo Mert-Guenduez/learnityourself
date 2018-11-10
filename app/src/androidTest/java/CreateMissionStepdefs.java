@@ -130,4 +130,22 @@ class CreateMissionStepdefs {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
+
+    @Given("^I am seeing a window to configure the new Mission$")
+    public void iAmSeeingAWindowToConfigureTheNewMission() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @When("^I press on \"([^\"]*)\"$")
+    public void iPressOn(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Given("^I am seeing a window to add Missionmembers with selected Missionmembers in the List$")
+    public void iAmSeeingAWindowToAddMissionmembersWithSelectedMissionmembersInTheList() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
