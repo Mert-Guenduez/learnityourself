@@ -13,12 +13,12 @@ $stmt->bind_param('s', $username);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = mysqli_fetch_row($result);
-$result = $mysqli->query("SELECT * FROM users");
-$rowcount = count(mysqli_fetch_row($result));
+$result = $mysqli->query("SELECT COUNT(*) FROM users");
+$rowcount = mysqli_fetch_row($result);
 if(count($row)>0){
         $data = array('response' => 'User already exists');
 }
-elseif($rowcount >=1000){
+elseif($rowcount[0] >=1000){
         $data = array('response' => 'DB limit of 1000 Users reached');
 }
 else{
