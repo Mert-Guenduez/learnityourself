@@ -1,36 +1,22 @@
 package learnityourself.dhbw.learnityourself;
 
-import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
 import java.security.KeyManagementException;
-import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
-import java.security.cert.TrustAnchor;
-import java.security.cert.X509Certificate;
 import java.util.concurrent.ExecutionException;
 
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManagerFactory;
+import learnityourself.dhbw.learnityourself.model.User;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,14 +38,30 @@ public class MainActivity extends AppCompatActivity {
                HTTPRequestHandler handler = new HTTPRequestHandler();
                InputStream in  = null;
                try {
-                   in = handler.execute("https://91.205.172.109/register.php/?username=xzy&password=12345").get();
+                   in = handler.execute("https://91.205.172.109/login.php","username", username_field.getText().toString(),"password",password_field.getText().toString()).get();
                } catch (ExecutionException e) {
                    e.printStackTrace();
                } catch (InterruptedException e) {
                    e.printStackTrace();
                }
                //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
-               System.out.println(getStringFromInputStream(in));
+               String inputString=getStringFromInputStream(in);
+              if(inputString.equals("{\"error\":\"Authentication failure\"}")){
+                  System.out.println("");
+                   System.out.println("-------------------");
+                   System.out.println("Wrong Password or Username");
+                   System.out.println("-------------------");
+               }else{
+                   String username=inputString.substring(inputString.indexOf("user"),inputString.indexOf("sessionkey")).replaceFirst("user", "");
+                   String password=inputString.substring(inputString.indexOf("sessionkey")).replaceFirst("sessionkey", "");
+                   User user = new User(username, password);
+                  System.out.println("");
+                   System.out.println("-------------------");
+                   System.out.println("User " + user.getUsername() +" logged in with Session key "+ user.getSessionKey());
+                   System.out.println("-------------------");
+               }
+
+
 
            }
         });
