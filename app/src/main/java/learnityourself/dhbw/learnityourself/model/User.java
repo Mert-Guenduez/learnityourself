@@ -2,19 +2,32 @@ package learnityourself.dhbw.learnityourself.model;
 
 public class User {
 
-    private String username;
-    private String sessionKey;
 
-    public User(String username, String sessionKey){
-        this.username=username;
-        this.sessionKey=sessionKey;
+    private String user;
+    private String sessionkey;
+
+    public User(String user, String sessionkey) {
+
+        this.user = user;
+        this.sessionkey = sessionkey;
     }
 
-    public String getSessionKey() {
-        return sessionKey;
+    public String getUser() {
+        return user;
     }
 
-    public String getUsername() {
-        return username;
+    public String getSessionkey() {
+        return sessionkey;
     }
+
+    public void setUser(String user) {
+       this.user=user;
+    }
+
+    public void setSessionkey(String sessionkey) {
+        this.sessionkey = sessionkey;
+    }
+
+
+
 }

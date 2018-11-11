@@ -2,9 +2,14 @@ package learnityourself.dhbw.learnityourself;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.JsonReader;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.google.gson.Gson;
+
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -46,18 +51,20 @@ public class MainActivity extends AppCompatActivity {
                }
                //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
                String inputString=getStringFromInputStream(in);
+
               if(inputString.equals("{\"error\":\"Authentication failure\"}")){
                   System.out.println("");
                    System.out.println("-------------------");
                    System.out.println("Wrong Password or Username");
                    System.out.println("-------------------");
                }else{
-                   String username=inputString.substring(inputString.indexOf("user"),inputString.indexOf("sessionkey")).replaceFirst("user", "");
-                   String password=inputString.substring(inputString.indexOf("sessionkey")).replaceFirst("sessionkey", "");
-                   User user = new User(username, password);
+
+                    Gson gson= new Gson();
+                    User user = gson.fromJson(inputString, User.class);
+
                   System.out.println("");
                    System.out.println("-------------------");
-                   System.out.println("User " + user.getUsername() +" logged in with Session key "+ user.getSessionKey());
+                   System.out.println("User " + user.getUser() +" logged in with Session key "+ user.getSessionkey());
                    System.out.println("-------------------");
                }
 
