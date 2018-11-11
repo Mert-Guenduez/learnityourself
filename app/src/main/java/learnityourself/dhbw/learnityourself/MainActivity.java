@@ -33,64 +33,39 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManagerFactory;
 
 public class MainActivity extends AppCompatActivity {
-    private SSLContext getSSL() throws CertificateException, IOException, KeyStoreException, NoSuchAlgorithmException, KeyManagementException {
-
-        CertificateFactory cf = CertificateFactory.getInstance("X.509");
-        InputStream caInput = getResources().openRawResource(R.raw.certificate);
-        Certificate ca;
-        try {
-            ca = cf.generateCertificate(caInput);
-            System.out.println("ca=" + ((X509Certificate) ca).getSubjectDN());
-        } finally {
-            caInput.close();
-        }
-
-// Create a KeyStore containing our trusted CAs
-        String keyStoreType = KeyStore.getDefaultType();
-        KeyStore keyStore = KeyStore.getInstance(keyStoreType);
-        keyStore.load(null, null);
-        keyStore.setCertificateEntry("ca", ca);
-
-// Create a TrustManager that trusts the CAs in our KeyStore
-        String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
-        TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
-        tmf.init(keyStore);
-
-// Create an SSLContext that uses our TrustManager
-        SSLContext context = SSLContext.getInstance("TLS");
-        context.init(null, tmf.getTrustManagers(), null);
-        return context;
-
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       // setSSL();
+        setSSL();
 
         final EditText username_field = findViewById(R.id.username_field);
         final EditText password_field = findViewById(R.id.password_field);
 
         Button loginButton = findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener(){
+
+
            public void onClick(View v){
+
+               HTTPRequestHandler handler = new HTTPRequestHandler();
+               InputStream in  = null;
                try {
-                   connect();
-               } catch (IOException e) {
-                   e.printStackTrace();
+                   in = handler.execute("https://91.205.172.109/register.php/?username=xzy&password=12345").get();
                } catch (ExecutionException e) {
                    e.printStackTrace();
                } catch (InterruptedException e) {
                    e.printStackTrace();
                }
+               //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
+               System.out.println(getStringFromInputStream(in));
 
            }
         });
     }
 
-    private void connect() throws IOException, ExecutionException, InterruptedException {
+    private void setSSL(){
 
              SSLHandler sslHandler = null;
         try {
@@ -103,10 +78,10 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         } catch (KeyManagementException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        HTTPRequestHandler handler = new HTTPRequestHandler(sslHandler.getSSL());
-        handler.execute("https://91.205.172.109/register.php/?username=xzy&password=12345");
-         //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
+
     }
 
     private String getStringFromInputStream(InputStream is) {

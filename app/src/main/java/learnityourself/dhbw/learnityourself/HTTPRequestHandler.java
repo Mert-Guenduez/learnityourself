@@ -3,6 +3,8 @@ package learnityourself.dhbw.learnityourself;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import org.apache.http.conn.ssl.SSLSocketFactory;
+
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,7 +27,7 @@ import javax.net.ssl.TrustManagerFactory;
 public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> {
 
     private SSLContext sslContext;
-    public HTTPRequestHandler(SSLContext sslContext){
+    public HTTPRequestHandler(){
         this.sslContext=sslContext;
     }
     @Override
@@ -39,9 +41,6 @@ public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> 
         HttpsURLConnection urlConnection = null;
         try {
             urlConnection = (HttpsURLConnection) url.openConnection();
-            urlConnection.setSSLSocketFactory(sslContext.getSocketFactory());
-
-
 
         } catch (IOException e) {
             e.printStackTrace();
