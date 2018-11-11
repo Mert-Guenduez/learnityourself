@@ -4,12 +4,12 @@ header('Content-Type: application/json;charset=utf-8');
 $username = $_POST['username'];
 $pw       = $_POST['password'];
 
-$db = new mysqli('localhost', 'dblover', 'DDBPw1mnmk1337', 'learnityourself');
+// censored db login credentials
+$db = new mysqli('localhost', 'XXX', 'XXX', 'XXX');
 if ($db->connect_errno > 0) {
     die('Unable to connect to database [' . $db->connect_error . ']');
 }
 
-//prevent sql injection
 $stmt = $db->prepare('SELECT user_password,salt_hash FROM users WHERE user_name = ?');
 $stmt->bind_param('s', $username);
 
