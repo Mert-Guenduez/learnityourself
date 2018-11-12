@@ -1,10 +1,12 @@
 package learnityourself.dhbw.learnityourself;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -29,15 +31,19 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        setSSL();
-
         final EditText username_field = findViewById(R.id.username_field);
         final EditText password_field = findViewById(R.id.password_field);
 
+        Button registerButton = findViewById(R.id.register_button);
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+        });
+
         Button loginButton = findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener(){
-
-
             public void onClick(View v){
 
                 HTTPRequestHandler handler = new HTTPRequestHandler();
@@ -50,76 +56,23 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
-                String inputString=getStringFromInputStream(in);
+                String inputString=HTTPRequestHandler.getStringFromInputStream(in);
 
                 if(inputString.equals("{\"error\":\"Authentication failure\"}")){
-                    System.out.println("");
-                    System.out.println("-------------------");
-                    System.out.println("Wrong Password or Username");
-                    System.out.println("-------------------");
+                    Toast.makeText(LoginActivity.this, "Wrong Username or Password", Toast.LENGTH_SHORT).show();
                 }else{
 
                     Gson gson= new Gson();
                     User user = gson.fromJson(inputString, User.class);
-
-                    System.out.println("");
-                    System.out.println("-------------------");
-                    System.out.println("User " + user.getUser() +" logged in with Session key "+ user.getSessionkey());
-                    System.out.println("-------------------");
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("user", user);
+                    startActivity(intent);
                 }
 
 
 
             }
         });
-    }
-
-    private void setSSL(){
-
-        SSLHandler sslHandler = null;
-        try {
-            sslHandler= new SSLHandler(getApplicationContext());
-        } catch (CertificateException e) {
-            e.printStackTrace();
-        } catch (KeyStoreException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (KeyManagementException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private String getStringFromInputStream(InputStream is) {
-
-        BufferedReader br = null;
-        StringBuilder sb = new StringBuilder();
-
-        String line;
-        try {
-
-            br = new BufferedReader(new InputStreamReader(is));
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return sb.toString();
-
     }
 
 
