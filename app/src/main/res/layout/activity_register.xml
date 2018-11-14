@@ -11,78 +11,80 @@
         android:id="@+id/username_field"
         android:layout_width="215dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="29dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/password_label"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_label" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/password_field"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginBottom="29dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="188dp"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/username_field"
-        app:layout_constraintTop_toBottomOf="@+id/password_label" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/username_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginLeft="92dp"
         android:text="Username"
         app:layout_constraintBottom_toTopOf="@+id/username_field"
-        app:layout_constraintStart_toStartOf="@+id/username_field"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/password_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginLeft="92dp"
         android:text="Password"
         app:layout_constraintBottom_toTopOf="@+id/password_field"
-        app:layout_constraintStart_toStartOf="@+id/password_field"
-        app:layout_constraintTop_toBottomOf="@+id/username_field" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/register_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="113dp"
+        android:layout_marginTop="364dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="Register"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordRepeat_field" />
+        app:layout_constraintEnd_toEndOf="@+id/passwordRepeat_field"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginLeft="92dp"
         android:text="Repeat Password"
         app:layout_constraintBottom_toTopOf="@+id/passwordRepeat_field"
-        app:layout_constraintStart_toStartOf="@+id/passwordRepeat_field"
-        app:layout_constraintTop_toBottomOf="@+id/password_field" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/passwordRepeat_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="34dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="276dp"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/register_button"
-        app:layout_constraintStart_toStartOf="@+id/password_field"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
