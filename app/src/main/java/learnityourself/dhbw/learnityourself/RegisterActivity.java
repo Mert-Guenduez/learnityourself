@@ -70,7 +70,8 @@ public class RegisterActivity extends AppCompatActivity {
             username_field.setError("Please enter valid Username.");
             valid = false;
         }
-        if (!password_field.getText().toString().equals(passwordRepeat_field.getText().toString())){
+        if (password_field.getText().toString().isEmpty() ||
+                !password_field.getText().toString().equals(passwordRepeat_field.getText().toString())){
             password_field.setError("Please repeat your Password.");
             valid = false;
         }
