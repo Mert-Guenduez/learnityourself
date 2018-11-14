@@ -33,7 +33,12 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 
+import learnityourself.dhbw.learnityourself.model.User;
+
 public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> {
+
+
+
     @Override
     protected InputStream doInBackground(String... inUrl) {
       /*  URL url = null;
@@ -149,6 +154,7 @@ public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> 
         return sb.toString();
 
     }
+
 
 }
 

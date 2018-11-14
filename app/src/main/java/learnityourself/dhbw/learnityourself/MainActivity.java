@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -16,6 +17,7 @@ import java.security.cert.CertificateException;
 import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.model.User;
+import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 import learnityourself.dhbw.learnityourself.utility.SSLHandler;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,32 +31,58 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setSSL();
 
+        if(checkAuthorized()) init();
+    }
+
+    private void init() {
 
         user_label = findViewById(R.id.mainUserLabel);
         missions_button = findViewById(R.id.missions_button);
 
+
+        user_label.setText(user.getUser());
+        missions_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ViewMissionsActivity.class));
+            }
+        });
+    }
+
+    private boolean checkAuthorized() {
+
         Intent intent = getIntent();
         user = (User) intent.getSerializableExtra("user");
 
-        /*TODO look for active session key
-
-        if(SESSION_KEY == null){
-            Read Session Key From File
+        /* TODO
+        If user ==null try reading from file
+        if(user==null){
+            read from file;
         }
-         */
+
+        */
         if(user==null){
             startActivity(new Intent(this, LoginActivity.class));
+            return false;
         }else{
-            user_label.setText(user.getUser());
-            missions_button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(MainActivity.this, ViewMissionsActivity.class));
-                }
-            });
+            HTTPRequestHandler handler = new HTTPRequestHandler();
+            InputStream in  = null;
+            try {
+                in = handler.execute("https://91.205.172.109/login.php","username", user.getUser(),"sessionkey",user.getSessionkey()).get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
+            String inputString=HTTPRequestHandler.getStringFromInputStream(in);
+
+            if(inputString.contains("false")){
+                startActivity(new Intent(this, LoginActivity.class));
+                return false;
+            }
         }
-
-
+        return true;
     }
 
     private void setSSL(){
