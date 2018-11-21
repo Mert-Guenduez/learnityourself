@@ -1,3 +1,4 @@
+package learnityourself.dhbw.learnityourself.test;
 import android.os.Bundle;
 import android.support.test.runner.MonitoringInstrumentation;
 
@@ -8,8 +9,8 @@ import cucumber.api.android.CucumberInstrumentationCore;
 import cucumber.api.junit.Cucumber;
 
 
-@RunWith(Cucumber.class)
-@CucumberOptions(features={"src/androidTest/assets/res"})
+//@RunWith(Cucumber.class)
+@CucumberOptions(features={"res"}, glue={"learnityourself.dhbw.learnityourself.test"})
 public class CucumberRunner extends MonitoringInstrumentation {
     private final CucumberInstrumentationCore instrumentationCore = new CucumberInstrumentationCore(this);
     @Override
