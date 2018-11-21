@@ -10,18 +10,25 @@ import java.util.concurrent.ExecutionException;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 
-public class AuthorizedActivity extends AppCompatActivity{
+public abstract class AuthorizedActivity extends AppCompatActivity{
 
     User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    abstract void init();
+
+    protected boolean checkAuthorized()
+    {
         Intent intent = getIntent();
         user = (User) intent.getSerializableExtra("user");
 
         if(user==null){
             startActivity(new Intent(this, LoginActivity.class));
-            finish();
+            this.finish();
+            return false;
         }
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
@@ -36,11 +43,14 @@ public class AuthorizedActivity extends AppCompatActivity{
         //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
         String inputString=HTTPRequestHandler.getStringFromInputStream(in);
 
-        if(inputString.contains("false")){
+        if(inputString.contains("true")) {
+            return true;
+        }else{
             startActivity(new Intent(this, LoginActivity.class));
-            finish();
+            this.finish();
+            return false;
         }
-    }
 
+    }
 
 }
