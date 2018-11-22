@@ -21,15 +21,15 @@ if($check) {
     $stmt->free_result();
     $stmt->close();
 
-    $stmt = $db->prepare('SELECT missionid,missionname FROM missions WHERE id = ?');
+    $stmt = $db->prepare('SELECT id,missionname,deadline FROM missions WHERE id = ?');
     $data = array();
     while ($relation = $missionsToUser->fetch_assoc()) {
         $stmt->bind_param('i', $relation['missionid']);
         $stmt->execute();
-        $stmt->bind_result($missionid, $missionname);
+        $stmt->bind_result($missionid, $missionname, $deadline);
         $stmt->fetch();
         $missionname = utf8_encode($missionname);
-        $detail = array('missionid' => $missionid, 'missionname' => $missionname);
+        $detail = array('missionid' => $missionid, 'missionname' => $missionname, 'deadline' => $deadline);
         $data[] = $detail;
     }
     $json = json_encode($data);
