@@ -22,7 +22,7 @@ if($check) {
     $stmt->close();
 
     $stmt = $db->prepare('SELECT * FROM missions WHERE id = ?');
-    $data = array('authentication' => 'true', 'missions' => array());
+    $data = array();
     while ($relation = $missionsToUser->fetch_assoc()) {
         $stmt->bind_param('i', $relation['missionid']);
         $stmt->execute();
@@ -32,7 +32,7 @@ if($check) {
         $missionname = utf8_encode($missionname);
         $description = utf8_encode($description);
         $detail = array('missionid' => $missionid, 'owner' => $owner, 'missionname' => $missionname, 'description' => $description, 'deadline' => $deadline);
-        $data['missions'][] = $detail;
+        $data[] = $detail;
     }
     $json = json_encode($data);
 }
