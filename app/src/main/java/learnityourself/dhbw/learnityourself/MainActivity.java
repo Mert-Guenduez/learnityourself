@@ -30,21 +30,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSSL();
-
-        if(checkAuthorized()) init();
+        if(checkAuthorized()){
+            init();
+        }
     }
 
     private void init() {
 
         user_label = findViewById(R.id.mainUserLabel);
         missions_button = findViewById(R.id.missions_button);
-
-
         user_label.setText(user.getUser());
         missions_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ViewMissionsActivity.class));
+                Intent intent = new Intent(MainActivity.this, ViewMissionsActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
             }
         });
     }
@@ -62,8 +63,12 @@ public class MainActivity extends AppCompatActivity {
 
         */
         if(user==null){
-            startActivity(new Intent(this, LoginActivity.class));
+            intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            this.finish();
             return false;
+
         }else{
             HTTPRequestHandler handler = new HTTPRequestHandler();
             InputStream in  = null;
@@ -77,12 +82,15 @@ public class MainActivity extends AppCompatActivity {
             //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
             String inputString=HTTPRequestHandler.getStringFromInputStream(in);
 
-            if(inputString.contains("false")){
+            if(inputString.contains("true")) {
+                return true;
+            }else{
                 startActivity(new Intent(this, LoginActivity.class));
+                this.finish();
                 return false;
             }
         }
-        return true;
+
     }
 
     private void setSSL(){

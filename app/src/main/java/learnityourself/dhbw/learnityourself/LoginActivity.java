@@ -26,15 +26,19 @@ import learnityourself.dhbw.learnityourself.utility.SSLHandler;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private EditText username_field;
+    private EditText password_field;
+    private Button registerButton;
+    private Button loginButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final EditText username_field = findViewById(R.id.username_field);
-        final EditText password_field = findViewById(R.id.password_field);
+        username_field = findViewById(R.id.username_field);
+        password_field = findViewById(R.id.password_field);
 
-        Button registerButton = findViewById(R.id.register_button);
+        registerButton = findViewById(R.id.register_button);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Button loginButton = findViewById(R.id.login_button);
+        loginButton = findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 
@@ -68,8 +72,6 @@ public class LoginActivity extends AppCompatActivity {
                     intent.putExtra("user", user);
                     startActivity(intent);
                 }
-
-
 
             }
         });
