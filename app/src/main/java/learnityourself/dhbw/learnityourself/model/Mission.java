@@ -1,49 +1,54 @@
 package learnityourself.dhbw.learnityourself.model;
 
 import java.util.Date;
-import java.util.List;
 
 public class Mission {
 
-    private Date endDate;
-    private String title;
-    private List<User> users;
-    private List<Task> tasks;
 
-    public Mission(){
+    private String missionid;
+    private String owner;
+    private String missionname;
+    private String description;
+    private Date deadline;
 
+    public String getMissionid() {
+        return missionid;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public void setMissionid(String missionid) {
+        this.missionid = missionid;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public String getOwner() {
+        return owner;
     }
 
-    public String getTitle() {
-        return title;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public String getMissionname() {
+        return missionname;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public void setMissionname(String missionname) {
+        this.missionname = missionname;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public String getDescription() {
+        return description;
     }
 
-    public List<Task> getTasks() {
-        return tasks;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
+    public Date getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
     }
 
 

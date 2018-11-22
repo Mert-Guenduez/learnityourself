@@ -1,70 +1,57 @@
 package learnityourself.dhbw.learnityourself.model;
 
+import android.content.Context;
 import android.database.DataSetObserver;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
+import android.widget.TextView;
 
 import com.google.gson.internal.bind.ReflectiveTypeAdapterFactory;
 
-public class MissionAdapter implements ListAdapter {
-    @Override
-    public boolean areAllItemsEnabled() {
-        return false;
+import learnityourself.dhbw.learnityourself.R;
+
+public class MissionAdapter extends BaseAdapter {
+    private LayoutInflater mInflater;
+    private Mission[] missions;
+
+    public MissionAdapter(Context context, Mission[] missions) {
+        mInflater = LayoutInflater.from(context);
+        this.missions = missions;
     }
 
-    @Override
-    public boolean isEnabled(int position) {
-        return false;
-    }
-
-    @Override
-    public void registerDataSetObserver(DataSetObserver observer) {
-
-    }
-
-    @Override
-    public void unregisterDataSetObserver(DataSetObserver observer) {
-
-    }
-
-    @Override
     public int getCount() {
-        return 0;
+        return missions.length;
     }
 
-    @Override
     public Object getItem(int position) {
-        return null;
+        return position;
     }
 
-    @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
-    @Override
-    public boolean hasStableIds() {
-        return false;
-    }
-
-    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        ViewHolder holder;
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.mission_row, null);
+            holder = new ViewHolder();
+            holder.text1 = (TextView) convertView
+                    .findViewById(R.id.TextView01);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        holder.text1.setText(missions[position].getMissionname());
+
+        return convertView;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        return 0;
-    }
-
-    @Override
-    public int getViewTypeCount() {
-        return 0;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return false;
+    static class ViewHolder {
+        TextView text1;
     }
 }
