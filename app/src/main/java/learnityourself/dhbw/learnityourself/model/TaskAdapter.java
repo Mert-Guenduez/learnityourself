@@ -9,17 +9,18 @@ import android.widget.TextView;
 
 import learnityourself.dhbw.learnityourself.R;
 
-public class MissionAdapter extends BaseAdapter {
-    private LayoutInflater mInflater;
-    private Mission[] missions;
+public class TaskAdapter extends BaseAdapter {
 
-    public MissionAdapter(Context context, Mission[] missions) {
+    private LayoutInflater mInflater;
+    private Task[] tasks;
+
+    public TaskAdapter(Context context, Task[] tasks) {
         mInflater = LayoutInflater.from(context);
-        this.missions = missions;
+        this.tasks = tasks;
     }
 
     public int getCount() {
-        return missions.length;
+        return tasks.length;
     }
 
     public Object getItem(int position) {
@@ -31,18 +32,18 @@ public class MissionAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        TaskAdapter.ViewHolder holder;
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.list_row, null);
-            holder = new ViewHolder();
+            holder = new TaskAdapter.ViewHolder();
             holder.text1 = (TextView) convertView
                     .findViewById(R.id.TextView01);
             convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            holder = (TaskAdapter.ViewHolder) convertView.getTag();
         }
 
-        holder.text1.setText(missions[position].getMissionname());
+        holder.text1.setText(tasks[position].getTaskname());
 
         return convertView;
     }
@@ -50,4 +51,5 @@ public class MissionAdapter extends BaseAdapter {
     static class ViewHolder {
         TextView text1;
     }
+
 }
