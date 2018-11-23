@@ -1,8 +1,9 @@
 package learnityourself.dhbw.learnityourself.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Mission {
+public class Mission implements Serializable {
 
 
     private String missionid;

@@ -63,6 +63,10 @@ public class ViewMissionsActivity extends AuthorizedActivity {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view,int position, long arg3) {
                         // TODO Auto-generated method stub
+                        Intent intent = new Intent(ViewMissionsActivity.this, ViewMissionActivity.class);
+                        intent.putExtra("user", user);
+                        intent.putExtra("mission", missions[position]);
+                        startActivity(intent);
                         Toast.makeText(getApplicationContext(),"You Selected Item "+Integer.toString(position), Toast.LENGTH_LONG).show();
                     }
                 }
