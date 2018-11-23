@@ -11,6 +11,8 @@ public class Mission implements Serializable {
     private String missionname;
     private String description;
     private Date deadline;
+    private Task[] tasks;
+
 
     public String getMissionid() {
         return missionid;
@@ -52,9 +54,13 @@ public class Mission implements Serializable {
         this.deadline = deadline;
     }
 
+    public Task[] getTasks() {
+        return tasks;
+    }
 
-
-
+    public void setTasks(Task[] tasks) {
+        this.tasks = tasks;
+    }
 
 
 }

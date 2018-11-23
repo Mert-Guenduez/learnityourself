@@ -16,14 +16,26 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.zip.Inflater;
 
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.MissionAdapter;
+import learnityourself.dhbw.learnityourself.model.Task;
+import learnityourself.dhbw.learnityourself.model.TaskAdapter;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 
@@ -34,6 +46,7 @@ public class ViewMissionActivity extends AuthorizedActivity {
     Mission mission;
     ActionBar actionBar;
     ListView taskListView;
+    Task[] tasks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +62,7 @@ public class ViewMissionActivity extends AuthorizedActivity {
 
                     @Override
                     public void onClick(View arg0) {
-                        Toast.makeText(ViewMissionActivity.this,
-                                "Custom title clicked.", Toast.LENGTH_SHORT)
-                                .show();
-
+                        startActivity(new Intent(ViewMissionActivity.this, ViewMissionInformationActivity.class));
                     }
                 });
 
@@ -74,11 +84,13 @@ public class ViewMissionActivity extends AuthorizedActivity {
         System.out.println(textView.getText());
         textView.setText(mission.getMissionname());
 
-/*
+        tasks = mission.getTasks();
+
+
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/allMissionsFromUser.php","username",
+            in = handler.execute("https://91.205.172.109/allDetailsFromMission.php","username",
                     user.getUser(),"sessionkey", user.getSessionkey(),
                     "missionid", mission.getMissionid())
                     .get();
@@ -90,24 +102,34 @@ public class ViewMissionActivity extends AuthorizedActivity {
         Gson gson = new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd' 'HH:mm:ss")
                 .create();
-        mission = gson.fromJson(HTTPRequestHandler.getStringFromInputStream(in), Mission.class);
+        //mission = gson.fromJson(HTTPRequestHandler.getStringFromInputStream(in), Mission.class);
+
+
+        try {
+            JsonElement element = new JsonParser().parse(new InputStreamReader(in));
+            JSONObject jsonObject = new JSONObject(element.getAsJsonObject().toString());
+
+            String tag = jsonObject.getString("tasks");
+            tasks = new Gson().fromJson(tag, Task[].class);
+        } catch (JSONException e){
+            System.err.println("ERROR parsing InputStream into JSONObject: " + e.getMessage());
+        }
 
 
         taskListView = (ListView) findViewById(R.id.task_list);
-        taskListView.setAdapter(new MissionAdapter(this, mission));
+        taskListView.setAdapter(new TaskAdapter(this, tasks));
 
-        missionListView.setOnItemClickListener(
+        taskListView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener()
                 {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view,int position, long arg3) {
                         // TODO Auto-generated method stub
-                        startActivity(new Intent(ViewMissionsActivity.this, ViewMissionActivity.class));
                         Toast.makeText(getApplicationContext(),"You Selected Item "+Integer.toString(position), Toast.LENGTH_LONG).show();
                     }
                 }
         );
-        */
+
     }
 
 
