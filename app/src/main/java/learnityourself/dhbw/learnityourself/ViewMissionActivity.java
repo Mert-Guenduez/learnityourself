@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,31 +14,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
-import java.util.zip.Inflater;
 
 import learnityourself.dhbw.learnityourself.model.Mission;
-import learnityourself.dhbw.learnityourself.model.MissionAdapter;
 import learnityourself.dhbw.learnityourself.model.Task;
 import learnityourself.dhbw.learnityourself.model.TaskAdapter;
-import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
-
-import static android.support.v7.widget.AppCompatDrawableManager.get;
 
 public class ViewMissionActivity extends AuthorizedActivity {
 
@@ -50,8 +38,17 @@ public class ViewMissionActivity extends AuthorizedActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_mission);
+        generateActionBar();
+        if(checkAuthorized()){
+            init();
+        }
+    }
+
+    public void generateActionBar(){
+
         actionBar = getSupportActionBar();
 
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -68,10 +65,6 @@ public class ViewMissionActivity extends AuthorizedActivity {
 
         actionBar.setCustomView(view);
         actionBar.setDisplayShowCustomEnabled(true);
-
-        if(checkAuthorized()){
-            init();
-        }
     }
 
     @Override
@@ -79,12 +72,8 @@ public class ViewMissionActivity extends AuthorizedActivity {
 
         Intent intent = getIntent();
         mission = (Mission) intent.getSerializableExtra("mission");
-
-        TextView textView = (TextView)findViewById(R.id.title);
-        System.out.println(textView.getText());
-        textView.setText(mission.getMissionname());
-
         tasks = mission.getTasks();
+        actionBarSetTitle();
 
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
@@ -99,12 +88,17 @@ public class ViewMissionActivity extends AuthorizedActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Gson gson = new GsonBuilder()
-                .setDateFormat("yyyy-MM-dd' 'HH:mm:ss")
-                .create();
-        //mission = gson.fromJson(HTTPRequestHandler.getStringFromInputStream(in), Mission.class);
+        
+        fillListFiew(in);
+    }
 
+    public void actionBarSetTitle(){
+        TextView textView = (TextView)findViewById(R.id.title);
+        System.out.println(textView.getText());
+        textView.setText(mission.getMissionname());
+    }
 
+    public void fillListFiew(InputStream in){
         try {
             JsonElement element = new JsonParser().parse(new InputStreamReader(in));
             JSONObject jsonObject = new JSONObject(element.getAsJsonObject().toString());
@@ -129,9 +123,7 @@ public class ViewMissionActivity extends AuthorizedActivity {
                     }
                 }
         );
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
