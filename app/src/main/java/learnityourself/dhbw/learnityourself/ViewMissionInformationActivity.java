@@ -22,9 +22,10 @@ import java.util.concurrent.ExecutionException;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.Task;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
+import learnityourself.dhbw.learnityourself.utility.Helper;
 
 
-public class ViewMissionInformationActivity extends AuthorizedActivity {
+public class ViewMissionInformationActivity extends AppCompatActivity {
 
     private Mission mission;
     private TextView description_textview, finishdate_textview;
@@ -38,29 +39,24 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
         description_textview = findViewById(R.id.description_textview);
         finishdate_textview = findViewById(R.id.date_textView);
 
-        if (checkAuthorized()){
-            init();
-        }
-    }
+        in = Helper.getInstance().getInputStreamer();
 
-    @Override
-    void init(){
-
-
+        setDescription_textview();
     }
 
     public void setDescription_textview() {
 
         try {
-            JsonElement element = new JsonParser().parse(new InputStreamReader(in));
-            JSONObject jsonObject = new JSONObject(element.getAsJsonObject().toString());
+            JSONObject jsonObject = new JSONObject(in.toString());
+            System.out.println("JSONOBJECT: " + jsonObject.toString());
 
-            String tag = jsonObject.getString("deadline");
-            String content = new Gson().fromJson(tag, String.class);
-            this.description_textview.setText(content);
+            //String tag = jsonObject.getString("deadline");
+            //String content = new Gson().fromJson(tag, String.class);
+            System.out.println("JSONSTRING2 :"+jsonObject.getString("deadline"));
+            this.description_textview.setText(jsonObject.getString("deadline"));
 
-        } catch (JSONException e){
-            System.err.println("ERROR parsing InputStream into JSONObject: " + e.getMessage());
+        } catch (JSONException e) {
+            System.err.println("JSONEXCEPTION: " + e.getMessage());
         }
     }
 }

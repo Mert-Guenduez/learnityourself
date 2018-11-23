@@ -28,6 +28,7 @@ import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.Task;
 import learnityourself.dhbw.learnityourself.model.TaskAdapter;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
+import learnityourself.dhbw.learnityourself.utility.Helper;
 
 public class ViewMissionActivity extends AuthorizedActivity {
 
@@ -70,9 +71,8 @@ public class ViewMissionActivity extends AuthorizedActivity {
 
     public void titleClickHandler(){
 
+        Helper.getInstance().setInputStreamer(in);
         Intent intent = new Intent(ViewMissionActivity.this, ViewMissionInformationActivity.class);
-        intent.putExtra("user", user);
-        intent.putExtra("mission", mission);
         startActivity(intent);
     }
 
@@ -110,6 +110,9 @@ public class ViewMissionActivity extends AuthorizedActivity {
         try {
             JsonElement element = new JsonParser().parse(new InputStreamReader(in));
             JSONObject jsonObject = new JSONObject(element.getAsJsonObject().toString());
+
+            System.out.println("JSONSTRING1 :"+jsonObject.getString("deadline"));
+
 
             String tag = jsonObject.getString("tasks");
             tasks = new Gson().fromJson(tag, Task[].class);
