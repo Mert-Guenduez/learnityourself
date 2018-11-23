@@ -35,6 +35,7 @@ public class ViewMissionActivity extends AuthorizedActivity {
     ActionBar actionBar;
     ListView taskListView;
     Task[] tasks;
+    InputStream in;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +60,20 @@ public class ViewMissionActivity extends AuthorizedActivity {
 
                     @Override
                     public void onClick(View arg0) {
-                        startActivity(new Intent(ViewMissionActivity.this, ViewMissionInformationActivity.class));
+                        titleClickHandler();
                     }
                 });
 
         actionBar.setCustomView(view);
         actionBar.setDisplayShowCustomEnabled(true);
+    }
+
+    public void titleClickHandler(){
+
+        Intent intent = new Intent(ViewMissionActivity.this, ViewMissionInformationActivity.class);
+        intent.putExtra("user", user);
+        intent.putExtra("mission", mission);
+        startActivity(intent);
     }
 
     @Override
@@ -77,7 +86,7 @@ public class ViewMissionActivity extends AuthorizedActivity {
 
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
-        InputStream in  = null;
+        in  = null;
         try {
             in = handler.execute("https://91.205.172.109/allDetailsFromMission.php","username",
                     user.getUser(),"sessionkey", user.getSessionkey(),
@@ -88,13 +97,12 @@ public class ViewMissionActivity extends AuthorizedActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        
+
         fillListFiew(in);
     }
 
     public void actionBarSetTitle(){
         TextView textView = (TextView)findViewById(R.id.title);
-        System.out.println(textView.getText());
         textView.setText(mission.getMissionname());
     }
 

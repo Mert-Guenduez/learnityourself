@@ -8,46 +8,76 @@
     tools:layout_editor_absoluteY="81dp">
 
     <TextView
+        android:id="@+id/description_textview"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/date_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/description_label"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/description_label"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginRight="65dp"
+        android:layout_marginBottom="25dp"
+        android:text="Description:"
+        app:layout_constraintBottom_toTopOf="@+id/date_textView"
+        app:layout_constraintEnd_toStartOf="@+id/description_textview"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/finishDate_label"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
         android:layout_marginStart="39dp"
         android:layout_marginLeft="39dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginRight="67dp"
+        android:layout_marginBottom="42dp"
         android:text="Finish Date:"
-        app:layout_constraintBottom_toBottomOf="@+id/date_label"
-        app:layout_constraintEnd_toStartOf="@+id/date_label"
+        app:layout_constraintBottom_toBottomOf="@+id/missionMember_label"
+        app:layout_constraintEnd_toStartOf="@+id/date_textView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/date_label" />
+        app:layout_constraintTop_toTopOf="@+id/description_label"
+        app:layout_constraintVertical_bias="0.052" />
 
     <TextView
-        android:id="@+id/date_label"
+        android:id="@+id/date_textView"
         android:layout_width="0dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="44dp"
+        android:layout_height="26dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="13dp"
         app:layout_constraintBottom_toTopOf="@+id/missionMember_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/finishDate_label"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/description_textview" />
 
     <TextView
         android:id="@+id/missionMember_label"
         android:layout_width="wrap_content"
-        android:layout_height="29dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginLeft="31dp"
-        android:layout_marginTop="83dp"
-        android:text="Mission Members:"
+        android:layout_height="23dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/mission_members"
         app:layout_constraintBottom_toTopOf="@+id/_dynamic"
-        app:layout_constraintStart_toStartOf="@+id/_dynamic"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintStart_toStartOf="@+id/finishDate_label"
+        app:layout_constraintTop_toBottomOf="@+id/date_textView" />
 
     <ListView
+        android:id="@+id/missionMember_listview"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -59,4 +89,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/missionMember_label" />
+
 </android.support.constraint.ConstraintLayout>

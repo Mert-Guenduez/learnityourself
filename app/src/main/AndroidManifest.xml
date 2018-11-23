@@ -33,6 +33,10 @@
             android:name=".ViewMissionActivity"
             android:label="">
         </activity>
+        <activity
+            android:name=".ViewMissionInformationActivity"
+            android:label="MissionInformation">
+        </activity>
     </application>
 
 </manifest>
