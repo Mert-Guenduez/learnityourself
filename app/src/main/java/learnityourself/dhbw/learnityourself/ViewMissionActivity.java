@@ -32,11 +32,12 @@ import learnityourself.dhbw.learnityourself.utility.Helper;
 
 public class ViewMissionActivity extends AuthorizedActivity {
 
-    Mission mission;
-    ActionBar actionBar;
-    ListView taskListView;
-    Task[] tasks;
-    InputStream in;
+
+    private Mission mission;
+    private ActionBar actionBar;
+    private ListView taskListView;
+    private Task[] tasks;
+    private JSONObject jsonObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +72,7 @@ public class ViewMissionActivity extends AuthorizedActivity {
 
     public void titleClickHandler(){
 
-        Helper.getInstance().setInputStreamer(in);
+        Helper.getInstance().setJsonObject(jsonObject);
         Intent intent = new Intent(ViewMissionActivity.this, ViewMissionInformationActivity.class);
         startActivity(intent);
     }
@@ -86,7 +87,7 @@ public class ViewMissionActivity extends AuthorizedActivity {
 
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
-        in  = null;
+        InputStream in  = null;
         try {
             in = handler.execute("https://91.205.172.109/allDetailsFromMission.php","username",
                     user.getUser(),"sessionkey", user.getSessionkey(),
@@ -109,10 +110,7 @@ public class ViewMissionActivity extends AuthorizedActivity {
     public void fillListFiew(InputStream in){
         try {
             JsonElement element = new JsonParser().parse(new InputStreamReader(in));
-            JSONObject jsonObject = new JSONObject(element.getAsJsonObject().toString());
-
-            System.out.println("JSONSTRING1 :"+jsonObject.getString("deadline"));
-
+            jsonObject = new JSONObject(element.getAsJsonObject().toString());
 
             String tag = jsonObject.getString("tasks");
             tasks = new Gson().fromJson(tag, Task[].class);
