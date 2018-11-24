@@ -56,10 +56,10 @@ public class RegisterActivity extends AppCompatActivity {
 
             if (inputString.equals("{\"response\":\"User already exists\"}")){
                 username_field.setError("User already exists. Please enter another Username.");
+            } else {
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         }
-
-        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
 
     }
 

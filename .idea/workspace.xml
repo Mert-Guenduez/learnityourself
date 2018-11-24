@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="JSON" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value=" " />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="CMakeSettings">
@@ -15,12 +15,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3af27be7-9eff-4c84-a43d-ee6da7fbcc0e" name="Default" comment="[Front][Feat] updated ViewMissionInformation, created Helper">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionInformationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionInformationActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_mission_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_mission_information.xml" afterDir="false" />
+    <list default="true" id="3af27be7-9eff-4c84-a43d-ee6da7fbcc0e" name="Default" comment="[Front][Feat] updated Helper and ViewMissionInformation">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/RegisterActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,11 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ViewMissionActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ViewMissionActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1273">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="1202">
+              <caret line="138" column="53" lean-forward="true" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RegisterActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/RegisterActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+            <state relative-caret-position="369">
+              <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -2465,13 +2461,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/model/Mission.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/model/Task.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/model/MissionAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/RegisterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AuthorizedActionbar.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_mission_information.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionInformationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/Helper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/RegisterActivity.java" />
       </list>
     </option>
   </component>
@@ -2940,7 +2936,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543015285585</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="[Front][Feat] updated Helper and ViewMissionInformation">
+      <created>1543058943897</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1543058943897</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers>
       <YouTrack url="http://91.205.172.109:8000/youtrack">
         <option name="defaultSearch" value="" />
@@ -2999,7 +3002,7 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785408" weight="0.32587412" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32867134" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32867134" />
-      <window_info anchor="bottom" id="Logcat" order="7" visible="true" weight="0.32867134" />
+      <window_info anchor="bottom" id="Logcat" order="7" visible="true" weight="0.28111887" />
       <window_info id="Captures" order="2" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -3087,7 +3090,8 @@
     <MESSAGE value="[Front][Feat] cleaned ViewMission" />
     <MESSAGE value="[Front][Feat] updated ViewMissionInformation" />
     <MESSAGE value="[Front][Feat] updated ViewMissionInformation, created Helper" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Front][Feat] updated ViewMissionInformation, created Helper" />
+    <MESSAGE value="[Front][Feat] updated Helper and ViewMissionInformation" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Front][Feat] updated Helper and ViewMissionInformation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3402,13 +3406,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/RegisterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_mission_information.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3467,11 +3464,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1273">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="1202">
+          <caret line="138" column="53" lean-forward="true" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
         </state>
       </provider>
     </entry>
