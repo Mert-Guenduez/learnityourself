@@ -3,7 +3,7 @@
 header('Content-Type: application/json; charset=utf8');
 $username   = $_POST['username'];
 $sessionkey = $_POST['sessionkey'];
-$db = new mysqli('localhost', 'dblover', 'DDBPw1mnmk1337', 'learnityourself');
+$db = new mysqli('localhost', 'XXX, 'XXX', 'XXX');
 
 if ($db->connect_errno > 0) {
     die(json_encode(array('authentication' => 'false', 'error' => 'Unable to connect to database [' . $db->connect_error . ']')));
