@@ -53,7 +53,7 @@ public class LoginStepdefs {
 
     @And("^I click on the Login Button$")
     public void iClickOnTheLoginButton() throws Throwable {
-        onView(withId(R.id.username_field))
+        onView(withId(R.id.login_button))
                 .perform(click());
     }
 
