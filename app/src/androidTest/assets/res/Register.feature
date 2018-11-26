@@ -22,14 +22,14 @@
 #    And I click on the register button
 #    Then I should see the error message "Please repeat your Password."
 
-Scenario: Empty password repeat field
+#  Scenario: Empty password repeat field
 #    Given I am seeing input fields for registration
 #    When I enter "name" into the username field
 #    And I enter "password1234" into the password field
 #    And I click on the register button
 #    Then I should see the error message "Please repeat your Password."
 
-Scenario: Empty fields
+#  Scenario: Empty fields
 #    Given I am seeing input fields for registration
 #    When I click on the register button
 #    Then I should see the error message "Please enter valid Username." and "Please repeat your password."

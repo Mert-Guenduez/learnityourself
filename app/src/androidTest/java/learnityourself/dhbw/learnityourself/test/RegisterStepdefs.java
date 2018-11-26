@@ -2,8 +2,10 @@ package learnityourself.dhbw.learnityourself.test;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.test.rule.ActivityTestRule;
+import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Rule;
+import org.junit.runner.RunWith;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -18,7 +20,8 @@ import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
-class RegisterStepdefs {
+@RunWith(AndroidJUnit4.class)
+public class RegisterStepdefs {
 
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);

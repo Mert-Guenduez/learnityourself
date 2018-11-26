@@ -16,14 +16,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3af27be7-9eff-4c84-a43d-ee6da7fbcc0e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/androidTest/assets/res/ViewMission.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/androidTest/assets/res/Register.feature" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/assets/res/Register.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/LoginStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/LoginStepdefs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/RegisterStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/RegisterStepdefs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_mission_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_mission_information.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_missions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_missions.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,8 +44,11 @@
       <file leaf-file-name="LoginStepdefs.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/LoginStepdefs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+            <state relative-caret-position="-345">
+              <caret line="23" column="7" selection-start-line="23" selection-end-line="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/androidTest/assets/res/Register.feature">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+              <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -82,16 +80,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterStepdefs.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RegisterStepdefs.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/RegisterStepdefs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="43" column="52" lean-forward="true" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
+            <state relative-caret-position="360">
+              <caret line="43" column="59" lean-forward="true" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ViewMission.feature" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ManageTasksStepdefs.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/ManageTasksStepdefs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewMission.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/androidTest/assets/res/ViewMission.feature">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -2424,9 +2431,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_mission_information.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_missions.xml" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/LoginStepdefs.java" />
-        <option value="$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/RegisterStepdefs.java" />
-        <option value="$PROJECT_DIR$/app/src/androidTest/assets/res/Register.feature" />
         <option value="$PROJECT_DIR$/app/src/androidTest/assets/res/ViewMission.feature" />
+        <option value="$PROJECT_DIR$/app/src/androidTest/assets/res/Register.feature" />
+        <option value="$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/RegisterStepdefs.java" />
       </list>
     </option>
   </component>
@@ -2627,7 +2634,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager" selected="Android Instrumented Tests.LoginStepdefs">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -2696,6 +2703,98 @@
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
+    </configuration>
+    <configuration name="LoginStepdefs" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="learnityourself.dhbw.learnityourself.test.LoginStepdefs" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sampled (Java)" />
+      </Profilers>
+    </configuration>
+    <configuration name="RegisterStepdefs" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="learnityourself.dhbw.learnityourself.test.RegisterStepdefs" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sampled (Java)" />
+      </Profilers>
     </configuration>
     <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="learnityourself.dhbw.learnityourself.HelloWorld" />
@@ -2798,11 +2897,15 @@
       <item itemvalue="Application.HelloWorld" />
       <item itemvalue="Cucumber java.Scenario: Register" />
       <item itemvalue="Cucumber java.Feature: Register" />
+      <item itemvalue="Android Instrumented Tests.RegisterStepdefs" />
+      <item itemvalue="Android Instrumented Tests.LoginStepdefs" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloWorld" />
+        <item itemvalue="Android Instrumented Tests.LoginStepdefs" />
+        <item itemvalue="Android Instrumented Tests.RegisterStepdefs" />
         <item itemvalue="Cucumber java.Feature: Register" />
+        <item itemvalue="Application.HelloWorld" />
         <item itemvalue="Cucumber java.Scenario: Register" />
       </list>
     </recent_temporary>
@@ -2937,7 +3040,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543235011225</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="[Front][Feat] updated Register.feature">
+      <created>1543249480218</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1543249480218</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers>
       <YouTrack url="http://91.205.172.109:8000/youtrack">
         <option name="defaultSearch" value="" />
@@ -2947,18 +3057,6 @@
     </servers>
   </component>
   <component name="TestHistory">
-    <history-entry file="All_Features_in__learnityourself - 2018.11.02 at 12h 27m 31s.xml">
-      <configuration name="All Features in: learnityourself" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="All_Features_in__learnityourself - 2018.11.02 at 12h 37m 39s.xml">
-      <configuration name="All Features in: learnityourself" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="All_Features_in__learnityourself - 2018.11.02 at 13h 47m 21s.xml">
-      <configuration name="All Features in: learnityourself" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature__AddTask - 2018.11.02 at 14h 45m 11s.xml">
-      <configuration name="Feature: AddTask" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
     <history-entry file="Scenario__Register - 2018.11.17 at 20h 27m 35s.xml">
       <configuration name="Scenario: Register" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
@@ -2970,6 +3068,24 @@
     </history-entry>
     <history-entry file="Feature__Register - 2018.11.17 at 20h 35m 50s.xml">
       <configuration name="Feature: Register" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__Register - 2018.11.26 at 21h 51m 52s.xml">
+      <configuration name="Feature: Register" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__Register - 2018.11.26 at 21h 54m 41s.xml">
+      <configuration name="Feature: Register" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__Register - 2018.11.26 at 21h 55m 54s.xml">
+      <configuration name="Feature: Register" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="RegisterStepdefs - 2018.11.26 at 21h 56m 34s.xml">
+      <configuration name="RegisterStepdefs" configurationId="AndroidTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="LoginStepdefs - 2018.11.26 at 21h 57m 06s.xml">
+      <configuration name="LoginStepdefs" configurationId="AndroidTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="LoginStepdefs - 2018.11.26 at 21h 57m 28s.xml">
+      <configuration name="LoginStepdefs" configurationId="AndroidTestRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -2993,16 +3109,16 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50143063" side_tool="true" weight="0.3286908" />
       <window_info anchor="right" id="Preview" order="4" weight="0.3297568" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785408" weight="0.32587412" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49785408" visible="true" weight="0.32587412" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32867134" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32867134" />
       <window_info anchor="bottom" id="Logcat" order="7" weight="0.28111887" />
       <window_info id="Captures" order="2" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20243205" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20243205" />
       <window_info anchor="bottom" id="YouTrack" order="7" sideWeight="0.4985694" weight="0.24755245" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4985694" visible="true" weight="0.32587412" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4985694" weight="0.32587412" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24964234" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -3087,7 +3203,8 @@
     <MESSAGE value="[Front][Feat] updated Helper and ViewMissionInformation" />
     <MESSAGE value="[Front][Feat] updated Register" />
     <MESSAGE value="[Front][Feat] added menu to ViewMissionsActivity" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Front][Feat] added menu to ViewMissionsActivity" />
+    <MESSAGE value="[Front][Feat] updated Register.feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Front][Feat] updated Register.feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3109,7 +3226,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/ViewMissionInformationActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/test/java/Register.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -3429,20 +3545,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/assets/res/Login.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/LoginStepdefs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_mission_information.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -3480,24 +3582,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/RegisterStepdefs.java">
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/assets/res/ViewMission.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="43" column="52" lean-forward="true" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
+        <state>
+          <caret column="32" selection-start-column="32" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/assets/res/Register.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/assets/res/ViewMission.feature">
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/assets/res/Login.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="32" selection-start-column="32" selection-end-column="32" />
+        <state relative-caret-position="165">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/ManageTasksStepdefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/LoginStepdefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-345">
+          <caret line="23" column="7" selection-start-line="23" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/learnityourself/dhbw/learnityourself/test/RegisterStepdefs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="43" column="59" lean-forward="true" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
         </state>
       </provider>
     </entry>
