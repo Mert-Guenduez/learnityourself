@@ -27,7 +27,7 @@
         </activity>
         <activity
             android:name=".ViewMissionsActivity"
-            android:label="Missions">
+            android:label="Your Missions">
         </activity>
         <activity
             android:name=".ViewMissionActivity"
