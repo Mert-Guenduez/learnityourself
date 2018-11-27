@@ -19,7 +19,7 @@ if($check) {
     $rowcount = mysqli_fetch_row($result);
     $stmt->free_result();
     $stmt->close();
-	if($rowcount[0] >=3000){
+if($rowcount[0] >=3000){
         $json = json_encode(array('error' => 'DB limit of 3000 Missions reached'));
 	}
 	else{
