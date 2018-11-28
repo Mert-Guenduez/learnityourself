@@ -3,6 +3,8 @@ package learnityourself.dhbw.learnityourself;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -11,8 +13,11 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -27,7 +32,6 @@ public class ViewMissionsActivity extends AuthorizedActivity {
     ListView missionListView;
 
 
-    Button newMissionButton;
     @Override
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +46,13 @@ public class ViewMissionsActivity extends AuthorizedActivity {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/allMissionsFromUser.php","username", user.getUser(),"sessionkey", user.getSessionkey()).get();
+            in = handler.execute("https://91.205.172.109/allMissionsFromUser.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         Gson gson = new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd' 'HH:mm:ss")
                 .create();
@@ -63,10 +68,30 @@ public class ViewMissionsActivity extends AuthorizedActivity {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view,int position, long arg3) {
                         // TODO Auto-generated method stub
+                        Intent intent = new Intent(ViewMissionsActivity.this, ViewMissionActivity.class);
+                        intent.putExtra("user", user);
+                        intent.putExtra("mission", missions[position]);
+                        startActivity(intent);
                         Toast.makeText(getApplicationContext(),"You Selected Item "+Integer.toString(position), Toast.LENGTH_LONG).show();
                     }
                 }
         );
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if (id == R.id.add){
+            // TODO add create new Mission
+        }
+        return true;
     }
 
 

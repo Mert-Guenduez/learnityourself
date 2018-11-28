@@ -5,25 +5,25 @@ import java.io.Serializable;
 public class User implements Serializable {
 
 
-    private String user;
+    private String username;
     private String sessionkey;
 
-    public User(String user, String sessionkey) {
+    public User(String username, String sessionkey) {
 
-        this.user = user;
+        this.username = username;
         this.sessionkey = sessionkey;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
     public String getSessionkey() {
         return sessionkey;
     }
 
-    public void setUser(String user) {
-       this.user=user;
+    public void setUsername(String username) {
+       this.username=username;
     }
 
     public void setSessionkey(String sessionkey) {

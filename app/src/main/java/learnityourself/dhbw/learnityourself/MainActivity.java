@@ -3,6 +3,8 @@ package learnityourself.dhbw.learnityourself;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView user_label;
     private Button missions_button;
-    private Button logout_button;
     private User user;
     @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
 
         user_label = findViewById(R.id.mainUserLabel);
-        user_label.setText(user.getUser());
-
         missions_button = findViewById(R.id.missions_button);
+        user_label.setText(user.getUsername());
         missions_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,25 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        logout_button = findViewById(R.id.logout_button);
-        logout_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HTTPRequestHandler handler = new HTTPRequestHandler();
-                try {
-                    handler.execute("https://91.205.172.109/logout.php","username", user.getUser(),"sessionkey",user.getSessionkey()).get();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
     }
 
     private boolean checkAuthorized() {
@@ -94,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             HTTPRequestHandler handler = new HTTPRequestHandler();
             InputStream in  = null;
             try {
-                in = handler.execute("https://91.205.172.109/login.php","username", user.getUser(),"sessionkey",user.getSessionkey()).get();
+                in = handler.execute("https://91.205.172.109/login.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
@@ -132,6 +113,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
 }

@@ -49,32 +49,36 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.login_button);
         loginButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-
-                HTTPRequestHandler handler = new HTTPRequestHandler();
-                InputStream in  = null;
-                try {
-                    in = handler.execute("https://91.205.172.109/login.php","username", username_field.getText().toString(),"password",password_field.getText().toString()).get();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
-                String inputString=HTTPRequestHandler.getStringFromInputStream(in);
-
-                if(inputString.equals("{\"error\":\"Authentication failure\"}")){
-                    Toast.makeText(LoginActivity.this, "Wrong Username or Password", Toast.LENGTH_SHORT).show();
-                }else{
-
-                    Gson gson= new Gson();
-                    User user = gson.fromJson(inputString, User.class);
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.putExtra("user", user);
-                    startActivity(intent);
-                }
-
+                login();
             }
         });
+    }
+
+    public void login(){
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        InputStream in  = null;
+        try {
+            in = handler.execute("https://91.205.172.109/login.php","username",
+                    username_field.getText().toString(),"password",password_field.getText().toString()).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
+        String inputString=HTTPRequestHandler.getStringFromInputStream(in);
+
+        if(inputString.equals("{\"error\":\"Authentication failure\"}")){
+            username_field.setError("Wrong Username or Password.");
+            registerButton.setError("Wrong Username or Password.");
+        }else{
+
+            Gson gson= new Gson();
+            User user = gson.fromJson(inputString, User.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.putExtra("user", user);
+            startActivity(intent);
+        }
     }
 
 

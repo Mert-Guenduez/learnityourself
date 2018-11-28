@@ -9,17 +9,18 @@ import android.widget.TextView;
 
 import learnityourself.dhbw.learnityourself.R;
 
-public class MissionAdapter extends BaseAdapter {
-    private LayoutInflater mInflater;
-    private Mission[] missions;
+public class UserAdapter extends BaseAdapter {
 
-    public MissionAdapter(Context context, Mission[] missions) {
+    private LayoutInflater mInflater;
+    private User[] users;
+
+    public UserAdapter(Context context, User[] users) {
         mInflater = LayoutInflater.from(context);
-        this.missions = missions;
+        this.users = users;
     }
 
     public int getCount() {
-        return missions.length;
+        return users.length;
     }
 
     public Object getItem(int position) {
@@ -31,18 +32,18 @@ public class MissionAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        UserAdapter.ViewHolder holder;
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.list_row, null);
-            holder = new ViewHolder();
+            holder = new UserAdapter.ViewHolder();
             holder.text1 = (TextView) convertView
                     .findViewById(R.id.TextView01);
             convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            holder = (UserAdapter.ViewHolder) convertView.getTag();
         }
 
-        holder.text1.setText(missions[position].getMissionname());
+        holder.text1.setText(users[position].getUser());
 
         return convertView;
     }
