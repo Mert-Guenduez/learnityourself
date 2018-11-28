@@ -74,6 +74,8 @@ public class ViewMissionActivity extends AuthorizedActivity {
 
         Helper.getInstance().setJsonObject(jsonObject);
         Intent intent = new Intent(ViewMissionActivity.this, ViewMissionInformationActivity.class);
+        intent.putExtra("user", user);
+        intent.putExtra("mission", mission);
         startActivity(intent);
     }
 
@@ -108,8 +110,9 @@ public class ViewMissionActivity extends AuthorizedActivity {
     }
 
     public void fillListFiew(InputStream in){
+
+        JsonElement element = new JsonParser().parse(new InputStreamReader(in));
         try {
-            JsonElement element = new JsonParser().parse(new InputStreamReader(in));
             jsonObject = new JSONObject(element.getAsJsonObject().toString());
 
             String tag = jsonObject.getString("tasks");
