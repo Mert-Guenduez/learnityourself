@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView user_label;
     private Button missions_button;
+    private Button logout_button;
     private User user;
     @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,9 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
 
         user_label = findViewById(R.id.mainUserLabel);
-        missions_button = findViewById(R.id.missions_button);
         user_label.setText(user.getUser());
+
+        missions_button = findViewById(R.id.missions_button);
         missions_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +50,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        logout_button = findViewById(R.id.logout_button);
+        logout_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HTTPRequestHandler handler = new HTTPRequestHandler();
+                try {
+                    handler.execute("https://91.205.172.109/logout.php","username", user.getUser(),"sessionkey",user.getSessionkey()).get();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
     private boolean checkAuthorized() {
