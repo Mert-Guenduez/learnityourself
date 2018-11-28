@@ -13,8 +13,11 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -43,12 +46,13 @@ public class ViewMissionsActivity extends AuthorizedActivity {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/allMissionsFromUser.php","username", user.getUser(),"sessionkey", user.getSessionkey()).get();
+            in = handler.execute("https://91.205.172.109/allMissionsFromUser.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         Gson gson = new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd' 'HH:mm:ss")
                 .create();

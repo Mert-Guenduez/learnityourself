@@ -92,7 +92,7 @@ public class ViewMissionActivity extends AuthorizedActivity {
         InputStream in  = null;
         try {
             in = handler.execute("https://91.205.172.109/allDetailsFromMission.php","username",
-                    user.getUser(),"sessionkey", user.getSessionkey(),
+                    user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionid", mission.getMissionid())
                     .get();
         } catch (ExecutionException e) {

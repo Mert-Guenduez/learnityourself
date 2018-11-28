@@ -79,7 +79,7 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
         InputStream in  = null;
         try {
             in = handler.execute("https://91.205.172.109/allUsersFromMission.php","username",
-                    user.getUser(),"sessionkey", user.getSessionkey(),
+                    user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionid", mission.getMissionid())
                     .get();
         } catch (ExecutionException e) {
@@ -88,11 +88,15 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
             e.printStackTrace();
         }
 
+        //System.out.println("HIER: " + HTTPRequestHandler.getStringFromInputStream(in));
+
         setUserListView(in);
     }
 
     public void setUserListView(InputStream in){
         users = new Gson().fromJson(HTTPRequestHandler.getStringFromInputStream(in), User[].class);
+
+        System.out.println("USER: " + users[0].getUsername());
 
         // TODO
 
