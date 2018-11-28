@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         user_label = findViewById(R.id.mainUserLabel);
         missions_button = findViewById(R.id.missions_button);
-        user_label.setText(user.getUser());
+        user_label.setText(user.getUsername());
         missions_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             HTTPRequestHandler handler = new HTTPRequestHandler();
             InputStream in  = null;
             try {
-                in = handler.execute("https://91.205.172.109/login.php","username", user.getUser(),"sessionkey",user.getSessionkey()).get();
+                in = handler.execute("https://91.205.172.109/login.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
