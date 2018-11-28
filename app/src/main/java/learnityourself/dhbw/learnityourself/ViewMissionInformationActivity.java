@@ -73,7 +73,6 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
     void init() {
         Intent intent = getIntent();
         mission = (Mission) intent.getSerializableExtra("mission");
-        users = mission.getUsers();
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
