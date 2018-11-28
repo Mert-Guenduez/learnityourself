@@ -11,7 +11,6 @@ public class Mission implements Serializable {
     private String missionname;
     private String description;
     private Date deadline;
-    private Task[] tasks;
 
 
     public String getMissionid() {
@@ -53,14 +52,4 @@ public class Mission implements Serializable {
     public void setDeadline(Date deadline) {
         this.deadline = deadline;
     }
-
-    public Task[] getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(Task[] tasks) {
-        this.tasks = tasks;
-    }
-
-
 }

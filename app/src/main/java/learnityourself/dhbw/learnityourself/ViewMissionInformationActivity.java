@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
 
 
     private TextView description_textview, finishdate_textview;
+    private ImageButton edit;
     private JSONObject jsonObject;
     private Mission mission;
     private ListView userListView;
@@ -44,6 +46,16 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
 
         description_textview = findViewById(R.id.description_textview);
         finishdate_textview = findViewById(R.id.date_textView);
+        edit = findViewById(R.id.edit_imageButton);
+
+        edit.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewMissionInformationActivity.this, AddMissionMemberActivity.class);
+                startActivity(intent);
+            }
+        }));
+
 
         jsonObject = Helper.getInstance().getJsonObject();
 
@@ -87,17 +99,11 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
             e.printStackTrace();
         }
 
-        //System.out.println("HIER: " + HTTPRequestHandler.getStringFromInputStream(in));
-
         setUserListView(in);
     }
 
     public void setUserListView(InputStream in){
         users = new Gson().fromJson(HTTPRequestHandler.getStringFromInputStream(in), User[].class);
-
-        System.out.println("USER: " + users[0].getUsername());
-
-        // TODO
 
         userListView = (ListView) findViewById(R.id.missionMember_listview);
         userListView.setAdapter(new UserAdapter(this, users));

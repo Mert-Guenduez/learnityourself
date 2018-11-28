@@ -84,7 +84,6 @@ public class ViewMissionActivity extends AuthorizedActivity {
 
         Intent intent = getIntent();
         mission = (Mission) intent.getSerializableExtra("mission");
-        tasks = mission.getTasks();
         actionBarSetTitle();
 
 
