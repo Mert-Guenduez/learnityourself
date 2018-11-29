@@ -19,7 +19,7 @@ Mock-Up:
 
 ### 2.3 .feature file
 
-[Feature]()
+[Feature](https://github.com/Mert-Guenduez/learnityourself/blob/master/app/src/androidTest/assets/res/EditMissionMember.feature)
 
 ## 3. Special Requirements
 ### 3.1 Mission Member
