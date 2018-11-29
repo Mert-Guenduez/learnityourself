@@ -14,7 +14,8 @@ UML Diagram:
 ### 2.2 Mock-Up
 Mock-Up:
 
-[Mock-Up](https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/EditMissionMember/Mockup_editMembers.png) 
+![Mockup_editMissionMember][]
+
 
 ### 2.3 .feature file
 
@@ -36,4 +37,5 @@ After adding, deleting MissionMembers, the System needs to display the new List 
 n/a
 
 <!-- picture links -->
+[Mockup_editMissionMember]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/EditMissionMember/Mockup_editMembers.png
 [UML]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/EditMissionMember/UML_EditMissionMember.png "UML Diagram"
