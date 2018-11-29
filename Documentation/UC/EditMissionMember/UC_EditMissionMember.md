@@ -30,7 +30,7 @@ The user must be part of a Mission.
 The user has to be logged into the App
 
 ## 5. Postconditions 
-### 5.1 Display updated Tasks
+### 5.1 Display updated MissionMembers
 After adding, deleting MissionMembers, the System needs to display the new List of MissionMembers as well as update the Database entries.
 
 ## 6. Extension Points
