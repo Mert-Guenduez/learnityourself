@@ -20,6 +20,10 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.model.Mission;
@@ -52,6 +56,8 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ViewMissionInformationActivity.this, AddMissionMemberActivity.class);
+                intent.putExtra("user", user);
+                intent.putExtra("mission", mission);
                 startActivity(intent);
             }
         }));
@@ -104,6 +110,9 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
 
     public void setUserListView(InputStream in){
         users = new Gson().fromJson(HTTPRequestHandler.getStringFromInputStream(in), User[].class);
+
+        ArrayList<User> arrayList = new ArrayList<>(Arrays.asList(users));
+        mission.setUsers(arrayList);
 
         userListView = (ListView) findViewById(R.id.missionMember_listview);
         userListView.setAdapter(new UserAdapter(this, users));
