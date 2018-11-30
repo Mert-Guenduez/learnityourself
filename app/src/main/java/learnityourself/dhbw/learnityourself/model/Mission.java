@@ -1,7 +1,9 @@
 package learnityourself.dhbw.learnityourself.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Mission implements Serializable {
 
@@ -11,6 +13,7 @@ public class Mission implements Serializable {
     private String missionname;
     private String description;
     private Date deadline;
+    private ArrayList<User> users;
 
 
     public String getMissionid() {
@@ -51,5 +54,13 @@ public class Mission implements Serializable {
 
     public void setDeadline(Date deadline) {
         this.deadline = deadline;
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
     }
 }
