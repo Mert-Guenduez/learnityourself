@@ -2,15 +2,19 @@
 
 
 ## 1. Introduction 
+
 ### 1.1 Purpose
 <Mert>
+  
 ### 1.2 Scope
 <Mert>
+  
 ### 1.3 References
 <Mert>
 
 ## 2. Architectural Representation
 <Mert>
+  
 ## 3.Architectural Goals and Constraints 
 
 <Angelika> (Das Diagramm macht Jonas. Er macht auch den Blogeintrag, du musst basically nur hinschreiben was er hinschreibt)
