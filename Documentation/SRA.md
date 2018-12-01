@@ -30,7 +30,7 @@ n/a
 
 ## 7. Deployment View
 Angelika (wenn es geht. Ich weiß nicht genau was hier hinkommt, du kannst ja mal bei den anderen Gruppen gucken)
-http://dhbwse201819.pbworks.com/w/page/130434462/GC8_MVC unter "imperfect examples"
+http://dhbwse201819.pbworks.com/w/page/130434462/GC8_MVC unter "imperfect examples". Kann dir hierbei auch helfen.
 ## 8. Implementation View
 n/a
 
