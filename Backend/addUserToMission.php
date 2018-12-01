@@ -52,7 +52,7 @@ if($check) {
     $stmt->close();
 
     $stmt = $db->prepare("INSERT INTO userToMission (username, missionid) VALUES (?,?)");
-    $stmt->bind_param('ss',$adduser,$missionid);
+    $stmt->bind_param('si',$adduser,$missionid);
     if($stmt->execute()) {
         $data = array('response' => 'User successfully added');
     } else {
