@@ -13,12 +13,11 @@ Mert
 Mert
 
 ## 2. Architectural Representation
-Mert
-  
-## 3.Architectural Goals and Constraints 
-
 Angelika (Das Diagramm macht Jonas. Er macht auch den Blogeintrag, du musst basically nur hinschreiben was er hinschreibt)
 Nimm dir für dieses Dokument am besten einfach das als beispiel https://github.com/WMerk/vnvDoc/blob/master/doc/SAD.MD
+  
+## 3.Architectural Goals and Constraints 
+Angelika (Das Diagramm macht auch Jonas)
 
 ## 4. Use-Case View 
 n/a
