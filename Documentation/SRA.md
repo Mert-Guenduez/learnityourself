@@ -30,7 +30,7 @@ Angelika (Das Diagramm macht auch Jonas)
 n/a
 
 ## 5. Logical View
-![Logical View][https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/MVCDiagram.png]
+![Logical View](https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/MVCDiagram.png)
 ## 6. Process View
 n/a
 
@@ -42,7 +42,7 @@ n/a
 
 ## 9. Data View
 We are using a MySQL Database to store all relevant data, including User Information, Missions and Tasks (and their respective relations).
-![DataScheme][https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/dbScheme.png]
+![DataScheme](https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/dbScheme.png)
 
 ## 10. Size and Performance
 n/a
