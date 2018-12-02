@@ -19,33 +19,50 @@ The Software Architecture Document's scope is providing an insight on the archit
 - [Use Case: ManageTasks](https://github.com/Mert-Guenduez/learnityourself/tree/master/Documentation/UC/ManageTasks)
 - [Use Case: Register](https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/Register/UC_Register.md)
 - [Use Case: ViewMissions](https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ViewMissions/UC_ViewMissions.md)
+
 ## 2. Architectural Representation
-Angelika (Das Diagramm macht Jonas. Er macht auch den Blogeintrag, du musst basically nur hinschreiben was er hinschreibt)
-Nimm dir für dieses Dokument am besten einfach das als beispiel https://github.com/WMerk/vnvDoc/blob/master/doc/SAD.MD
+We use the MVC for our Android App. 
+![MVC](https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/MVC.png)
   
 ## 3.Architectural Goals and Constraints 
-Angelika (Das Diagramm macht auch Jonas)
+The frontend and the backend are both developed separted from each other and only communicate over php Post Requests.
+
+# Frontend
+The fronted is written in Java and uses the MVC architecture.
+
+# Backend
+The backend is an API and belongs to the Model of the MVC architecture. To store the data it communicates with a MySQL database.
+
+# MVC
+The main goal of the MVC architecture is to separate the view from the logic. The controller takes care of handling actions by the user and telling View or Model, that there were actions performed that concern them. Models contain the data that is displayed in the views.
+
 
 ## 4. Use-Case View 
-n/a
+The Android App provides the use cases shown in the following diagram.
+
+![UC](https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/UseCases_Overview.png)
+
 
 ## 5. Logical View
 ![Logical View](https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/MVCDiagram.png)
+
 ## 6. Process View
 n/a
 
 ## 7. Deployment View
 Angelika (wenn es geht. Ich weiß nicht genau was hier hinkommt, du kannst ja mal bei den anderen Gruppen gucken)
 http://dhbwse201819.pbworks.com/w/page/130434462/GC8_MVC unter "imperfect examples". Kann dir hierbei auch helfen.
+
 ## 8. Implementation View
 n/a
 
 ## 9. Data View
 We are using a MySQL Database to store all relevant data, including User Information, Missions and Tasks (and their respective relations).
+
 ![DataScheme](https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/dbScheme.png)
 
 ## 10. Size and Performance
 n/a
 
 ## 11. Quality
-Angelika (Hier einfach n bissl über Tests schreiben)
+To ensure a high quality code we write and run tests. For now we just use Feature Tests. More Tests will be added in the future. However, the tests are automatically executed before a new version is deployed to the server.
