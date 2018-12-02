@@ -2,6 +2,7 @@ package learnityourself.dhbw.learnityourself;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -34,7 +35,7 @@ import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 import learnityourself.dhbw.learnityourself.utility.Helper;
 
 
-public class ViewMissionInformationActivity extends AuthorizedActivity {
+public class ViewMissionInformationActivity extends AppCompatActivity {
 
 
     private TextView description_textview, finishdate_textview;
@@ -81,7 +82,6 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
         this.finishdate_textview.setText(jsonObject.getString("deadline"));
     }
 
-    @Override
     void init() {
 
 
