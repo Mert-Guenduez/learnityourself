@@ -27,13 +27,13 @@ We use the MVC for our Android App.
 ## 3.Architectural Goals and Constraints 
 The frontend and the backend are both developed separted from each other and only communicate over php Post Requests.
 
-# Frontend
+### Frontend
 The fronted is written in Java and uses the MVC architecture.
 
-# Backend
+### Backend
 The backend is an API and belongs to the Model of the MVC architecture. To store the data it communicates with a MySQL database.
 
-# MVC
+### MVC
 The main goal of the MVC architecture is to separate the view from the logic. The controller takes care of handling actions by the user and telling View or Model, that there were actions performed that concern them. Models contain the data that is displayed in the views.
 
 
@@ -50,8 +50,7 @@ The Android App provides the use cases shown in the following diagram.
 n/a
 
 ## 7. Deployment View
-Angelika (wenn es geht. Ich weiß nicht genau was hier hinkommt, du kannst ja mal bei den anderen Gruppen gucken)
-http://dhbwse201819.pbworks.com/w/page/130434462/GC8_MVC unter "imperfect examples". Kann dir hierbei auch helfen.
+![Deployment View](https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/DeploymentView.png)
 
 ## 8. Implementation View
 n/a
