@@ -32,15 +32,20 @@ dependencies {
     androidTestImplementation('info.cukes:cucumber-junit:1.1.4') {
         exclude module: 'cucumber-jvm-deps'
         exclude module: 'cucumber-core'
+
         exclude group: 'org.hamcrest', module: 'hamcrest-core'
     }
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation ('com.android.support.test.espresso:espresso-core:3.0.1'){
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+    }
+
     androidTestImplementation 'info.cukes:cucumber-android:1.2.4'
     androidTestImplementation 'info.cukes:cucumber-picocontainer:1.2.4'
 
     implementation 'com.google.code.gson:gson:2.6.1'
     implementation 'com.google.code.gson:gson:2.3'
-
 
 }

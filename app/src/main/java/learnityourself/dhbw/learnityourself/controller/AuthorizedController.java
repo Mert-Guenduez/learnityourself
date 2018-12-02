@@ -1,40 +1,44 @@
-package learnityourself.dhbw.learnityourself;
+package learnityourself.dhbw.learnityourself.controller;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 
+import learnityourself.dhbw.learnityourself.LoginActivity;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 
-public abstract class AuthorizedActivity extends AppCompatActivity{
+public abstract class AuthorizedController {
 
-    User user;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected User user;
+    protected Context context;
+
+    public AuthorizedController(User user, Context context){
+
+        this.user = user;
+        this.context = context;
+
+        if(checkAuthorized()){
+            init();
+        }else{
+            context.startActivity(new Intent(context, LoginActivity.class));
+        }
     }
 
-    abstract void init();
+    protected abstract void init();
 
-    protected boolean checkAuthorized()
-    {
-        Intent intent = getIntent();
-        user = (User) intent.getSerializableExtra("user");
+    private boolean checkAuthorized(){
 
         if(user==null){
-            startActivity(new Intent(this, LoginActivity.class));
-            this.finish();
             return false;
         }
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/login.php","username", user.getUser(),"sessionkey",user.getSessionkey()).get();
+            in = handler.execute("https://91.205.172.109/login.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -46,11 +50,12 @@ public abstract class AuthorizedActivity extends AppCompatActivity{
         if(inputString.contains("true")) {
             return true;
         }else{
-            startActivity(new Intent(this, LoginActivity.class));
-            this.finish();
             return false;
         }
 
     }
 
+    protected  User getUser(){
+        return user;
+    }
 }

@@ -37,6 +37,10 @@
             android:name=".ViewMissionInformationActivity"
             android:label="MissionInformation">
         </activity>
+        <activity
+            android:name=".AddMissionMemberActivity"
+            android:label="Edit MissionMembers">
+        </activity>
     </application>
 
 </manifest>
