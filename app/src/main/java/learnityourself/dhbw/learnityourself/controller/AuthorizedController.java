@@ -22,6 +22,8 @@ public abstract class AuthorizedController {
 
         if(checkAuthorized()){
             init();
+        }else{
+            context.startActivity(new Intent(context, LoginActivity.class));
         }
     }
 
@@ -30,7 +32,6 @@ public abstract class AuthorizedController {
     private boolean checkAuthorized(){
 
         if(user==null){
-            context.startActivity(new Intent(context, LoginActivity.class));
             return false;
         }
 
@@ -49,7 +50,6 @@ public abstract class AuthorizedController {
         if(inputString.contains("true")) {
             return true;
         }else{
-            context.startActivity(new Intent(context, LoginActivity.class));
             return false;
         }
 
