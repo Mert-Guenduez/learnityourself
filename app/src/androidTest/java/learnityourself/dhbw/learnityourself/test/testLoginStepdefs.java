@@ -1,4 +1,5 @@
 package learnityourself.dhbw.learnityourself.test;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.support.test.espresso.Espresso;
@@ -27,7 +28,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
-public class LoginStepdefs {
+public class testLoginStepdefs {
 
 
     @Rule
@@ -37,11 +38,20 @@ public class LoginStepdefs {
 
 
     @Given("^I am seeing input fields for login$")
+    public void i_am_seeing_input_fields_for_login() throws Throwable {
+        activityTestRule.launchActivity(new Intent());
+        activity = activityTestRule.getActivity();
+        onView(withId(R.id.LoginActivity));
+    }
+
+    /*
+    @Given("^I am seeing input fields for login$")
     public void iAmSeeingInputFieldsForLogin() throws Throwable {
         activityTestRule.launchActivity(new Intent());
         activity = activityTestRule.getActivity();
         onView(withId(R.id.LoginActivity));
     }
+    */
 
     @When("^I enter \"([^\"]*)\" into the username field$")
     public void iEnterIntoTheUsernameField(String username) throws Throwable {
@@ -55,16 +65,30 @@ public class LoginStepdefs {
                 .perform(typeText(password), closeSoftKeyboard());
     }
 
+    @When("^I click on the Login Button$")public void i_click_on_the_Login_Button() throws Throwable {
+        onView(withId(R.id.login_button))
+                .perform(click());
+    }
+
+    /*
     @And("^I click on the Login Button$")
     public void iClickOnTheLoginButton() throws Throwable {
         onView(withId(R.id.login_button))
                 .perform(click());
     }
+    */
 
+    @Then("^I should see the Main Activity$")
+    public void i_should_see_the_Main_Activity() throws Throwable {
+            onView(withId(R.id.MainActivity));
+    }
+
+    /*
     @Then("^I should see the Main Activity$")
     public void iShouldSeeTheMainActivity() throws Throwable {
         onView(withId(R.id.MainActivity)).check(matches(isDisplayed()));
     }
+    */
 
     @Then("^I should see the error message Wrong password or username$")
     public void iShouldSeeTheErrorMessageWrongPasswordOrUsername() throws Throwable {

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,10 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.model.Mission;
@@ -32,6 +37,7 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
 
 
     private TextView description_textview, finishdate_textview;
+    private ImageButton edit;
     private JSONObject jsonObject;
     private Mission mission;
     private ListView userListView;
@@ -44,6 +50,18 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
 
         description_textview = findViewById(R.id.description_textview);
         finishdate_textview = findViewById(R.id.date_textView);
+        edit = findViewById(R.id.edit_imageButton);
+
+        edit.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewMissionInformationActivity.this, AddMissionMemberActivity.class);
+                intent.putExtra("user", user);
+                intent.putExtra("mission", mission);
+                startActivity(intent);
+            }
+        }));
+
 
         jsonObject = Helper.getInstance().getJsonObject();
 
@@ -87,17 +105,14 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
             e.printStackTrace();
         }
 
-        //System.out.println("HIER: " + HTTPRequestHandler.getStringFromInputStream(in));
-
         setUserListView(in);
     }
 
     public void setUserListView(InputStream in){
         users = new Gson().fromJson(HTTPRequestHandler.getStringFromInputStream(in), User[].class);
 
-        System.out.println("USER: " + users[0].getUsername());
-
-        // TODO
+        ArrayList<User> arrayList = new ArrayList<>(Arrays.asList(users));
+        mission.setUsers(arrayList);
 
         userListView = (ListView) findViewById(R.id.missionMember_listview);
         userListView.setAdapter(new UserAdapter(this, users));
