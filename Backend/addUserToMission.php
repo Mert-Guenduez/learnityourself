@@ -21,6 +21,7 @@ include 'checkSessionkey.php';
 $json = json_encode(array('authentication' => 'false', 'error' => 'Authentication failure'));
 
 if($check) {
+    // check if mission exists
     $stmt = $db->prepare('SELECT COUNT(*) FROM missions WHERE id = ?');
     $stmt->bind_param('i',$missionid);
     $stmt->execute();
@@ -31,6 +32,7 @@ if($check) {
     }
     $stmt->close();
 
+    // check if user exists
     $stmt = $db->prepare('SELECT COUNT(*) FROM users WHERE user_name = ?');
     $stmt->bind_param('s',$adduser);
     $stmt->execute();
@@ -41,6 +43,7 @@ if($check) {
     }
     $stmt->close();
 
+    // check if user was already added to mission
     $stmt = $db->prepare('SELECT COUNT(*) FROM userToMission WHERE username = ? AND missionid = ?');
     $stmt->bind_param('si',$adduser,$missionid);
     $stmt->execute();
@@ -51,14 +54,34 @@ if($check) {
     }
     $stmt->close();
 
+    // add user to mission
     $stmt = $db->prepare("INSERT INTO userToMission (username, missionid) VALUES (?,?)");
     $stmt->bind_param('si',$adduser,$missionid);
     if($stmt->execute()) {
+        $stmt->close();
+
+        // get tasks from mission
+        $stmt = $db->prepare("SELECT id FROM tasks WHERE missionid = ?");
+        $stmt->bind_param('i', $missionid);
+        $stmt->execute();
+        $tasks = $stmt->get_result();
+        $stmt->free_result();
+        $stmt->close();
+
+        // add tasks from mission to user
+        $stmt = $db->prepare("INSERT INTO userToTask (username, taskid, completed) VALUES (?,?,?)");
+        $completed = 0;
+        while($task = $tasks->fetch_assoc()) {
+            $stmt->bind_param('sii',$username, $task['id'], $completed);
+            $stmt->execute();
+        }
+
         $data = array('response' => 'User successfully added');
     } else {
         $data = array('error' => 'Error while trying to insert into DBTable userToMission');
+        $stmt->close();
     }
-    $stmt->close();
+
     $json = json_encode($data);
 }
 echo $json;
