@@ -3,6 +3,8 @@ package learnityourself.dhbw.learnityourself;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -58,9 +60,9 @@ public class AddMissionMemberActivity extends AppCompatActivity {
     }
 
 
-
-
     public void setSearchUsername(User[] matchUser){
+        // TODO Array im controller füllen
+        controller.setMatchUser(matchUser);
         searchUsername = (ListView) findViewById(R.id.search_user_listview);
         searchUsername.setAdapter(new UserAdapter(this, matchUser));
 
@@ -69,30 +71,32 @@ public class AddMissionMemberActivity extends AppCompatActivity {
                 {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
-                        addUser(matchUser[position].getUsername());
+                        controller.addUser(controller.getMatchUser()[position].getUsername());
                     }
                 }
         );
     }
 
-    public void addUser(String addUser){
-        HTTPRequestHandler handler = new HTTPRequestHandler();
-        InputStream in  = null;
-        try {
-            in = handler.execute("https://91.205.172.109/addUserToMission.php","username",
-                    user.getUsername(),"sessionkey", user.getSessionkey(),
-                    "missionid", mission.getMissionid(), "adduser", addUser)
-                    .get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_check, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if (id == R.id.check){
+            item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    controller.checkClickHandler();
+                    return false;
+                }
+            });
         }
-
-        String inputString=HTTPRequestHandler.getStringFromInputStream(in);
-
-        System.out.println("INPUTSTRING: " + inputString);
-
+        return true;
     }
 
 }
