@@ -2,6 +2,7 @@ package learnityourself.dhbw.learnityourself;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -26,6 +27,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import learnityourself.dhbw.learnityourself.controller.ViewMissionInformationController;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.model.UserAdapter;
@@ -33,48 +35,41 @@ import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 import learnityourself.dhbw.learnityourself.utility.Helper;
 
 
-public class ViewMissionInformationActivity extends AuthorizedActivity {
+public class ViewMissionInformationActivity extends AppCompatActivity {
 
 
     private TextView description_textview, finishdate_textview;
     private ImageButton edit;
-    private JSONObject jsonObject;
-    private Mission mission;
     private ListView userListView;
-    private User[] users;
+
+    private ViewMissionInformationController controller;
+
+    private JSONObject jsonObject;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_mission_information);
 
+        controller = new ViewMissionInformationController((User) getIntent().getSerializableExtra("user"), this);
+        controller.setMission((Mission) getIntent().getSerializableExtra("mission"));
+        controller.loadUsers();
+
         description_textview = findViewById(R.id.description_textview);
         finishdate_textview = findViewById(R.id.date_textView);
         edit = findViewById(R.id.edit_imageButton);
 
+        jsonObject = Helper.getInstance().getJsonObject();
+
         edit.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewMissionInformationActivity.this, AddMissionMemberActivity.class);
-                intent.putExtra("user", user);
-                intent.putExtra("mission", mission);
-                startActivity(intent);
+                controller.addUserClicked();
             }
         }));
+        init();
 
-
-        jsonObject = Helper.getInstance().getJsonObject();
-
-        try {
-            setDescription_textview();
-            setFinishdate_textview();
-        } catch (JSONException e){
-            System.err.println("JSONException: " + e.getMessage());
-        }
-
-        if(checkAuthorized()){
-            init();
-        }
     }
 
     public void setDescription_textview() throws JSONException {
@@ -87,37 +82,19 @@ public class ViewMissionInformationActivity extends AuthorizedActivity {
         this.finishdate_textview.setText(jsonObject.getString("deadline"));
     }
 
-    @Override
     void init() {
-        Intent intent = getIntent();
-        mission = (Mission) intent.getSerializableExtra("mission");
 
-        HTTPRequestHandler handler = new HTTPRequestHandler();
-        InputStream in  = null;
+
         try {
-            in = handler.execute("https://91.205.172.109/allUsersFromMission.php","username",
-                    user.getUsername(),"sessionkey", user.getSessionkey(),
-                    "missionid", mission.getMissionid())
-                    .get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            setDescription_textview();
+            setFinishdate_textview();
+        } catch (JSONException e){
+            System.err.println("JSONException: " + e.getMessage());
         }
 
-        setUserListView(in);
-    }
-
-    public void setUserListView(InputStream in){
-        users = new Gson().fromJson(HTTPRequestHandler.getStringFromInputStream(in), User[].class);
-
-        ArrayList<User> arrayList = new ArrayList<>(Arrays.asList(users));
-        mission.setUsers(arrayList);
-
         userListView = (ListView) findViewById(R.id.missionMember_listview);
-        userListView.setAdapter(new UserAdapter(this, users));
+        userListView.setAdapter(new UserAdapter(this, controller.getUsers()));
     }
-
 
 
 }
