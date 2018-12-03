@@ -79,8 +79,8 @@ if($check) {
         $data = array('response' => 'User successfully added');
     } else {
         $data = array('error' => 'Error while trying to insert into DBTable userToMission');
-        $stmt->close();
     }
+    $stmt->close();
 
     $json = json_encode($data);
 }
