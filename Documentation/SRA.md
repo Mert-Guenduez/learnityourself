@@ -22,6 +22,7 @@ The Software Architecture Document's scope is providing an insight on the archit
 
 ## 2. Architectural Representation
 We use the MVC for our Android App. 
+
 ![MVC](https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/MVC.png)
   
 ## 3.Architectural Goals and Constraints 
