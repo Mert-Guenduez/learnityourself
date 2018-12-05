@@ -14,15 +14,16 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3af27be7-9eff-4c84-a43d-ee6da7fbcc0e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberCreateMissionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/AddMissionMemberActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/MatchUser.java" afterDir="false" />
+    <list default="true" id="3af27be7-9eff-4c84-a43d-ee6da7fbcc0e" name="Default" comment="[Front][Feat] updated CreateMission">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberCreateMissionActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/AddMissionMemberLayout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/CreateMissionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/CreateMissionActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberCreateMissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberCreateMissionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/CreateMissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/CreateMissionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/AddMissionMemberActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberCreateMissionActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,26 +52,24 @@
       <file leaf-file-name="AddMissionMemberActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+            <state relative-caret-position="165">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2080#2598#0" expanded="true" />
+                <element signature="e#2597#2598#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddMissionMemberActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/AddMissionMemberActivity.java">
+      <file leaf-file-name="AddMissionMemberLayout.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/AddMissionMemberLayout.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-43">
-              <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+            <state relative-caret-position="201">
+              <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1228#1746#0" expanded="true" />
-                <element signature="e#1745#1746#0" expanded="true" />
-                <element signature="e#2700#2948#0" expanded="true" />
-                <element signature="e#2947#2948#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,17 +78,37 @@
       <file leaf-file-name="CreateMissionActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/CreateMissionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" selection-start-line="21" selection-end-line="87" selection-end-column="1" />
+            <state relative-caret-position="165">
+              <caret line="66" selection-start-line="66" selection-end-line="66" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1443#1589#0" expanded="true" />
-                <element signature="e#1588#1589#0" expanded="true" />
-                <element signature="e#1751#2015#0" expanded="true" />
-                <element signature="e#2014#2015#0" expanded="true" />
-                <element signature="e#2180#2345#0" expanded="true" />
-                <element signature="e#2344#2345#0" expanded="true" />
+                <element signature="e#2343#2344#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddMissionMemberCreateMissionActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberCreateMissionActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+              <folding>
+                <element signature="e#2055#2627#0" expanded="true" />
+                <element signature="e#2626#2627#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="52" column="66" selection-start-line="52" selection-start-column="66" selection-end-line="52" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -97,10 +116,24 @@
       <file leaf-file-name="CreateMissionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/CreateMissionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="255">
+              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddMissionMemberController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#742#743#0" expanded="true" />
+                <element signature="e#778#779#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,8 +142,8 @@
       <file leaf-file-name="MatchUser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/MatchUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+            <state relative-caret-position="120">
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,41 +151,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ViewMissionInformationActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionInformationActivity.java">
+      <file leaf-file-name="AddMissionMemberCreateMissionController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberCreateMissionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewMissionInformationController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/ViewMissionInformationController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="255">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
-                <element signature="e#1009#1010#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HTTPRequestHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/HTTPRequestHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="136" selection-start-line="136" selection-end-line="136" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthorizedController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AuthorizedController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -160,12 +166,10 @@
       <file leaf-file-name="ViewMissionActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
+            <state relative-caret-position="825">
               <caret line="61" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1658#1866#0" expanded="true" />
-                <element signature="e#1865#1866#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2468,8 +2472,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_mission.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_missions.xml" />
         <option value="$PROJECT_DIR$/app/src/androidTest/assets/res/Register.feature" />
         <option value="$PROJECT_DIR$/app/src/test/java/ViewMissionStepdefs.java" />
@@ -2504,21 +2506,23 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_task.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_edit.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewTaskActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_mission.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/ViewMissionController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/ViewMissionsController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberController.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberCreateMissionController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/ViewMissionInformationController.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/CreateMissionController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/CreateMissionActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/CreateMissionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/MatchUser.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/AddMissionMemberActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/MatchUser.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberCreateMissionController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberCreateTaskActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/CreateMissionController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberCreateMissionActivity.java" />
       </list>
     </option>
   </component>
@@ -2536,29 +2540,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="learnityourself" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="learnityourself" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-              <item name="learnityourself.dhbw.learnityourself" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="learnityourself" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-              <item name="learnityourself.dhbw.learnityourself" type="1f31426a:PackageElementNode" />
-              <item name="test" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2645,6 +2626,29 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="learnityourself" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="learnityourself" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="learnityourself.dhbw.learnityourself" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="learnityourself" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="learnityourself.dhbw.learnityourself" type="1f31426a:PackageElementNode" />
+              <item name="test" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2670,124 +2674,6 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/AndroidManifest.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/ViewMissionController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/ViewMissionInformationController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/model/Task.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Backend/logout.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewTaskActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/ViewTaskController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/res/layout/activity_view_task.xml</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -3373,7 +3259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544032406967</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="[Front][Feat] updated CreateMission">
+      <created>1544034832850</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1544034832850</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers>
       <YouTrack url="http://91.205.172.109:8000/youtrack">
         <option name="defaultSearch" value="" />
@@ -3425,37 +3318,36 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.32867134" />
-      <window_info id="Build Variants" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50143063" side_tool="true" weight="0.3286908" />
-      <window_info anchor="bottom" id="Logcat" order="7" visible="true" weight="0.24195804" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="bottom" id="YouTrack" order="7" sideWeight="0.4985694" weight="0.24755245" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4985694" weight="0.32587412" />
-      <window_info id="Structure" order="1" sideWeight="0.5048356" side_tool="true" weight="0.25608012" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32867134" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
+      <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.3297568" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50143063" side_tool="true" weight="0.3286908" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785408" weight="0.33566433" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32867134" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32867134" />
+      <window_info anchor="bottom" id="Logcat" order="7" weight="0.24195804" />
       <window_info id="Captures" order="2" sideWeight="0.49709865" weight="0.3297568" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49516442" visible="true" weight="0.25608012" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32867134" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49516442" visible="true" weight="0.25608012" />
+      <window_info anchor="bottom" id="YouTrack" order="7" sideWeight="0.4985694" weight="0.24755245" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4985694" weight="0.32587412" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32867134" />
       <window_info anchor="right" id="Gradle" order="3" />
+      <window_info id="Structure" order="1" sideWeight="0.5048356" side_tool="true" weight="0.25608012" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.3297568" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="DB Browser" order="2" weight="0.3297568" />
       <window_info id="UI Designer" order="2" />
@@ -3468,12 +3360,12 @@
       <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49383804" weight="0.3281787" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32867134" />
       <window_info anchor="bottom" id="DB Execution Console" order="8" />
       <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32867134" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="YouTrack" order="9" sideWeight="0.4985694" weight="0.24755245" />
-      <window_info id="Image Layers" order="3" />
+      <window_info id="Build Variants" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785408" weight="0.32587412" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -3494,12 +3386,12 @@
       <window_info active="true" anchor="bottom" id="Logcat" order="14" visible="true" weight="0.32867134" />
       <window_info anchor="bottom" id="Version Control" order="15" weight="0.32867134" />
       <window_info anchor="right" id="Android Model" order="10" side_tool="true" />
-      <window_info id="Build Variants" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32867134" />
       <window_info anchor="right" id="Gradle" order="7" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20243205" />
       <window_info anchor="bottom" id="Messages" order="16" sideWeight="0.49383804" weight="0.3281787" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32867134" />
+      <window_info id="Image Layers" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="Maven Projects" order="6" />
@@ -3560,13 +3452,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/RegisterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/RegisterActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -3750,18 +3635,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/ActionBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#546#754#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/ActionBar.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_task.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3846,16 +3720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_create_mission.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
@@ -3890,68 +3754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberCreateMissionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#742#743#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#1722#1723#0" expanded="true" />
-            <element signature="e#1752#1753#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/CreateMissionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/CreateMissionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="87" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1443#1589#0" expanded="true" />
-            <element signature="e#1588#1589#0" expanded="true" />
-            <element signature="e#1751#2015#0" expanded="true" />
-            <element signature="e#2014#2015#0" expanded="true" />
-            <element signature="e#2180#2345#0" expanded="true" />
-            <element signature="e#2344#2345#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1658#1866#0" expanded="true" />
-            <element signature="e#1865#1866#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/ViewMissionInformationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -3964,29 +3766,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/HTTPRequestHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="1545">
           <caret line="136" selection-start-line="136" selection-end-line="136" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AuthorizedController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
+        <state relative-caret-position="210">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionInformationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
+        <state relative-caret-position="330">
           <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/AddMissionMemberLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/MatchUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        <state relative-caret-position="120">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#742#743#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/AddMissionMemberCreateMissionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/CreateMissionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2343#2344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/controller/CreateMissionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/ViewMissionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -3995,24 +3860,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        <state relative-caret-position="165">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2080#2598#0" expanded="true" />
+            <element signature="e#2597#2598#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/utility/AddMissionMemberActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
-          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+        <state relative-caret-position="316">
+          <caret line="52" column="66" selection-start-line="52" selection-start-column="66" selection-end-line="52" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberCreateMissionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1228#1746#0" expanded="true" />
-            <element signature="e#1745#1746#0" expanded="true" />
-            <element signature="e#2700#2948#0" expanded="true" />
-            <element signature="e#2947#2948#0" expanded="true" />
+            <element signature="e#2055#2627#0" expanded="true" />
+            <element signature="e#2626#2627#0" expanded="true" />
           </folding>
         </state>
       </provider>
