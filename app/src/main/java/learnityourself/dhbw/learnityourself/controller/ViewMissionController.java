@@ -16,6 +16,7 @@ import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.ViewMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionInformationActivity;
+import learnityourself.dhbw.learnityourself.ViewTaskActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.Task;
 import learnityourself.dhbw.learnityourself.model.User;
@@ -81,5 +82,12 @@ public class ViewMissionController extends AuthorizedController {
             intent.putExtra("user", user);
             intent.putExtra("mission", mission);
             context.startActivity(intent);
+    }
+
+    public void clickTask(int position) {
+        Intent intent = new Intent(context, ViewTaskActivity.class);
+        intent.putExtra("user", user);
+        intent.putExtra("task", tasks[position]);
+        context.startActivity(intent);
     }
 }
