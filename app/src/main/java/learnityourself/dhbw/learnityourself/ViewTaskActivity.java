@@ -67,5 +67,20 @@ public class ViewTaskActivity extends AppCompatActivity {
         textView.setText(controller.getTask().getTaskname());
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_edit, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if (id == R.id.edit){
+            // TODO add edit Task
+        }
+        return true;
+    }
 
 }

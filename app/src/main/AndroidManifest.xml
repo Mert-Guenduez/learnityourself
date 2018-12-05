@@ -45,6 +45,10 @@
             android:name=".ViewTaskActivity"
             android:label="">
         </activity>
+        <activity
+            android:name=".CreateMissionActivity"
+            android:label="Create Mssion">
+        </activity>
     </application>
 
 </manifest>
