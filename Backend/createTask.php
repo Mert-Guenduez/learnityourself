@@ -30,6 +30,16 @@ if($check) {
         die(json_encode(array('error' => 'mission does not exist')));
     }
     $stmt->close();
+	//Check if user is in the mission
+	$stmt = $db->prepare('SELECT COUNT(*) FROM userToMission WHERE missionid = ? AND username = ?');
+    $stmt->bind_param('ss',$missionid, $username);
+    $stmt->execute();
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    if ($count == 0) {
+        die(json_encode(array('error' => 'The user is not in this mission')));
+    }
+    $stmt->close();
 	//Insert Task into tasks
     $stmt = $db->prepare('INSERT INTO tasks (missionid, name, description, effort) VALUES (?,?,?,?)');
     $stmt->bind_param('ssss',$missionid,$taskname,$description,$effort);
@@ -43,7 +53,7 @@ if($check) {
 		$allUsers = $stmt->get_result();
 		$stmt->free_result();
 		$stmt->close();
-		$data = json_encode(array('response' => 'Task successfully created'));
+		$data = json_encode(array('response' => 'Task successfully created', 'taskid' => $taskid));
 		while($row = mysqli_fetch_array($allUsers)){
 			//For every user, create entry in userToTask
 			$stmt = $db->prepare('INSERT INTO userToTask (username, taskid, completed) VALUES (?,?, 0)');
