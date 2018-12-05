@@ -1,7 +1,9 @@
 package learnityourself.dhbw.learnityourself.controller;
 
 import android.content.Context;
+import android.content.Intent;
 
+import learnityourself.dhbw.learnityourself.AddMissionMemberActivity;
 import learnityourself.dhbw.learnityourself.model.User;
 
 public class CreateMissionController extends AuthorizedController {
@@ -12,5 +14,11 @@ public class CreateMissionController extends AuthorizedController {
     @Override
     protected void init() {
 
+    }
+
+    public void addUserClicked() {
+        Intent intent = new Intent(context, AddMissionMemberActivity.class);
+        intent.putExtra("user", user);
+        context.startActivity(intent);
     }
 }
