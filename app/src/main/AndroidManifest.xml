@@ -43,7 +43,7 @@
         </activity>
         <activity
             android:name=".ViewTaskActivity"
-            android:label="View Task">
+            android:label="">
         </activity>
     </application>
 

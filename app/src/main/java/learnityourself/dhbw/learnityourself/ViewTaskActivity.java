@@ -2,6 +2,7 @@ package learnityourself.dhbw.learnityourself;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,8 +26,7 @@ public class ViewTaskActivity extends AppCompatActivity {
 
     private ViewTaskController controller;
     private Task task;
-    private TextView taskTitle;
-    private TextView taskDescription;
+    private TextView taskDescription, taskEffort;
 
 
     @Override
@@ -37,17 +37,34 @@ public class ViewTaskActivity extends AppCompatActivity {
         controller=new ViewTaskController((User)getIntent().getSerializableExtra("user"),this);
         controller.setTask((Task) getIntent().getSerializableExtra("task"));
         controller.loadTaskDetail();
+        generateActionBar();
         init();
 
     }
 
     void init() {
-        taskTitle = (TextView) findViewById(R.id.taskTitle);
-        taskDescription = (TextView) findViewById(R.id.taskDescription);
-        taskTitle.setText(controller.getTask().getTaskname());
+        actionBarSetTitle();
+        taskDescription = (TextView) findViewById(R.id.taskDescription_textview);
+        taskEffort = (TextView) findViewById(R.id.effort_textView) ;
+
         taskDescription.setText(controller.getTask().getDescription());
+        taskEffort.setText(controller.getTask().getEffort() + "");
+    }
 
+    public void generateActionBar(){
 
+        ActionBar actionBar = getSupportActionBar();
+
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.mission_action_bar, null);
+
+        actionBar.setCustomView(view);
+        actionBar.setDisplayShowCustomEnabled(true);
+    }
+
+    public void actionBarSetTitle(){
+        TextView textView = (TextView)findViewById(R.id.title);
+        textView.setText(controller.getTask().getTaskname());
     }
 
 
