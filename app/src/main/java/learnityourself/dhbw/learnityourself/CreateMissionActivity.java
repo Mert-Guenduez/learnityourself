@@ -54,7 +54,7 @@ public class CreateMissionActivity extends AppCompatActivity {
         dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                Log.d("CreateMissionActivity", "mm/dd/yyyy: " + month + "/" + dayOfMonth + "/" + year);
+                Log.d("AddMissionMemberActivity", "mm/dd/yyyy: " + month + "/" + dayOfMonth + "/" + year);
 
                 String date = month + "/" + dayOfMonth + "/" + year;
                 finishDate.setText(date);
@@ -64,7 +64,7 @@ public class CreateMissionActivity extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO add User
+                controller.addUserClicked();
             }
         });
 
