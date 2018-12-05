@@ -96,7 +96,7 @@ public class ViewMissionActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.add){
-            // TODO add create new Task
+            controller.createMission();
         }
         return true;
     }

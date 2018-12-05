@@ -47,7 +47,7 @@
         </activity>
         <activity
             android:name=".CreateMissionActivity"
-            android:label="Create Mssion">
+            android:label="Create Mission">
         </activity>
     </application>
 
