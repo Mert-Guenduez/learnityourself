@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.concurrent.ExecutionException;
 
+import learnityourself.dhbw.learnityourself.CreateMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionInformationActivity;
 import learnityourself.dhbw.learnityourself.ViewTaskActivity;
@@ -88,6 +89,12 @@ public class ViewMissionController extends AuthorizedController {
         Intent intent = new Intent(context, ViewTaskActivity.class);
         intent.putExtra("user", user);
         intent.putExtra("task", tasks[position]);
+        context.startActivity(intent);
+    }
+
+    public void createMission(){
+        Intent intent = new Intent(context, CreateMissionActivity.class);
+        intent.putExtra("user", user);
         context.startActivity(intent);
     }
 }
