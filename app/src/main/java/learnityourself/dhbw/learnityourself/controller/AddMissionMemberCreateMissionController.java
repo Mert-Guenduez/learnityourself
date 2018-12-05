@@ -7,8 +7,18 @@ import learnityourself.dhbw.learnityourself.utility.MatchUser;
 
 public class AddMissionMemberCreateMissionController extends MatchUser {
 
+    private User[] matchUser;
+
     public AddMissionMemberCreateMissionController(User user, Context context){
         super(user, context);
+    }
+
+    public User[] getMatchUser() {
+        return matchUser;
+    }
+
+    public void setMatchUser(User[] matchUser) {
+        this.matchUser = matchUser;
     }
 
     @Override

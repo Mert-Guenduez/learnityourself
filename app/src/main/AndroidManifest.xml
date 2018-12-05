@@ -49,6 +49,9 @@
             android:name=".CreateMissionActivity"
             android:label="Create Mission">
         </activity>
+        <activity
+            android:name=".AddMissionMemberCreateMissionActivity">
+        </activity>
     </application>
 
 </manifest>

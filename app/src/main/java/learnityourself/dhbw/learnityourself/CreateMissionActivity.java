@@ -54,7 +54,7 @@ public class CreateMissionActivity extends AppCompatActivity {
         dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                Log.d("AddMissionMemberActivity", "mm/dd/yyyy: " + month + "/" + dayOfMonth + "/" + year);
+                Log.d("AddMissionMemberLayout", "mm/dd/yyyy: " + month + "/" + dayOfMonth + "/" + year);
 
                 String date = month + "/" + dayOfMonth + "/" + year;
                 finishDate.setText(date);
