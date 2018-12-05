@@ -50,8 +50,6 @@ public class ViewMissionInformationController extends AuthorizedController {
         }
 
         users = new Gson().fromJson(HTTPRequestHandler.getStringFromInputStream(in), User[].class);
-        System.out.println("User lenght:" + users.length);
-        System.out.println(in);
 
         ArrayList<User> arrayList = new ArrayList<>(Arrays.asList(users));
         mission.setUsers(arrayList);
