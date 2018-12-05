@@ -92,9 +92,4 @@ public class ViewMissionController extends AuthorizedController {
         context.startActivity(intent);
     }
 
-    public void createMission(){
-        Intent intent = new Intent(context, CreateMissionActivity.class);
-        intent.putExtra("user", user);
-        context.startActivity(intent);
-    }
 }
