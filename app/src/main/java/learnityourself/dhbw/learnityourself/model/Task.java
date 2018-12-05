@@ -1,6 +1,8 @@
 package learnityourself.dhbw.learnityourself.model;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable {
 
     private String taskid;
     private String taskname;

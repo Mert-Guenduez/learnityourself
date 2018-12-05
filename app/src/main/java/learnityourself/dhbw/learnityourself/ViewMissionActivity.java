@@ -73,13 +73,10 @@ public class ViewMissionActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view,int position, long arg3) {
                         // TODO Auto-generated method stub
-                        Toast.makeText(getApplicationContext(),"You Selected Item "+Integer.toString(position), Toast.LENGTH_LONG).show();
+                        controller.clickTask(position);
                     }
                 }
         );
-
-
-
 
     }
 
