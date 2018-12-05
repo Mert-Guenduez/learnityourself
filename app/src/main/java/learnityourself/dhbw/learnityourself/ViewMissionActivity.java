@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import learnityourself.dhbw.learnityourself.controller.ViewMissionController;
 import learnityourself.dhbw.learnityourself.model.Mission;
@@ -88,7 +87,7 @@ public class ViewMissionActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu_add, menu);
         return true;
     }
 
@@ -101,6 +100,5 @@ public class ViewMissionActivity extends AppCompatActivity {
         }
         return true;
     }
-
 
 }
