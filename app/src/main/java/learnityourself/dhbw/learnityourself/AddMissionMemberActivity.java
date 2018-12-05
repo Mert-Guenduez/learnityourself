@@ -1,6 +1,5 @@
 package learnityourself.dhbw.learnityourself;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -11,16 +10,10 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-
-import java.io.InputStream;
-import java.util.concurrent.ExecutionException;
-
 import learnityourself.dhbw.learnityourself.controller.AddMissionMemberController;
+import learnityourself.dhbw.learnityourself.model.AddUserAdapter;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.User;
-import learnityourself.dhbw.learnityourself.model.UserAdapter;
-import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 
 public class AddMissionMemberActivity extends AppCompatActivity {
 
@@ -60,21 +53,37 @@ public class AddMissionMemberActivity extends AppCompatActivity {
     }
 
 
-    public void setSearchUsername(User[] matchUser){
+    public void setSearchUsername(final User[] matchUser){
         // TODO Array im controller füllen
-        controller.setMatchUser(matchUser);
-        searchUsername = (ListView) findViewById(R.id.search_user_listview);
-        searchUsername.setAdapter(new UserAdapter(this, matchUser));
+        updateSetSeachUsername(matchUser);
 
         searchUsername.setOnItemClickListener(
                 new AdapterView.OnItemClickListener()
                 {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
-                        controller.addUser(controller.getMatchUser()[position].getUsername());
+                        User selectedUser = controller.getMatchUser()[position];
+                        controller.addUser(selectedUser.getUsername());
+                        controller.getMission().getUsers().add(selectedUser);
+                        updateSetSeachUsername(matchUser);
                     }
                 }
         );
+    }
+
+    public void updateSetSeachUsername(User[] matchUser){
+        controller.setMatchUser(matchUser);
+
+        for (int i = 0; i < controller.getMission().getUsers().size(); i++) {
+            for (int j = 0; j < matchUser.length; j++) {
+                if (controller.getMission().getUsers().get(i).getUsername().equals(matchUser[j].getUsername())){
+                    matchUser[j].setMember(true);
+                }
+            }
+        }
+
+        searchUsername = (ListView) findViewById(R.id.search_user_listview);
+        searchUsername.setAdapter(new AddUserAdapter(this, matchUser));
     }
 
     @Override
