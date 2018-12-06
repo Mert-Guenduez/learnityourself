@@ -14,7 +14,7 @@ UML Diagram:
 ### 2.2 Mock-Up
 Mock-Up:
 
-[Mock-Up]( 
+![Mock-Up][]
 
 ### 2.3 .feature file
 
@@ -37,3 +37,4 @@ n/a
 
 <!-- picture links -->
 [UML]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/Login/UML_Login.png "UML Diagram"
+[Mock]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/Login/Login_Mock.png "Mockup"
