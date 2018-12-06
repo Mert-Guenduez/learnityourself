@@ -14,7 +14,7 @@ UML Diagram:
 ### 2.2 Mock-Up
 Mock-Up:
 
-![Mock-Up][]
+![Mock][]
 
 ### 2.3 .feature file
 
