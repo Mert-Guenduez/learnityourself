@@ -3,6 +3,8 @@ package learnityourself.dhbw.learnityourself;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -96,5 +98,9 @@ public class ViewMissionInformationActivity extends AppCompatActivity {
         userListView.setAdapter(new UserAdapter(this, controller.getUsers()));
     }
 
+    @Override
+    public void onBackPressed() {
+        controller.keyBackHandler();
+    }
 
 }

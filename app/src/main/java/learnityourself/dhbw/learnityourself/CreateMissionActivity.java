@@ -85,4 +85,8 @@ public class CreateMissionActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    @Override
+    public void onBackPressed() {
+        controller.keyBackHandler();
+    }
 }

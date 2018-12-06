@@ -4,12 +4,15 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 
+import learnityourself.dhbw.learnityourself.model.Mission;
+
 public class Helper {
 
 
     private static Helper helper = new Helper();
     private InputStream inputStream;
     private JSONObject jsonObject;
+    private Mission mission;
 
     private Helper(){
 
@@ -33,5 +36,13 @@ public class Helper {
 
     public void setJsonObject(JSONObject jsonObject) {
         this.jsonObject = jsonObject;
+    }
+
+    public Mission getMission() {
+        return mission;
+    }
+
+    public void setMission(Mission mission) {
+        this.mission = mission;
     }
 }
