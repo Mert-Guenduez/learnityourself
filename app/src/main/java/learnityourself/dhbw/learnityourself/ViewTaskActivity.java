@@ -83,4 +83,8 @@ public class ViewTaskActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        controller.keyBackHandler();
+    }
 }

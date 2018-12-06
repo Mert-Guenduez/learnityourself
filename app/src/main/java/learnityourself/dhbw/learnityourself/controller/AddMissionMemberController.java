@@ -65,4 +65,5 @@ public class AddMissionMemberController extends MatchUser {
         intent.putExtra("mission", mission);
         context.startActivity(intent);
     }
+
 }

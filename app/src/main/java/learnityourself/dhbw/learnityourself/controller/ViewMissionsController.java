@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.CreateMissionActivity;
+import learnityourself.dhbw.learnityourself.MainActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
@@ -57,4 +58,9 @@ public class ViewMissionsController extends AuthorizedController{
         context.startActivity(intent);
     }
 
+    public void keyBackHandler(){
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra("user", user);
+        context.startActivity(intent);
+    }
 }
