@@ -14,9 +14,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3af27be7-9eff-4c84-a43d-ee6da7fbcc0e" name="Default" comment="">
+    <list default="true" id="3af27be7-9eff-4c84-a43d-ee6da7fbcc0e" name="Default" comment="[Front][Feat] update CreateMission">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberCreateMissionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/AddMissionMemberCreateMissionActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/CreateMissionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/CreateMissionActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,8 +45,8 @@
       <file leaf-file-name="CreateMissionActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/CreateMissionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="154" column="55" selection-start-line="154" selection-start-column="55" selection-end-line="154" selection-end-column="55" />
+            <state relative-caret-position="275">
+              <caret line="150" column="48" selection-start-line="150" selection-start-column="48" selection-end-line="150" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2862#3008#0" expanded="true" />
@@ -3453,7 +3452,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544296115054</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="[Front][Feat] update CreateMission">
+      <created>1544299843196</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1544299843196</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers>
       <YouTrack url="http://91.205.172.109:8000/youtrack">
         <option name="defaultSearch" value="" />
@@ -4107,8 +4113,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/learnityourself/dhbw/learnityourself/CreateMissionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="154" column="55" selection-start-line="154" selection-start-column="55" selection-end-line="154" selection-end-column="55" />
+        <state relative-caret-position="275">
+          <caret line="150" column="48" selection-start-line="150" selection-start-column="48" selection-end-line="150" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2862#3008#0" expanded="true" />

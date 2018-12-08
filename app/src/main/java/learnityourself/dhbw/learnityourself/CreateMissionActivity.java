@@ -1,5 +1,6 @@
 package learnityourself.dhbw.learnityourself;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.graphics.Color;
@@ -133,11 +134,10 @@ public class CreateMissionActivity extends AppCompatActivity {
 
         DatePickerDialog dialog = new DatePickerDialog(
                 CreateMissionActivity.this,
-                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                AlertDialog.THEME_DEVICE_DEFAULT_DARK,
                 dateSetListener,
                 year, month, day);
         dialog.getDatePicker().setMinDate(cal.getTimeInMillis() - 1000);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
     }
 
@@ -147,7 +147,7 @@ public class CreateMissionActivity extends AppCompatActivity {
         minute = cal.get(Calendar.MINUTE);
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(this,
-                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                AlertDialog.THEME_HOLO_DARK,
                 new TimePickerDialog.OnTimeSetListener() {
 
                     @Override
