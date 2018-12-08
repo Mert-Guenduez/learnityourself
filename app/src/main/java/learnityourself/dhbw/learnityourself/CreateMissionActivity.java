@@ -31,6 +31,7 @@ import learnityourself.dhbw.learnityourself.controller.CreateMissionController;
 
 import learnityourself.dhbw.learnityourself.model.MissionMemberAdapter;
 import learnityourself.dhbw.learnityourself.model.User;
+import learnityourself.dhbw.learnityourself.utility.Helper;
 
 public class CreateMissionActivity extends AppCompatActivity {
 
@@ -65,8 +66,7 @@ public class CreateMissionActivity extends AppCompatActivity {
         description.setVerticalScrollBarEnabled(true);
         description.setMovementMethod(new ScrollingMovementMethod());
 
-        finishDate.setText(defaultDay());
-        finishTime.setText(defaultTime());
+        fillComponents();
 
         missionMembersList = (ListView)findViewById(R.id.createMission_missionMember_listview);
         if (controller.getMembersNameString().length > 0){
@@ -101,10 +101,29 @@ public class CreateMissionActivity extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Helper helper = Helper.getInstance();
+                helper.setMissionname(missionName.getText().toString());
+                helper.setDescription(description.getText().toString());
+                helper.setDate(finishDate.getText().toString());
+                helper.setTime(finishTime.getText().toString());
+                helper.setCreateMissionInformation(true);
                 controller.addUserClicked();
             }
         });
 
+    }
+
+    private void fillComponents(){
+        Helper helper = Helper.getInstance();
+        if (helper.isCreateMissionInformation()){
+            missionName.setText(helper.getMissionname());
+            description.setText(helper.getDescription());
+            finishDate.setText(helper.getDate());
+            finishTime.setText(helper.getTime());
+        } else {
+            finishDate.setText(defaultDay());
+            finishTime.setText(defaultTime());
+        }
     }
 
     private String defaultDay(){
@@ -178,6 +197,7 @@ public class CreateMissionActivity extends AppCompatActivity {
                         controller.setMissionname(missionName.getText().toString());
                         controller.setDescription(description.getText().toString());
                         controller.setSeconds(getSeconds() + "");
+                        clearHelper();
                         controller.checkClickHandler();
                     }
                     return false;
@@ -185,6 +205,15 @@ public class CreateMissionActivity extends AppCompatActivity {
             });
         }
         return true;
+    }
+
+    public void clearHelper(){
+        Helper helper = Helper.getInstance();
+        helper.setTime("");
+        helper.setDate("");
+        helper.setDescription("");
+        helper.setMissionname("");
+        helper.setCreateMissionInformation(false);
     }
 
     public boolean validEntry(){

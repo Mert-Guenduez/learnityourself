@@ -7,6 +7,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 import learnityourself.dhbw.learnityourself.CreateMissionActivity;
+import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.MatchUser;
 
@@ -16,9 +17,11 @@ public class AddMissionMemberCreateMissionController extends MatchUser {
     private String membersString;
     private ArrayList<User> membersArrayList;
     private String[] membersNameString;
+    private User user;
 
     public AddMissionMemberCreateMissionController(User user, Context context){
         super(user, context);
+        this.user = user;
         membersArrayList = new ArrayList<>();
     }
 
@@ -47,6 +50,15 @@ public class AddMissionMemberCreateMissionController extends MatchUser {
     }
 
     @Override
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
     protected void init() {
 
     }
@@ -70,5 +82,11 @@ public class AddMissionMemberCreateMissionController extends MatchUser {
 
     public String[] getMembersNameString() {
         return membersNameString;
+    }
+
+    public void keyBackHandler(){
+        Intent intent = new Intent(context, CreateMissionActivity.class);
+        intent.putExtra("user", user);
+        context.startActivity(intent);
     }
 }

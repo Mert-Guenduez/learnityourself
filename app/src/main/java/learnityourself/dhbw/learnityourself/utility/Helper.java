@@ -13,6 +13,8 @@ public class Helper {
     private InputStream inputStream;
     private JSONObject jsonObject;
     private Mission mission;
+    private String missionname, description, date, time;
+    private boolean createMissionInformation;
 
     private Helper(){
 
@@ -44,5 +46,45 @@ public class Helper {
 
     public void setMission(Mission mission) {
         this.mission = mission;
+    }
+
+    public String getMissionname() {
+        return missionname;
+    }
+
+    public void setMissionname(String missionname) {
+        this.missionname = missionname;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public boolean isCreateMissionInformation() {
+        return createMissionInformation;
+    }
+
+    public void setCreateMissionInformation(boolean createMissionInformation) {
+        this.createMissionInformation = createMissionInformation;
     }
 }

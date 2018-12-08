@@ -67,14 +67,17 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
                         User user = controller.getMatchUser()[position];
-                        if (!controller.getMembersArrayList().contains(user)){
-                            controller.getMembersArrayList().add(user);
-                            addUserToString(user);
-                        } else {
-                            controller.getMembersArrayList().remove(user);
-                            deleteUserFromString(user);
+                        if (!user.getUsername().equals(controller.getUser().getUsername())){
+                            if (!controller.getMembersArrayList().contains(user)){
+                                controller.getMembersArrayList().add(user);
+                                addUserToString(user);
+                            } else {
+                                controller.getMembersArrayList().remove(user);
+                                deleteUserFromString(user);
+                            }
+                            updateSetSeachUsername(matchUser);
                         }
-                        updateSetSeachUsername(matchUser);
+
                     }
                 }
         );
@@ -111,7 +114,8 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
     public void editSetMember(User[] matchUser){
         for (int i = 0; i < controller.getMembersArrayList().size(); i++) {
             for (int j = 0; j < matchUser.length; j++) {
-                if (controller.getMembersArrayList().contains(matchUser[j])){
+                if (controller.getMembersArrayList().contains(matchUser[j]) |
+                controller.getUser().getUsername().equals(matchUser[j].getUsername())){
                     matchUser[j].setMember(true);
                 } else {
                     matchUser[j].setMember(false);
@@ -121,7 +125,11 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
 
         if (controller.getMembersArrayList().size() == 0){
             for (int i = 0; i < matchUser.length; i++) {
-                matchUser[i].setMember(false);
+                if (!controller.getUser().getUsername().equals(matchUser[i].getUsername())){
+                    matchUser[i].setMember(false);
+                } else {
+                    matchUser[i].setMember(true);
+                }
             }
         }
     }
@@ -147,5 +155,10 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
             });
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        controller.keyBackHandler();
     }
 }
