@@ -84,7 +84,6 @@ public class CreateMissionController extends AuthorizedController {
     }
 
     public void createMission(){
-        System.out.println("MEMBERSSTRING: " + membersString);
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
@@ -101,7 +100,9 @@ public class CreateMissionController extends AuthorizedController {
             e.printStackTrace();
         }
 
-        System.out.println("ERGEBNIS: " + in.toString());
+        String inputString=HTTPRequestHandler.getStringFromInputStream(in);
+
+        System.out.println("ERGEBNIS: " + inputString);
     }
 
     public void keyBackHandler(){
