@@ -8,6 +8,22 @@
     tools:context=".ViewMissionInformationActivity"
     tools:layout_editor_absoluteY="81dp">
 
+    <TextView
+        android:id="@+id/date_createMission_textview2"
+        android:layout_width="80dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="__/__/____"
+        app:layout_constraintBottom_toTopOf="@+id/missionMember_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toEndOf="@+id/finishDate_label"
+        app:layout_constraintTop_toBottomOf="@+id/createMission_description_textview"
+        app:layout_constraintVertical_bias="0.25" />
+
     <EditText
         android:id="@+id/createMission_description_textview"
         android:layout_width="259dp"
@@ -43,7 +59,8 @@
         android:layout_marginBottom="6dp"
         android:text="Finish Date:"
         app:layout_constraintBottom_toTopOf="@+id/edit_createMission_imageButton"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/time_createMission_textview"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description_label" />
 
@@ -102,8 +119,8 @@
 
     <TextView
         android:id="@+id/date_createMission_textview"
-        android:layout_width="255dp"
-        android:layout_height="28dp"
+        android:layout_width="80dp"
+        android:layout_height="22dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
@@ -111,9 +128,20 @@
         android:text="__/__/____"
         app:layout_constraintBottom_toTopOf="@+id/missionMember_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toEndOf="@+id/finishDate_label"
         app:layout_constraintTop_toBottomOf="@+id/createMission_description_textview"
-        app:layout_constraintVertical_bias="0.625" />
+        app:layout_constraintVertical_bias="0.25" />
+
+    <TextView
+        android:id="@+id/time_createMission_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="9dp"
+        android:text="__:__"
+        app:layout_constraintStart_toStartOf="@+id/createMission_description_textview"
+        app:layout_constraintTop_toBottomOf="@+id/createMission_description_textview" />
 
 </android.support.constraint.ConstraintLayout>
