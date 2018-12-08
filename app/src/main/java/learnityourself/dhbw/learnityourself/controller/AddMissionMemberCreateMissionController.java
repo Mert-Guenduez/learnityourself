@@ -67,4 +67,8 @@ public class AddMissionMemberCreateMissionController extends MatchUser {
             membersNameString[i] = membersArrayList.get(i).getUsername();
         }
     }
+
+    public String[] getMembersNameString() {
+        return membersNameString;
+    }
 }

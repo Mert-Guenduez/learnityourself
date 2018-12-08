@@ -67,12 +67,23 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
                         User user = controller.getMatchUser()[position];
-                        if (buffer.length() == 0){
-                            buffer.append("\"" + user.getUsername() + "\"");
+                        if (!controller.getMembersArrayList().contains(user)){
+                            controller.getMembersArrayList().add(user);
+                            if (buffer.length() == 0){
+                                buffer.append("\"" + user.getUsername() + "\"");
+                            } else {
+                                buffer.append(",\"" + user.getUsername() + "\"");
+                            }
                         } else {
-                            buffer.append(",\"" + user.getUsername() + "\"");
+                            controller.getMembersArrayList().remove(user);
+                            int index = buffer.indexOf(user.getUsername());
+                            if (index > 1){
+                                buffer.delete(index-2, index + user.getUsername().length()+1);
+                            } else {
+                                buffer.delete(index-1, index + user.getUsername().length()+1);
+                            }
                         }
-                        controller.getMembersArrayList().add(user);
+                        updateSetSeachUsername(matchUser);
                     }
                 }
         );
@@ -83,15 +94,21 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
     public void updateSetSeachUsername(User[] matchUser){
         controller.setMatchUser(matchUser);
 
-        /*
-        for (int i = 0; i < controller.getMission().getUsers().size(); i++) {
+        for (int i = 0; i < controller.getMembersArrayList().size(); i++) {
             for (int j = 0; j < matchUser.length; j++) {
-                if (controller.getMission().getUsers().get(i).getUsername().equals(matchUser[j].getUsername())){
+                if (controller.getMembersArrayList().contains(matchUser[j])){
                     matchUser[j].setMember(true);
+                } else {
+                    matchUser[j].setMember(false);
                 }
             }
         }
-        */
+
+        if (controller.getMembersArrayList().size() == 0){
+            for (int i = 0; i < matchUser.length; i++) {
+                matchUser[i].setMember(false);
+            }
+        }
 
         searchUsername = (ListView) findViewById(R.id.search_user_listview);
         searchUsername.setAdapter(new AddUserAdapter(this, matchUser));
