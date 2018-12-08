@@ -78,7 +78,7 @@ public class ViewTaskActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.edit){
-            // TODO add edit Task
+            controller.editTask();
         }
         return true;
     }

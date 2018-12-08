@@ -7,6 +7,7 @@ public class Task implements Serializable {
     private String taskid;
     private String taskname;
     private String description;
+    private String missionid;
     private int effort;
 
     public String getDescription() {
@@ -42,6 +43,15 @@ public class Task implements Serializable {
     public void setTaskname(String taskname) {
         this.taskname = taskname;
     }
+
+    public String getMissionid() {
+        return missionid;
+    }
+
+    public void setMissionid(String missionid) {
+        this.missionid = missionid;
+    }
+
 
 
 }

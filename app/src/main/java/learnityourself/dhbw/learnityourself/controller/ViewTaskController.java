@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 
+import learnityourself.dhbw.learnityourself.ManageTaskActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
@@ -42,7 +43,6 @@ public class ViewTaskController extends AuthorizedController{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         task = new Gson().fromJson(HTTPRequestHandler.getStringFromInputStream(in), Task.class);
 
     }
@@ -59,6 +59,13 @@ public class ViewTaskController extends AuthorizedController{
         Intent intent = new Intent(context, ViewMissionActivity.class);
         intent.putExtra("user", user);
         intent.putExtra("mission", Helper.getInstance().getMission());
+        context.startActivity(intent);
+    }
+
+    public void editTask() {
+        Intent intent = new Intent(context, ManageTaskActivity.class);
+        intent.putExtra("user", user);
+        intent.putExtra("task", task);
         context.startActivity(intent);
     }
 }
