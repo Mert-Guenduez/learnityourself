@@ -6,17 +6,22 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import learnityourself.dhbw.learnityourself.controller.CreateMissionController;
 
+import learnityourself.dhbw.learnityourself.model.MissionMemberAdapter;
 import learnityourself.dhbw.learnityourself.model.User;
 
 public class CreateMissionActivity extends AppCompatActivity {
@@ -33,16 +38,22 @@ public class CreateMissionActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_mission);
-        controller=new CreateMissionController((User)getIntent().getSerializableExtra("user"),this);
-
+        controller=new CreateMissionController((User)getIntent().getSerializableExtra("user"),
+                (String)getIntent().getExtras().get("membersString"),
+                getIntent().getStringArrayExtra("membersNameString"),this);
         init();
     }
 
     void init(){
         missionName = findViewById(R.id.missionName_editText);
         finishDate = findViewById(R.id.date_createMission_textview);
-        missionMembersList = findViewById(R.id.createMission_missionMember_listview);
         edit = findViewById(R.id.edit_createMission_imageButton);
+
+        missionMembersList = (ListView)findViewById(R.id.createMission_missionMember_listview);
+        if (controller.getMembersNameString().length > 0){
+            missionMembersList.setAdapter(new MissionMemberAdapter(this, controller.getMembersNameString()));
+        }
+
 
         finishDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +94,28 @@ public class CreateMissionActivity extends AppCompatActivity {
                 year, month, day);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_check, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if (id == R.id.check){
+            item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    controller.checkClickHandler();
+                    return false;
+                }
+            });
+        }
+        return true;
     }
 
     @Override

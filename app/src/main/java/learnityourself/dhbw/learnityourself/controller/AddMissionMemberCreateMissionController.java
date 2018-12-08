@@ -1,22 +1,25 @@
 package learnityourself.dhbw.learnityourself.controller;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 
-import com.google.gson.Gson;
+import java.util.ArrayList;
 
-import java.io.InputStream;
-import java.util.concurrent.ExecutionException;
-
+import learnityourself.dhbw.learnityourself.CreateMissionActivity;
 import learnityourself.dhbw.learnityourself.model.User;
-import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 import learnityourself.dhbw.learnityourself.utility.MatchUser;
 
 public class AddMissionMemberCreateMissionController extends MatchUser {
 
     private User[] matchUser;
+    private String membersString;
+    private ArrayList<User> membersArrayList;
+    private String[] membersNameString;
 
     public AddMissionMemberCreateMissionController(User user, Context context){
         super(user, context);
+        membersArrayList = new ArrayList<>();
     }
 
     public User[] getMatchUser() {
@@ -27,9 +30,41 @@ public class AddMissionMemberCreateMissionController extends MatchUser {
         this.matchUser = matchUser;
     }
 
+    public ArrayList<User> getMembersArrayList() {
+        return membersArrayList;
+    }
+
+    public void setMembersArrayList(ArrayList<User> membersArrayList) {
+        this.membersArrayList = membersArrayList;
+    }
+
+    public String getMembersString() {
+        return membersString;
+    }
+
+    public void setMembersString(String membersString) {
+        this.membersString = membersString;
+    }
+
     @Override
     protected void init() {
 
     }
 
+    public void checkClickHandler() {
+        setMembersNameString();
+
+        Intent intent = new Intent(context, CreateMissionActivity.class);
+        intent.putExtra("user", user);
+        intent.putExtra("membersString", membersString);
+        intent.putExtra("membersNameString", membersNameString);
+        context.startActivity(intent);
+    }
+
+    public void setMembersNameString() {
+        membersNameString = new String[membersArrayList.size()];
+        for (int i = 0; i < membersArrayList.size(); i++) {
+            membersNameString[i] = membersArrayList.get(i).getUsername();
+        }
+    }
 }

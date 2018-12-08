@@ -20,6 +20,7 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
     private SearchView searchView;
     private ListView searchUsername;
     private AddMissionMemberCreateMissionController controller;
+    private StringBuffer buffer;
 
 
     @Override
@@ -32,6 +33,12 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
         searchView = findViewById(R.id.user_searchView);
         searchUsername = findViewById(R.id.search_user_listview);
 
+        String members = controller.getMembersString();
+        if (members == null){
+            buffer = new StringBuffer();
+        } else {
+            buffer = new StringBuffer(members);
+        }
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -59,15 +66,17 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
                 {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
-                        User selectedUser = controller.getMatchUser()[position];
-                        /*
-                        controller.addUser(selectedUser.getUsername());
-                        controller.getMission().getUsers().add(selectedUser);
-                        updateSetSeachUsername(matchUser);
-                        */
+                        User user = controller.getMatchUser()[position];
+                        if (buffer.length() == 0){
+                            buffer.append("\"" + user.getUsername() + "\"");
+                        } else {
+                            buffer.append(",\"" + user.getUsername() + "\"");
+                        }
+                        controller.getMembersArrayList().add(user);
                     }
                 }
         );
+
     }
 
 
@@ -102,7 +111,8 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
             item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                   // controller.checkClickHandler();
+                    controller.setMembersString(buffer.toString());
+                    controller.checkClickHandler();
                     return false;
                 }
             });
