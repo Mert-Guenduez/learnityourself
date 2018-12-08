@@ -14,8 +14,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.concurrent.ExecutionException;
 
+import learnityourself.dhbw.learnityourself.CreateMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionInformationActivity;
+import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.ViewTaskActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.Task;
@@ -67,7 +69,6 @@ public class ViewMissionController extends AuthorizedController {
         this.mission=mission;
     }
 
-
     public Task[] getTasks() {
         return tasks;
     }
@@ -85,9 +86,18 @@ public class ViewMissionController extends AuthorizedController {
     }
 
     public void clickTask(int position) {
+        Helper.getInstance().setMission(mission);
+
         Intent intent = new Intent(context, ViewTaskActivity.class);
         intent.putExtra("user", user);
         intent.putExtra("task", tasks[position]);
         context.startActivity(intent);
     }
+
+    public void keyBackHandler(){
+        Intent intent = new Intent(context, ViewMissionsActivity.class);
+        intent.putExtra("user", user);
+        context.startActivity(intent);
+    }
+
 }

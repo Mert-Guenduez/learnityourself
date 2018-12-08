@@ -10,17 +10,16 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-import learnityourself.dhbw.learnityourself.controller.AddMissionMemberController;
+import learnityourself.dhbw.learnityourself.controller.AddMissionMemberCreateMissionController;
 import learnityourself.dhbw.learnityourself.model.AddUserAdapter;
-import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.User;
 
-public class AddMissionMemberActivity extends AppCompatActivity {
+public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
 
     private TextView username_field;
     private SearchView searchView;
     private ListView searchUsername;
-    private AddMissionMemberController controller;
+    private AddMissionMemberCreateMissionController controller;
 
 
     @Override
@@ -28,8 +27,7 @@ public class AddMissionMemberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_missionmember);
 
-        controller = new AddMissionMemberController((User) getIntent().getSerializableExtra("user"),this);
-        controller.setMission((Mission)getIntent().getSerializableExtra("mission"));
+        controller = new AddMissionMemberCreateMissionController((User) getIntent().getSerializableExtra("user"),this);
         username_field = findViewById(R.id.search_username_label);
         searchView = findViewById(R.id.user_searchView);
         searchUsername = findViewById(R.id.search_user_listview);
@@ -62,9 +60,11 @@ public class AddMissionMemberActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
                         User selectedUser = controller.getMatchUser()[position];
+                        /*
                         controller.addUser(selectedUser.getUsername());
                         controller.getMission().getUsers().add(selectedUser);
                         updateSetSeachUsername(matchUser);
+                        */
                     }
                 }
         );
@@ -74,6 +74,7 @@ public class AddMissionMemberActivity extends AppCompatActivity {
     public void updateSetSeachUsername(User[] matchUser){
         controller.setMatchUser(matchUser);
 
+        /*
         for (int i = 0; i < controller.getMission().getUsers().size(); i++) {
             for (int j = 0; j < matchUser.length; j++) {
                 if (controller.getMission().getUsers().get(i).getUsername().equals(matchUser[j].getUsername())){
@@ -81,6 +82,7 @@ public class AddMissionMemberActivity extends AppCompatActivity {
                 }
             }
         }
+        */
 
         searchUsername = (ListView) findViewById(R.id.search_user_listview);
         searchUsername.setAdapter(new AddUserAdapter(this, matchUser));
@@ -100,12 +102,11 @@ public class AddMissionMemberActivity extends AppCompatActivity {
             item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    controller.checkClickHandler();
+                   // controller.checkClickHandler();
                     return false;
                 }
             });
         }
         return true;
     }
-
 }

@@ -18,7 +18,7 @@ Mock-Up:
 
 ### 2.3 .feature file
 
-[Feature](https://github.com/Mert-Guenduez/learnityourself/blob/master/app/src/androidTest/assets/res/Login.feature)
+[Feature](https://github.com/Mert-Guenduez/learnityourself/blob/master/app/src/androidTest/assets/res/AddUser.feature)
 
 ## 3. Special Requirements
 ### 3.1 Existing account
@@ -36,5 +36,5 @@ The user will have a session key and see the Main Activity
 n/a
 
 <!-- picture links -->
-[UML]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/Login/UML_Login.png "UML Diagram"
-[Mock]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/Login/Login_Mock.png "Mockup"
+[UML]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/AddUser/UML_AddUser.png "UML Diagram"
+[Mock]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/Login/AddUser_Mock.png "Mockup"

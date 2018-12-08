@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.AddMissionMemberActivity;
+import learnityourself.dhbw.learnityourself.ViewMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionInformationActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.User;
@@ -57,6 +58,13 @@ public class ViewMissionInformationController extends AuthorizedController {
 
     public void addUserClicked() {
         Intent intent = new Intent(context, AddMissionMemberActivity.class);
+        intent.putExtra("user", user);
+        intent.putExtra("mission", mission);
+        context.startActivity(intent);
+    }
+
+    public void keyBackHandler(){
+        Intent intent = new Intent(context, ViewMissionActivity.class);
         intent.putExtra("user", user);
         intent.putExtra("mission", mission);
         context.startActivity(intent);

@@ -1,6 +1,7 @@
 package learnityourself.dhbw.learnityourself.controller;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.MenuItem;
 
 import com.google.gson.Gson;
@@ -8,10 +9,13 @@ import com.google.gson.Gson;
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 
+import learnityourself.dhbw.learnityourself.ViewMissionActivity;
+import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.Task;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
+import learnityourself.dhbw.learnityourself.utility.Helper;
 
 public class ViewTaskController extends AuthorizedController{
 
@@ -43,13 +47,18 @@ public class ViewTaskController extends AuthorizedController{
 
     }
 
-
     public void setTask(Task task) {
         this.task = task;
     }
 
-
     public Task getTask() {
         return task;
+    }
+
+    public void keyBackHandler(){
+        Intent intent = new Intent(context, ViewMissionActivity.class);
+        intent.putExtra("user", user);
+        intent.putExtra("mission", Helper.getInstance().getMission());
+        context.startActivity(intent);
     }
 }

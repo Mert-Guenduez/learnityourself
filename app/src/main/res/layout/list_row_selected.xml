@@ -16,7 +16,7 @@
         android:paddingLeft="20dip"
         android:scrollHorizontally="true"
         android:singleLine="true"
-        android:textColor="#666d70"
+        android:textColor="#4c899b"
         android:textSize="15dip"
         android:textStyle="bold"></TextView>
     <TextView
