@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +16,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Scroller;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -57,6 +59,14 @@ public class CreateMissionActivity extends AppCompatActivity {
         finishTime = findViewById(R.id.time_createMission_textview);
         edit = findViewById(R.id.edit_createMission_imageButton);
 
+        description.setScroller(new Scroller(this));
+        description.setMaxLines(3);
+        description.setVerticalScrollBarEnabled(true);
+        description.setMovementMethod(new ScrollingMovementMethod());
+
+        finishDate.setText(defaultDay());
+        finishTime.setText(defaultTime());
+
         missionMembersList = (ListView)findViewById(R.id.createMission_missionMember_listview);
         if (controller.getMembersNameString().length > 0){
             missionMembersList.setAdapter(new MissionMemberAdapter(this, controller.getMembersNameString()));
@@ -82,7 +92,7 @@ public class CreateMissionActivity extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 Log.d("AddMissionMemberLayout", "mm/dd/yyyy: " + month + "/" + dayOfMonth + "/" + year);
 
-                String date = month + "/" + dayOfMonth + "/" + year;
+                String date = month+1 + "/" + dayOfMonth + "/" + year;
                 finishDate.setText(date);
             }
         };
@@ -96,8 +106,27 @@ public class CreateMissionActivity extends AppCompatActivity {
 
     }
 
+    private String defaultDay(){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DAY_OF_MONTH, 1);
+        year = cal.get(Calendar.YEAR);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH);
+
+        return month+1 + "/" + day + "/" + year;
+    }
+
+    private String defaultTime(){
+        Calendar cal = Calendar.getInstance();
+        hour = cal.get(Calendar.HOUR_OF_DAY);
+        minute = cal.get(Calendar.MINUTE);
+
+        return hour + ":" + minute;
+    }
+
     private void datePicker(){
         Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DAY_OF_MONTH, 1);
         year = cal.get(Calendar.YEAR);
         month = cal.get(Calendar.MONTH);
         day = cal.get(Calendar.DAY_OF_MONTH);
@@ -107,6 +136,7 @@ public class CreateMissionActivity extends AppCompatActivity {
                 android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                 dateSetListener,
                 year, month, day);
+        dialog.getDatePicker().setMinDate(cal.getTimeInMillis() - 1000);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
     }
@@ -117,13 +147,14 @@ public class CreateMissionActivity extends AppCompatActivity {
         minute = cal.get(Calendar.MINUTE);
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                 new TimePickerDialog.OnTimeSetListener() {
 
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay,
                                           int minute) {
-
-                        finishTime.setText(hourOfDay + ":" + minute);
+                        // TODO check Minutes
+                        finishTime.setText(hourOfDay + ":" + ((minute<10)? "0" + (minute) : minute));
                     }
                 }, hour, minute, false);
         timePickerDialog.show();
@@ -143,13 +174,27 @@ public class CreateMissionActivity extends AppCompatActivity {
             item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    controller.setMissionname(missionName.getText().toString());
-                    controller.setDescription(description.getText().toString());
-                    controller.setSeconds(getSeconds() + "");
-                    controller.checkClickHandler();
+                    if (validEntry()){
+                        controller.setMissionname(missionName.getText().toString());
+                        controller.setDescription(description.getText().toString());
+                        controller.setSeconds(getSeconds() + "");
+                        controller.checkClickHandler();
+                    }
                     return false;
                 }
             });
+        }
+        return true;
+    }
+
+    public boolean validEntry(){
+        if (missionName.getText().toString().isEmpty()){
+            missionName.setError("Insert Missionname.");
+            return false;
+        }
+        if (description.getText().toString().isEmpty()){
+            description.setError("Insert Description");
+            return false;
         }
         return true;
     }
