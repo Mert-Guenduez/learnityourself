@@ -69,19 +69,10 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
                         User user = controller.getMatchUser()[position];
                         if (!controller.getMembersArrayList().contains(user)){
                             controller.getMembersArrayList().add(user);
-                            if (buffer.length() == 0){
-                                buffer.append("\"" + user.getUsername() + "\"");
-                            } else {
-                                buffer.append(",\"" + user.getUsername() + "\"");
-                            }
+                            addUserToString(user);
                         } else {
                             controller.getMembersArrayList().remove(user);
-                            int index = buffer.indexOf(user.getUsername());
-                            if (index > 1){
-                                buffer.delete(index-2, index + user.getUsername().length()+1);
-                            } else {
-                                buffer.delete(index-1, index + user.getUsername().length()+1);
-                            }
+                            deleteUserFromString(user);
                         }
                         updateSetSeachUsername(matchUser);
                     }
@@ -90,10 +81,34 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
 
     }
 
+    public void addUserToString(User user){
+        if (buffer.length() == 0){
+            buffer.append("\"" + user.getUsername() + "\"");
+        } else {
+            buffer.append(",\"" + user.getUsername() + "\"");
+        }
+    }
+
+    public void deleteUserFromString(User user){
+        int index = buffer.indexOf(user.getUsername());
+        if (index > 1){
+            buffer.delete(index-2, index + user.getUsername().length()+1);
+        } else {
+            buffer.delete(index-1, index + user.getUsername().length()+1);
+        }
+    }
+
 
     public void updateSetSeachUsername(User[] matchUser){
         controller.setMatchUser(matchUser);
 
+        editSetMember(matchUser);
+
+        searchUsername = (ListView) findViewById(R.id.search_user_listview);
+        searchUsername.setAdapter(new AddUserAdapter(this, matchUser));
+    }
+
+    public void editSetMember(User[] matchUser){
         for (int i = 0; i < controller.getMembersArrayList().size(); i++) {
             for (int j = 0; j < matchUser.length; j++) {
                 if (controller.getMembersArrayList().contains(matchUser[j])){
@@ -109,9 +124,6 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
                 matchUser[i].setMember(false);
             }
         }
-
-        searchUsername = (ListView) findViewById(R.id.search_user_listview);
-        searchUsername.setAdapter(new AddUserAdapter(this, matchUser));
     }
 
     @Override

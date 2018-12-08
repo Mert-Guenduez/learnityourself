@@ -126,6 +126,7 @@ public class CreateMissionActivity extends AppCompatActivity {
 
     private void datePicker(){
         Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DAY_OF_MONTH, 1);
         year = cal.get(Calendar.YEAR);
         month = cal.get(Calendar.MONTH);
         day = cal.get(Calendar.DAY_OF_MONTH);
@@ -135,6 +136,7 @@ public class CreateMissionActivity extends AppCompatActivity {
                 android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                 dateSetListener,
                 year, month, day);
+        dialog.getDatePicker().setMinDate(cal.getTimeInMillis() - 1000);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
     }
@@ -145,13 +147,14 @@ public class CreateMissionActivity extends AppCompatActivity {
         minute = cal.get(Calendar.MINUTE);
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                 new TimePickerDialog.OnTimeSetListener() {
 
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay,
                                           int minute) {
-
-                        finishTime.setText(hourOfDay + ":" + minute);
+                        // TODO check Minutes
+                        finishTime.setText(hourOfDay + ":" + ((minute<10)? "0" + (minute) : minute));
                     }
                 }, hour, minute, false);
         timePickerDialog.show();
@@ -171,13 +174,27 @@ public class CreateMissionActivity extends AppCompatActivity {
             item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    controller.setMissionname(missionName.getText().toString());
-                    controller.setDescription(description.getText().toString());
-                    controller.setSeconds(getSeconds() + "");
-                    controller.checkClickHandler();
+                    if (validEntry()){
+                        controller.setMissionname(missionName.getText().toString());
+                        controller.setDescription(description.getText().toString());
+                        controller.setSeconds(getSeconds() + "");
+                        controller.checkClickHandler();
+                    }
                     return false;
                 }
             });
+        }
+        return true;
+    }
+
+    public boolean validEntry(){
+        if (missionName.getText().toString().isEmpty()){
+            missionName.setError("Insert Missionname.");
+            return false;
+        }
+        if (description.getText().toString().isEmpty()){
+            description.setError("Insert Description");
+            return false;
         }
         return true;
     }
