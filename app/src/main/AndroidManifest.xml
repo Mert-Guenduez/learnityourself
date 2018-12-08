@@ -52,6 +52,9 @@
         <activity
             android:name=".AddMissionMemberCreateMissionActivity">
         </activity>
+        <activity
+            android:name=".ManageTaskActivity">
+        </activity>
     </application>
 
 </manifest>
