@@ -102,4 +102,17 @@ public class MainController {
 
     public void keyBackHandler(){
     }
+
+    public void logout() {
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        InputStream in  = null;
+        try {
+            in = handler.execute("https://91.205.172.109/logout.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        context.startActivity(new Intent(context, LoginActivity.class));
+    }
 }

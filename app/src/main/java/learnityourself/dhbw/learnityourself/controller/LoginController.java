@@ -64,8 +64,7 @@ public class LoginController {
         }
         //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
         String inputString=HTTPRequestHandler.getStringFromInputStream(in);
-
-        if(inputString.equals("{\"error\":\"Authentication failure\"}")){
+        if(inputString.contains("false")){
             username_field.setError("Wrong Username or Password.");
         }else{
 

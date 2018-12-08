@@ -100,4 +100,24 @@ public class ViewMissionController extends AuthorizedController {
         context.startActivity(intent);
     }
 
+    public void createTask() {
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        InputStream in  = null;
+        try {
+            in = handler.execute("https://91.205.172.109/createTask.php","username",
+                    user.getUsername(),"sessionkey", user.getSessionkey(),
+                    "missionid", mission.getMissionid(), "taskname", "New Task", "description", "", "effort", "0")
+                    .get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Intent intent = new Intent(context, ViewMissionActivity.class);
+        intent.putExtra("user", user);
+        intent.putExtra("mission", mission);
+        context.startActivity(intent);
+
+    }
 }
