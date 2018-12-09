@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Scroller;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -29,6 +30,7 @@ import java.util.Date;
 
 import learnityourself.dhbw.learnityourself.controller.CreateMissionController;
 
+import learnityourself.dhbw.learnityourself.model.AddUserAdapter;
 import learnityourself.dhbw.learnityourself.model.MissionMemberAdapter;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.Helper;
@@ -37,20 +39,24 @@ public class CreateMissionActivity extends AppCompatActivity {
 
     private EditText missionName, description;
     private TextView finishDate, finishTime;
-    private ListView missionMembersList;
-    private ImageButton edit;
+    private ListView searchUsername;
+    private SearchView searchView;
     private DatePickerDialog.OnDateSetListener dateSetListener;
     private CreateMissionController controller;
     private int day, month, year, hour, minute;
+    private StringBuffer buffer;
+    Helper helper = Helper.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_mission);
+
         controller=new CreateMissionController((User)getIntent().getSerializableExtra("user"),
                 (String)getIntent().getExtras().get("membersString"),
                 getIntent().getStringArrayExtra("membersNameString"),this);
+
         init();
     }
 
@@ -59,7 +65,7 @@ public class CreateMissionActivity extends AppCompatActivity {
         description = findViewById(R.id.createMission_description_textview);
         finishDate = findViewById(R.id.date_createMission_textview);
         finishTime = findViewById(R.id.time_createMission_textview);
-        edit = findViewById(R.id.edit_createMission_imageButton);
+        searchView = findViewById(R.id.createMission_searchView);
 
         description.setScroller(new Scroller(this));
         description.setMaxLines(3);
@@ -67,12 +73,6 @@ public class CreateMissionActivity extends AppCompatActivity {
         description.setMovementMethod(new ScrollingMovementMethod());
 
         fillComponents();
-
-        missionMembersList = (ListView)findViewById(R.id.createMission_missionMember_listview);
-        if (controller.getMembersNameString().length > 0){
-            missionMembersList.setAdapter(new MissionMemberAdapter(this, controller.getMembersNameString()));
-        }
-
 
         finishDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,32 +97,121 @@ public class CreateMissionActivity extends AppCompatActivity {
             }
         };
 
-        edit.setOnClickListener(new View.OnClickListener() {
+        String members = controller.getMembersString();
+        if (members == null){
+            buffer = new StringBuffer();
+        } else {
+            buffer = new StringBuffer(members);
+        }
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
             @Override
-            public void onClick(View v) {
-                Helper helper = Helper.getInstance();
-                helper.setMissionname(missionName.getText().toString());
-                helper.setDescription(description.getText().toString());
-                helper.setDate(finishDate.getText().toString());
-                helper.setTime(finishTime.getText().toString());
-                helper.setCreateMissionInformation(true);
-                controller.addUserClicked();
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                setSearchUsername(controller.matchUser(newText));
+                return false;
             }
         });
 
     }
 
-    private void fillComponents(){
-        Helper helper = Helper.getInstance();
-        if (helper.isCreateMissionInformation()){
-            missionName.setText(helper.getMissionname());
-            description.setText(helper.getDescription());
-            finishDate.setText(helper.getDate());
-            finishTime.setText(helper.getTime());
+    public void setSearchUsername(final User[] matchUser){
+        // TODO Array im controller füllen
+        updateSetSeachUsername(matchUser);
+
+        searchUsername.setOnItemClickListener(
+                new AdapterView.OnItemClickListener()
+                {
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
+                        User user = controller.getMatchUser()[position];
+                        if (!user.getUsername().equals(controller.getUser().getUsername())){
+                            if (!controller.getMembersArrayList().contains(user)){
+                                controller.getMembersArrayList().add(user);
+                                addUserToString(user);
+                            } else {
+                                controller.getMembersArrayList().remove(user);
+                                deleteUserFromString(user);
+                            }
+                            updateSetSeachUsername(matchUser);
+                        }
+                    }
+                }
+        );
+
+    }
+
+    public void addUserToString(User user){
+        if (buffer.length() == 0){
+            buffer.append("{\"users\":[\"" + user.getUsername() + "\"");
         } else {
-            finishDate.setText(defaultDay());
-            finishTime.setText(defaultTime());
+            buffer.append(",\"" + user.getUsername() + "\"");
         }
+    }
+
+    public void deleteUserFromString(User user){
+        int index = buffer.indexOf(user.getUsername());
+        if (index > 12){
+            buffer.delete(index-2, index + user.getUsername().length()+1);
+        } else {
+            buffer.delete(index-1, index + user.getUsername().length()+1);
+        }
+    }
+
+
+    public void updateSetSeachUsername(User[] matchUser){
+
+        controller.setMatchUser(matchUser);
+
+        editSetMember(matchUser);
+
+        searchUsername = (ListView) findViewById(R.id.createMission_missionMember_listview);
+        searchUsername.setAdapter(new AddUserAdapter(this, matchUser));
+    }
+
+    public void editSetMember(User[] matchUser){
+
+        for (int i = 0; i < controller.getMembersArrayList().size(); i++) {
+            for (int j = 0; j < matchUser.length; j++) {
+                if (controller.getMembersArrayList().contains(matchUser[j]) |
+                        controller.getUser().getUsername().equals(matchUser[j].getUsername())){
+                    matchUser[j].setMember(true);
+                } else {
+                    matchUser[j].setMember(false);
+                }
+            }
+        }
+
+        if (controller.getMembersArrayList().size() == 0){
+            for (int i = 0; i < matchUser.length; i++) {
+                if (!controller.getUser().getUsername().equals(matchUser[i].getUsername())){
+                    matchUser[i].setMember(false);
+                } else {
+                    matchUser[i].setMember(true);
+                }
+            }
+        }
+    }
+
+    public String endBuffer(){
+        if (buffer.length()==12){
+            buffer.delete(0,11);
+        } else if (buffer.length()>12){
+            buffer.append("]}");
+        }
+        return buffer.toString();
+    }
+
+    private void fillComponents(){
+        finishDate.setText(defaultDay());
+        finishTime.setText(defaultTime());
+
     }
 
     private String defaultDay(){
@@ -204,7 +293,7 @@ public class CreateMissionActivity extends AppCompatActivity {
                         controller.setMissionname(missionName.getText().toString());
                         controller.setDescription(description.getText().toString());
                         controller.setSeconds(getSeconds() + "");
-                        clearHelper();
+                        controller.setMembersString(endBuffer());
                         controller.checkClickHandler();
                     }
                     return false;
@@ -212,15 +301,6 @@ public class CreateMissionActivity extends AppCompatActivity {
             });
         }
         return true;
-    }
-
-    public void clearHelper(){
-        Helper helper = Helper.getInstance();
-        helper.setTime("");
-        helper.setDate("");
-        helper.setDescription("");
-        helper.setMissionname("");
-        helper.setCreateMissionInformation(false);
     }
 
     public boolean validEntry(){

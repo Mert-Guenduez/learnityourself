@@ -57,7 +57,7 @@
     <ListView
         android:id="@+id/createMission_missionMember_listview"
         android:layout_width="363dp"
-        android:layout_height="299dp"
+        android:layout_height="255dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -66,26 +66,10 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/missionMember_label" />
-
-    <ImageButton
-        android:id="@+id/edit_createMission_imageButton"
-        android:layout_width="31dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/missionMember_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/missionMember_label"
-        app:layout_constraintTop_toBottomOf="@+id/time_createMission_textview"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/missionName_editText"
@@ -124,5 +108,19 @@
         app:layout_constraintStart_toEndOf="@+id/date_createMission_textview"
         app:layout_constraintTop_toTopOf="@+id/date_createMission_textview"
         app:layout_constraintVertical_bias="1.0" />
+
+    <SearchView
+        android:id="@+id/createMission_searchView"
+        android:layout_width="368dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:hint="Username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/missionMember_label" />
 
 </android.support.constraint.ConstraintLayout>
