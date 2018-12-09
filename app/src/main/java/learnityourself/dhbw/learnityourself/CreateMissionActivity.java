@@ -93,8 +93,7 @@ public class CreateMissionActivity extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 Log.d("AddMissionMemberLayout", "mm/dd/yyyy: " + month + "/" + dayOfMonth + "/" + year);
 
-                String date = month+1 + "/" + dayOfMonth + "/" + year;
-                finishDate.setText(date);
+                finishDate.setText(dateToString(year, month+1, day));
             }
         };
 
@@ -133,7 +132,7 @@ public class CreateMissionActivity extends AppCompatActivity {
         month = cal.get(Calendar.MONTH);
         day = cal.get(Calendar.DAY_OF_MONTH);
 
-        return month+1 + "/" + day + "/" + year;
+        return dateToString(year, month+1, day);
     }
 
     private String defaultTime(){
@@ -141,7 +140,7 @@ public class CreateMissionActivity extends AppCompatActivity {
         hour = cal.get(Calendar.HOUR_OF_DAY);
         minute = cal.get(Calendar.MINUTE);
 
-        return hour + ":" + minute;
+        return timeToString(hour, minute);
     }
 
     private void datePicker(){
@@ -173,10 +172,18 @@ public class CreateMissionActivity extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay,
                                           int minute) {
                         // TODO check Minutes
-                        finishTime.setText(hourOfDay + ":" + ((minute<10)? "0" + (minute) : minute));
+                        finishTime.setText(timeToString(hour, minute));
                     }
                 }, hour, minute, false);
         timePickerDialog.show();
+    }
+
+    public String timeToString(int hour, int minute){
+        return ((hour<10)? "0" + (hour) : hour) + ":" + ((minute<10)? "0" + (minute) : minute);
+    }
+
+    public String dateToString(int year, int month, int day){
+        return ((month < 10)? "0" + month : month) + "/" + ((day < 10)? "0" + day : day + "/" + year);
     }
 
     @Override
