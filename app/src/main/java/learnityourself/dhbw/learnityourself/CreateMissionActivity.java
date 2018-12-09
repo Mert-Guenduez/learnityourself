@@ -53,9 +53,7 @@ public class CreateMissionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_mission);
 
-        controller=new CreateMissionController((User)getIntent().getSerializableExtra("user"),
-                (String)getIntent().getExtras().get("membersString"),
-                getIntent().getStringArrayExtra("membersNameString"),this);
+        controller=new CreateMissionController((User)getIntent().getSerializableExtra("user"),this);
 
         init();
     }
@@ -97,13 +95,8 @@ public class CreateMissionActivity extends AppCompatActivity {
             }
         };
 
-        String members = controller.getMembersString();
-        if (members == null){
-            buffer = new StringBuffer();
-        } else {
-            buffer = new StringBuffer(members);
-        }
 
+        buffer = new StringBuffer();
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
@@ -199,15 +192,6 @@ public class CreateMissionActivity extends AppCompatActivity {
         }
     }
 
-    public String endBuffer(){
-        if (buffer.length()==12){
-            buffer.delete(0,11);
-        } else if (buffer.length()>12){
-            buffer.append("]}");
-        }
-        return buffer.toString();
-    }
-
     private void fillComponents(){
         finishDate.setText(defaultDay());
         finishTime.setText(defaultTime());
@@ -301,6 +285,15 @@ public class CreateMissionActivity extends AppCompatActivity {
             });
         }
         return true;
+    }
+
+    public String endBuffer(){
+        if (buffer.length()==12){
+            buffer.delete(0,11);
+        } else if (buffer.length()>12){
+            buffer.append("]}");
+        }
+        return buffer.toString();
     }
 
     public boolean validEntry(){

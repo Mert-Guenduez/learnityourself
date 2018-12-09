@@ -23,10 +23,10 @@ public class CreateMissionController extends MatchUser {
     private User user;
 
 
-    public CreateMissionController(User user, String membersString, String[] membersNameString, Context context){
+    public CreateMissionController(User user, Context context){
         super(user, context);
-        this.membersString = membersString;
-        this.membersNameString = membersNameString;
+        this.membersString = null;
+        this.membersNameString = null;
         this.membersArrayList = new ArrayList<>();
         this.user = user;
     }
