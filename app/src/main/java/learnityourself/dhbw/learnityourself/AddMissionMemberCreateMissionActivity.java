@@ -10,6 +10,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import java.nio.Buffer;
+
 import learnityourself.dhbw.learnityourself.controller.AddMissionMemberCreateMissionController;
 import learnityourself.dhbw.learnityourself.model.AddUserAdapter;
 import learnityourself.dhbw.learnityourself.model.User;
@@ -86,7 +88,7 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
 
     public void addUserToString(User user){
         if (buffer.length() == 0){
-            buffer.append("\"" + user.getUsername() + "\"");
+            buffer.append("'{\"users\":[\"" + user.getUsername() + "\"");
         } else {
             buffer.append(",\"" + user.getUsername() + "\"");
         }
@@ -94,7 +96,7 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
 
     public void deleteUserFromString(User user){
         int index = buffer.indexOf(user.getUsername());
-        if (index > 1){
+        if (index > 12){
             buffer.delete(index-2, index + user.getUsername().length()+1);
         } else {
             buffer.delete(index-1, index + user.getUsername().length()+1);
@@ -148,13 +150,22 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
             item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    controller.setMembersString(buffer.toString());
+                    controller.setMembersString(endBuffer().toString());
                     controller.checkClickHandler();
                     return false;
                 }
             });
         }
         return true;
+    }
+
+    public StringBuffer endBuffer(){
+        if (buffer.length()==12){
+            buffer.delete(0,11);
+        } else {
+            buffer.append("]}'");
+        }
+        return buffer;
     }
 
     @Override

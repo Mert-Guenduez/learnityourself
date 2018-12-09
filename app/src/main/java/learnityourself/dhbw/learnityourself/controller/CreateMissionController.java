@@ -84,6 +84,8 @@ public class CreateMissionController extends AuthorizedController {
     }
 
     public void createMission(){
+        System.out.println("MEMBERS: " + membersString);
+
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
