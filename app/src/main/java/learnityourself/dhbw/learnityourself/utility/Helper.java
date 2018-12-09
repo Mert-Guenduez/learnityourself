@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 
+import learnityourself.dhbw.learnityourself.controller.CreateMissionController;
 import learnityourself.dhbw.learnityourself.model.Mission;
 
 public class Helper {
@@ -15,6 +16,7 @@ public class Helper {
     private Mission mission;
     private String missionname, description, date, time;
     private boolean createMissionInformation;
+    private CreateMissionController createMissionController;
 
     private Helper(){
 
@@ -86,5 +88,13 @@ public class Helper {
 
     public void setCreateMissionInformation(boolean createMissionInformation) {
         this.createMissionInformation = createMissionInformation;
+    }
+
+    public CreateMissionController getCreateMissionController() {
+        return createMissionController;
+    }
+
+    public void setCreateMissionController(CreateMissionController createMissionController) {
+        this.createMissionController = createMissionController;
     }
 }

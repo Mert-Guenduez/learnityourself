@@ -11,20 +11,24 @@ import learnityourself.dhbw.learnityourself.AddMissionMemberCreateMissionActivit
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
+import learnityourself.dhbw.learnityourself.utility.Helper;
+import learnityourself.dhbw.learnityourself.utility.MatchUser;
 
-public class CreateMissionController extends AuthorizedController {
+public class CreateMissionController extends MatchUser {
     private String membersString;
     private String[] membersNameString;
+    private User[] matchUser;
     private String missionname, description, seconds;
+    private ArrayList<User> membersArrayList;
+    private User user;
+
 
     public CreateMissionController(User user, Context context){
         super(user, context);
-    }
-
-    public CreateMissionController(User user, String membersString, String[] membersNameString, Context context){
-        super(user, context);
-        this.membersString = membersString;
-        this.membersNameString = membersNameString;
+        this.membersString = null;
+        this.membersNameString = null;
+        this.membersArrayList = new ArrayList<>();
+        this.user = user;
     }
 
     public String getMembersString() {
@@ -67,15 +71,34 @@ public class CreateMissionController extends AuthorizedController {
         this.membersNameString = membersNameString;
     }
 
+    public User[] getMatchUser() {
+        return matchUser;
+    }
+
+    public void setMatchUser(User[] matchUser) {
+        this.matchUser = matchUser;
+    }
+
+    public ArrayList<User> getMembersArrayList() {
+        return membersArrayList;
+    }
+
+    public void setMembersArrayList(ArrayList<User> membersArrayList) {
+        this.membersArrayList = membersArrayList;
+    }
+
+    @Override
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     protected void init() {
 
-    }
-
-    public void addUserClicked() {
-        Intent intent = new Intent(context, AddMissionMemberCreateMissionActivity.class);
-        intent.putExtra("user", user);
-        context.startActivity(intent);
     }
 
     public void checkClickHandler(){
@@ -84,6 +107,11 @@ public class CreateMissionController extends AuthorizedController {
     }
 
     public void createMission(){
+        System.out.println("USERNAME: " + user.getUsername());
+        System.out.println("SESSIONKEY: " + user.getSessionkey());
+        System.out.println("MISSIONNAME: " + missionname);
+        System.out.println("DESCRIPTION: " + description);
+        System.out.println("SECONDS: " + seconds);
         System.out.println("MEMBERS: " + membersString);
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
@@ -92,7 +120,7 @@ public class CreateMissionController extends AuthorizedController {
             in = handler.execute("https://91.205.172.109/createMission.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionname", missionname, "description", description, "seconds", seconds,
-                    "users", membersString)
+                    "users", (membersString.length()==0)? null : membersString)
                     .get();
         } catch (ExecutionException e) {
             System.out.println("EXECUTATIONEXCEPTION: " + e.getMessage());
