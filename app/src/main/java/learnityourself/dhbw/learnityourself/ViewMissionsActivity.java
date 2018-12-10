@@ -7,60 +7,31 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-
-import learnityourself.dhbw.learnityourself.model.Mission;
+import learnityourself.dhbw.learnityourself.controller.ViewMissionsController;
 import learnityourself.dhbw.learnityourself.model.MissionAdapter;
 import learnityourself.dhbw.learnityourself.model.User;
-import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 
-public class ViewMissionsActivity extends AuthorizedActivity {
-
-    Mission[] missions;
-    ListView missionListView;
+public class ViewMissionsActivity extends AppCompatActivity{
 
 
-    @Override
-        protected void onCreate(Bundle savedInstanceState) {
+    private ListView missionListView;
+    private ViewMissionsController controller;
+
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_missions);
-        if(checkAuthorized())init();
+        Intent intent = getIntent();
+        controller=new ViewMissionsController((User) intent.getSerializableExtra("user"), this);
+        init();
     }
 
-    @Override
     void init() {
 
-
-        HTTPRequestHandler handler = new HTTPRequestHandler();
-        InputStream in  = null;
-        try {
-            in = handler.execute("https://91.205.172.109/allMissionsFromUser.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        Gson gson = new GsonBuilder()
-                .setDateFormat("yyyy-MM-dd' 'HH:mm:ss")
-                .create();
-        missions = gson.fromJson(HTTPRequestHandler.getStringFromInputStream(in), Mission[].class);
-
-
         missionListView = (ListView) findViewById(R.id.mission_list);
-        missionListView.setAdapter(new MissionAdapter(this, missions));
+        missionListView.setAdapter(new MissionAdapter(this, controller.getMissions()));
 
         missionListView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener()
@@ -68,11 +39,7 @@ public class ViewMissionsActivity extends AuthorizedActivity {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view,int position, long arg3) {
                         // TODO Auto-generated method stub
-                        Intent intent = new Intent(ViewMissionsActivity.this, ViewMissionActivity.class);
-                        intent.putExtra("user", user);
-                        intent.putExtra("mission", missions[position]);
-                        startActivity(intent);
-                        Toast.makeText(getApplicationContext(),"You Selected Item "+Integer.toString(position), Toast.LENGTH_LONG).show();
+                        controller.missionClicked(position);
                     }
                 }
         );
@@ -80,7 +47,7 @@ public class ViewMissionsActivity extends AuthorizedActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu_add, menu);
         return true;
     }
 
@@ -89,10 +56,14 @@ public class ViewMissionsActivity extends AuthorizedActivity {
         int id = item.getItemId();
 
         if (id == R.id.add){
-            // TODO add create new Mission
+            controller.createMission();
         }
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        controller.keyBackHandler();
+    }
 
 }
