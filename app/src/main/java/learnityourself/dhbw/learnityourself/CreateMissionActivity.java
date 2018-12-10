@@ -45,6 +45,7 @@ public class CreateMissionActivity extends AppCompatActivity {
     private CreateMissionController controller;
     private int day, month, year, hour, minute;
     private StringBuffer buffer;
+    private Calendar cal;
     Helper helper = Helper.getInstance();
 
     @Override
@@ -70,6 +71,8 @@ public class CreateMissionActivity extends AppCompatActivity {
         description.setVerticalScrollBarEnabled(true);
         description.setMovementMethod(new ScrollingMovementMethod());
 
+        generateCalender();
+
         fillComponents();
 
         finishDate.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +94,7 @@ public class CreateMissionActivity extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 Log.d("AddMissionMemberLayout", "mm/dd/yyyy: " + month + "/" + dayOfMonth + "/" + year);
 
-                finishDate.setText(dateToString(year, month+1, day));
+                finishDate.setText(dateToString(year, month+1, dayOfMonth));
             }
         };
 
@@ -195,34 +198,27 @@ public class CreateMissionActivity extends AppCompatActivity {
     private void fillComponents(){
         finishDate.setText(defaultDay());
         finishTime.setText(defaultTime());
-
     }
 
-    private String defaultDay(){
-        Calendar cal = Calendar.getInstance();
+    private void generateCalender(){
+        cal = Calendar.getInstance();
         cal.add(Calendar.DAY_OF_MONTH, 1);
         year = cal.get(Calendar.YEAR);
         month = cal.get(Calendar.MONTH);
         day = cal.get(Calendar.DAY_OF_MONTH);
+        hour = cal.get(Calendar.HOUR_OF_DAY);
+        minute = cal.get(Calendar.MINUTE);
+    }
 
+    private String defaultDay(){
         return dateToString(year, month+1, day);
     }
 
     private String defaultTime(){
-        Calendar cal = Calendar.getInstance();
-        hour = cal.get(Calendar.HOUR_OF_DAY);
-        minute = cal.get(Calendar.MINUTE);
-
         return timeToString(hour, minute);
     }
 
     private void datePicker(){
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DAY_OF_MONTH, 1);
-        year = cal.get(Calendar.YEAR);
-        month = cal.get(Calendar.MONTH);
-        day = cal.get(Calendar.DAY_OF_MONTH);
-
         DatePickerDialog dialog = new DatePickerDialog(
                 CreateMissionActivity.this,
                 AlertDialog.THEME_DEVICE_DEFAULT_DARK,
@@ -233,9 +229,6 @@ public class CreateMissionActivity extends AppCompatActivity {
     }
 
     private void timePicker(){
-        final Calendar cal = Calendar.getInstance();
-        hour = cal.get(Calendar.HOUR_OF_DAY);
-        minute = cal.get(Calendar.MINUTE);
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(this,
                 AlertDialog.THEME_HOLO_DARK,
@@ -256,7 +249,7 @@ public class CreateMissionActivity extends AppCompatActivity {
     }
 
     public String dateToString(int year, int month, int day){
-        return ((month < 10)? "0" + month : month) + "/" + ((day < 10)? "0" + day : day + "/" + year);
+        return (((day < 10)? "0" + day : day) + "/" + ((month < 10)? "0" + month : month) + "/" + year);
     }
 
     @Override
