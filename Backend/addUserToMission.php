@@ -69,8 +69,7 @@ if($check) {
         $stmt->close();
 
         // add tasks from mission to user
-        $stmt = $db->prepare("INSERT INTO userToTask (username, taskid, completed) VALUES (?,?,?)");
-        $completed = 0;
+        $stmt = $db->prepare("INSERT INTO userToTask (username, taskid, completed) VALUES (?,?,0)");
         while($task = $tasks->fetch_assoc()) {
             $stmt->bind_param('sii',$username, $task['id'], $completed);
             $stmt->execute();
