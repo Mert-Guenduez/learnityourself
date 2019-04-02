@@ -10,6 +10,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import java.nio.Buffer;
+
 import learnityourself.dhbw.learnityourself.controller.AddMissionMemberCreateMissionController;
 import learnityourself.dhbw.learnityourself.model.AddUserAdapter;
 import learnityourself.dhbw.learnityourself.model.User;
@@ -20,6 +22,7 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
     private SearchView searchView;
     private ListView searchUsername;
     private AddMissionMemberCreateMissionController controller;
+    private StringBuffer buffer;
 
 
     @Override
@@ -32,6 +35,12 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
         searchView = findViewById(R.id.user_searchView);
         searchUsername = findViewById(R.id.search_user_listview);
 
+        String members = controller.getMembersString();
+        if (members == null){
+            buffer = new StringBuffer();
+        } else {
+            buffer = new StringBuffer(members);
+        }
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -48,44 +57,103 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
             }
         });
 
+        init();
+    }
+
+    public void init(){
+
     }
 
     public void setSearchUsername(final User[] matchUser){
         // TODO Array im controller füllen
+        System.out.println("POINT 3");
+
         updateSetSeachUsername(matchUser);
+
+        System.out.println("POINT 6");
+
 
         searchUsername.setOnItemClickListener(
                 new AdapterView.OnItemClickListener()
                 {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
-                        User selectedUser = controller.getMatchUser()[position];
-                        /*
-                        controller.addUser(selectedUser.getUsername());
-                        controller.getMission().getUsers().add(selectedUser);
-                        updateSetSeachUsername(matchUser);
-                        */
+                        User user = controller.getMatchUser()[position];
+                        if (!user.getUsername().equals(controller.getUser().getUsername())){
+                            if (!controller.getMembersArrayList().contains(user)){
+                                controller.getMembersArrayList().add(user);
+                                addUserToString(user);
+                            } else {
+                                controller.getMembersArrayList().remove(user);
+                                deleteUserFromString(user);
+                            }
+                            updateSetSeachUsername(matchUser);
+                        }
+
                     }
                 }
         );
+
+        System.out.println("POINT 7");
+
+
+    }
+
+    public void addUserToString(User user){
+        if (buffer.length() == 0){
+            buffer.append("{\"users\":[\"" + user.getUsername() + "\"");
+        } else {
+            buffer.append(",\"" + user.getUsername() + "\"");
+        }
+    }
+
+    public void deleteUserFromString(User user){
+        int index = buffer.indexOf(user.getUsername());
+        if (index > 12){
+            buffer.delete(index-2, index + user.getUsername().length()+1);
+        } else {
+            buffer.delete(index-1, index + user.getUsername().length()+1);
+        }
     }
 
 
     public void updateSetSeachUsername(User[] matchUser){
+
+        System.out.println("POINT 4");
+
+
         controller.setMatchUser(matchUser);
 
-        /*
-        for (int i = 0; i < controller.getMission().getUsers().size(); i++) {
-            for (int j = 0; j < matchUser.length; j++) {
-                if (controller.getMission().getUsers().get(i).getUsername().equals(matchUser[j].getUsername())){
-                    matchUser[j].setMember(true);
-                }
-            }
-        }
-        */
+        editSetMember(matchUser);
 
         searchUsername = (ListView) findViewById(R.id.search_user_listview);
         searchUsername.setAdapter(new AddUserAdapter(this, matchUser));
+
+        System.out.println("POINT 5");
+
+    }
+
+    public void editSetMember(User[] matchUser){
+        for (int i = 0; i < controller.getMembersArrayList().size(); i++) {
+            for (int j = 0; j < matchUser.length; j++) {
+                if (controller.getMembersArrayList().contains(matchUser[j]) |
+                controller.getUser().getUsername().equals(matchUser[j].getUsername())){
+                    matchUser[j].setMember(true);
+                } else {
+                    matchUser[j].setMember(false);
+                }
+            }
+        }
+
+        if (controller.getMembersArrayList().size() == 0){
+            for (int i = 0; i < matchUser.length; i++) {
+                if (!controller.getUser().getUsername().equals(matchUser[i].getUsername())){
+                    matchUser[i].setMember(false);
+                } else {
+                    matchUser[i].setMember(true);
+                }
+            }
+        }
     }
 
     @Override
@@ -102,11 +170,26 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
             item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                   // controller.checkClickHandler();
+                    controller.setMembersString(endBuffer().toString());
+                    controller.checkClickHandler();
                     return false;
                 }
             });
         }
         return true;
+    }
+
+    public StringBuffer endBuffer(){
+        if (buffer.length()==12){
+            buffer.delete(0,11);
+        } else if (buffer.length()>12){
+            buffer.append("]}");
+        }
+        return buffer;
+    }
+
+    @Override
+    public void onBackPressed() {
+        controller.keyBackHandler();
     }
 }
