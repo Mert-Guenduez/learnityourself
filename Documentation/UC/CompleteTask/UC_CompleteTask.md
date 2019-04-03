@@ -37,4 +37,4 @@ n/a
 
 <!-- picture links -->
 [UML]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/CompleteTask/UML_CompleteTask.png "UML Diagram"
-[Mock]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/CompleteTask/Mpckup_CompleteTask.png "Mockup"
+[Mock]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/CompleteTask/Mockup_CompleteTask.png "Mockup"
