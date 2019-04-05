@@ -39,7 +39,6 @@ The new password is set as the user's password. Database entries are updated. A 
 n/a
 
 <!-- picture links -->
-[UML]: 
 [Mockup_start]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ChangePassword/Start.png
 [Mockup_current]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ChangePassword/current.png
 [Mockup_new]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ChangePassword/new.png
