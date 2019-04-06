@@ -21,7 +21,7 @@ Mock-Up:
 
 ### 2.3 .feature file
 
-[Feature file](../../../app/src/androidTest/assets/res/ChangePassword.feature)
+[Feature file](https://github.com/Mert-Guenduez/learnityourself/blob/master/app/src/androidTest/assets/res/ChangePassword.feature)
 
 ## 3. Special Requirements
 ### 3.1 Mission Member
@@ -39,9 +39,8 @@ The new password is set as the user's password. Database entries are updated. A 
 n/a
 
 <!-- picture links -->
-[UML]: 
-[Mockup_start]: ./start.png
-[Mockup_current]: ./current.png
-[Mockup_new]: ./new.png
-[Mockup_toast]: ./toast.png
+[Mockup_start]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ChangePassword/Start.png
+[Mockup_current]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ChangePassword/current.png
+[Mockup_new]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ChangePassword/new.png
+[Mockup_toast]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ChangePassword/toast.png
 
