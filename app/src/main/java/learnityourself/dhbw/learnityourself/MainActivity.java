@@ -43,10 +43,25 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
 
         user_label = findViewById(R.id.mainUserLabel);
-        missions_button = findViewById(R.id.missions_button);
+        user_label.setText(controller.getUser().getUsername());
+
         rewards_button = findViewById(R.id.rewards_button);
         spendPoints_button = findViewById(R.id.spendPoints_button);
-        user_label.setText(controller.getUser().getUsername());
+        logout_button = findViewById(R.id.logout_button);
+        missions_button = findViewById(R.id.missions_button);
+
+        rewards_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.viewRewards();
+            }
+        });
+        logout_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.logout();
+            }
+        });
         missions_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,13 +69,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        logout_button = findViewById(R.id.logout_button);
-        logout_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                controller.logout();
-            }
-        });
     }
 
     @Override

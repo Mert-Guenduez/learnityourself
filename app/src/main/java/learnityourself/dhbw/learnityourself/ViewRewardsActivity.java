@@ -3,9 +3,10 @@ package learnityourself.dhbw.learnityourself;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 
-import learnityourself.dhbw.learnityourself.controller.ViewMissionsController;
 import learnityourself.dhbw.learnityourself.controller.ViewRewardsController;
 import learnityourself.dhbw.learnityourself.model.RewardAdapter;
 import learnityourself.dhbw.learnityourself.model.User;
@@ -27,4 +28,19 @@ public class ViewRewardsActivity extends AppCompatActivity {
         rewardListView = (ListView) findViewById(R.id.reward_list);
         rewardListView.setAdapter(new RewardAdapter(this, controller.getRewards()));
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+    }
+
 }
