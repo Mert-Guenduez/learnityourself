@@ -26,7 +26,7 @@ import learnityourself.dhbw.learnityourself.utility.SSLHandler;
 public class MainActivity extends AppCompatActivity {
 
     private TextView user_label;
-    private Button missions_button, logout_button;
+    private Button missions_button, logout_button, rewards_button, spendPoints_button;
     private MainController controller;
     @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         user_label = findViewById(R.id.mainUserLabel);
         missions_button = findViewById(R.id.missions_button);
+        rewards_button = findViewById(R.id.rewards_button);
+        spendPoints_button = findViewById(R.id.spendPoints_button);
         user_label.setText(controller.getUser().getUsername());
         missions_button.setOnClickListener(new View.OnClickListener() {
             @Override
