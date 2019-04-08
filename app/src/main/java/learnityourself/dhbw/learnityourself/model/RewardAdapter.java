@@ -21,7 +21,8 @@ public class RewardAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return rewards.length;
+        return 0;
+//        return rewards.length;
     }
 
     @Override
