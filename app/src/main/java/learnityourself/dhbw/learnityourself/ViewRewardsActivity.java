@@ -31,16 +31,23 @@ public class ViewRewardsActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_add, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if (id == R.id.add){
+            controller.createReward();
+        }
         return true;
     }
 
     @Override
     public void onBackPressed() {
+        controller.keyBackHandler();
     }
 
 }
