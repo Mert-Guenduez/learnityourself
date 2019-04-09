@@ -3,6 +3,7 @@ package learnityourself.dhbw.learnityourself.controller;
 import android.content.Context;
 import android.content.Intent;
 
+import learnityourself.dhbw.learnityourself.CreateCustomRewardActivity;
 import learnityourself.dhbw.learnityourself.MainActivity;
 import learnityourself.dhbw.learnityourself.model.Reward;
 import learnityourself.dhbw.learnityourself.model.User;
@@ -25,7 +26,9 @@ public class ViewRewardsController extends AuthorizedController {
     }
 
     public void createReward() {
-
+        Intent intent = new Intent(context, CreateCustomRewardActivity.class);
+        intent.putExtra("user", user);
+        context.startActivity(intent);
     }
 
     public void keyBackHandler(){
