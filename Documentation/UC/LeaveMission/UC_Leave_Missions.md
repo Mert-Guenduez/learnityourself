@@ -42,9 +42,9 @@ n/a
 <!-- picture links -->
 [UML]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/LeaveMission/UML_LeaveMission.png
  
-[Mockup_overview][]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/LeaveMission/missionsoverview.png
-[Mockup_main][]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/LeaveMission/missionmain.png
-[Mockup_leave][]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/LeaveMission/leave.png
-[Mockup_confirm][]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/LeaveMission/confirm.png
-[Mockup_newoverview][]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/LeaveMission/new_missionsoverview.png
+[Mockup_overview]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/LeaveMission/missionsoverview.png
+[Mockup_main]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/LeaveMission/missionmain.png
+[Mockup_leave]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/LeaveMission/leave.png
+[Mockup_confirm]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/LeaveMission/confirm.png
+[Mockup_newoverview]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/LeaveMission/new_missionsoverview.png
 
