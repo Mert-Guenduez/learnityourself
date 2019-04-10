@@ -17,7 +17,7 @@ Mock-Up:
 ![Mockup_current][]
 ![Mockup_delete][]
 ![Mockup_warning][]
-![Mochup_confirmation][]
+![Mockup_confirmation][]
 ![Mockup_toast][]
 
 ### 2.3 .feature file
