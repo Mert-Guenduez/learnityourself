@@ -36,5 +36,5 @@ The user will have a session key and see his achievements
 n/a
 
 <!-- picture links -->
-[UML]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/Login/UML_Login.png "UML Diagram"
-[Mock]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/Login/Login_Mock.png "Mockup"
+[UML]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/ReceiveAchievements/UML_ReceiveAchievements.png
+[Mock]:
