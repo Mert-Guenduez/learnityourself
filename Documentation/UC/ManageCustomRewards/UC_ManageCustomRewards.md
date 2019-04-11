@@ -9,7 +9,10 @@ This Use Case deals with enabling a User to manage his Rewards. To access these 
 ### 2.1 Basic Flow 
 UML Diagram: 
 
-![UML][]
+![UML_ManageReward][]
+![UML_CreateReward][]
+![UML_EditReward][]
+![UML_DeleteReward][]
 
 ### 2.2 Mock-Up
 Mock-Up:
@@ -45,6 +48,11 @@ After adding, deleting or editing rewards, the System needs to display the new L
 n/a
 
 <!-- picture links -->
+[UML_CreateReward]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ManageCustomRewards/UML_CreateReward.png "UML Create Reward"
+[UML_DeleteReward]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ManageCustomRewards/UML_DeleteReward.png "UML Delete Reward"
+[UML_EditReward]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ManageCustomRewards/UML_EditReward.png "UML Edit Reward"
+[UML_ManageReward]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ManageCustomRewards/UML_ManageReward.png "UML Manage Reward"
+
 [UML]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ManageCustomRewards/UML_ManageCustomRewards.png "UML Diagram"
 
 [Mockup_CreateCustomReward]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ManageCustomRewards/Mockup_CreateCustomReward.png "Mock-Up Create Custom Reward"
