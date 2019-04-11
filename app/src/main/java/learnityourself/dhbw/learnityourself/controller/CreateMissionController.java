@@ -107,12 +107,6 @@ public class CreateMissionController extends MatchUser {
     }
 
     public void createMission(){
-        System.out.println("USERNAME: " + user.getUsername());
-        System.out.println("SESSIONKEY: " + user.getSessionkey());
-        System.out.println("MISSIONNAME: " + missionname);
-        System.out.println("DESCRIPTION: " + description);
-        System.out.println("SECONDS: " + seconds);
-        System.out.println("MEMBERS: " + membersString);
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
@@ -123,16 +117,12 @@ public class CreateMissionController extends MatchUser {
                     "users", (membersString.length()==0)? null : membersString)
                     .get();
         } catch (ExecutionException e) {
-            System.out.println("EXECUTATIONEXCEPTION: " + e.getMessage());
             e.printStackTrace();
         } catch (InterruptedException e) {
-            System.out.println("INTERRUPTEDEXCETION: " + e.getMessage());
             e.printStackTrace();
         }
 
         String inputString=HTTPRequestHandler.getStringFromInputStream(in);
-
-        System.out.println("ERGEBNIS: " + inputString);
     }
 
     public void keyBackHandler(){

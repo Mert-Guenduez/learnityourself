@@ -22,16 +22,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Missions"
+        app:layout_constraintBaseline_toBaselineOf="@+id/logout_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/logout_button"
-        app:layout_constraintTop_toBottomOf="@+id/rewards_button" />
+        app:layout_constraintStart_toEndOf="@+id/logout_button" />
 
     <Button
         android:id="@+id/logout_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        android:layout_marginRight="3dp"
+        android:layout_marginBottom="10dp"
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/missions_button"
@@ -41,10 +40,9 @@
     <Button
         android:id="@+id/rewards_button"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="415dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginBottom="3dp"
         android:text="Rewards"
         app:layout_constraintBottom_toTopOf="@+id/logout_button"
         app:layout_constraintEnd_toStartOf="@+id/spendPoints_button"
@@ -58,7 +56,7 @@
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         android:text="Spend Points"
-        app:layout_constraintBottom_toTopOf="@+id/missions_button"
+        app:layout_constraintBaseline_toBaselineOf="@+id/rewards_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rewards_button" />
 </android.support.constraint.ConstraintLayout>

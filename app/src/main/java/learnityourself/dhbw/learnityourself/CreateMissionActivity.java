@@ -3,8 +3,6 @@ package learnityourself.dhbw.learnityourself;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
@@ -15,7 +13,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Scroller;
 import android.widget.SearchView;
@@ -24,14 +21,12 @@ import android.widget.TimePicker;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 import learnityourself.dhbw.learnityourself.controller.CreateMissionController;
 
 import learnityourself.dhbw.learnityourself.model.AddUserAdapter;
-import learnityourself.dhbw.learnityourself.model.MissionMemberAdapter;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.Helper;
 
@@ -119,7 +114,7 @@ public class CreateMissionActivity extends AppCompatActivity {
 
     public void setSearchUsername(final User[] matchUser){
         // TODO Array im controller füllen
-        updateSetSeachUsername(matchUser);
+        updateSetSearchUsername(matchUser);
 
         searchUsername.setOnItemClickListener(
                 new AdapterView.OnItemClickListener()
@@ -135,7 +130,7 @@ public class CreateMissionActivity extends AppCompatActivity {
                                 controller.getMembersArrayList().remove(user);
                                 deleteUserFromString(user);
                             }
-                            updateSetSeachUsername(matchUser);
+                            updateSetSearchUsername(matchUser);
                         }
                     }
                 }
@@ -161,7 +156,7 @@ public class CreateMissionActivity extends AppCompatActivity {
     }
 
 
-    public void updateSetSeachUsername(User[] matchUser){
+    public void updateSetSearchUsername(User[] matchUser){
 
         controller.setMatchUser(matchUser);
 
@@ -295,7 +290,7 @@ public class CreateMissionActivity extends AppCompatActivity {
             return false;
         }
         if (description.getText().toString().isEmpty()){
-            description.setError("Insert Description");
+            description.setError("Insert Description.");
             return false;
         }
         return true;

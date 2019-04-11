@@ -59,6 +59,10 @@
             android:name=".ViewRewardsActivity"
             android:label="Your Rewards">
         </activity>
-    </application>
+        <activity
+            android:name=".CreateCustomRewardActivity"
+            android:label="Create Reward">
+        </activity>
+</application>
 
 </manifest>
