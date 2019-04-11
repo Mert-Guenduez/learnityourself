@@ -1,27 +1,13 @@
 package learnityourself.dhbw.learnityourself;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.controller.MainController;
 import learnityourself.dhbw.learnityourself.model.User;
-import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
-import learnityourself.dhbw.learnityourself.utility.SSLHandler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 controller.viewRewards();
+            }
+        });
+        spendPoints_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.viewSpendPointsOnRewards();
             }
         });
         logout_button.setOnClickListener(new View.OnClickListener() {

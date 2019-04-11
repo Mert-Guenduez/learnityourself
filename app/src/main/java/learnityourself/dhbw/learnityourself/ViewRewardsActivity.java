@@ -25,7 +25,7 @@ public class ViewRewardsActivity extends AppCompatActivity {
     }
 
     void init() {
-        rewardListView = (ListView) findViewById(R.id.reward_list);
+        rewardListView = findViewById(R.id.reward_list);
         rewardListView.setAdapter(new RewardAdapter(this, controller.getRewards()));
     }
 
