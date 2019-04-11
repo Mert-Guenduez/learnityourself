@@ -6,6 +6,7 @@ public class User implements Serializable {
 
 
     private String username;
+    private int points;
     private String sessionkey;
     private boolean isMember;
 
@@ -38,5 +39,13 @@ public class User implements Serializable {
 
     public void setMember(boolean member) {
         isMember = member;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }
