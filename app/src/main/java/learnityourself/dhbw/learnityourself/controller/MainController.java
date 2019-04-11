@@ -14,6 +14,7 @@ import java.util.concurrent.ExecutionException;
 import learnityourself.dhbw.learnityourself.LoginActivity;
 import learnityourself.dhbw.learnityourself.MainActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
+import learnityourself.dhbw.learnityourself.ViewRewardsActivity;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 import learnityourself.dhbw.learnityourself.utility.SSLHandler;
@@ -89,6 +90,11 @@ public class MainController {
 
     }
 
+    public void viewRewards() {
+        Intent intent = new Intent(context, ViewRewardsActivity.class);
+        intent.putExtra("user", user);
+        context.startActivity(intent);
+    }
 
     public void viewMissions() {
         Intent intent = new Intent(context, ViewMissionsActivity.class);

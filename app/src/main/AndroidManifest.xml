@@ -55,6 +55,10 @@
         <activity
             android:name=".ManageTaskActivity">
         </activity>
+        <activity
+            android:name=".ViewRewardsActivity"
+            android:label="Your Rewards">
+        </activity>
     </application>
 
 </manifest>
