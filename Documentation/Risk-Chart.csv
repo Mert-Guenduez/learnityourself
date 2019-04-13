@@ -1,5 +1,5 @@
-Risk Name,Risk Description,Risk Probability,Risk Impact,Risk Factor,Risk Mitigation,Person in Charge
-Local Code loss, Losing local Code changes because of technical problems, low, low, Electronic Device, Frequent pushes to Git, Everyone
-Repository loss, Git Repository breaks or Github goes down, low, high, GitHub, Having local backups, Jonas
-Unexpected complexity of UC, UC is more complex and takes more time than expected, medium, medium, Project Management, Proper planning or cutting down on Features, Jonas
+Risk Name,Risk Description,Risk Probability,Risk Impact,Risk Mitigation,Person in Charge,Risk Factor
+Local Code loss, Losing local Code changes because of technical problems, 20%, 2, Frequent pushes to Git, Everyone, 0.4
+Repository loss, Git Repository breaks or Github goes down, 1%, 10, Having local backups, Jonas, 0.1
+Unexpected complexity of UC, UC is more complex and takes more time than expected, 50%, 6, Proper planning or cutting down on Features, Jonas, 3
 
