@@ -54,9 +54,8 @@ public class ViewTaskController extends AuthorizedController{
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/userAddPoints.php","username",
-                    user.getUsername(),"sessionkey", user.getSessionkey(),
-                    "points", pointsToAdd)
+            in = handler.execute("https://91.205.172.109/completeTask.php","username",
+                    user.getUsername(),"sessionkey", user.getSessionkey(),"taskid", task.getTaskid())
                     .get();
             if(in != null){
                 Gson gson= new Gson();
