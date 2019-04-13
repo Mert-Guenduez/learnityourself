@@ -10,9 +10,9 @@ This Use Case deals with enabling a User to manage a Missions tasks. To access t
 UML Diagram: 
 
 ![UML][]
-![UML-Create][]
-![UML-Edit][]
-![UML-Delete][]
+![UMLCreate][]
+![UMLEdit][]
+![UMLDelete][]
 
 ### 2.2 Mock-Up
 Mock-Up:
