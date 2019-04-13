@@ -1,1 +1,5 @@
 Risk Name,Risk Description,Risk Probability,Risk Impact,Risk Factor,Risk Mitigation,Person in Charge
+Local Code loss, Losing local Code changes because of technical problems, low, low, Electronic Device, Frequent pushes to Git, Everyone
+Repository loss, Git Repository breaks or Github goes down, low, high, GitHub, Having local backups, Jonas
+Unexpected complexity of UC, UC is more complex and takes more time than expected, medium, medium, Project Management, Proper planning, cutting down on Features or requesting more time, Jonas
+
