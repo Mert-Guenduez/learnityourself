@@ -10,7 +10,7 @@ Complete Task,2.6,external input,0,0,0,low,1,
 ,,internal logical files,1,0,2,low,1,
 ,,external interface files,0,0,0,low,0,18.69
 Register,5.5,external input,4,0,1,low,4,
-,,external output,1,0,0,low,1
+,,external output,1,0,0,low,1,
 ,,external inquieries,0,0,0,low,0,
 ,,internal logical files,3,0,1,low,1,
 ,,external interface files,0,0,0,low,0,20.47
