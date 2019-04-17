@@ -1,14 +1,14 @@
-Usecase,Time spent (h),Transaction,DET,RET,FTR,Complexity,FP
-AddUser,"12,416",external input,,,,low,
-,,external output,,,,low,
-,,external inquieries,,,,low,
-,,internal logical files,,,,low,
-,,external interface files,,,,low,30.26
-Complete Task,"2,6",external input,0,0,0,low,
-,,external output,1,0,0,low,
-,,external inquieries,0,0,0,low,
-,,internal logical files,1,0,2,low,
-,,external interface files,0,0,0,low,18.69
+Usecase,Time spent (h),Transaction,DET,RET,FTR,Complexity,Count,FP
+AddUser,"12,416",external input,,,,low,,
+,,external output,,,,low,,
+,,external inquieries,,,,low,,
+,,internal logical files,,,,low,,
+,,external interface files,,,,low,,30.26
+Complete Task,"2,6",external input,0,0,0,low,1,
+,,external output,1,0,0,low,2,
+,,external inquieries,0,0,0,low,1,
+,,internal logical files,1,0,2,low,1,
+,,external interface files,0,0,0,low,0,18.69
 UC3,,external input,,,,,
 ,,external output,,,,,
 ,,external inquieries,,,,,
