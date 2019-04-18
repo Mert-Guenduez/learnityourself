@@ -1,7 +1,7 @@
 Usecase,Time spent (h),Transaction,DET,RET,FTR,Complexity,FP
 AddUser,12.416,external input, "Adding User",, "Flag User, add User",low,
 ,,external output, "Show AddUserActivity, Adding User to Mission, Adding User to Tasks",,,low,
-,,external inquieries, "User" ,,,low,
+,,external inquieries, "User",,,low,
 ,,internal logical files, "MissionMembers", "Mission",,low,
 ,,external interface files,,,,low,30.26
 Complete Task,2.6,external input,"Done",x,"Flag Task Completed, Add points",low,
