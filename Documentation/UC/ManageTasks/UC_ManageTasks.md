@@ -10,6 +10,9 @@ This Use Case deals with enabling a User to manage a Missions tasks. To access t
 UML Diagram: 
 
 ![UML][]
+![UMLCreate][]
+![UMLEdit][]
+![UMLDelete][]
 
 ### 2.2 Mock-Up
 Mock-Up:
@@ -37,3 +40,6 @@ n/a
 
 <!-- picture links -->
 [UML]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ManageTasks/UML_ManageTasks.png "UML Diagram"
+[UMLEdit]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ManageTasks/UML_ManageTasks-Edit.png "UML Diagram Edit"
+[UMLCreate]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ManageTasks/UML_ManageTasks-Create.png "UML Diagram Create"
+[UMLDelete]: https://github.com/Mert-Guenduez/learnityourself/blob/master/Documentation/UC/ManageTasks/UML_ManageTasks-Delete.png "UML Diagram Delete"

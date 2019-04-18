@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ public class ViewTaskActivity extends AppCompatActivity {
 
     private ViewTaskController controller;
     private Task task;
+    private Button complete_task_button;
     private TextView taskDescription, taskEffort;
 
 
@@ -49,6 +51,14 @@ public class ViewTaskActivity extends AppCompatActivity {
 
         taskDescription.setText(controller.getTask().getDescription());
         taskEffort.setText(controller.getTask().getEffort() + "");
+
+        complete_task_button = (Button) findViewById(R.id.completeTaskBtn);
+        complete_task_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.completeTask();
+            }
+        });
     }
 
     public void generateActionBar(){

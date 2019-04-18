@@ -1,1 +1,10 @@
-Risk Name,Risk Description,Risk Probability,Risk Impact,Risk Factor,Risk Mitigation,Person in Charge
+Risk Name,Risk Description,Risk Probability,Risk Impact,Risk Mitigation,Person in Charge,Risk Factor
+Repository loss, Git Repository breaks or Github goes down, 1%, 10, Having local backups, Jonas, 0.1
+Server loss, Losing our Backend because of problems with our provider Contabo, 3%, 10, Backup of all the Code and Data (regularly), Jannik and Mert, 0.3
+Hacker attacks, Sensible data like User Passwords are exploited (Data Loss) or Virus infection, 5%, 7, Implementing proper Security Measures, Everyone, 0.35
+Local Code loss, Losing local Code changes because of technical problems, 20%, 2, Frequent pushes to Git, Everyone, 0.4
+Member Loss, Losing a Team Member (temporarily/permamently) due to e.g. a medical condition thus falling out of schedule, 1%, 8, - , Everyone, 0.8
+Unsatisfying results, In the end the App does not fully represent the looks and features of what was initially planned, 20%, 9, Defining and implementing Use Cases correctly and prototyping frequently, Everyone, 1.8
+Unexpected Bugs, Code contains bugs which could e.g. crash the App or display wrong data in a productive scenario, 30%, 7, Proper and frequent testing, Everyone, 2.3
+Unexpected complexity of UC, UC is more complex and takes more time than expected, 50%, 6, Proper planning or cutting down on Features, Jonas, 3
+Bad Code, Bad Code makes understanding hard, 50%, 6, Refactoring, Everyone, 3

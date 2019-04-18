@@ -1,0 +1,32 @@
+Usecase,Time spent (h),Transaction,DET,RET,FTR,Complexity,FP
+AddUser,12.416,external input,,,,low,
+,,external output,,,,low,
+,,external inquieries,,,,low,
+,,internal logical files,,,,low,
+,,external interface files,,,,low,30.26
+Complete Task,2.6,external input,"Done",x,"Flag Task Completed, Add points",low,
+,,external output,"Confirmation",x,0,low,
+,,external inquieries,0,x,0,low,
+,,internal logical files,"Flag Completed","User-Task Relation",x,low,
+,,external interface files,0,0,x,low,12.32
+Register,5.5,external input,"Username, Password, Repeat PW, Done",x,"User Entry",low,
+,,external output,"Show Login Activity",x,0,low,
+,,external inquieries,0,x,0,low,
+,,internal logical files,"Username,PasswordHash","User",x,low,
+,,external interface files,0,0,x,low,22.88
+Login,9.5,external input,"Username, Password, Done",x,"User Table",low,
+,,external output,"Show Main Activity",x,0,low,
+,,external inquieries,0,x,0,Complexity,
+,,internal logical files,"Session Key","User",x,low,
+,,external interface files,0,0,x,low,17.8
+Manage Custom Reward,8.5,external input,"Title, Points, Create, Save, Delete",x,"Reward Table",low,
+,,external output,"List Rewards",x,0,low,
+,,external inquieries,"List Rewards",x,0,low,
+,,internal logical files,"Title, Points","Rewards",x,low,
+,,external interface files,0,0,x,low,32.04
+UC6,,external input,0,x,0,Complexity,
+,,external output,0,x,0,Complexity,
+,,external inquieries,0,x,0,Complexity,
+,,internal logical files,0,0,x,Complexity,
+,,external interface files,0,0,x,Complexity,Points
+
