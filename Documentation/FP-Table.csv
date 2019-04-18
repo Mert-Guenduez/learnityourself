@@ -7,13 +7,13 @@ AddUser,12.416,external input,,,,low,
 Complete Task,2.6,external input,"Done",x,"Flag Task Completed, Add points",low,
 ,,external output,"Confirmation",x,0,low,
 ,,external inquieries,0,x,0,low,
-,,internal logical files,0,0,x,low,
-,,external interface files,0,0,x,low,18.69
+,,internal logical files,"Flag Completed","User-Task Relation",x,low,
+,,external interface files,0,0,x,low,12.32
 Register,5.5,external input,"Username, Password, Repeat PW, Done",x,"User Entry",low,
-,,external output,0,x,0,low,
+,,external output,"Show Login Activity",x,0,low,
 ,,external inquieries,0,x,0,low,
-,,internal logical files,0,0,x,low,
-,,external interface files,0,0,x,low,20.47
+,,internal logical files,"Username,PasswordHash","User",x,low,
+,,external interface files,0,0,x,low,22.88
 UC4,,external input,0,x,0,Complexity,
 ,,external output,0,x,0,Complexity,
 ,,external inquieries,0,x,0,Complexity,
