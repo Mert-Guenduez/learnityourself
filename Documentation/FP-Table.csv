@@ -5,7 +5,7 @@ AddUser,12.416,external input,,,,low,
 ,,internal logical files,,,,low,
 ,,external interface files,,,,low,30.26
 Complete Task,2.6,external input,"Done",x,"Flag Task Completed, Add points",low,
-,,external output,"Confirmation",0,x,low,
+,,external output,"Confirmation",x,0,low,
 ,,external inquieries,0,x,0,low,
 ,,internal logical files,0,0,x,low,
 ,,external interface files,0,0,x,low,18.69
