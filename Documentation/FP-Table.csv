@@ -1,8 +1,8 @@
 Usecase,Time spent (h),Transaction,DET,RET,FTR,Complexity,FP
-AddUser,12.416,external input,,,,low,
-,,external output,,,,low,
-,,external inquieries,,,,low,
-,,internal logical files,,,,low,
+AddUser,12.416,external input, "Adding User",, "Flag User, add User",low,
+,,external output, "Show AddUserActivity, Adding User to Mission, Adding User to Tasks",,,low,
+,,external inquieries, "User",,,low,
+,,internal logical files, "MissionMembers", "Mission",,low,
 ,,external interface files,,,,low,30.26
 Complete Task,2.6,external input,"Done",x,"Flag Task Completed, Add points",low,
 ,,external output,"Confirmation",x,0,low,
@@ -24,9 +24,9 @@ Manage Custom Reward,8.5,external input,"Title, Points, Create, Save, Delete",x,
 ,,external inquieries,"List Rewards",x,0,low,
 ,,internal logical files,"Title, Points","Rewards",x,low,
 ,,external interface files,0,0,x,low,32.04
-UC6,,external input,0,x,0,Complexity,
-,,external output,0,x,0,Complexity,
-,,external inquieries,0,x,0,Complexity,
-,,internal logical files,0,0,x,Complexity,
-,,external interface files,0,0,x,Complexity,Points
+SpendPointsOnRewards,,external input, "Reward",, "Subtract Points",Complexity,
+,,external output, "Show RewardsActivity, Confirmation",x,0,low,
+,,external inquieries,"Points, Rewards",x,0,low,
+,,internal logical files,0,0,x,low,
+,,external interface files,0,0,x,low,33.82
 
