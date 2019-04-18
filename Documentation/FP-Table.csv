@@ -22,8 +22,8 @@ Login,9.5,external input,"Username, Password, Done",x,"User Table",low,
 Manage Custom Reward,8.5,external input,"Title, Points, Create, Save, Delete",x,"Reward Table",low,
 ,,external output,"List Rewards",x,0,low,
 ,,external inquieries,"List Rewards",x,0,low,
-,,internal logical files,"Title, Points","Rewards",x,low,32.04
-,,external interface files,0,0,x,low,25.81
+,,internal logical files,"Title, Points","Rewards",x,low,
+,,external interface files,0,0,x,low,32.04
 UC6,,external input,0,x,0,Complexity,
 ,,external output,0,x,0,Complexity,
 ,,external inquieries,0,x,0,Complexity,
