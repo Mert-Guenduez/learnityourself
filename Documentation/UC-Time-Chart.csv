@@ -1,19 +1,19 @@
 UC,Documentation,Coding,Testing,Warm-Up,Total,FP
-Add User,,,,,,
-Change Password,,,,,,
-Complete Task,,,,,,
-Create Custom Reward,,,,,,
-Create Mission,,,,,,
-Delete Mission,,,,,,
-Edit Mission,,,,,,
-Leave Mission,,,,,,
-Login,,,,,,
-Logout,,,,,,
-Manage Tasks,,,,,,
-Receive Achievements,,,,,,
-Register,,,,,,
-Reset Password,,,,,,
-Spend points on rewards,,,,,,
-View Mission Statistics,,,,,,
-View User Statistics,,,,,,
-View Missions,,,,,,
+Add User,1h25m,5h,6h,1h,12h25m,30.26
+Change Password,1h30m,0,0,0,1h30m,?
+Complete Task,1h,1h20m,20m,0,2h40m,?
+Create Custom Reward,4h,4h30m,0,0,8h30m,?
+Create Mission,5h,19h20m,30m,4h7m,24h50m,?
+Delete Account,2h,0,0,1h,2h,?
+Delete Mission,0,0,0,0,0,?
+Edit Mission,50m,0,0,0,50m,?
+Leave Mission,1h40m,0,0,0,1h40m,?
+Login,1h30m,8h,0,13h,9h30m,?
+Logout,2h50m,27m,30m,0,3h47m,?
+Manage Tasks,8h30m,14h50m,2h,2h,25h20m,?
+Receive Achievements,2h30m,0,0,30m,2h30m,?
+Register,2h,2h30m,1h,0,5h30m,?
+Spend points on rewards,40m,0,0,0,40m,33.82
+View Mission Statistics,45m,0,0,0,45m,?
+View User Statistics,45m,0,0,0,45m,?
+View Missions,1h50m,20h,0,0,21h50m,?

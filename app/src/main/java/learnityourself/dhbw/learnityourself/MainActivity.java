@@ -11,7 +11,7 @@ import learnityourself.dhbw.learnityourself.model.User;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView user_label;
+    private TextView user_label,  points_label;
     private Button missions_button, logout_button, rewards_button, spendPoints_button;
     private MainController controller;
     @Override
@@ -24,12 +24,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-    }
+     }
 
-    private void init() {
+     private void init() {
 
-        user_label = findViewById(R.id.mainUserLabel);
-        user_label.setText(controller.getUser().getUsername());
+         user_label = findViewById(R.id.mainUserLabel);
+         user_label.setText(controller.getUser().getUsername());
+
+         points_label = findViewById(R.id.pointsLabel);
+         points_label.setText(controller.getUser().getPoints() + " Points");
+
 
         rewards_button = findViewById(R.id.rewards_button);
         spendPoints_button = findViewById(R.id.spendPoints_button);
@@ -60,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
                 controller.viewMissions();
             }
         });
-
     }
 
     @Override
