@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import learnityourself.dhbw.learnityourself.controller.ViewRewardsController;
@@ -27,6 +29,17 @@ public class ViewRewardsActivity extends AppCompatActivity {
     void init() {
         rewardListView = findViewById(R.id.reward_list);
         rewardListView.setAdapter(new RewardAdapter(this, controller.getRewards()));
+
+        /*
+        rewardListView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        //
+                    }
+                }
+        );
+        */
     }
 
     @Override
