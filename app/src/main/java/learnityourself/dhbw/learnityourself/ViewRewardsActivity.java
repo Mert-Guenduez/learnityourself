@@ -30,6 +30,8 @@ public class ViewRewardsActivity extends AppCompatActivity {
         rewardListView = findViewById(R.id.reward_list);
         rewardListView.setAdapter(new RewardAdapter(this, controller.getRewards()));
 
+        System.out.println("LÄNGE: " + controller.getRewards().length);
+
         rewardListView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override

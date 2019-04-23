@@ -47,7 +47,7 @@ public class RewardAdapter extends BaseAdapter {
             holder = (RewardAdapter.ViewHolder) convertView.getTag();
         }
 
-        holder.text1.setText(rewards[position].getRewardName());
+        holder.text1.setText(rewards[position].getTitle());
 
         return convertView;
     }

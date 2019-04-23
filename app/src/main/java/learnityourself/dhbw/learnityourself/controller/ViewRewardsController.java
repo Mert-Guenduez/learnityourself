@@ -4,14 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.CreateCustomRewardActivity;
 import learnityourself.dhbw.learnityourself.MainActivity;
-import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.Reward;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
@@ -36,10 +34,7 @@ public class ViewRewardsController extends AuthorizedController {
             e.printStackTrace();
         }
 
-        Gson gson = new GsonBuilder()
-                .setDateFormat("yyyy-MM-dd' 'HH:mm:ss")
-                .create();
-        rewards = gson.fromJson(HTTPRequestHandler.getStringFromInputStream(in), Reward[].class);
+        rewards = new Gson().fromJson(HTTPRequestHandler.getStringFromInputStream(in), Reward[].class);
     }
 
     public Reward[] getRewards() {
@@ -53,6 +48,7 @@ public class ViewRewardsController extends AuthorizedController {
     public void createReward() {
         Intent intent = new Intent(context, CreateCustomRewardActivity.class);
         intent.putExtra("user", user);
+        intent.putExtra("rewardNames", rewards);
         context.startActivity(intent);
     }
 
