@@ -30,16 +30,14 @@ public class ViewRewardsActivity extends AppCompatActivity {
         rewardListView = findViewById(R.id.reward_list);
         rewardListView.setAdapter(new RewardAdapter(this, controller.getRewards()));
 
-        /*
         rewardListView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        //
+                        controller.missionClicked(position);
                     }
                 }
         );
-        */
     }
 
     @Override

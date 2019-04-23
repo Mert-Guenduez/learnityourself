@@ -5,13 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 
 import learnityourself.dhbw.learnityourself.controller.CreateCustomRewardController;
 import learnityourself.dhbw.learnityourself.model.User;
 
 public class CreateCustomRewardActivity extends AppCompatActivity {
 
-    private EditText rewardName, points;
+    private EditText rewardName;
+    private NumberPicker points;
     private CreateCustomRewardController controller;
 
     @Override
@@ -47,7 +49,7 @@ public class CreateCustomRewardActivity extends AppCompatActivity {
                 public boolean onMenuItemClick(MenuItem item) {
                     if (validEntry()){
                         controller.setRewardName(rewardName.getText().toString());
-                        controller.setPoints(Integer.parseInt(points.getText().toString()));
+                        //controller.setPoints(Integer.parseInt(points.getText().toString()));
 
                         controller.checkClickHandler();
                     }
@@ -64,10 +66,12 @@ public class CreateCustomRewardActivity extends AppCompatActivity {
             return false;
         }
         // TODO check if rewardName already exists
+        /*
         if (points.getText().toString().isEmpty()) {
             points.setError("Insert Points.");
             return false;
         }
+        */
         // TODO check if Input is a number (maybe)
 
         return true;
