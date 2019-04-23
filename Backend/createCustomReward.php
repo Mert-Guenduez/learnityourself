@@ -13,15 +13,15 @@ if ($db->connect_errno > 0) {
 include 'checkSessionkey.php';
 $json = json_encode(array('authentication' => 'false', 'error' => 'Authentication failure'));
 if($check) {
-if(true) {
 	$stmt = $db->prepare('INSERT INTO rewards (owner, title, description, cost) VALUES (?,?,?,?)');
-    $stmt->bind_param('ssss', $username,$title,$description,$cost);
+    $stmt->bind_param('sssi', $username,$title,$description,$cost);
 	if($stmt->execute()){
 		$data = array('response' => 'Reward successfully created');
 	}
 	else{
 		$data = array('error' => 'Error while trying to insert into rewards table');
 	}
+	$json = json_encode($data);
 }
 echo $json;
 ?>
