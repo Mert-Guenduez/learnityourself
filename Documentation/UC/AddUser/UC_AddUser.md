@@ -39,4 +39,4 @@ n/a
 
 <!-- picture links -->
 [UML]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/AddUser/UML_AddUser.png "UML Diagram"
-[Mock]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/Login/AddUser_Mockup.png "Mockup"
+[Mock]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/AddUser/AddUser_Mockup.png "Mockup"
