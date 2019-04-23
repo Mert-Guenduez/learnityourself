@@ -13,6 +13,7 @@ import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.LoginActivity;
 import learnityourself.dhbw.learnityourself.MainActivity;
+import learnityourself.dhbw.learnityourself.SpendPointsOnRewardsActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.ViewRewardsActivity;
 import learnityourself.dhbw.learnityourself.model.User;
@@ -92,6 +93,12 @@ public class MainController {
 
     public void viewRewards() {
         Intent intent = new Intent(context, ViewRewardsActivity.class);
+        intent.putExtra("user", user);
+        context.startActivity(intent);
+    }
+
+    public void viewSpendPointsOnRewards() {
+        Intent intent = new Intent(context, SpendPointsOnRewardsActivity.class);
         intent.putExtra("user", user);
         context.startActivity(intent);
     }
