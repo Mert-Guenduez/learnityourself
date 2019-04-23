@@ -1,9 +1,9 @@
-# Use-Case Specification: Manage Tasks
+# Use-Case Specification: Add User
 
 
 ## 1. Use-Case Name 
 ### 1.1 Brief Description
-This Use Case deals with enabling a Guest to Log into the app and thereby becoming an User
+This Use Case deals with adding new Users to a Mision
 
 ## 2. Flow of Events
 ### 2.1 Basic Flow 
@@ -22,19 +22,21 @@ Mock-Up:
 
 ## 3. Special Requirements
 ### 3.1 Existing account
-The Guest must have an existing account in the app to be able to log in
+The User must have an existing account in the app
+### 3.2 Existing Mission
+There must be an existing Mission to add a User
 
 ## 4. Preconditions
-### 4.1 Not logged in
-The user is not logged into the app and is seeing the login screen
+### 4.1 Not in Mission
+The user is not part of the mission
 
 ## 5. Postconditions 
-### 5.1 Session key
-The user will have a session key and see the Main Activity
+### 5.1 Mission Member
+The user is now a Mission Member
 
 ## 6. Extension Points
 n/a
 
 <!-- picture links -->
 [UML]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/AddUser/UML_AddUser.png "UML Diagram"
-[Mock]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/Login/AddUser_Mock.png "Mockup"
+[Mock]: https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/master/Documentation/UC/Login/AddUser_Mockup.png "Mockup"
