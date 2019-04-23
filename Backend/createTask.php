@@ -59,13 +59,13 @@ if($check) {
 			$stmt = $db->prepare('INSERT INTO userToTask (username, taskid, completed) VALUES (?,?, 0)');
 			$stmt->bind_param('ss',$row[0], $taskid);
 			if(!$stmt->execute()){
-				$data = json_encode(array('response' => 'Task was created, but there was an error assigning every user to the task'));
+				$data = json_encode(array('response' => 'Task was created, but there was an error assigning every user to the task'), 'id' => $taskid);
 			}
 			$stmt->close();
 		}
 	}
 	else{
-		$data = json_encode(array('error' => 'Task could not be inserted into DBTable tasks'));
+		$data = json_encode(array('error' => 'Task could not be updated'));
 	}
     $json = json_encode($data);
 }
