@@ -6,12 +6,15 @@ public class User implements Serializable {
 
 
     private String username;
+    private int points;
     private String sessionkey;
+    private boolean isMember;
 
     public User(String username, String sessionkey) {
 
         this.username = username;
         this.sessionkey = sessionkey;
+        this.isMember = false;
     }
 
     public String getUsername() {
@@ -30,6 +33,19 @@ public class User implements Serializable {
         this.sessionkey = sessionkey;
     }
 
+    public boolean isMember() {
+        return isMember;
+    }
 
+    public void setMember(boolean member) {
+        isMember = member;
+    }
 
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
 }

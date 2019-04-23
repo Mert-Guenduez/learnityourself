@@ -7,25 +7,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.controller.ViewMissionsController;
-import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.MissionAdapter;
 import learnityourself.dhbw.learnityourself.model.User;
-import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 
 public class ViewMissionsActivity extends AppCompatActivity{
 
@@ -61,7 +47,7 @@ public class ViewMissionsActivity extends AppCompatActivity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu_add, menu);
         return true;
     }
 
@@ -70,10 +56,14 @@ public class ViewMissionsActivity extends AppCompatActivity{
         int id = item.getItemId();
 
         if (id == R.id.add){
-            // TODO add create new Mission
+            controller.createMission();
         }
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        controller.keyBackHandler();
+    }
 
 }

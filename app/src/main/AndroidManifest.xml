@@ -41,6 +41,28 @@
             android:name=".AddMissionMemberActivity"
             android:label="Edit MissionMembers">
         </activity>
-    </application>
+        <activity
+            android:name=".ViewTaskActivity"
+            android:label="">
+        </activity>
+        <activity
+            android:name=".CreateMissionActivity"
+            android:label="Create Mission">
+        </activity>
+        <activity
+            android:name=".AddMissionMemberCreateMissionActivity">
+        </activity>
+        <activity
+            android:name=".ManageTaskActivity">
+        </activity>
+        <activity
+            android:name=".ViewRewardsActivity"
+            android:label="Your Rewards">
+        </activity>
+        <activity
+            android:name=".CreateCustomRewardActivity"
+            android:label="Create Reward">
+        </activity>
+</application>
 
 </manifest>

@@ -7,8 +7,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
+import learnityourself.dhbw.learnityourself.CreateMissionActivity;
+import learnityourself.dhbw.learnityourself.MainActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
@@ -47,6 +50,22 @@ public class ViewMissionsController extends AuthorizedController{
         Intent intent = new Intent(context, ViewMissionActivity.class);
         intent.putExtra("user", user);
         intent.putExtra("mission", missions[position]);
+        context.startActivity(intent);
+    }
+
+    public void createMission(){
+        String[] string = new String[0];
+
+        Intent intent = new Intent(context, CreateMissionActivity.class);
+        intent.putExtra("user", user);
+        intent.putExtra("membersString", "");
+        intent.putExtra("membersNameString", string);
+        context.startActivity(intent);
+    }
+
+    public void keyBackHandler(){
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra("user", user);
         context.startActivity(intent);
     }
 }

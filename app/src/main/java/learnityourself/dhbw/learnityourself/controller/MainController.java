@@ -14,6 +14,7 @@ import java.util.concurrent.ExecutionException;
 import learnityourself.dhbw.learnityourself.LoginActivity;
 import learnityourself.dhbw.learnityourself.MainActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
+import learnityourself.dhbw.learnityourself.ViewRewardsActivity;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 import learnityourself.dhbw.learnityourself.utility.SSLHandler;
@@ -89,6 +90,11 @@ public class MainController {
 
     }
 
+    public void viewRewards() {
+        Intent intent = new Intent(context, ViewRewardsActivity.class);
+        intent.putExtra("user", user);
+        context.startActivity(intent);
+    }
 
     public void viewMissions() {
         Intent intent = new Intent(context, ViewMissionsActivity.class);
@@ -100,4 +106,19 @@ public class MainController {
         return user;
     }
 
+    public void keyBackHandler(){
+    }
+
+    public void logout() {
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        InputStream in  = null;
+        try {
+            in = handler.execute("https://91.205.172.109/logout.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        context.startActivity(new Intent(context, LoginActivity.class));
+    }
 }

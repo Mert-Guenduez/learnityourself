@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import learnityourself.dhbw.learnityourself.controller.ViewMissionController;
 import learnityourself.dhbw.learnityourself.model.Mission;
@@ -73,13 +72,10 @@ public class ViewMissionActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view,int position, long arg3) {
                         // TODO Auto-generated method stub
-                        Toast.makeText(getApplicationContext(),"You Selected Item "+Integer.toString(position), Toast.LENGTH_LONG).show();
+                        controller.clickTask(position);
                     }
                 }
         );
-
-
-
 
     }
 
@@ -91,7 +87,7 @@ public class ViewMissionActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu_add, menu);
         return true;
     }
 
@@ -100,10 +96,14 @@ public class ViewMissionActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.add){
-            // TODO add create new Task
+            controller.createTask();
         }
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        controller.keyBackHandler();
+    }
 
 }

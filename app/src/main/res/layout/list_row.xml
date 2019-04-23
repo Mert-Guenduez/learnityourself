@@ -10,14 +10,14 @@
     <TextView
         android:id="@+id/TextView01"
         android:layout_width="332dp"
-        android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:gravity="left"
         android:paddingLeft="20dip"
         android:scrollHorizontally="true"
         android:singleLine="true"
-        android:textColor="#d08021"
-        android:textSize="15dip"
+        android:textColor="#666d70"
+        android:textSize="22dip"
         android:textStyle="bold"></TextView>
     <TextView
         android:id="@+id/TextView02"
@@ -28,7 +28,7 @@
         android:gravity="left"
         android:singleLine="true"
         android:layout_marginLeft="10dip"
-        android:textSize="15dip"
+        android:textSize="20dip"
         android:textStyle="bold"
         android:textColor="#7f0000">
     </TextView>
