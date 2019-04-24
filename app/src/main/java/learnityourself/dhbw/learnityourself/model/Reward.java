@@ -5,9 +5,9 @@ import java.io.Serializable;
 public class Reward implements Serializable {
 
     private String rewardId;
-    private String rewardName;
+    private String title;
     private String owner;
-    private int points;
+    private int cost;
 
     public String getRewardId() {
         return rewardId;
@@ -17,12 +17,12 @@ public class Reward implements Serializable {
         this.rewardId = rewardId;
     }
 
-    public String getRewardName() {
-        return rewardName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setRewardName(String rewardName) {
-        this.rewardName = rewardName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getOwner() {
@@ -33,11 +33,11 @@ public class Reward implements Serializable {
         this.owner = owner;
     }
 
-    public int getPoints() {
-        return points;
+    public int getCost() {
+        return cost;
     }
 
-    public void setPoints(int points) {
-        this.points = points;
+    public void setCost(int cost) {
+        this.cost = cost;
     }
 }

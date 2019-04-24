@@ -3,8 +3,12 @@ package learnityourself.dhbw.learnityourself.controller;
 import android.content.Context;
 import android.content.Intent;
 
+import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
+
 import learnityourself.dhbw.learnityourself.ViewRewardsActivity;
 import learnityourself.dhbw.learnityourself.model.User;
+import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 
 public class CreateCustomRewardController extends AuthorizedController{
 
@@ -37,7 +41,21 @@ public class CreateCustomRewardController extends AuthorizedController{
     }
 
     private void createReward() {
-        // TODO Request an Server
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        InputStream in  = null;
+        try {
+            in = handler.execute("https://91.205.172.109/createCustomReward.php","username",
+                    user.getUsername(),"sessionkey", user.getSessionkey(),
+                    "title", rewardName, "description", "", "cost", Integer.toString(points))
+                    .get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String inputString=HTTPRequestHandler.getStringFromInputStream(in);
+
     }
 
     public void keyBackHandler() {

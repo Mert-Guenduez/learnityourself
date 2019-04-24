@@ -21,8 +21,7 @@ public class RewardAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
-//        return rewards.length;
+        return rewards.length;
     }
 
     @Override
@@ -48,7 +47,7 @@ public class RewardAdapter extends BaseAdapter {
             holder = (RewardAdapter.ViewHolder) convertView.getTag();
         }
 
-        holder.text1.setText(rewards[position].getRewardName());
+        holder.text1.setText(rewards[position].getTitle());
 
         return convertView;
     }
