@@ -1,25 +1,30 @@
 Usecase,Time spent (h),Transaction,DET,RET,FTR,Complexity,FP
+Create Mission,24.833,external input,"Name, Description, Date, Users, Usersearch, Done",x,"Missions, Mission-User",average,
+,,external output,"Show Missions Activity, UserResults",x,"Users",low,
+,,external inquieries,"Users",x,"Users",low,
+,,internal logical files,"Usernames, Missionname, Description, Date","Mission",x,low,
+,,external interface files,0,0,x,low,40.05
 AddUser,12.416,external input, "Adding User",, "Flag User, add User",low,
 ,,external output, "Show AddUserActivity, Adding User to Mission, Adding User to Tasks",,,low,
 ,,external inquieries, "User",,,low,
 ,,internal logical files, "MissionMembers", "Mission",,low,
 ,,external interface files,,,,low,30.26
-Complete Task,2.6,external input,"Done",x,"Flag Task Completed, Add points",low,
-,,external output,"Confirmation",x,0,low,
-,,external inquieries,0,x,0,low,
-,,internal logical files,"Flag Completed","User-Task Relation",x,low,
-,,external interface files,0,0,x,low,12.32
-Register,5.5,external input,"Username, Password, Repeat PW, Done",x,"User Entry",low,
-,,external output,"Show Login Activity",x,0,low,
-,,external inquieries,0,x,0,low,
-,,internal logical files,"Username,PasswordHash","User",x,low,
-,,external interface files,0,0,x,low,22.88
 Login,9.5,external input,"Username, Password, Done",x,"User Table",low,
 ,,external output,"Show Main Activity",x,0,low,
 ,,external inquieries,0,x,0,Complexity,
 ,,internal logical files,"Session Key","User",x,low,
 ,,external interface files,0,0,x,low,17.8
-Manage Custom Reward,8.5,external input,"Title, Points, Create, Save, Delete",x,"Reward Table",low,
+Register,5.5,external input,"Username, Password, Repeat PW, Done",x,"User Entry",low,
+,,external output,"Show Login Activity",x,0,low,
+,,external inquieries,0,x,0,low,
+,,internal logical files,"Username,PasswordHash","User",x,low,
+,,external interface files,0,0,x,low,22.88
+Complete Task,,external input,"Done",x,"Flag Task Completed, Add points",low,
+,,external output,"Confirmation",x,0,low,
+,,external inquieries,0,x,0,low,
+,,internal logical files,"Flag Completed","User-Task Relation",x,low,
+,,external interface files,0,0,x,low,12.32
+Manage Custom Reward,,external input,"Title, Points, Create, Save, Delete",x,"Reward Table",low,
 ,,external output,"List Rewards",x,0,low,
 ,,external inquieries,"List Rewards",x,0,low,
 ,,internal logical files,"Title, Points","Rewards",x,low,
