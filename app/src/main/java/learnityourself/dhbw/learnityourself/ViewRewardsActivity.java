@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 
 import learnityourself.dhbw.learnityourself.controller.ViewRewardsController;
@@ -30,13 +32,11 @@ public class ViewRewardsActivity extends AppCompatActivity {
         rewardListView = findViewById(R.id.reward_list);
         rewardListView.setAdapter(new RewardAdapter(this, controller.getRewards()));
 
-        System.out.println("LÄNGE: " + controller.getRewards().length);
-
         rewardListView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        controller.missionClicked(position);
+                        controller.missionClicked(position, view);
                     }
                 }
         );

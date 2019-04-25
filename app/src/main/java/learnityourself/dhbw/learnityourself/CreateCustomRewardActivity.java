@@ -42,7 +42,12 @@ public class CreateCustomRewardActivity extends AppCompatActivity {
         pointsError = findViewById(R.id.pointsError_textView);
         points = findViewById(R.id.points_editText);
 
-        //pointsProgress.setX(pointsProgress.getScrollX());
+
+        int rewardPosition = (int)getIntent().getSerializableExtra("reward");
+        if (rewardPosition > -1) {
+            rewardName.setText(rewards[rewardPosition].getTitle());
+            points.setProgress(rewards[rewardPosition].getCost());
+        }
 
         points.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {

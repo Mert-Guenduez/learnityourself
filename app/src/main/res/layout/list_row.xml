@@ -28,8 +28,6 @@
         android:gravity="left"
         android:singleLine="true"
         android:layout_marginLeft="10dip"
-        android:textSize="20dip"
-        android:textStyle="bold"
-        android:textColor="#7f0000">
+        android:textSize="20dip">
     </TextView>
 </LinearLayout>
