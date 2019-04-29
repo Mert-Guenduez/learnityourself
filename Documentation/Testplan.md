@@ -144,11 +144,10 @@ The tests are done to ensure quality and mitigate risks and fulfill functional r
 
 - UI testing of views/fragments
 
-*Backend: Spring Boot Application*:
+*Backend: PhP Application*:
 
 - Unit testing
 - Integration testing
-- UI Testing
 
 ![Testing overview](./testing_overview.png)  
 
