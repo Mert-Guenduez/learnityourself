@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import learnityourself.dhbw.learnityourself.R;
@@ -36,20 +37,32 @@ public class TaskAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.list_row, null);
             holder = new TaskAdapter.ViewHolder();
-            holder.text1 = (TextView) convertView
+            holder.taskLabel = (TextView) convertView
                     .findViewById(R.id.TextView01);
+            holder.completedFlag = (CheckBox) convertView.findViewById(R.id.completedFlag);
             convertView.setTag(holder);
         } else {
             holder = (TaskAdapter.ViewHolder) convertView.getTag();
         }
 
-        holder.text1.setText(tasks[position].getTaskname());
+        holder.taskLabel.setText(tasks[position].getTaskname());
+        holder.completedFlag.setEnabled(false);
+
+        if(tasks[position].getCompleted()==null || !tasks[position].getCompleted()){
+            holder.completedFlag.setVisibility(View.INVISIBLE);
+        }else{
+            holder.completedFlag.setVisibility(View.VISIBLE);
+            holder.completedFlag.setChecked(true);
+        }
+
 
         return convertView;
     }
 
     static class ViewHolder {
-        TextView text1;
+        TextView taskLabel;
+        CheckBox completedFlag;
+
     }
 
 }
