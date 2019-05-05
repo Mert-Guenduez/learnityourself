@@ -8,6 +8,7 @@ public class Task implements Serializable {
     private String taskname;
     private String description;
     private String missionid;
+    private Boolean completed;
     private int effort;
 
     public String getDescription() {
@@ -52,6 +53,11 @@ public class Task implements Serializable {
         this.missionid = missionid;
     }
 
+    public Boolean getCompleted() {
+        return completed;
+    }
 
-
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
+    }
 }

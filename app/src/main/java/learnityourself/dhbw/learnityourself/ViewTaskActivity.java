@@ -26,7 +26,6 @@ public class ViewTaskActivity extends AppCompatActivity {
 
 
     private ViewTaskController controller;
-    private Task task;
     private Button complete_task_button;
     private TextView taskDescription, taskEffort;
 
@@ -59,6 +58,10 @@ public class ViewTaskActivity extends AppCompatActivity {
                 controller.completeTask();
             }
         });
+        if(controller.getTask().getCompleted() != null){
+            complete_task_button.setEnabled(!controller.getTask().getCompleted());
+        }
+
     }
 
     public void generateActionBar(){
