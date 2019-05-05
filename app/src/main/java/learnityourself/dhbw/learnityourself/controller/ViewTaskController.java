@@ -58,6 +58,7 @@ public class ViewTaskController extends AuthorizedController{
                     user.getUsername(),"sessionkey", user.getSessionkey(),"taskid", task.getTaskid())
                     .get();
             if(in != null){
+                task.setCompleted(true);
                 Gson gson= new Gson();
                 user = gson.fromJson(HTTPRequestHandler.getStringFromInputStream(in), User.class);
                 Toast.makeText(context, "Congratulations for \n Completing this Task. \n You receive " +task.getEffort()+ " Points", Toast.LENGTH_LONG).show();
