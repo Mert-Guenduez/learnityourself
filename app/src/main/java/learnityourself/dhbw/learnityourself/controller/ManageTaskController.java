@@ -11,6 +11,8 @@ import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.CreateMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionActivity;
+import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
+import learnityourself.dhbw.learnityourself.ViewRewardsActivity;
 import learnityourself.dhbw.learnityourself.ViewTaskActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.Task;
@@ -58,10 +60,18 @@ public class ManageTaskController extends AuthorizedController{
             e.printStackTrace();
         }
 
+        returnToTaskActivity();
+
+    }
+
+    public void returnToTaskActivity() {
         Intent intent = new Intent(context, ViewTaskActivity.class);
         intent.putExtra("user", user);
         intent.putExtra("task", task);
         context.startActivity(intent);
+    }
 
+    public void keyBackHandler() {
+        returnToTaskActivity();
     }
 }
