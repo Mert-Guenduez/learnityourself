@@ -10,6 +10,7 @@ import com.google.gson.JsonParser;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Console;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.concurrent.ExecutionException;
@@ -56,7 +57,7 @@ public class ViewMissionController extends AuthorizedController {
         JsonElement element = new JsonParser().parse(new InputStreamReader(in));
         try {
             jsonObject = new JSONObject(element.getAsJsonObject().toString());
-
+            System.out.println(jsonObject.toString());
             String tag = jsonObject.getString("tasks");
             tasks = new Gson().fromJson(tag, Task[].class);
         } catch (JSONException e){

@@ -17,6 +17,10 @@ public class User implements Serializable {
         this.isMember = false;
     }
 
+    public User(){
+
+    }
+
     public String getUsername() {
         return username;
     }
