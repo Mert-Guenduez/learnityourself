@@ -8,13 +8,13 @@ $missionid  = $_POST['missionid'];
 
 $db = new mysqli('localhost', 'XXX', 'XXX', 'XXX');
 if ($db->connect_errno > 0) {
-    die(json_encode(array('authentication' => 'false', 'error' => 'Unable to connect to database [' . $db->connect_erro$}
+    die(json_encode(array('authentication' => 'false', 'error' => 'Unable to connect to database [' . $db->connect_error . ']')));
+}
 if (! isset($_POST['missionid'])) {
     die(json_encode(array('error' => 'mission identification not set')));
 }
 include 'checkSessionkey.php';
 $json = json_encode(array('authentication' => 'false', 'error' => 'Authentication failure'));
-
 if($check) {
     $stmt = $db->prepare('SELECT * FROM missions WHERE id = ?');
     $stmt->bind_param('i', $missionid);
@@ -33,7 +33,7 @@ if($check) {
     $stmt->bind_result($taskid, $taskname, $completed);
     while ($stmt->fetch()) {
         $taskname = utf8_encode($taskname);
-        $taskhead = array('taskid' => $taskid, 'taskname' => $taskname, 'completed' => $completed);
+        $taskhead = array('taskid' => $taskid, 'taskname' => $taskname, 'completed' => ($completed == 0? 'false' : 'true'));
         $data['tasks'][] = $taskhead;
     }
     $stmt->close();
@@ -41,3 +41,4 @@ if($check) {
 }
 echo $json;
 ?>
+
