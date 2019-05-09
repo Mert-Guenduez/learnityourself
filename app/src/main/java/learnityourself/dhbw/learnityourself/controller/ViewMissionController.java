@@ -23,6 +23,7 @@ import learnityourself.dhbw.learnityourself.ViewTaskActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.Task;
 import learnityourself.dhbw.learnityourself.model.User;
+import learnityourself.dhbw.learnityourself.modelFactories.TaskFactory;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 import learnityourself.dhbw.learnityourself.utility.Helper;
 
@@ -102,12 +103,21 @@ public class ViewMissionController extends AuthorizedController {
     }
 
     public void createTask() {
+        TaskFactory.createNewObject();
+        TaskFactory.setMissionId(mission.getMissionid());
+        TaskFactory.setEffort(0);
+        TaskFactory.setDescription("");
+        TaskFactory.setName("New Task");
+
+        Task newTask = TaskFactory.getObject();
+
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
             in = handler.execute("https://91.205.172.109/createTask.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
-                    "missionid", mission.getMissionid(), "taskname", "New Task", "description", "", "effort", "0")
+                    "missionid", newTask.getMissionid(), "taskname", newTask.getTaskname(), "description",
+                    newTask.getDescription(), "effort", newTask.getEffort()+"")
                     .get();
         } catch (ExecutionException e) {
             e.printStackTrace();
