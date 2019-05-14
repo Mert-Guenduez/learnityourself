@@ -63,9 +63,10 @@ public class ViewTaskController extends AuthorizedController{
             if(in != null){
                 task.setCompleted(true);
                 Gson gson= new Gson();
+                System.out.println(HTTPRequestHandler.getStringFromInputStream(in));
                 try {
                     JSONObject object = new JSONObject(HTTPRequestHandler.getStringFromInputStream(in));
-                    user.setPoints(object.getInt("points"));
+                    user.setPoints(object.getInt("user_points"));
                 } catch (JSONException e) {
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                 }
