@@ -12,15 +12,12 @@ public class UserFactory {
     public static void setUserName(String name){
         user.setUsername(name);
     }
-
     public static void setIsMember(boolean isMember){
         user.setMember(isMember);
     }
-
     public static void setSessionKey(String sessionKey){
         user.setSessionkey(sessionKey);
     }
-
     public static void setPoints(int points){
         user.setPoints(points);
     }

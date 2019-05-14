@@ -22,6 +22,9 @@ public class TaskFactory {
     public static void setId(String id){
         task.setTaskid(id);
     }
+    public static void setMissionId(String id){
+        task.setMissionid(id);
+    }
 
     public static Task getObject(){return task;};
 
