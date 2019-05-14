@@ -5,11 +5,14 @@ import android.content.Intent;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.AddMissionMemberCreateMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
+import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.User;
+import learnityourself.dhbw.learnityourself.modelFactories.MissionFactory;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 import learnityourself.dhbw.learnityourself.utility.Helper;
 import learnityourself.dhbw.learnityourself.utility.MatchUser;
@@ -18,7 +21,6 @@ public class CreateMissionController extends MatchUser {
     private String membersString;
     private String[] membersNameString;
     private User[] matchUser;
-    private String missionname, description, seconds;
     private ArrayList<User> membersArrayList;
     private User user;
 
@@ -29,43 +31,24 @@ public class CreateMissionController extends MatchUser {
         this.membersNameString = null;
         this.membersArrayList = new ArrayList<>();
         this.user = user;
+
+        MissionFactory.createNewObject();
     }
 
-    public String getMembersString() {
-        return membersString;
-    }
 
     public void setMembersString(String membersString) {
         this.membersString = membersString;
     }
 
-    public String[] getMembersNameString() {
-        return membersNameString;
-    }
-
-    public String getMissionname() {
-        return missionname;
-    }
-
     public void setMissionname(String missionname) {
-        this.missionname = missionname;
-    }
-
-    public String getDescription() {
-        return description;
+        MissionFactory.setName(missionname);
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        MissionFactory.setDescription(description);
     }
 
-    public String getSeconds() {
-        return seconds;
-    }
-
-    public void setSeconds(String seconds) {
-        this.seconds = seconds;
-    }
+    public void setDate(Date date) { MissionFactory.setDate(date); }
 
     public void setMembersNameString(String[] membersNameString) {
         this.membersNameString = membersNameString;
@@ -107,13 +90,15 @@ public class CreateMissionController extends MatchUser {
     }
 
     public void createMission(){
+        Mission newMission = MissionFactory.getObject();
+        String seconds =""+(newMission.getDeadline().getTime() - new Date().getTime());
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
             in = handler.execute("https://91.205.172.109/createMission.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
-                    "missionname", missionname, "description", description, "seconds", seconds,
+                    "missionname", newMission.getMissionname(), "description", newMission.getDescription(), "seconds", seconds,
                     "users", (membersString.length()==0)? null : membersString)
                     .get();
         } catch (ExecutionException e) {
