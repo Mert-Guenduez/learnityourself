@@ -60,16 +60,8 @@ public class ViewTaskController extends AuthorizedController{
             in = handler.execute("https://91.205.172.109/completeTask.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),"taskid", task.getTaskid())
                     .get();
-            if(in != null){
-                task.setCompleted(true);
-                Gson gson= new Gson();
-                System.out.println(HTTPRequestHandler.getStringFromInputStream(in));
-                try {
-                    JSONObject object = new JSONObject(HTTPRequestHandler.getStringFromInputStream(in));
-                    user.setPoints(object.getInt("user_points"));
-                } catch (JSONException e) {
-                    Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-                }
+            String inString = HTTPRequestHandler.getStringFromInputStream(in).toString();
+            if(in != null && !inString.contains("error")){
                 Toast.makeText(context, "Congratulations for \n Completing this Task. \n You receive " +task.getEffort()+ " Points", Toast.LENGTH_LONG).show();
             }else{
                 Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
