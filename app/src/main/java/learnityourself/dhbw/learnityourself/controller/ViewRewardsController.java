@@ -2,6 +2,9 @@ package learnityourself.dhbw.learnityourself.controller;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
 
 import com.google.gson.Gson;
 
@@ -10,6 +13,7 @@ import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.CreateCustomRewardActivity;
 import learnityourself.dhbw.learnityourself.MainActivity;
+import learnityourself.dhbw.learnityourself.R;
 import learnityourself.dhbw.learnityourself.model.Reward;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
@@ -17,9 +21,11 @@ import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 public class ViewRewardsController extends AuthorizedController {
 
     Reward[] rewards;
+    Context context;
 
     public ViewRewardsController (User user, Context context) {
         super(user, context);
+        this.context = context;
     }
 
     @Override
@@ -41,14 +47,42 @@ public class ViewRewardsController extends AuthorizedController {
         return rewards;
     }
 
-    public void missionClicked(int position) {
-        // TODO
+    public void missionClicked(final int position, View view) {
+        PopupMenu popupMenu = new PopupMenu(context, view);
+        popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if (item.getTitle().equals("Edit")) {
+                    editReward(position);
+                } else if (item.getTitle().equals("Delete")){
+                    deleteReward();
+                }
+                return false;
+            }
+        });
+
+        popupMenu.show();
+    }
+
+    public void editReward(int position) {
+        Intent intent = new Intent(context, CreateCustomRewardActivity.class);
+        intent.putExtra("user", user);
+        intent.putExtra("rewardNames", rewards);
+        intent.putExtra("reward", position);
+        context.startActivity(intent);
+    }
+
+    public void deleteReward() {
+
     }
 
     public void createReward() {
         Intent intent = new Intent(context, CreateCustomRewardActivity.class);
         intent.putExtra("user", user);
         intent.putExtra("rewardNames", rewards);
+        intent.putExtra("reward", -1);
         context.startActivity(intent);
     }
 
