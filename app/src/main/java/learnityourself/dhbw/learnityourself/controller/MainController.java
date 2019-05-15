@@ -141,7 +141,6 @@ public class MainController {
         InputStream in  = null;
         try {
             in = handler.execute("https://91.205.172.109/getUserPoints.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
-            System.out.println(HTTPRequestHandler.getStringFromInputStream(in));
             JSONObject object = new JSONObject(HTTPRequestHandler.getStringFromInputStream(in));
             user.setPoints(object.getInt("user_points"));
         } catch (ExecutionException e) {
@@ -151,6 +150,5 @@ public class MainController {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 }

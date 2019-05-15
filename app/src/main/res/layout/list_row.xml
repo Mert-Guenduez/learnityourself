@@ -1,40 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="left|center"
+    android:orientation="horizontal"
     android:paddingLeft="3px"
     android:paddingTop="10px"
     android:paddingBottom="10px">
 
     <TextView
         android:id="@+id/TextView01"
-        android:layout_width="332dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="left"
-        android:paddingLeft="20dip"
+        android:paddingLeft="4px"
+        android:paddingRight="4px"
         android:scrollHorizontally="true"
         android:singleLine="true"
         android:textColor="#666d70"
         android:textSize="22dip"
         android:textStyle="bold"></TextView>
+
     <TextView
         android:id="@+id/TextView02"
-        android:layout_weight="2"
-        android:layout_width="200dip"
-        android:scrollHorizontally="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:singleLine="true"
         android:layout_marginLeft="10dip"
+        android:layout_weight="2"
+        android:gravity="left"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="#7f0000"
         android:textSize="20dip"
-        android:textStyle="bold"
-        android:textColor="#7f0000"></TextView>
+        android:textStyle="bold"></TextView>
+
     <CheckBox
         android:id="@+id/completedFlag"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="right"
         android:layout_weight="1"
         android:visibility="invisible" />
+
 </LinearLayout>
