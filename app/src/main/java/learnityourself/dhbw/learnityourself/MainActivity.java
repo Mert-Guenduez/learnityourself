@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
          user_label = findViewById(R.id.mainUserLabel);
          user_label.setText(controller.getUser().getUsername());
 
+         controller.fetchUserPoints();
          points_label = findViewById(R.id.pointsLabel);
          points_label.setText(controller.getUser().getPoints() + " Points");
 
