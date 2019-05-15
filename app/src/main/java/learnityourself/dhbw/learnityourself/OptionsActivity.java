@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import learnityourself.dhbw.learnityourself.controller.OptionsController;
-import learnityourself.dhbw.learnityourself.controller.RegisterController;
+import learnityourself.dhbw.learnityourself.model.User;
 
 public class OptionsActivity extends AppCompatActivity {
 
@@ -22,7 +22,7 @@ public class OptionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
 
-        controller = new OptionsController(this);
+        controller=new OptionsController((User)getIntent().getSerializableExtra("user"),this);
         oldPassword_field = findViewById(R.id.old_pw_field);
         newPassword_field = findViewById(R.id.new_pw_field);
         newPasswordRepeat_field = findViewById(R.id.new_pw_repeat_field);
@@ -32,17 +32,23 @@ public class OptionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(validate()){
-
+                    if(!controller.setNewPassword(oldPassword_field.getText().toString(), newPassword_field.getText().toString())){
+                        oldPassword_field.setError("Wrong Password");
+                    }
                 }
 
             }
         }));
     }
 
-
     public boolean validate(){
         boolean valid = true;
 
+        if (newPassword_field.getText().toString().isEmpty() ||
+                !newPassword_field.getText().toString().equals(newPasswordRepeat_field.getText().toString())){
+            newPassword_field.setError("Invalid Inputs");
+            valid = false;
+        }
 
         return valid;
     }
