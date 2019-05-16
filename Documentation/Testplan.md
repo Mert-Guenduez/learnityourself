@@ -199,7 +199,7 @@ By UI testing the application is tested from the perspective of the user. The go
 
 #### 5.1.3 Integration Testing (API Testing)
 
-Api Testing is part of integration testing. Integration tests test multiple modules of an application together. The main goal of Api testing is to ensure, that the provided Apis of the Backend behave as expected.
+Api Testing is part of integration testing. Integration tests test multiple modules of an application together. The main goal of Api testing is to ensure, that the provided Apis of the Backend behave as expected. These tests will be included in the UI Testing
 
 |                       | Description                                                          |
 |-----------------------|----------------------------------------------------------------------|
@@ -212,7 +212,7 @@ Api Testing is part of integration testing. Integration tests test multiple modu
 
 #### 5.1.4 User Testing
 
-User Testing makes sure our Application, especially the UI makes sense to the average user. To ensure this we will use a [ScoreSheet](../UserTesting/ScoreSheet.xlsm) and calculate the average results from around 10 Users. The results will be saved to a [ScoreCollection](../UserTesting/ScoreCollection.csv    
+User Testing makes sure our Application, especially the UI makes sense to the average user. To ensure this we will use a [ScoreSheet](../UserTesting/ScoreSheet.xlsm) and calculate the average results from around 10 Users. The results will be saved to a [ScoreCollection](../UserTesting/ScoreCollection.csv)
 
 |                       | Description                                                          |
 |-----------------------|----------------------------------------------------------------------|
