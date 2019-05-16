@@ -16,6 +16,7 @@ import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.LoginActivity;
 import learnityourself.dhbw.learnityourself.MainActivity;
+import learnityourself.dhbw.learnityourself.OptionsActivity;
 import learnityourself.dhbw.learnityourself.SpendPointsOnRewardsActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.ViewRewardsActivity;
@@ -150,5 +151,11 @@ public class MainController {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public void openOptions() {
+        Intent intent = new Intent(context, OptionsActivity.class);
+        intent.putExtra("user", user);
+        context.startActivity(intent);
     }
 }

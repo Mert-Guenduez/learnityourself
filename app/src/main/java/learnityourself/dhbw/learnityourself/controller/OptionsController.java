@@ -36,14 +36,16 @@ public class OptionsController extends AuthorizedController{
             e.printStackTrace();
         }
 
-        String inputString=HTTPRequestHandler.getStringFromInputStream(in);
+        if(in != null){
+            String inputString=HTTPRequestHandler.getStringFromInputStream(in);
 
-        if (inputString.contains("error")){
-            return false;
-        } else {
-            return true;
+            if (inputString.contains("error")){
+                return false;
+            } else {
+                return true;
+            }
         }
-
+        return false;
     }
 
 }

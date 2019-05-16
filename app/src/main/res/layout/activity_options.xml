@@ -49,9 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
             android:text="Old Password"
-            app:layout_constraintBottom_toTopOf="@+id/username_field"
-            app:layout_constraintStart_toStartOf="@+id/username_field" />
+            app:layout_constraintBottom_toTopOf="@+id/old_pw_field"
+            app:layout_constraintStart_toStartOf="@+id/old_pw_field" />
 
         <TextView
             android:id="@+id/new_pw_label"
@@ -59,19 +60,23 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
             android:text="New Password"
-            app:layout_constraintBottom_toTopOf="@+id/password_field"
-            app:layout_constraintStart_toStartOf="@+id/password_field" />
+            app:layout_constraintBottom_toTopOf="@+id/new_pw_field"
+            app:layout_constraintStart_toStartOf="@+id/new_pw_field" />
 
         <Button
             android:id="@+id/change_pw_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="364dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:text="Change Password"
-            app:layout_constraintEnd_toEndOf="@+id/passwordRepeat_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -80,9 +85,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
             android:text="Repeat New Password"
-            app:layout_constraintBottom_toTopOf="@+id/passwordRepeat_field"
-            app:layout_constraintStart_toStartOf="@+id/passwordRepeat_field" />
+            app:layout_constraintBottom_toTopOf="@+id/new_pw_repeat_field"
+            app:layout_constraintStart_toStartOf="@+id/new_pw_repeat_field" />
 
         <EditText
             android:id="@+id/new_pw_repeat_field"

@@ -67,6 +67,10 @@
             android:name=".SpendPointsOnRewardsActivity"
             android:label="Spend Points">
         </activity>
+        <activity
+            android:name=".OptionsActivity"
+            android:label="Options">
+        </activity>
 </application>
 
 </manifest>
