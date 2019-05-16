@@ -212,8 +212,7 @@ Api Testing is part of integration testing. Integration tests test multiple modu
 
 #### 5.1.4 User Testing
 
-User Testing makes sure our Application, especially the UI makes sense to the average user. To ensure this we will use a [ScoreSheet]
-and calculate the average results from around 10 Users. The results will be saved to a [ScoreCollection]
+User Testing makes sure our Application, especially the UI makes sense to the average user. To ensure this we will use a [ScoreSheet](../UserTesting/ScoreSheet.xlsm) and calculate the average results from around 10 Users. The results will be saved to a [ScoreCollection](../UserTesting/ScoreCollection.csv    
 
 |                       | Description                                                          |
 |-----------------------|----------------------------------------------------------------------|
