@@ -47,8 +47,7 @@ public class TaskAdapter extends BaseAdapter {
 
         holder.taskLabel.setText(tasks[position].getTaskname());
         holder.completedFlag.setEnabled(false);
-
-        if(tasks[position].getCompleted()==null || !tasks[position].getCompleted()){
+        if(!tasks[position].getCompleted()){
             holder.completedFlag.setVisibility(View.INVISIBLE);
         }else{
             holder.completedFlag.setVisibility(View.VISIBLE);

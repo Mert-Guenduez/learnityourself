@@ -10,6 +10,7 @@ import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.LoginActivity;
 import learnityourself.dhbw.learnityourself.RegisterActivity;
+import learnityourself.dhbw.learnityourself.modelFactories.UserFactory;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 
 public class RegisterController {
@@ -22,12 +23,15 @@ public class RegisterController {
     }
 
     public void register(EditText username, EditText password) {
+        UserFactory.createNewObject();
+        UserFactory.setUserName(username.getText().toString());
+
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in = null;
 
 
             try {
-                in = handler.execute("https://91.205.172.109/register.php", "username",  username.getText().toString(), "password", password.getText().toString()).get();
+                in = handler.execute("https://91.205.172.109/register.php", "username",  UserFactory.getObject().getUsername(), "password", password.getText().toString()).get();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {

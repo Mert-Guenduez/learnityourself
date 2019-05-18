@@ -22,6 +22,7 @@
             - [5.1.1 Unit Testing](#511-unit-testing)
             - [5.1.2 User Interface Testing](#512-user-interface-testing)
             - [5.1.3 Integration Testing (API Testing)](#513-integration-testing-api-testing)
+            - [5.1.4 User Testing](#514-user-testing)
     - [6. Entry and Exit Criteria](#6-entry-and-exit-criteria)
         - [6.1 Test Plan](#61-test-plan)
             - [6.1.1 Test Plan Entry Criteria](#611-test-plan-entry-criteria)
@@ -95,13 +96,13 @@ This test plan is written primarily for internal documentation reasons. It is me
 | [UC_CreateMission](./UC/CreateMission/UC_CreateMission.md)                   | Nov. 2018  | LearnItYourself Team      |
 | [UC_ManageTasks](./UC/ManageTasks/UC_ManageTasks.md)                         | Nov. 2018  | LearnItYourself Team      |
 | [UC_Register](./UC/Register/UC_Register.md)                                  | Nov. 2018  | LearnItYourself Team      |
-| [UC_EditMissionMember](./UC/EditMissionMember/UC_EditMissionMembern.md)      | Dez. 2018  | LearnItYourself Team      |
+| [UC_EditMissionMember](./UC/EditMissionMember/UC_EditMissionMember.md)       | Dez. 2018  | LearnItYourself Team      |
 | [UC_Login](./UC/Login/UC_Login.md)                                           | Dez. 2018  | LearnItYourself Team      |
 | [UC_ViewMissions](./UC/ViewMissions/UC_ViewMissions.md)                      | Dez. 2018  | LearnItYourself Team      |
 | [UC_ChangePassword](./UC/ChangePassword/UC_ChangePassword.md)                | Apr. 2019  | LearnItYourself Team      |
 | [UC_CompleteTask](./UC/CompleteTask/UC_CompleteTask.md)                      | Apr. 2019  | LearnItYourself Team      |
 | [UC_DeleteAccount](./UC/DeleteAccount/UC_DeleteAccount.md)                   | Apr. 2019  | LearnItYourself Team      |
-| [UC_EditMission](./UC/EditMission/EditMission.md)                            | Apr. 2019  | LearnItYourself Team      |
+| [UC_EditMission](./UC/EditMission/UC_EditMission.md)                         | Apr. 2019  | LearnItYourself Team      |
 | [UC_LeaveMission](./UC/LeaveMission/UC_LeaveMission.md)                      | Apr. 2019  | LearnItYourself Team      |
 | [UC_Logout](./UC/Logout/UC_Logout.md)                                        | Apr. 2019  | LearnItYourself Team      |
 | [UC_ManageCustomRewards](./UC/ManageCustomRewards/UC_ManageCustomRewards.md) | Apr. 2019  | LearnItYourself Team      |
@@ -109,6 +110,8 @@ This test plan is written primarily for internal documentation reasons. It is me
 | [UC_SpendPointsOnRewards](./UC/SpendPointsOnRewards/UC_SpendPointsOnRewards.md) | Apr. 2019  | LearnItYourself Team      |
 | [UC_ViewMissionStatistic](./UC/ViewMissionStatistic/UC_ViewMissionStatistic.md) | Apr. 2019  | LearnItYourself Team      |
 | [UC_ViewStatistic](./UC/ViewStatistic/UC_ViewStatistic.md)                   | Apr. 2019       | LearnItYourself Team |
+| [ScoreSheet](../UserTesting/ScoreSheet.xlsm)                                 | May. 2019       | LearnItYourself Team |
+| [ScoreCollection](../UserTesting/ScoreCollection.csv)                        | May. 2019       | LearnItYourself Team |
 | [Test Plan](./Testplan.md)                                                   | Apr. 2019  | LearnItYourself Team      |
 | [SRS](                                       )                               | Oct. 2018  | LearnItYourself Team      |
 | [SAD](./SRAt.md)                                                             | Oct. 2018  | LearnItYourself Team      |
@@ -141,13 +144,12 @@ The tests are done to ensure quality and mitigate risks and fulfill functional r
 ### 4.1 Outline of Test Inclusions
 
 *Frontend: Android Client*:
-
-- UI testing of views/fragments
+- UI / Integration testing
+- User Testing
 
 *Backend: PhP Application*:
-
 - Unit testing
-- Integration testing
+
 
 ![Testing overview](./testing_overview.png)  
 
@@ -163,7 +165,6 @@ Because of time and resource constraints we will not do:
 
 - Stress test
 - Load/performance tests
-- Usability tests
 - any further tests
 
 ## 5. Test Approach
@@ -198,16 +199,29 @@ By UI testing the application is tested from the perspective of the user. The go
 
 #### 5.1.3 Integration Testing (API Testing)
 
-Api Testing is part of integration testing. Integration tests test multiple modules of an application together. The main goal of Api testing is to ensure, that the provided Apis of the Backend behave as expected.
+Api Testing is part of integration testing. Integration tests test multiple modules of an application together. The main goal of Api testing is to ensure, that the provided Apis of the Backend behave as expected. These tests will be included in the UI Testing
 
 |                       | Description                                                          |
 |-----------------------|----------------------------------------------------------------------|
 |Technique Objective    | Test the provided Apis with Cucumber                                 |
-|Technique              |  Gherkin `.feature` exists and the steps are implemented.  |         |
+|Technique              |  Gherkin `.feature` exists and the steps are implemented.             |         
 |Oracles                | Test execution logs t command line                                    |
-|Required Tools         | JUnit, Cucumber, Rest assured, Hamcrest                                     |
+|Required Tools         | JUnit, Cucumber, Rest assured, Hamcrest                              |
 |Success Criteria       | All tests pass. Coverage is above 20%                                |
 |Special Considerations | -                                                                    |
+
+#### 5.1.4 User Testing
+
+User Testing makes sure our Application, especially the UI makes sense to the average user. To ensure this we will use a [ScoreSheet](../UserTesting/ScoreSheet.xlsm) and calculate the average results from around 10 Users. The results will be saved to a [ScoreCollection](../UserTesting/ScoreCollection.csv)
+
+|                       | Description                                                          |
+|-----------------------|----------------------------------------------------------------------|
+|Technique Objective    | Test App with an actual human                                        |
+|Technique              | Human interaction with the App                                       |         
+|Oracles                | Fileld out Score Sheet                                               |
+|Required Tools         | User, ScoreSheet, Excel                                              |
+|Success Criteria       | Average result of at least 70%                                       |
+|Special Considerations | Different aspects tested should have different weights               |
 
 ## 6. Entry and Exit Criteria
 

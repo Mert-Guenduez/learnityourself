@@ -7,6 +7,9 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 
@@ -57,10 +60,8 @@ public class ViewTaskController extends AuthorizedController{
             in = handler.execute("https://91.205.172.109/completeTask.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),"taskid", task.getTaskid())
                     .get();
-            if(in != null){
-                task.setCompleted(true);
-                Gson gson= new Gson();
-                user = gson.fromJson(HTTPRequestHandler.getStringFromInputStream(in), User.class);
+            String inString = HTTPRequestHandler.getStringFromInputStream(in).toString();
+            if(in != null && !inString.contains("error")){
                 Toast.makeText(context, "Congratulations for \n Completing this Task. \n You receive " +task.getEffort()+ " Points", Toast.LENGTH_LONG).show();
             }else{
                 Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();

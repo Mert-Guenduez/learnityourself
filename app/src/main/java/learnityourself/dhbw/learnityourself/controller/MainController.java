@@ -3,6 +3,9 @@ package learnityourself.dhbw.learnityourself.controller;
 import android.content.Context;
 import android.content.Intent;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyManagementException;
@@ -13,6 +16,7 @@ import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.LoginActivity;
 import learnityourself.dhbw.learnityourself.MainActivity;
+import learnityourself.dhbw.learnityourself.OptionsActivity;
 import learnityourself.dhbw.learnityourself.SpendPointsOnRewardsActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.ViewRewardsActivity;
@@ -30,7 +34,11 @@ public class MainController {
 
         this.context = context;
         setSSL();
-        checkAuthorized();
+        if(checkAuthorized());
+    }
+
+    private void setUserPoints() {
+
     }
 
     private void setSSL(){
@@ -127,5 +135,27 @@ public class MainController {
             e.printStackTrace();
         }
         context.startActivity(new Intent(context, LoginActivity.class));
+    }
+
+    public void fetchUserPoints() {
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        InputStream in  = null;
+        try {
+            in = handler.execute("https://91.205.172.109/getUserPoints.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
+            JSONObject object = new JSONObject(HTTPRequestHandler.getStringFromInputStream(in));
+            user.setPoints(object.getInt("user_points"));
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openOptions() {
+        Intent intent = new Intent(context, OptionsActivity.class);
+        intent.putExtra("user", user);
+        context.startActivity(intent);
     }
 }

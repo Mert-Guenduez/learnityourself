@@ -264,7 +264,7 @@ public class CreateMissionActivity extends AppCompatActivity {
                     if (validEntry()){
                         controller.setMissionname(missionName.getText().toString());
                         controller.setDescription(description.getText().toString());
-                        controller.setSeconds(getSeconds() + "");
+                        controller.setDate(endDate());
                         controller.setMembersString(endBuffer());
                         controller.checkClickHandler();
                     }
@@ -310,12 +310,6 @@ public class CreateMissionActivity extends AppCompatActivity {
             System.out.println("Parse Exception : " + pe);
         }
         return null;
-    }
-
-    public long getSeconds(){
-        Date date = new Date();
-
-        return date.getTime() - endDate().getTime();
     }
 
     @Override
