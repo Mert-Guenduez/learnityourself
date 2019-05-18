@@ -23,19 +23,6 @@
         android:textSize="22dip"
         android:textStyle="bold"></TextView>
 
-    <TextView
-        android:id="@+id/TextView02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dip"
-        android:layout_weight="2"
-        android:gravity="left"
-        android:scrollHorizontally="true"
-        android:singleLine="true"
-        android:textColor="#7f0000"
-        android:textSize="20dip"
-        android:textStyle="bold"></TextView>
-
     <CheckBox
         android:id="@+id/completedFlag"
         android:layout_width="wrap_content"

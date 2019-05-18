@@ -25,8 +25,8 @@ public class SpendPointsOnRewardsActivity extends AppCompatActivity {
     }
 
     void init() {
-        rewardListView = findViewById(R.id.reward_list);
-        rewardListView.setAdapter(new RewardAdapter(this, rewardsController.getRewards()));
+        //rewardListView = findViewById(R.id.reward_list);
+        //rewardListView.setAdapter(new RewardAdapter(this, user, rewardsController.getRewards()));
     }
 
     @Override
