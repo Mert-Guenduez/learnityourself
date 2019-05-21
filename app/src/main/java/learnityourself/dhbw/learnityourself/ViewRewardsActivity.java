@@ -19,18 +19,20 @@ public class ViewRewardsActivity extends AppCompatActivity {
 
     private ListView rewardListView;
     private ViewRewardsController controller;
+    private User user;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_rewards);
         Intent intent = getIntent();
-        controller=new ViewRewardsController((User) intent.getSerializableExtra("user"), this);
+        user = (User) intent.getSerializableExtra("user");
+        controller=new ViewRewardsController(user, this);
         init();
     }
 
     void init() {
         rewardListView = findViewById(R.id.reward_list);
-        rewardListView.setAdapter(new RewardAdapter(this, controller.getRewards()));
+        rewardListView.setAdapter(new RewardAdapter(this, user, controller.getRewards()));
 
         rewardListView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
