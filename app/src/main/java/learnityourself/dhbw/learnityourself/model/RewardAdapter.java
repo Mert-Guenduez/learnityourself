@@ -5,20 +5,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import learnityourself.dhbw.learnityourself.R;
+import learnityourself.dhbw.learnityourself.controller.ViewRewardsController;
 
 public class RewardAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
     private Reward[] rewards;
     private User user;
+    private ViewRewardsController controller;
 
-    public RewardAdapter(Context context, User user, Reward[] rewards) {
+    public RewardAdapter(Context context, User user, ViewRewardsController controller) {
         inflater = LayoutInflater.from(context);
-        this.rewards = rewards;
+        this.controller = controller;
+        this.rewards = controller.getRewards();
         this.user = user;
     }
 
@@ -38,10 +42,11 @@ public class RewardAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         RewardAdapter.ViewHolder holder;
         RewardAdapter.ViewHolder pointHolder;
         RewardAdapter.ViewHolder seekBarHolder = null;
+        RewardAdapter.ViewHolder spendButtonHolder;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.list_row_rewards, null);
             holder = new RewardAdapter.ViewHolder();
@@ -56,10 +61,24 @@ public class RewardAdapter extends BaseAdapter {
             seekBarHolder = new RewardAdapter.ViewHolder();
             seekBarHolder.seekBar = convertView.findViewById(R.id.seekbar_balance_points);
             convertView.setTag(seekBarHolder);
+
+            spendButtonHolder = new RewardAdapter.ViewHolder();
+            spendButtonHolder.spendButton = convertView.findViewById(R.id.spend_button);
+            convertView.setTag(spendButtonHolder);
         } else {
             holder = (RewardAdapter.ViewHolder) convertView.getTag();
             pointHolder = (RewardAdapter.ViewHolder) convertView.getTag();
+            seekBarHolder = (RewardAdapter.ViewHolder) convertView.getTag();
+            spendButtonHolder = (RewardAdapter.ViewHolder) convertView.getTag();
         }
+
+        final View finalConvertView = convertView;
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.missionClicked(position, finalConvertView);
+            }
+        });
 
         holder.text1.setText(rewards[position].getTitle());
         pointHolder.text2.setText(Integer.toString(rewards[position].getCost()));
@@ -67,8 +86,47 @@ public class RewardAdapter extends BaseAdapter {
         int userPoints = user.getPoints();
         int rewardPoints = rewards[position].getCost();
 
+        setSeekbar(seekBarHolder, userPoints, rewardPoints);
+
+        if (userPoints >= rewardPoints) {
+            spendButtonHolder.spendButton.setVisibility(View.VISIBLE);
+            spendButtonHolder.spendButton.setEnabled(true);
+            spendButtonHolder.spendButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO: spendPointsOnReward.php
+                }
+            });
+        }
+
+        return convertView;
+    }
+
+    public void setSeekbar(RewardAdapter.ViewHolder seekBarHolder, int userPoints, int rewardPoints) {
+
+        seekBarHolder.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int originalProgress;
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if( fromUser == true){
+                    seekBar.setProgress( originalProgress);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                originalProgress = seekBar.getProgress();
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
         seekBarHolder.seekBar.setMax(rewardPoints);
-        seekBarHolder.seekBar.setEnabled(false);
         seekBarHolder.seekBar.setThumbOffset(10000);    // moves the thumb out of view (to left)
 
         if(userPoints >= rewardPoints) {
@@ -76,13 +134,12 @@ public class RewardAdapter extends BaseAdapter {
         } else {
             seekBarHolder.seekBar.setProgress(userPoints);
         }
-
-        return convertView;
     }
 
     static class ViewHolder {
         TextView text1;
         TextView text2;
         SeekBar seekBar;
+        Button spendButton;
     }
 }

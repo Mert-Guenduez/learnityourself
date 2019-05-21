@@ -13,7 +13,7 @@ public class RewardFactory {
     public static void setName(String name){
         reward.setTitle(name);
     }
-    public static void setId(String id){ reward.setRewardId(id);}
+    public static void setId(int id){ reward.setRewardId(id);}
     public static void setOwner(String owner) {reward.setOwner(owner);}
 
     public static Reward getObject(){return reward;};

@@ -32,6 +32,7 @@
 
     <include
         layout="@layout/activity_view_rewards"
+        android:id="@+id/ViewRewardsActivity"
         android:layout_width="382dp"
         android:layout_height="456dp"
         android:layout_marginStart="8dp"
