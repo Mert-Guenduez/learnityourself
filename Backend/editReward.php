@@ -16,13 +16,13 @@ include 'checkSessionkey.php';
 $json = json_encode(array('authentication' => 'false', 'error' => 'Authentication failure'));
 
 if($check) {
-$stmt = $db->prepare('UPDATE rewards SET title = ?, description = ?, cost = ? WHERE rewardid = ?');
-    $stmt->bind_param('ssii',$title,$description,$cost, $rewardid);
+$stmt = $db->prepare('UPDATE rewards SET title = ?, description = ?, cost = ? WHERE rewardid = ? AND owner = ?');
+    $stmt->bind_param('ssiis',$title,$description,$cost, $rewardid, $username);
         if($stmt->execute()){
                 $data = array('response' => 'Reward successfully updated');
         }
         else{
-                $data = array('error' => 'Error while trying to update rewards');
+                $data = array('error' => 'Error while trying to update rewards. Maybe you are trying to update someone elses reward?');
 
         }
     $stmt->close();
@@ -31,3 +31,4 @@ $stmt = $db->prepare('UPDATE rewards SET title = ?, description = ?, cost = ? WH
 }
 echo $json;
 ?>
+
