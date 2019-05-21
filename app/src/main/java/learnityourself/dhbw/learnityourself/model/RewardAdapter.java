@@ -10,16 +10,19 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import learnityourself.dhbw.learnityourself.R;
+import learnityourself.dhbw.learnityourself.controller.ViewRewardsController;
 
 public class RewardAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
     private Reward[] rewards;
     private User user;
+    private ViewRewardsController controller;
 
-    public RewardAdapter(Context context, User user, Reward[] rewards) {
+    public RewardAdapter(Context context, User user, ViewRewardsController controller) {
         inflater = LayoutInflater.from(context);
-        this.rewards = rewards;
+        this.controller = controller;
+        this.rewards = controller.getRewards();
         this.user = user;
     }
 
@@ -39,7 +42,7 @@ public class RewardAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         RewardAdapter.ViewHolder holder;
         RewardAdapter.ViewHolder pointHolder;
         RewardAdapter.ViewHolder seekBarHolder = null;
@@ -69,9 +72,16 @@ public class RewardAdapter extends BaseAdapter {
             spendButtonHolder = (RewardAdapter.ViewHolder) convertView.getTag();
         }
 
+        final View finalConvertView = convertView;
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.missionClicked(position, finalConvertView);
+            }
+        });
+
         holder.text1.setText(rewards[position].getTitle());
         pointHolder.text2.setText(Integer.toString(rewards[position].getCost()));
-
 
         int userPoints = user.getPoints();
         int rewardPoints = rewards[position].getCost();
@@ -81,13 +91,18 @@ public class RewardAdapter extends BaseAdapter {
         if (userPoints >= rewardPoints) {
             spendButtonHolder.spendButton.setVisibility(View.VISIBLE);
             spendButtonHolder.spendButton.setEnabled(true);
+            spendButtonHolder.spendButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO: spendPointsOnReward.php
+                }
+            });
         }
 
         return convertView;
     }
 
     public void setSeekbar(RewardAdapter.ViewHolder seekBarHolder, int userPoints, int rewardPoints) {
-
 
         seekBarHolder.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int originalProgress;
