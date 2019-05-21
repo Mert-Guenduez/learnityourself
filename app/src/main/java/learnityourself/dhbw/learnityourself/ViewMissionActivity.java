@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -36,7 +37,14 @@ public class ViewMissionActivity extends AppCompatActivity {
         controller.loadTasks();
         generateActionBar();
 
-            init();
+       createChart();
+
+
+        init();
+
+    }
+
+    private void createChart() {
 
     }
 
