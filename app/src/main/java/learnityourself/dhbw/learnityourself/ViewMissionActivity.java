@@ -29,6 +29,7 @@ import java.text.FieldPosition;
 import java.text.Format;
 import java.text.ParsePosition;
 import java.util.Arrays;
+import java.util.Map;
 
 import learnityourself.dhbw.learnityourself.controller.ViewMissionController;
 import learnityourself.dhbw.learnityourself.model.Mission;
@@ -60,11 +61,15 @@ public class ViewMissionActivity extends AppCompatActivity {
 
     private void createChart() {
         plot = (XYPlot) findViewById(R.id.plot);
-        final Number[] domainLabels = {1, 2, 3, 4};
-        Number[] series1Numbers = {1, 4, 2, 8};
+        Map<String, Integer> userToTasks = controller.getUserTasksMap();
+        final String[] userNames = userToTasks.keySet().toArray(new String[userToTasks.keySet().size()]);
+        Number[] amountOfTasks = new Number[userToTasks.values().size()];
+        for(int i=0; i<userNames.length; i++){
+            amountOfTasks[i] = userToTasks.get(userNames[i]);
+        }
 
         XYSeries series1 = new SimpleXYSeries(
-                Arrays.asList(series1Numbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series1");
+                Arrays.asList(amountOfTasks), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "");
 
         //LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.RED, Color.GREEN, Color.BLUE, null);
 
@@ -76,7 +81,7 @@ public class ViewMissionActivity extends AppCompatActivity {
             @Override
             public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
                 int i = Math.round(((Number) obj).floatValue());
-                return toAppendTo.append(domainLabels[i]);
+                return toAppendTo.append(userNames[i]);
             }
             @Override
             public Object parseObject(String source, ParsePosition pos) {
