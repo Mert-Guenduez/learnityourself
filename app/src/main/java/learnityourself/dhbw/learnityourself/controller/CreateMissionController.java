@@ -106,8 +106,6 @@ public class CreateMissionController extends MatchUser {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        String inputString=HTTPRequestHandler.getStringFromInputStream(in);
     }
 
     public void keyBackHandler(){
