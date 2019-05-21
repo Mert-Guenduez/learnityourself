@@ -67,8 +67,29 @@ public class RewardAdapter extends BaseAdapter {
         int userPoints = user.getPoints();
         int rewardPoints = rewards[position].getCost();
 
+        seekBarHolder.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int originalProgress;
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if( fromUser == true){
+                    seekBar.setProgress( originalProgress);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                originalProgress = seekBar.getProgress();
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
         seekBarHolder.seekBar.setMax(rewardPoints);
-        seekBarHolder.seekBar.setEnabled(false);
         seekBarHolder.seekBar.setThumbOffset(10000);    // moves the thumb out of view (to left)
 
         if(userPoints >= rewardPoints) {
