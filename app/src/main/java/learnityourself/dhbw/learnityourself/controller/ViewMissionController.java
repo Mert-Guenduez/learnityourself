@@ -2,6 +2,7 @@ package learnityourself.dhbw.learnityourself.controller;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.ArrayMap;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -13,6 +14,7 @@ import org.json.JSONObject;
 import java.io.Console;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.CreateMissionActivity;
@@ -130,5 +132,25 @@ public class ViewMissionController extends AuthorizedController {
         intent.putExtra("mission", mission);
         context.startActivity(intent);
 
+    }
+
+    public Map<String,Integer> getUserTasksMap() {
+       Map<String, Integer> tasksPerUserMap;
+
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        InputStream in  = null;
+        try {
+            in = handler.execute("https://91.205.172.109/createTask.php","username",
+                    user.getUsername(),"sessionkey", user.getSessionkey(),
+                    "missionid", mission.getMissionid())
+                    .get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+       tasksPerUserMap = new ArrayMap<>();
+       return tasksPerUserMap;
     }
 }

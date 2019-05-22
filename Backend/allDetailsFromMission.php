@@ -15,7 +15,6 @@ if (! isset($_POST['missionid'])) {
 }
 include 'checkSessionkey.php';
 $json = json_encode(array('authentication' => 'false', 'error' => 'Authentication failure'));
-
 if($check) {
     $stmt = $db->prepare('SELECT * FROM missions WHERE id = ?');
     $stmt->bind_param('i', $missionid);
@@ -28,13 +27,13 @@ if($check) {
     $data = array('missionid' => $missionid, 'owner' => $owner, 'missionname' => $missionname, 'description' => $description, 'deadline' => $deadline, 'tasks' => array());
     $stmt->close();
 
-    $stmt = $db->prepare('SELECT id,name FROM tasks WHERE missionid = ?');
-    $stmt->bind_param('i', $missionid);
+    $stmt = $db->prepare('SELECT tasks.id,tasks.name, userToTask.completed FROM tasks INNER JOIN userToTask ON tasks.id = userToTask.taskid WHERE tasks.missionid = ? AND userToTask.username = ?');
+    $stmt->bind_param('is', $missionid, $username);
     $stmt->execute();
-    $stmt->bind_result($taskid, $taskname);
+    $stmt->bind_result($taskid, $taskname, $completed);
     while ($stmt->fetch()) {
         $taskname = utf8_encode($taskname);
-        $taskhead = array('taskid' => $taskid, 'taskname' => $taskname);
+        $taskhead = array('taskid' => $taskid, 'taskname' => $taskname, 'completed' => ($completed == 0? 'false' : 'true'));
         $data['tasks'][] = $taskhead;
     }
     $stmt->close();
@@ -42,3 +41,4 @@ if($check) {
 }
 echo $json;
 ?>
+

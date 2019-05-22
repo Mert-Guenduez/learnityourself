@@ -1,6 +1,8 @@
 package learnityourself.dhbw.learnityourself;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.DashPathEffect;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,8 +11,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.androidplot.util.PixelUtils;
+import com.androidplot.xy.BarFormatter;
+import com.androidplot.xy.BarRenderer;
+import com.androidplot.xy.CatmullRomInterpolator;
+import com.androidplot.xy.LineAndPointFormatter;
+import com.androidplot.xy.SimpleXYSeries;
+import com.androidplot.xy.XYGraphWidget;
+import com.androidplot.xy.XYPlot;
+import com.androidplot.xy.XYSeries;
+
+import java.text.FieldPosition;
+import java.text.Format;
+import java.text.ParsePosition;
+import java.util.Arrays;
+import java.util.Map;
 
 import learnityourself.dhbw.learnityourself.controller.ViewMissionController;
 import learnityourself.dhbw.learnityourself.model.Mission;
@@ -19,7 +38,7 @@ import learnityourself.dhbw.learnityourself.model.User;
 
 public class ViewMissionActivity extends AppCompatActivity {
 
-
+    private XYPlot plot;
 
     private ActionBar actionBar;
     private ListView taskListView;
@@ -35,10 +54,42 @@ public class ViewMissionActivity extends AppCompatActivity {
         controller.setMission((Mission) getIntent().getSerializableExtra("mission"));
         controller.loadTasks();
         generateActionBar();
-
-            init();
+        createChart();
+        init();
 
     }
+
+    private void createChart() {
+        plot = (XYPlot) findViewById(R.id.plot);
+        Map<String, Integer> userToTasks = controller.getUserTasksMap();
+        final String[] userNames = userToTasks.keySet().toArray(new String[userToTasks.keySet().size()]);
+        Number[] amountOfTasks = new Number[userToTasks.values().size()];
+        for(int i=0; i<userNames.length; i++){
+            amountOfTasks[i] = userToTasks.get(userNames[i]);
+        }
+
+        XYSeries series1 = new SimpleXYSeries(
+                Arrays.asList(amountOfTasks), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "");
+
+        //LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.RED, Color.GREEN, Color.BLUE, null);
+
+        BarFormatter bf = new BarFormatter(Color.RED, Color.WHITE);
+        plot.addSeries(series1, bf);
+        BarRenderer renderer = plot.getRenderer(BarRenderer.class);
+        renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_WIDTH, PixelUtils.dpToPix(25));
+        plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.BOTTOM).setFormat(new Format() {
+            @Override
+            public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
+                int i = Math.round(((Number) obj).floatValue());
+                return toAppendTo.append(userNames[i]);
+            }
+            @Override
+            public Object parseObject(String source, ParsePosition pos) {
+                return null;
+            }
+        });
+    }
+
 
     public void generateActionBar(){
 
