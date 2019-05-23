@@ -29,7 +29,7 @@ public class OptionsController extends AuthorizedController{
 
         try {
             in = handler.execute("https://91.205.172.109/changePassword.php", "username",  user.getUsername(), "sessionkey", user.getSessionkey(),
-                    "old_password", oldPw,"new_password", oldPw).get();
+                    "old_password", oldPw,"new_password", newPw).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -38,7 +38,7 @@ public class OptionsController extends AuthorizedController{
 
         if(in != null){
             String inputString=HTTPRequestHandler.getStringFromInputStream(in);
-
+            System.out.println(inputString);
             if (inputString.contains("error")){
                 return false;
             } else {
