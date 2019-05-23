@@ -38,7 +38,9 @@ public class ViewRewardsActivity extends AppCompatActivity {
         myPoints.setY(myPointsNumber.getScaleY() + 10);
 
         rewardListView = findViewById(R.id.ViewRewardsActivity).findViewById(R.id.reward_list);
-        rewardListView.setAdapter(new RewardAdapter(this, user, controller));
+        RewardAdapter rewardAdapter = new RewardAdapter(this, user, controller);
+        rewardListView.setAdapter(rewardAdapter);
+        controller.setRewardAdapter(rewardAdapter);
     }
 
     @Override

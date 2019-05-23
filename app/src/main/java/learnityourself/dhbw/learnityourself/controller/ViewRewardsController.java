@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.PopupMenu;
 
 import com.google.gson.Gson;
@@ -15,6 +17,7 @@ import learnityourself.dhbw.learnityourself.CreateCustomRewardActivity;
 import learnityourself.dhbw.learnityourself.MainActivity;
 import learnityourself.dhbw.learnityourself.R;
 import learnityourself.dhbw.learnityourself.model.Reward;
+import learnityourself.dhbw.learnityourself.model.RewardAdapter;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 
@@ -22,6 +25,7 @@ public class ViewRewardsController extends AuthorizedController {
 
     Reward[] rewards;
     Context context;
+    RewardAdapter rewardAdapter;
 
     public ViewRewardsController (User user, Context context) {
         super(user, context);
@@ -80,20 +84,15 @@ public class ViewRewardsController extends AuthorizedController {
         try {
             in = handler.execute("https://91.205.172.109/deleteReward.php","username", user.getUsername()
                     ,"sessionkey", user.getSessionkey()
-                    ,"rewardId", Integer.toString(rewards[position].getRewardId())).get();
+                    ,"rewardid", Integer.toString(rewards[position].getRewardid())).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("ergebnis: " + HTTPRequestHandler.getStringFromInputStream(in));
 
         init();
-        /*
-        Intent intent = new Intent(context, ViewRewardsActivity.class);
-        intent.putExtra("user", user);
-        context.startActivity(intent);
-        */
+        rewardAdapter.updateResults(rewards);
     }
 
     public void createReward() {
@@ -108,5 +107,9 @@ public class ViewRewardsController extends AuthorizedController {
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra("user", user);
         context.startActivity(intent);
+    }
+
+    public void setRewardAdapter(RewardAdapter rewardAdapter) {
+        this.rewardAdapter = rewardAdapter;
     }
 }
