@@ -12,10 +12,9 @@
 
     <TextView
         android:id="@+id/TextView01"
-        android:layout_width="42dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
+        android:layout_width="337dp"
+        android:layout_height="28dp"
+
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_weight="1"
@@ -28,19 +27,21 @@
         android:textSize="22dip"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/completedFlag"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintEnd_toStartOf="@+id/completedFlag"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.722"></TextView>
 
     <CheckBox
         android:id="@+id/completedFlag"
-        android:layout_width="332dp"
+        android:layout_width="42dp"
         android:layout_height="31dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:gravity="right"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

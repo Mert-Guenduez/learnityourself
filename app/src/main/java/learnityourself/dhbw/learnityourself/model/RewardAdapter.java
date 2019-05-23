@@ -47,7 +47,7 @@ public class RewardAdapter extends BaseAdapter {
         RewardAdapter.ViewHolder pointHolder;
         RewardAdapter.ViewHolder seekBarHolder = null;
         RewardAdapter.ViewHolder spendButtonHolder;
-        if (convertView == null) {
+        //if (convertView == null) {
             convertView = inflater.inflate(R.layout.list_row_rewards, null);
             holder = new RewardAdapter.ViewHolder();
             holder.text1 = (TextView) convertView
@@ -65,12 +65,14 @@ public class RewardAdapter extends BaseAdapter {
             spendButtonHolder = new RewardAdapter.ViewHolder();
             spendButtonHolder.spendButton = convertView.findViewById(R.id.spend_button);
             convertView.setTag(spendButtonHolder);
-        } else {
+        //}
+        /*else {
             holder = (RewardAdapter.ViewHolder) convertView.getTag();
             pointHolder = (RewardAdapter.ViewHolder) convertView.getTag();
             seekBarHolder = (RewardAdapter.ViewHolder) convertView.getTag();
             spendButtonHolder = (RewardAdapter.ViewHolder) convertView.getTag();
         }
+        */
 
         final View finalConvertView = convertView;
         convertView.setOnClickListener(new View.OnClickListener() {
@@ -134,6 +136,11 @@ public class RewardAdapter extends BaseAdapter {
         } else {
             seekBarHolder.seekBar.setProgress(userPoints);
         }
+    }
+
+    public void updateResults(Reward[] rewards) {
+        this.rewards = rewards;
+        notifyDataSetChanged();
     }
 
     static class ViewHolder {
