@@ -49,17 +49,19 @@
         android:layout_marginEnd="7dp"
         android:layout_marginRight="7dp"
         android:text="Rewards"
-        app:layout_constraintBaseline_toBaselineOf="@+id/spendPoints_button"
-        app:layout_constraintEnd_toStartOf="@+id/spendPoints_button"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/logout_button"
+        app:layout_constraintEnd_toStartOf="@+id/achievements_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/spendPoints_button"
+        android:id="@+id/achievements_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Spend Points"
-        app:layout_constraintBottom_toTopOf="@+id/achievements_button"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:text="Achievements"
+        app:layout_constraintBaseline_toBaselineOf="@+id/rewards_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rewards_button"
         app:layout_constraintTop_toBottomOf="@+id/missions_button" />

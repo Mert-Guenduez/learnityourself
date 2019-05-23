@@ -21,7 +21,7 @@ public class ViewRewardsActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spend_points_on_rewards);
+        setContentView(R.layout.activity_manage_rewards);
         Intent intent = getIntent();
         user = (User) intent.getSerializableExtra("user");
         controller=new ViewRewardsController(user, this);
