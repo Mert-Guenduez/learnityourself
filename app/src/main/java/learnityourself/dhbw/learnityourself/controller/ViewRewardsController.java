@@ -57,7 +57,7 @@ public class ViewRewardsController extends AuthorizedController {
                 if (item.getTitle().equals("Edit")) {
                     editReward(position);
                 } else if (item.getTitle().equals("Delete")){
-                    deleteReward();
+                    deleteReward(position);
                 }
                 return false;
             }
@@ -74,8 +74,26 @@ public class ViewRewardsController extends AuthorizedController {
         context.startActivity(intent);
     }
 
-    public void deleteReward() {
+    public void deleteReward(int position) {
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        InputStream in  = null;
+        try {
+            in = handler.execute("https://91.205.172.109/deleteReward.php","username", user.getUsername()
+                    ,"sessionkey", user.getSessionkey()
+                    ,"rewardId", Integer.toString(rewards[position].getRewardId())).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("ergebnis: " + HTTPRequestHandler.getStringFromInputStream(in));
 
+        init();
+        /*
+        Intent intent = new Intent(context, ViewRewardsActivity.class);
+        intent.putExtra("user", user);
+        context.startActivity(intent);
+        */
     }
 
     public void createReward() {
