@@ -14,7 +14,7 @@ import learnityourself.dhbw.learnityourself.model.User;
 public class MainActivity extends AppCompatActivity {
 
     private TextView user_label,  points_label;
-    private Button missions_button, logout_button, rewards_button, spendPoints_button;
+    private Button missions_button, logout_button, rewards_button, spendPoints_button, achievements_button;
     private MainController controller;
     @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
         spendPoints_button = findViewById(R.id.spendPoints_button);
         logout_button = findViewById(R.id.logout_button);
         missions_button = findViewById(R.id.missions_button);
+        achievements_button = findViewById(R.id.achievements_button);
+        achievements_button.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 controller.viewAchiements();
+             }
+         });
 
         rewards_button.setOnClickListener(new View.OnClickListener() {
             @Override

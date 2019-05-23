@@ -7,6 +7,7 @@ import android.util.ArrayMap;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,6 +15,8 @@ import org.json.JSONObject;
 import java.io.Console;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
@@ -60,7 +63,6 @@ public class ViewMissionController extends AuthorizedController {
         JsonElement element = new JsonParser().parse(new InputStreamReader(in));
         try {
             jsonObject = new JSONObject(element.getAsJsonObject().toString());
-            System.out.println(jsonObject.toString());
             String tag = jsonObject.getString("tasks");
             tasks = new Gson().fromJson(tag, Task[].class);
         } catch (JSONException e){
@@ -135,12 +137,12 @@ public class ViewMissionController extends AuthorizedController {
     }
 
     public Map<String,Integer> getUserTasksMap() {
-       Map<String, Integer> tasksPerUserMap;
+        Map<String, Integer> tasksPerUserMap;
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/createTask.php","username",
+            in = handler.execute("https://91.205.172.109/getMissionTaskCompletion.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionid", mission.getMissionid())
                     .get();
@@ -149,8 +151,9 @@ public class ViewMissionController extends AuthorizedController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-       tasksPerUserMap = new ArrayMap<>();
-       return tasksPerUserMap;
+        Gson gson = new Gson();
+        Type type = new TypeToken<Map<String, Integer>>(){}.getType();
+        tasksPerUserMap = gson.fromJson(HTTPRequestHandler.getStringFromInputStream(in), type);
+        return tasksPerUserMap;
     }
 }

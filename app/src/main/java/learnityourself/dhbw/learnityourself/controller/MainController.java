@@ -158,4 +158,7 @@ public class MainController {
         intent.putExtra("user", user);
         context.startActivity(intent);
     }
+
+    public void viewAchiements() {
+    }
 }
