@@ -181,7 +181,7 @@ Unit testing ensures, that the tested sourcecode works as expected. Therefore sm
 |Technique              | Implement test methods using phpUnit Framework                      |
 |Oracles                | Test execution logs t command line                                  |
 |Required Tools         | phpUnit                                                             |
-|Success Criteria       | All tests pass. Coverage is above 20% (Frontend) / 60% (Backend)    |
+|Success Criteria       | All tests pass. Coverage is above  40%                               |
 |Special Considerations | -                                                                   |
 
 #### 5.1.2 User Interface Testing
@@ -194,23 +194,10 @@ By UI testing the application is tested from the perspective of the user. The go
 |Technique              | Writing Gherkin `.feature` files with clearly defined steps. The test implementation of the steps use the Android Espresso library to serve the emulator. |
 |Oracles                |  Test execution logs t command line                                  |
 |Required Tools         | Dependencies of Cucumber and Espresso and an Implementation of a test runner based on JUnit 4 to execute UI tests |
-|Success Criteria       | All UI tests pass. |
+|Success Criteria       | All UI tests pass.  Coverage is above  40%  |
 |Special Considerations | - |
 
-#### 5.1.3 Integration Testing (API Testing)
-
-Api Testing is part of integration testing. Integration tests test multiple modules of an application together. The main goal of Api testing is to ensure, that the provided Apis of the Backend behave as expected. These tests will be included in the UI Testing
-
-|                       | Description                                                          |
-|-----------------------|----------------------------------------------------------------------|
-|Technique Objective    | Test the provided Apis with Cucumber                                 |
-|Technique              |  Gherkin `.feature` exists and the steps are implemented.             |         
-|Oracles                | Test execution logs t command line                                    |
-|Required Tools         | JUnit, Cucumber, Rest assured, Hamcrest                              |
-|Success Criteria       | All tests pass. Coverage is above 20%                                |
-|Special Considerations | -                                                                    |
-
-#### 5.1.4 User Testing
+#### 5.1.3 User Testing
 
 User Testing makes sure our Application, especially the UI makes sense to the average user. To ensure this we will use a [ScoreSheet](../UserTesting/ScoreSheet.xlsm) and calculate the average results from around 10 Users. The results will be saved to a [ScoreCollection](../UserTesting/ScoreCollection.csv)
 
@@ -220,7 +207,7 @@ User Testing makes sure our Application, especially the UI makes sense to the av
 |Technique              | Human interaction with the App                                       |         
 |Oracles                | Fileld out Score Sheet                                               |
 |Required Tools         | User, ScoreSheet, Excel                                              |
-|Success Criteria       | Average result of at least 70%                                       |
+|Success Criteria       | Average result of at least 7.0                                       |
 |Special Considerations | Different aspects tested should have different weights               |
 
 ## 6. Entry and Exit Criteria
@@ -239,7 +226,7 @@ n/a
 
 ## 7.1 Test Evaluation Summaries
 
-The project owns a certain amount of tests in the Frontend and Backend. Each pushed commit triggers our CI/CD Pipeline, which builds the application and executes the tests.
+The project contains a certain amount of tests in the Frontend and Backend. Each pushed commit to the master triggers our CI/CD Pipeline, which builds the application and executes the Backend tests.
 
 Continuous Integration/Delivery/Deployment Pipeline based on Jenkins: [Jenkins](http://91.205.172.109:8080) [![Build Status](http://91.205.172.109:8080)](http://91.205.172.109:8080)
 
