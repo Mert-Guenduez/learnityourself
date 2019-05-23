@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView user_label,  points_label;
     private Button missions_button, logout_button, rewards_button, achievements_button;
+
     private MainController controller;
     @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
         achievements_button = findViewById(R.id.achievements_button);
         logout_button = findViewById(R.id.logout_button);
         missions_button = findViewById(R.id.missions_button);
+        
+        achievements_button.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 controller.viewAchiements();
+             }
+         });
 
         rewards_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,12 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 controller.viewRewards();
             }
         });
-        achievements_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO: view AchievementsActivity
-            }
-        });
+        
         logout_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
