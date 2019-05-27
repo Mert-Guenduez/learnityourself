@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 public class Reward implements Serializable {
 
-    private int rewardId;
+    private int rewardid;
     private String title;
     private String owner;
     private int cost;
 
-    public int getRewardId() {
-        return rewardId;
+    public int getRewardid() {
+        return rewardid;
     }
 
-    public void setRewardId(int rewardId) {
-        this.rewardId = rewardId;
+    public void setRewardid(int rewardid) {
+        this.rewardid = rewardid;
     }
 
     public String getTitle() {

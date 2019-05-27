@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,8 +12,11 @@
 
     <TextView
         android:id="@+id/TextView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="337dp"
+        android:layout_height="28dp"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_weight="1"
         android:gravity="left"
         android:paddingLeft="4px"
@@ -21,14 +25,23 @@
         android:singleLine="true"
         android:textColor="#666d70"
         android:textSize="22dip"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/completedFlag"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.722"></TextView>
 
     <CheckBox
         android:id="@+id/completedFlag"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="right"
+        android:layout_width="42dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
-        android:visibility="invisible" />
+        android:gravity="right"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
