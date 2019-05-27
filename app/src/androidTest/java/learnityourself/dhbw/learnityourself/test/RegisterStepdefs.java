@@ -27,7 +27,7 @@ public class RegisterStepdefs {
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     private Activity activity = activityTestRule.getActivity();
-/*
+
     @cucumber.api.java.en.Given("^I am seeing input fields for registration$")
     public void iAmSeeingInputFieldsForRegistration() throws Throwable {
         activityTestRule.launchActivity(new Intent());
@@ -59,6 +59,7 @@ public class RegisterStepdefs {
                 .perform(click());
     }
 
+    /*
     @Then("^I should see the error message \"([^\"]*)\" | I should see the Login screen$")
     public void iShouldSeeTheErrorMessageIShouldSeeTheLoginScreen(String arg0) throws Throwable {
         // Write code here that turns the phrase above into concrete actions

@@ -1,51 +1,85 @@
 package learnityourself.dhbw.learnityourself.test;
+import android.app.Activity;
+import android.content.Intent;
+import android.support.test.rule.ActivityTestRule;
+
+import org.junit.Rule;
+
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import learnityourself.dhbw.learnityourself.R;
+import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
+
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 class CreateMissionStepdefs {
+
+    @Rule
+    public ActivityTestRule<ViewMissionsActivity> activityTestRule = new ActivityTestRule<>(ViewMissionsActivity.class, false, false);
+
+    private static Activity activity;// = activityTestRule.getActivity();
+
+
     @cucumber.api.java.en.Given("^I am seeing Missions$")
     public void iAmSeeingMissions() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        activityTestRule.launchActivity(new Intent());
+        activity = activityTestRule.getActivity();
+        onView(withId(R.id.ViewMissionsActivity));
     }
 
-    @When("^I press on Create Task$")
+    @When("^I press on the add symbol at the actionbar")
     public void iPressOnCreateTask() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        onView(withId(R.menu.menu_add)).perform(click());
     }
 
     @Then("^I should see the Configuartion of a new Mission$")
     public void iShouldSeeTheConfiguartionOfANewMission() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        activityTestRule.launchActivity(new Intent());
+        activity = activityTestRule.getActivity();
+        onView(withId(R.id.createMissionActivity));
     }
 
     @Given("^I am seeing a window to cofigure the new Mission$")
     public void iAmSeeingAWindowToCofigureTheNewMission() throws Throwable {
+        activityTestRule.launchActivity(new Intent());
+        activity = activityTestRule.getActivity();
+        onView(withId(R.id.createMissionActivity));
+    }
+
+    @When("^I enter \"([^\"]*)\" into title field$")
+    public void iEnterIntoTitleField(String title) throws Throwable {
+        onView(withId(R.id.missionName_editText))
+                .perform(typeText(title), closeSoftKeyboard());
+    }
+
+    /*
+    @And("^I select \"([^\"]*)\" at datepicker$")
+    public void iEnterIntoDatefield(String date) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
+    */
 
-    @When("^I enter \"([^\"]*)\" into input field having id \"([^\"]*)\"$")
-    public void iEnterIntoInputFieldHavingId(String arg0, String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @And("^I click on button having text \"([^\"]*)\"$")
-    public void iClickOnButtonHavingText(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @And("^I click on check symbol at actionbar$")
+    public void iClickOnButtonHavingText() throws Throwable {
+        onView(withId(R.menu.menu_check))
+                .perform(click());
     }
 
     @Then("^I should see a new Mission$")
     public void iShouldSeeANewMission() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        activityTestRule.launchActivity(new Intent());
+        activity = activityTestRule.getActivity();
+        onView(withId(R.id.ViewMissionsActivity));
+
+        //Check ob richtige mission erstellt wurde?
     }
 
     @When("^I click on button havong text \"([^\"]*)\"$")
@@ -149,4 +183,7 @@ class CreateMissionStepdefs {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
+
+
+
 }
