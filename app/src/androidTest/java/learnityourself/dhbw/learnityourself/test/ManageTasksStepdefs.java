@@ -1,39 +1,60 @@
 package learnityourself.dhbw.learnityourself.test;
+import android.app.Activity;
+import android.content.Intent;
+import android.support.test.rule.ActivityTestRule;
+
+import org.junit.Rule;
+
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import learnityourself.dhbw.learnityourself.MainActivity;
+import learnityourself.dhbw.learnityourself.R;
+import learnityourself.dhbw.learnityourself.ViewMissionActivity;
+import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
+import learnityourself.dhbw.learnityourself.controller.ViewMissionController;
+
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 class ManageTasksStepdefs {
 
+    @Rule
+    public ActivityTestRule<ViewMissionActivity> activityTestRule = new ActivityTestRule<>(ViewMissionActivity.class, false, false);
+
+    private static Activity activity;// = activityTestRule.getActivity();
+
     @Given("^I am in a Mission$")
     public void iAmInAMission() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        activityTestRule.launchActivity(new Intent());
+        activity = activityTestRule.getActivity();
+        onView(withId(R.id.ViewMissionActivity));
     }
 
     @When("^I press on Tasks$")
     public void iPressOnTasks() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        onView(withId(R.id.task_list)).perform(click());
     }
 
     @Then("^I should see all Mission Taks$")
     public void iShouldSeeAllMissionTaks() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        activityTestRule.launchActivity(new Intent());
+        activity = activityTestRule.getActivity();
+        onView(withId(R.id.activity_view_task));
     }
 
     @Given("^I am seeing Tasks$")
     public void iAmSeeingTasks() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        activityTestRule.launchActivity(new Intent());
+        activity = activityTestRule.getActivity();
+        onView(withId(R.id.ViewMissionActivity));
     }
 
     @When("^I press on New Task$")
     public void iPressOnNewTask() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        onView(withId(R.menu.menu_add)).perform(click());
     }
 
     @Then("^I should see a new Task$")
@@ -43,13 +64,13 @@ class ManageTasksStepdefs {
     }
     @When("^I press on a Task$")
     public void iPressOnATask() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        onView(withId(R.id.task_list)).perform(click());
     }
 
     @Then("^I should see the Task details$")
     public void iShouldSeeTheTaskDetails() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        activityTestRule.launchActivity(new Intent());
+        activity = activityTestRule.getActivity();
+        onView(withId(R.id.activity_view_task));
     }
 }

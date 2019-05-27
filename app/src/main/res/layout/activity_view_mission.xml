@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id ="@+id/toolbar"
+    android:id ="@+id/ViewMissionActivity"
     tools:context=".ViewMissionActivity"
     tools:layout_editor_absoluteY="81dp">
 
