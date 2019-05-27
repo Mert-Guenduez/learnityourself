@@ -68,7 +68,7 @@ public class ViewMissionActivity extends AppCompatActivity {
         userNameList.addAll(userToTasks.keySet());
         final String[] userNames = userNameList.toArray(new String[userNameList.size()]);
         Number[] amountOfTasks = new Number[userNames.length];
-        for(int i=1; i<userNameList.size(); i++){
+        for(int i=0; i<userNameList.size(); i++){
             amountOfTasks[i] = userToTasks.get(userNames[i]);
         }
 
