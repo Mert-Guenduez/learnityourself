@@ -87,7 +87,7 @@ public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> 
     private byte[] getPostDataFromMap(Map<String, Object> params) {
         StringBuilder postData = new StringBuilder();
         for (Map.Entry<String,Object> param : params.entrySet()) {
-            postData = buildPostData(param);
+            buildPostData(param, postData);
         }
         byte[] postDataBytes = new byte[0];
         try {
@@ -98,8 +98,7 @@ public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> 
         return postDataBytes;
     }
 
-    private StringBuilder buildPostData(Map.Entry<String, Object> param) {
-        StringBuilder postData = new StringBuilder();
+    private void buildPostData(Map.Entry<String, Object> param, StringBuilder postData) {
         if (postData.length() != 0) postData.append('&');
         try {
             postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
@@ -112,7 +111,7 @@ public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        return postData;
+        return;
     }
 
     public static String getStringFromInputStream(InputStream is) {
