@@ -1,40 +1,20 @@
 package learnityourself.dhbw.learnityourself;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.controller.ViewMissionInformationController;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.model.UserAdapter;
-import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
-import learnityourself.dhbw.learnityourself.utility.Helper;
 
 
 public class ViewMissionInformationActivity extends AppCompatActivity {
@@ -46,7 +26,7 @@ public class ViewMissionInformationActivity extends AppCompatActivity {
 
     private ViewMissionInformationController controller;
 
-    private JSONObject jsonObject;
+    private JSONObject info;
 
 
     @Override
@@ -56,13 +36,16 @@ public class ViewMissionInformationActivity extends AppCompatActivity {
 
         controller = new ViewMissionInformationController((User) getIntent().getSerializableExtra("user"), this);
         controller.setMission((Mission) getIntent().getSerializableExtra("mission"));
+        try {
+            info = new JSONObject(getIntent().getStringExtra("info"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         controller.loadUsers();
 
         description_textview = findViewById(R.id.description_textview);
         finishdate_textview = findViewById(R.id.date_textView);
         edit = findViewById(R.id.edit_imageButton);
-
-        jsonObject = Helper.getInstance().getJsonObject();
 
         edit.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -76,12 +59,12 @@ public class ViewMissionInformationActivity extends AppCompatActivity {
 
     public void setDescription_textview() throws JSONException {
 
-        this.description_textview.setText(jsonObject.getString("description"));
+        this.description_textview.setText(info.getString("description"));
     }
 
     public void setFinishdate_textview() throws JSONException {
 
-        this.finishdate_textview.setText(jsonObject.getString("deadline"));
+        this.finishdate_textview.setText(info.getString("deadline"));
     }
 
     void init() {
