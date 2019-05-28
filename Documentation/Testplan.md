@@ -43,6 +43,7 @@
     - [11. Iteration Milestones](#11-iteration-milestones)
     - [12. Risks, Dependencies, Assumptions, and Constraints](#12-risks-dependencies-assumptions-and-constraints)
     - [13. Management Process and Procedures](#13-management-process-and-procedures)
+    - [14. Metrics](#14-Metrics)
 
 ## 1. Introduction
 
@@ -321,3 +322,11 @@ We want to keep over 20% code coverage.
 ## 13. Management Process and Procedures
 
 n/a
+
+## 14. Metrics
+
+Further than making sure the code works, we want to ensure that it meets certain quality requirements. To meassure this we're using metrics. The tool for meassuring will be integrated in our build process.
+
+| Tool | Description | Integration |
+|------|---------------------|--------------------------------|
+| SonarCloud | Tool static code analysis | We integrated the tool in our Jenkins Build Process |
