@@ -7,24 +7,32 @@ import android.support.test.rule.ActivityTestRule;
 import org.junit.Rule;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import learnityourself.dhbw.learnityourself.MainActivity;
 import learnityourself.dhbw.learnityourself.R;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
+import learnityourself.dhbw.learnityourself.model.User;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 class ViewMissionsStepdefs {
+    private static User user;
 
     @Rule
     public ActivityTestRule<ViewMissionsActivity> activityTestRule = new ActivityTestRule<>(ViewMissionsActivity.class, false, false);
 
     private static Activity activity;// = activityTestRule.getActivity();
 
+    @Before
+    public void beforeAll() throws Exception {
+        UserLogin userLogin = new UserLogin();
+        user = userLogin.loginUser();
+    }
 
     @cucumber.api.java.en.Given("^I am seeing the main activity$")
     public void iAmSeeingTheMainActivity() throws Throwable {

@@ -29,8 +29,9 @@ class CreateMissionStepdefs {
     public ActivityTestRule<ViewMissionsActivity> activityTestRule = new ActivityTestRule<>(ViewMissionsActivity.class, false, false);
 
     @Before
-    public void beforeAll() {
-
+    public void beforeAll() throws Exception {
+        UserLogin userLogin = new UserLogin();
+        user = userLogin.loginUser();
     }
 
     @cucumber.api.java.en.Given("^I am seeing Missions$")
@@ -47,15 +48,11 @@ class CreateMissionStepdefs {
 
     @Then("^I should see the Configuartion of a new Mission$")
     public void iShouldSeeTheConfiguartionOfANewMission() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
         onView(withId(R.id.createMissionActivity));
     }
 
-    @Given("^I am seeing a window to cofigure the new Mission$")
-    public void iAmSeeingAWindowToCofigureTheNewMission() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
+    @Given("^I am seeing a window to configure the new Mission$")
+    public void iAmSeeingAWindowToConfigureTheNewMission() throws Throwable {
         onView(withId(R.id.createMissionActivity));
     }
 
@@ -88,28 +85,15 @@ class CreateMissionStepdefs {
         //Check ob richtige mission erstellt wurde?
     }
 
-    @When("^I click on add missionmembers button$")
-    public void iClickOnAddMissionmembersButton() throws Throwable {
+    @When("^I enter \"([^\"]*)\" into user search field$")
+    public void iEnterIntoUserSearchField(String username) throws Throwable {
+        onView(withId(R.id.missionName_editText))
+                .perform(typeText(username), closeSoftKeyboard());
     }
 
-    @Then("^I should see a window to add Missionmembers$")
-    public void iShouldSeeAWindowToAddMissionmembers() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
 
-    @Given("^I am seeing a window to add Missionmembers$")
-    public void iAmSeeingAWindowToAddMissionmembers() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
 
-    @When("^I enter \"([^\"]*)\" into search field having id \"([^\"]*)\"$")
-    public void iEnterIntoSearchFieldHavingId(String arg0, String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
+    /*
     @Then("^Missionmember \"([^\"]*)\" appears in List$")
     public void missionmemberAppearsInList(String arg0) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
@@ -187,7 +171,6 @@ class CreateMissionStepdefs {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
-
-
+    */
 
 }
