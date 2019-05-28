@@ -19,17 +19,18 @@ public class CreateCustomRewardActivity extends AppCompatActivity {
     private TextView pointsProgress, pointsError;
     private SeekBar points;
     private Reward[] rewards;
-    private int pointsValue;
+    private int pointsValue, rewardPosition;
     private CreateCustomRewardController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_custom_reward);
 
-        controller = new CreateCustomRewardController((User)getIntent().getSerializableExtra("user"),this);
         rewards = (Reward[])getIntent().getSerializableExtra("rewardNames");
+        rewardPosition = (int)getIntent().getSerializableExtra("reward");
+
+        controller = new CreateCustomRewardController((User)getIntent().getSerializableExtra("user"),this, rewardPosition, rewards);
 
         init();
     }
@@ -42,8 +43,6 @@ public class CreateCustomRewardActivity extends AppCompatActivity {
         pointsError = findViewById(R.id.pointsError_textView);
         points = findViewById(R.id.points_editText);
 
-
-        int rewardPosition = (int)getIntent().getSerializableExtra("reward");
         if (rewardPosition > -1) {
             rewardName.setText(rewards[rewardPosition].getTitle());
             points.setProgress(rewards[rewardPosition].getCost());
@@ -95,8 +94,8 @@ public class CreateCustomRewardActivity extends AppCompatActivity {
                         controller.setRewardName(rewardName.getText().toString());
                         controller.setPoints(pointsValue);
                         //controller.setCost(Integer.parseInt(points.getText().toString()));
-
                         controller.checkClickHandler();
+
                     }
                     return false;
                 }

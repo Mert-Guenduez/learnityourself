@@ -12,25 +12,20 @@ Scenario: Configurate a new Mission
   And I click on check symbol at actionbar
   Then I should see a new Mission
 
-Scenario: Configurate a new Mission with other members
-  Given I am seeing a window to configure the new Mission
-  When I click on button having text "Add Missionmembers"
-  Then I should see a window to add Missionmembers
-
 Scenario: Search for Missionmembers
-  Given I am seeing a window to add Missionmembers
-  When I enter "nameOfMissionMember" into search field
-  Then Missionmember "nameOfMissionMember" appears in List
+  Given I am seeing a window to configure the new Mission
+  When I enter "test" into user search field
+  Then Missionmember "test" appears in List
 
 Scenario: Select Missionmember
   Given I am seeing a window to add Missionmembers with Missionmember in the List
-  When I click on the Missionmember "nameOfMissionMember"
-  Then the Missionmember "nameOfMissionMember" is selected
+  When I click on the Missionmember "test"
+  Then the Missionmember "test" is selected
 
 Scenario: Disselect Missionmember
   Given I am seeing a window to add Missionmembers with a selected Missionmember in the List
-  When I click on the selected Missionmember "nameOfMissionMember"
-  Then the Missionmember "nameOfMissionMember" is not selected
+  When I click on the selected Missionmember "test"
+  Then the Missionmember "test" is not selected
 
 Scenario: Add Missionmember
   Given I am seeing a window to add Missionmembers with selected Missionmembers in the List

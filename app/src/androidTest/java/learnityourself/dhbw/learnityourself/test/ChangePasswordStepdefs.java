@@ -7,6 +7,7 @@ import android.support.test.rule.ActivityTestRule;
 import org.junit.Rule;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -14,17 +15,24 @@ import cucumber.api.java.en.When;
 import learnityourself.dhbw.learnityourself.MainActivity;
 import learnityourself.dhbw.learnityourself.R;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
+import learnityourself.dhbw.learnityourself.model.User;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 class ChangePasswordStepdefs {
+    private static Activity activity;// = activityTestRule.getActivity();
+    private static User user;
 
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class, false, false);
 
-    private static Activity activity;// = activityTestRule.getActivity();
+    @Before
+    public void beforeAll() throws Exception {
+        UserLogin userLogin = new UserLogin();
+        user = userLogin.loginUser();
+    }
 
     @When("^I click on edit symbol$")
     public void iClickOnEditSymbol() throws Throwable {
@@ -33,15 +41,11 @@ class ChangePasswordStepdefs {
 
     @Then("^I see settings for changing the password and deleting the account$")
     public void iSeeSettingsForChangingThePasswordAndDeletingTheAccount() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
         onView(withId(R.id.OptionsActivity));
     }
 
     @Given("^I am seeing the account settings$")
     public void iAmSeeingTheAccountSettings() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
         onView(withId(R.id.OptionsActivity));
     }
 

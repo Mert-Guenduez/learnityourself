@@ -6,12 +6,14 @@ import android.support.test.rule.ActivityTestRule;
 import org.junit.Rule;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import learnityourself.dhbw.learnityourself.R;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
+import learnityourself.dhbw.learnityourself.model.User;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -20,12 +22,17 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 class CreateMissionStepdefs {
+    private static Activity activity;// = activityTestRule.getActivity();
+    private static User user;
 
     @Rule
     public ActivityTestRule<ViewMissionsActivity> activityTestRule = new ActivityTestRule<>(ViewMissionsActivity.class, false, false);
 
-    private static Activity activity;// = activityTestRule.getActivity();
-
+    @Before
+    public void beforeAll() throws Exception {
+        UserLogin userLogin = new UserLogin();
+        user = userLogin.loginUser();
+    }
 
     @cucumber.api.java.en.Given("^I am seeing Missions$")
     public void iAmSeeingMissions() throws Throwable {
@@ -41,15 +48,11 @@ class CreateMissionStepdefs {
 
     @Then("^I should see the Configuartion of a new Mission$")
     public void iShouldSeeTheConfiguartionOfANewMission() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
         onView(withId(R.id.createMissionActivity));
     }
 
-    @Given("^I am seeing a window to cofigure the new Mission$")
-    public void iAmSeeingAWindowToCofigureTheNewMission() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
+    @Given("^I am seeing a window to configure the new Mission$")
+    public void iAmSeeingAWindowToConfigureTheNewMission() throws Throwable {
         onView(withId(R.id.createMissionActivity));
     }
 
@@ -82,30 +85,15 @@ class CreateMissionStepdefs {
         //Check ob richtige mission erstellt wurde?
     }
 
-    @When("^I click on button havong text \"([^\"]*)\"$")
-    public void iClickOnButtonHavongText(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @When("^I enter \"([^\"]*)\" into user search field$")
+    public void iEnterIntoUserSearchField(String username) throws Throwable {
+        onView(withId(R.id.missionName_editText))
+                .perform(typeText(username), closeSoftKeyboard());
     }
 
-    @Then("^I should see a window to add Missionmembers$")
-    public void iShouldSeeAWindowToAddMissionmembers() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
 
-    @Given("^I am seeing a window to add Missionmembers$")
-    public void iAmSeeingAWindowToAddMissionmembers() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
 
-    @When("^I enter \"([^\"]*)\" into search field having id \"([^\"]*)\"$")
-    public void iEnterIntoSearchFieldHavingId(String arg0, String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
+    /*
     @Then("^Missionmember \"([^\"]*)\" appears in List$")
     public void missionmemberAppearsInList(String arg0) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
@@ -183,7 +171,6 @@ class CreateMissionStepdefs {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
-
-
+    */
 
 }
