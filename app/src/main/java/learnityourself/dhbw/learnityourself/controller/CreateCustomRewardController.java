@@ -13,10 +13,14 @@ import learnityourself.dhbw.learnityourself.modelFactories.RewardFactory;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 
 public class CreateCustomRewardController extends AuthorizedController{
+    private int rewardPosition;
+    private Reward[] rewards;
 
-    public CreateCustomRewardController (User user, Context context) {
+    public CreateCustomRewardController(User user, Context context, int rewardPosition, Reward[] rewards) {
         super(user, context);
         this.user = user;
+        this.rewardPosition = rewardPosition;
+        this.rewards = rewards;
         RewardFactory.createNewObject();
     }
 
@@ -26,7 +30,11 @@ public class CreateCustomRewardController extends AuthorizedController{
     }
 
     public void checkClickHandler () {
-        createReward();
+        if (rewardPosition > -1) {
+            editReward();
+        } else {
+            createReward();
+        }
         returnToViewRewards();
     }
 
@@ -52,7 +60,25 @@ public class CreateCustomRewardController extends AuthorizedController{
         }
 
         String inputString=HTTPRequestHandler.getStringFromInputStream(in);
+    }
 
+    private void editReward() {
+        Reward newReward = RewardFactory.getObject();
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        InputStream in  = null;
+        try {
+            in = handler.execute("https://91.205.172.109/editReward.php","username",
+                    user.getUsername(),"sessionkey", user.getSessionkey(),
+                    "rewardid", Integer.toString(rewards[rewardPosition].getRewardid()) ,
+                    "title", newReward.getTitle(), "description", "", "cost", Integer.toString(newReward.getCost()))
+                    .get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String inputString=HTTPRequestHandler.getStringFromInputStream(in);
     }
 
     public void keyBackHandler() {
