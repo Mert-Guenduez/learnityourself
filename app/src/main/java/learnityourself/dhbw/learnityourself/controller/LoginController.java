@@ -24,29 +24,6 @@ public class LoginController {
         this.context = context;
     }
 
-    public void register(EditText username, EditText password) {
-        HTTPRequestHandler handler = new HTTPRequestHandler();
-        InputStream in = null;
-
-
-        try {
-            in = handler.execute("https://91.205.172.109/register.php", "username",  username.getText().toString(), "password", password.getText().toString()).get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        String inputString=HTTPRequestHandler.getStringFromInputStream(in);
-
-        if (inputString.equals("{\"response\":\"User already exists\"}")){
-            username.setError("User already exists. Please enter another Username.");
-        } else {
-            context.startActivity(new Intent(context, LoginActivity.class));
-        }
-
-    }
-
     public void register() {
         context.startActivity(new Intent(context, RegisterActivity.class));
     }
@@ -62,8 +39,9 @@ public class LoginController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
+
         String inputString=HTTPRequestHandler.getStringFromInputStream(in);
+
         if(inputString.contains("false")){
             username_field.setError("Wrong Username or Password.");
         }else{
