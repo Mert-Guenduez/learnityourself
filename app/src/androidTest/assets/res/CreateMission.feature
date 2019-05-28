@@ -14,7 +14,7 @@ Scenario: Configurate a new Mission
 
 Scenario: Configurate a new Mission with other members
   Given I am seeing a window to configure the new Mission
-  When I click on button having text "Add Missionmembers"
+  When I click on add missionmembers button
   Then I should see a window to add Missionmembers
 
 Scenario: Search for Missionmembers

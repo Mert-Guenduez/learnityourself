@@ -26,23 +26,11 @@ class ManageTasksStepdefs {
 
     private static Activity activity;// = activityTestRule.getActivity();
 
-    @Given("^I am in a Mission$")
+    @Given("^I am in a Mission and seeing Tasks$")
     public void iAmInAMission() throws Throwable {
         activityTestRule.launchActivity(new Intent());
         activity = activityTestRule.getActivity();
         onView(withId(R.id.ViewMissionActivity));
-    }
-
-    @When("^I press on Tasks$")
-    public void iPressOnTasks() throws Throwable {
-        onView(withId(R.id.task_list)).perform(click());
-    }
-
-    @Then("^I should see all Mission Taks$")
-    public void iShouldSeeAllMissionTaks() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
-        onView(withId(R.id.activity_view_task));
     }
 
     @Given("^I am seeing Tasks$")
@@ -69,8 +57,6 @@ class ManageTasksStepdefs {
 
     @Then("^I should see the Task details$")
     public void iShouldSeeTheTaskDetails() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
         onView(withId(R.id.activity_view_task));
     }
 }

@@ -33,15 +33,11 @@ class ChangePasswordStepdefs {
 
     @Then("^I see settings for changing the password and deleting the account$")
     public void iSeeSettingsForChangingThePasswordAndDeletingTheAccount() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
         onView(withId(R.id.OptionsActivity));
     }
 
     @Given("^I am seeing the account settings$")
     public void iAmSeeingTheAccountSettings() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
         onView(withId(R.id.OptionsActivity));
     }
 

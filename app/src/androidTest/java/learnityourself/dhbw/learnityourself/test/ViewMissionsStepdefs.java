@@ -12,6 +12,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import learnityourself.dhbw.learnityourself.MainActivity;
 import learnityourself.dhbw.learnityourself.R;
+import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -20,15 +21,13 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 class ViewMissionsStepdefs {
 
     @Rule
-    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class, false, false);
+    public ActivityTestRule<ViewMissionsActivity> activityTestRule = new ActivityTestRule<>(ViewMissionsActivity.class, false, false);
 
     private static Activity activity;// = activityTestRule.getActivity();
 
 
     @cucumber.api.java.en.Given("^I am seeing the main activity$")
     public void iAmSeeingTheMainActivity() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
         onView(withId(R.id.MainActivity));
     }
 
@@ -58,15 +57,11 @@ class ViewMissionsStepdefs {
 
     @Then("^I see a list of all tasks$")
     public void iSeeAListOfAllTasks() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
         onView(withId(R.id.ViewMissionActivity));
     }
 
     @Given("^I am seeing a list of tasks$")
     public void iAmSeeingAListOfTasks() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
         onView(withId(R.id.ViewMissionActivity));
     }
 
@@ -78,8 +73,6 @@ class ViewMissionsStepdefs {
 
     @Then("^I see the information of a mission$")
     public void iSeeTheInformationOfAMission() throws Throwable {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
         onView(withId(R.id.ViewMissionInformationActivity));
     }
 }

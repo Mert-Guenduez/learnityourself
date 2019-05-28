@@ -6,12 +6,14 @@ import android.support.test.rule.ActivityTestRule;
 import org.junit.Rule;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import learnityourself.dhbw.learnityourself.R;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
+import learnityourself.dhbw.learnityourself.model.User;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -20,12 +22,16 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 class CreateMissionStepdefs {
+    private static Activity activity;// = activityTestRule.getActivity();
+    private static User user;
 
     @Rule
     public ActivityTestRule<ViewMissionsActivity> activityTestRule = new ActivityTestRule<>(ViewMissionsActivity.class, false, false);
 
-    private static Activity activity;// = activityTestRule.getActivity();
+    @Before
+    public void beforeAll() {
 
+    }
 
     @cucumber.api.java.en.Given("^I am seeing Missions$")
     public void iAmSeeingMissions() throws Throwable {
@@ -82,10 +88,8 @@ class CreateMissionStepdefs {
         //Check ob richtige mission erstellt wurde?
     }
 
-    @When("^I click on button havong text \"([^\"]*)\"$")
-    public void iClickOnButtonHavongText(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @When("^I click on add missionmembers button$")
+    public void iClickOnAddMissionmembersButton() throws Throwable {
     }
 
     @Then("^I should see a window to add Missionmembers$")
