@@ -18,7 +18,7 @@ import learnityourself.dhbw.learnityourself.model.User;
 public class ViewAchievementsActivity extends AppCompatActivity{
 
 
-    private ListView achievementnListView;
+    private ListView achievementListView;
     private ViewAchievementsController controller;
 
     protected void onCreate(Bundle savedInstanceState)
@@ -32,8 +32,8 @@ public class ViewAchievementsActivity extends AppCompatActivity{
 
     void init() {
 
-        achievementnListView = (ListView) findViewById(R.id.mission_list);
-        achievementnListView.setAdapter(new AchievementAdapter(this, controller.getAchievements()));
+        achievementListView = (ListView) findViewById(R.id.achievement_list);
+        achievementListView.setAdapter(new AchievementAdapter(this, controller.getAchievements()));
 
     }
 
