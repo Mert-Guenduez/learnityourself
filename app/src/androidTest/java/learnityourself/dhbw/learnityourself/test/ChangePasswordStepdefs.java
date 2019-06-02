@@ -1,11 +1,10 @@
 package learnityourself.dhbw.learnityourself.test;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.support.test.rule.ActivityTestRule;
 
 import org.junit.Rule;
 
+import androidx.test.rule.ActivityTestRule;
 import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
@@ -16,10 +15,9 @@ import learnityourself.dhbw.learnityourself.MainActivity;
 import learnityourself.dhbw.learnityourself.R;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.model.User;
-
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 class ChangePasswordStepdefs {
     private static Activity activity;// = activityTestRule.getActivity();
