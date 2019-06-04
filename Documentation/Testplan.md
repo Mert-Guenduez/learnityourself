@@ -113,8 +113,8 @@ This test plan is written primarily for internal documentation reasons. It is me
 | [ScoreSheet](../UserTesting/ScoreSheet.xlsm)                                 | May. 2019       | LearnItYourself Team |
 | [ScoreCollection](../UserTesting/ScoreCollection.csv)                        | May. 2019       | LearnItYourself Team |
 | [Test Plan](./Testplan.md)                                                   | Apr. 2019  | LearnItYourself Team      |
-| [SRS](                                       )                               | Oct. 2018  | LearnItYourself Team      |
-| [SAD](./SRAt.md)                                                             | Oct. 2018  | LearnItYourself Team      |
+| [SRS](./SRS/SRS.md                                     )                      | Oct. 2018  | LearnItYourself Team      |
+| [SAD](./SRA.md)                                                             | Oct. 2018  | LearnItYourself Team      |
 
 ### 1.6 Document Structure
 
