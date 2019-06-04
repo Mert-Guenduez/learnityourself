@@ -11,21 +11,37 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="vertical">
+
+        <SeekBar
+            android:id="@+id/effortSeekbar_viewTask"
+            android:layout_width="318dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:inputType="time"
+            android:max="10"
+            app:layout_constraintEnd_toStartOf="@+id/effort_textView"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/taskDescription_textview" />
 
         <TextView
             android:id="@+id/taskDescription_textview"
-            android:layout_width="0dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="12dp"
-            android:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/effort_textView"
+            android:layout_width="362dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/effort_label"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/taskDescription_label"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/taskDescription_label"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/taskDescription_label"
@@ -40,8 +56,10 @@
             android:text="Description:"
             app:layout_constraintBottom_toTopOf="@+id/effort_label"
             app:layout_constraintEnd_toStartOf="@+id/taskDescription_textview"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/effort_label"
@@ -49,26 +67,21 @@
             android:layout_height="27dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginEnd="55dp"
-            android:layout_marginRight="55dp"
-            android:layout_marginBottom="414dp"
+            android:layout_marginBottom="370dp"
             android:text="Effort:"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/effort_textView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/taskDescription_label" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/effort_textView"
-            android:layout_width="239dp"
-            android:layout_height="39dp"
-            android:layout_marginEnd="29dp"
-            android:layout_marginRight="29dp"
-            android:layout_marginBottom="414dp"
+            android:layout_width="34dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/effort_label"
-            app:layout_constraintTop_toBottomOf="@+id/taskDescription_textview" />
+            app:layout_constraintTop_toBottomOf="@+id/taskDescription_textview"
+            app:layout_constraintVertical_bias="0.106" />
 
         <Button
             android:id="@+id/completeTaskBtn"
