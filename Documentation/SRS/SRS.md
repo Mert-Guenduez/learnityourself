@@ -33,10 +33,17 @@ The third chapter, the Requirements Specification lists all ressources needed fo
  
 
 ## 2. Overall Description
+
+### 2.1 Our Vision
 Learnityourself is an Android App that helps turn mundane tasks such as studying
 into a game, alone or with friends. We will use Java to develop the Frontend, which will
 communicate with a backend server using the RESTful API.  
-![use-cases.png](https://github.com/Mert-Guenduez/learnityourself/raw/master/UseCases.png)
+
+### 2.2 Usecases
+This Usecase Diagram shows the different Usecases we have planned on how they are organized
+[use-cases.png](https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/jonas/Documentation/UC/UseCases_Overview.png)
+
+The individual Usecase Specifications can be seen [here](https://github.com/Mert-Guenduez/learnityourself/tree/jonas/Documentation/UC)
 
 ## 3.	Specific Requirements 
 ### 3.1	Functionality
