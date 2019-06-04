@@ -43,7 +43,7 @@ public class ManageTaskController extends AuthorizedController{
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/updateTask.php","username",
+            in = handler.execute("updateTask.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(), "missionid", task.getMissionid(),
                     "taskname", task.getTaskname(), "taskid", task.getTaskid(), "description", task.getDescription(), "effort", Integer.toString(task.getEffort())).get();
         } catch (ExecutionException e) {

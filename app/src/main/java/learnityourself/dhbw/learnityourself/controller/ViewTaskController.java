@@ -38,7 +38,7 @@ public class ViewTaskController extends AuthorizedController{
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/allDetailsFromTask.php","username",
+            in = handler.execute("allDetailsFromTask.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "taskid", task.getTaskid())
                     .get();
@@ -57,7 +57,7 @@ public class ViewTaskController extends AuthorizedController{
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/completeTask.php","username",
+            in = handler.execute("completeTask.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),"taskid", task.getTaskid())
                     .get();
             String inString = HTTPRequestHandler.getStringFromInputStream(in).toString();

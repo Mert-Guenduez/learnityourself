@@ -46,7 +46,7 @@ public class ViewMissionController extends AuthorizedController {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/allDetailsFromMission.php","username",
+            in = handler.execute("allDetailsFromMission.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionid", mission.getMissionid())
                     .get();
@@ -112,7 +112,7 @@ public class ViewMissionController extends AuthorizedController {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/createTask.php","username",
+            in = handler.execute("createTask.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionid", newTask.getMissionid(), "taskname", newTask.getTaskname(), "description",
                     newTask.getDescription(), "effort", newTask.getEffort()+"")
@@ -136,7 +136,7 @@ public class ViewMissionController extends AuthorizedController {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/getMissionTaskCompletion.php","username",
+            in = handler.execute("getMissionTaskCompletion.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionid", mission.getMissionid())
                     .get();

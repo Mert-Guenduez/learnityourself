@@ -49,7 +49,7 @@ public class CreateCustomRewardController extends AuthorizedController{
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/createCustomReward.php","username",
+            in = handler.execute("createCustomReward.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "title", newReward.getTitle(), "description", "", "cost", Integer.toString(newReward.getCost()))
                     .get();
@@ -67,7 +67,7 @@ public class CreateCustomRewardController extends AuthorizedController{
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/editReward.php","username",
+            in = handler.execute("editReward.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "rewardid", Integer.toString(rewards[rewardPosition].getRewardid()) ,
                     "title", newReward.getTitle(), "description", "", "cost", Integer.toString(newReward.getCost()))

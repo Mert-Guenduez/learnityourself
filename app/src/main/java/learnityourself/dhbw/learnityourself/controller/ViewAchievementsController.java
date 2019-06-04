@@ -28,7 +28,7 @@ public class ViewAchievementsController extends AuthorizedController{
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/getUserAchievements.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
+            in = handler.execute("getUserAchievements.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

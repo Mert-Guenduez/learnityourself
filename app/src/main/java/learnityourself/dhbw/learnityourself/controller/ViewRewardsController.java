@@ -37,7 +37,7 @@ public class ViewRewardsController extends AuthorizedController {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/allRewardsFromUser.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
+            in = handler.execute("allRewardsFromUser.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -82,7 +82,7 @@ public class ViewRewardsController extends AuthorizedController {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/deleteReward.php","username", user.getUsername()
+            in = handler.execute("deleteReward.php","username", user.getUsername()
                     ,"sessionkey", user.getSessionkey()
                     ,"rewardid", Integer.toString(rewards[position].getRewardid())).get();
         } catch (ExecutionException e) {
