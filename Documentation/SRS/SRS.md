@@ -67,7 +67,7 @@ communicate with a backend server using the RESTful API.
 
 ### 2.2 Usecases
 This Usecase Diagram shows the different Usecases we have planned on how they are organized
-[use-cases.png](https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/jonas/Documentation/UC/UseCases_Overview.png)
+![Usecase Diagram](https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/jonas/Documentation/UC/UseCases_Overview.png)
 
 The individual Usecase Specifications can be seen [here](https://github.com/Mert-Guenduez/learnityourself/tree/jonas/Documentation/UC)
 
