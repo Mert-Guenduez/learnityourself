@@ -50,10 +50,10 @@ if ($paramsCheck) {
                                     WHERE taskid = ?');
             $stmt->bind_param('i', $taskid);
             if($stmt->execute()){
-                $data = array('response' => 'Task successfully updated'));
+                $data = array('response' => 'Task successfully updated');
             }
             else{
-                $data = array('error' => 'Task could not be updated'));
+                $data = array('error' => 'Task could not be updated');
             }
             $stmt->close();
         }
