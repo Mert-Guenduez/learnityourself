@@ -45,8 +45,3 @@ if ($paramsCheck) {
 }
 echo json_encode($data);
 ?>
-
-
-
-
-
