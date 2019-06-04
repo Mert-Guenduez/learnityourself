@@ -28,7 +28,9 @@ import com.androidplot.xy.XYSeries;
 import java.text.FieldPosition;
 import java.text.Format;
 import java.text.ParsePosition;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import learnityourself.dhbw.learnityourself.controller.ViewMissionController;
@@ -62,21 +64,20 @@ public class ViewMissionActivity extends AppCompatActivity {
     private void createChart() {
         plot = (XYPlot) findViewById(R.id.plot);
         Map<String, Integer> userToTasks = controller.getUserTasksMap();
-        final String[] userNames = userToTasks.keySet().toArray(new String[userToTasks.keySet().size()]);
-        Number[] amountOfTasks = new Number[userToTasks.values().size()];
-        for(int i=0; i<userNames.length; i++){
+        List<String> userNameList = new ArrayList<>();
+        userNameList.addAll(userToTasks.keySet());
+        final String[] userNames = userNameList.toArray(new String[userNameList.size()]);
+        Number[] amountOfTasks = new Number[userNames.length];
+        for(int i=0; i<userNameList.size(); i++){
             amountOfTasks[i] = userToTasks.get(userNames[i]);
         }
 
         XYSeries series1 = new SimpleXYSeries(
                 Arrays.asList(amountOfTasks), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "");
-
-        //LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.RED, Color.GREEN, Color.BLUE, null);
-
         BarFormatter bf = new BarFormatter(Color.RED, Color.WHITE);
         plot.addSeries(series1, bf);
         BarRenderer renderer = plot.getRenderer(BarRenderer.class);
-        renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_WIDTH, PixelUtils.dpToPix(25));
+        renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_WIDTH, PixelUtils.dpToPix(10));
         plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.BOTTOM).setFormat(new Format() {
             @Override
             public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {

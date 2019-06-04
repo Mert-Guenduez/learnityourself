@@ -41,28 +41,6 @@ public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> 
 
     @Override
     protected InputStream doInBackground(String... inUrl) {
-      /*  URL url = null;
-        try {
-            url = new URL(inUrl[0]);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        HttpsURLConnection urlConnection = null;
-        try {
-            urlConnection = (HttpsURLConnection) url.openConnection();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        // urlConnection.setSSLSocketFactory(ssl.getSocketFactory());
-        try {
-            InputStream in = urlConnection.getInputStream();
-            return in;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    return null;
-*/
         URL url = null;
         try {
             url = new URL(inUrl[0]);
@@ -73,27 +51,7 @@ public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> 
         for(int i=1; i<inUrl.length; i+=2){
             params.put(inUrl[i], inUrl[i+1]);
         }
-        StringBuilder postData = new StringBuilder();
-        for (Map.Entry<String,Object> param : params.entrySet()) {
-            if (postData.length() != 0) postData.append('&');
-            try {
-                postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-            postData.append('=');
-            try {
-                postData.append(URLEncoder.encode(String.valueOf(param.getValue()), "UTF-8"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-        }
-        byte[] postDataBytes = new byte[0];
-        try {
-            postDataBytes = postData.toString().getBytes("UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+        byte[] postDataBytes = getPostDataFromMap(params);
 
         HttpURLConnection conn = null;
         try {
@@ -124,6 +82,36 @@ public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> 
         }
 
         return null;
+    }
+
+    private byte[] getPostDataFromMap(Map<String, Object> params) {
+        StringBuilder postData = new StringBuilder();
+        for (Map.Entry<String,Object> param : params.entrySet()) {
+            buildPostData(param, postData);
+        }
+        byte[] postDataBytes = new byte[0];
+        try {
+            postDataBytes = postData.toString().getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return postDataBytes;
+    }
+
+    private void buildPostData(Map.Entry<String, Object> param, StringBuilder postData) {
+        if (postData.length() != 0) postData.append('&');
+        try {
+            postData.append(URLEncoder.encode(param.getKey(), "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        postData.append('=');
+        try {
+            postData.append(URLEncoder.encode(String.valueOf(param.getValue()), "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return;
     }
 
     public static String getStringFromInputStream(InputStream is) {

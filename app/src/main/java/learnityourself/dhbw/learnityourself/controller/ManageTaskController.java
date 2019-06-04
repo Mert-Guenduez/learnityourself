@@ -2,23 +2,15 @@ package learnityourself.dhbw.learnityourself.controller;
 
 import android.content.Context;
 import android.content.Intent;
-import android.text.Editable;
-
-import com.google.gson.Gson;
 
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 
-import learnityourself.dhbw.learnityourself.CreateMissionActivity;
-import learnityourself.dhbw.learnityourself.ViewMissionActivity;
-import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
-import learnityourself.dhbw.learnityourself.ViewRewardsActivity;
 import learnityourself.dhbw.learnityourself.ViewTaskActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.Task;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
-import learnityourself.dhbw.learnityourself.utility.Helper;
 
 public class ManageTaskController extends AuthorizedController{
 

@@ -12,15 +12,12 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Console;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-import learnityourself.dhbw.learnityourself.CreateMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionInformationActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
@@ -30,7 +27,6 @@ import learnityourself.dhbw.learnityourself.model.Task;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.modelFactories.TaskFactory;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
-import learnityourself.dhbw.learnityourself.utility.Helper;
 
 public class ViewMissionController extends AuthorizedController {
 
@@ -84,16 +80,14 @@ public class ViewMissionController extends AuthorizedController {
     }
 
     public void titleClickHandler() {
-            Helper.getInstance().setJsonObject(jsonObject);
             Intent intent = new Intent(context, ViewMissionInformationActivity.class);
             intent.putExtra("user", user);
             intent.putExtra("mission", mission);
+            intent.putExtra("info", jsonObject.toString());
             context.startActivity(intent);
     }
 
     public void clickTask(int position) {
-        Helper.getInstance().setMission(mission);
-
         Intent intent = new Intent(context, ViewTaskActivity.class);
         intent.putExtra("user", user);
         intent.putExtra("task", tasks[position]);

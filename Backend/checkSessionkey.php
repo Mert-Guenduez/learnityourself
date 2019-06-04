@@ -17,6 +17,8 @@ if (isset($username) and isset($sessionkey)) {
         $time_now = time();
         if($sessionkey_db === $sessionkey and intval($time_now) <= intval(strtotime($session_timeout))) {
                 $check = true;
+        } else {
+                $data = array('authentication' => 'false', 'error' => 'Authentication failure');
         }
         $stmt->free_result();
         $stmt->close();
