@@ -41,7 +41,7 @@ public class ViewMissionInformationController extends AuthorizedController {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/allUsersFromMission.php","username",
+            in = handler.execute("allUsersFromMission.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionid", mission.getMissionid())
                     .get();
@@ -83,7 +83,7 @@ public class ViewMissionInformationController extends AuthorizedController {
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
         try {
-            handler.execute("https://91.205.172.109/leaveMission.php","username",
+            handler.execute("leaveMission.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionid", mission.getMissionid())
                     .get();

@@ -96,7 +96,7 @@ public class CreateMissionController extends MatchUser {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/createMission.php","username",
+            in = handler.execute("createMission.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionname", newMission.getMissionname(), "description", newMission.getDescription(), "seconds", seconds,
                     "users", (membersString.length()==0)? null : membersString)

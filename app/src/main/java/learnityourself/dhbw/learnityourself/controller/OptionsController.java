@@ -28,7 +28,7 @@ public class OptionsController extends AuthorizedController{
 
 
         try {
-            in = handler.execute("https://91.205.172.109/changePassword.php", "username",  user.getUsername(), "sessionkey", user.getSessionkey(),
+            in = handler.execute("changePassword.php", "username",  user.getUsername(), "sessionkey", user.getSessionkey(),
                     "password", oldPw,"passwordNew", newPw).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
