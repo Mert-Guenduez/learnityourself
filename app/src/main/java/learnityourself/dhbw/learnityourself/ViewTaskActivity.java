@@ -8,21 +8,14 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.TextureView;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Scroller;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import learnityourself.dhbw.learnityourself.controller.ViewMissionController;
 import learnityourself.dhbw.learnityourself.controller.ViewTaskController;
-import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.Task;
-import learnityourself.dhbw.learnityourself.model.TaskAdapter;
 import learnityourself.dhbw.learnityourself.model.User;
 
 public class ViewTaskActivity extends AppCompatActivity {

@@ -16,14 +16,14 @@ public class RewardAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
     private Reward[] rewards;
-    private User user;
     private ViewRewardsController controller;
+    private TextView myPointsNumber;
 
-    public RewardAdapter(Context context, User user, ViewRewardsController controller) {
+    public RewardAdapter(Context context, ViewRewardsController controller, TextView myPointsNumber) {
         inflater = LayoutInflater.from(context);
         this.controller = controller;
         this.rewards = controller.getRewards();
-        this.user = user;
+        this.myPointsNumber = myPointsNumber;
     }
 
     @Override
@@ -85,23 +85,27 @@ public class RewardAdapter extends BaseAdapter {
         holder.text1.setText(rewards[position].getTitle());
         pointHolder.text2.setText(Integer.toString(rewards[position].getCost()));
 
-        int userPoints = user.getPoints();
+        int userPoints = controller.getUser().getPoints();
         int rewardPoints = rewards[position].getCost();
 
         setSeekbar(seekBarHolder, userPoints, rewardPoints);
 
         if (userPoints >= rewardPoints) {
-            spendButtonHolder.spendButton.setVisibility(View.VISIBLE);
-            spendButtonHolder.spendButton.setEnabled(true);
-            spendButtonHolder.spendButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // TODO: spendPointsOnReward.php
-                }
-            });
+            setSpendButton(spendButtonHolder, position);
         }
 
         return convertView;
+    }
+
+    public void setSpendButton(RewardAdapter.ViewHolder spendButtonHolder, final int position) {
+        spendButtonHolder.spendButton.setVisibility(View.VISIBLE);
+        spendButtonHolder.spendButton.setEnabled(true);
+        spendButtonHolder.spendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                controller.spendPointsOnRewards(position);
+            }
+        });
     }
 
     public void setSeekbar(RewardAdapter.ViewHolder seekBarHolder, int userPoints, int rewardPoints) {
@@ -141,6 +145,11 @@ public class RewardAdapter extends BaseAdapter {
     public void updateResults(Reward[] rewards) {
         this.rewards = rewards;
         notifyDataSetChanged();
+        updatePoints();
+    }
+
+    public void updatePoints() {
+        myPointsNumber.setText(controller.getUser().getPoints() + "");
     }
 
     static class ViewHolder {
