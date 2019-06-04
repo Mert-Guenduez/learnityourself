@@ -4,13 +4,16 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Scroller;
+import android.widget.SeekBar;
 import android.widget.TextView;
+
 import learnityourself.dhbw.learnityourself.controller.ViewTaskController;
 import learnityourself.dhbw.learnityourself.model.Task;
 import learnityourself.dhbw.learnityourself.model.User;
@@ -21,6 +24,7 @@ public class ViewTaskActivity extends AppCompatActivity {
     private ViewTaskController controller;
     private Button complete_task_button;
     private TextView taskDescription, taskEffort;
+    private SeekBar effortSeekbar;
 
 
     @Override
@@ -37,12 +41,45 @@ public class ViewTaskActivity extends AppCompatActivity {
     }
 
     void init() {
+        Task task = controller.getTask();
+
         actionBarSetTitle();
         taskDescription = (TextView) findViewById(R.id.taskDescription_textview);
         taskEffort = (TextView) findViewById(R.id.effort_textView) ;
 
-        taskDescription.setText(controller.getTask().getDescription());
-        taskEffort.setText(controller.getTask().getEffort() + "");
+        taskDescription.setText(task.getDescription());
+        taskEffort.setText(task.getEffort() + "");
+
+        taskDescription.setScroller(new Scroller(this));
+        taskDescription.setMaxLines(3);
+        taskDescription.setVerticalScrollBarEnabled(true);
+        taskDescription.setMovementMethod(new ScrollingMovementMethod());
+
+        effortSeekbar = findViewById(R.id.effortSeekbar_viewTask);
+        effortSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int originalProgress;
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if( fromUser == true){
+                    seekBar.setProgress( originalProgress);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                originalProgress = seekBar.getProgress();
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        effortSeekbar.setThumbOffset(10000);
+        effortSeekbar.setProgress(task.getEffort());
 
         complete_task_button = (Button) findViewById(R.id.completeTaskBtn);
         complete_task_button.setOnClickListener(new View.OnClickListener() {

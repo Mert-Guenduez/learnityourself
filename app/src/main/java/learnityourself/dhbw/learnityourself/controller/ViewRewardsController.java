@@ -37,7 +37,8 @@ public class ViewRewardsController extends AuthorizedController {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/allRewardsFromUser.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
+            in = handler.execute("https://91.205.172.109/allRewardsFromUser.php",
+                    "username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -92,6 +93,24 @@ public class ViewRewardsController extends AuthorizedController {
         }
 
         init();
+        rewardAdapter.updateResults(rewards);
+    }
+
+    public void spendPointsOnRewards(int position) {
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        InputStream in  = null;
+        try {
+            in = handler.execute("https://91.205.172.109/spendPointsOnReward.php",
+                    "username", user.getUsername(),"sessionkey", user.getSessionkey(),
+                    "rewardid", Integer.toString(rewards[position].getRewardid())).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        init();
+        user.setPoints(user.getPoints() - rewards[position].getCost());
         rewardAdapter.updateResults(rewards);
     }
 
