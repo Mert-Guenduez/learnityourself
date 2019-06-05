@@ -1,44 +1,74 @@
 <?php
-//ini_set('display_errors', 1);
 header('Content-Type: application/json; charset=utf8');
 
-$username   = $_POST['username'];
-$sessionkey = $_POST['sessionkey'];
-$missionid  = $_POST['missionid'];
+$params = array(
+    'username',
+    'sessionkey',
+    'missionid'
+);
 
-$db = new mysqli('localhost', 'XXX', 'XXX', 'XXX');
-if ($db->connect_errno > 0) {
-    die(json_encode(array('authentication' => 'false', 'error' => 'Unable to connect to database [' . $db->connect_error . ']')));
-}
-if (! isset($_POST['missionid'])) {
-    die(json_encode(array('error' => 'mission identification not set')));
-}
-include 'checkSessionkey.php';
-$json = json_encode(array('authentication' => 'false', 'error' => 'Authentication failure'));
-if($check) {
-    $stmt = $db->prepare('SELECT * FROM missions WHERE id = ?');
-    $stmt->bind_param('i', $missionid);
-    $stmt->execute();
-    $stmt->bind_result($missionid, $owner, $missionname, $description, $deadline);
-    $stmt->fetch();
-    $taskname = utf8_encode($owner);
-    $missionname = utf8_encode($missionname);
-    $description = utf8_encode($description);
-    $data = array('missionid' => $missionid, 'owner' => $owner, 'missionname' => $missionname, 'description' => $description, 'deadline' => $deadline, 'tasks' => array());
-    $stmt->close();
+// returns $paramsCheck - parameters all set true/false
+// returns $data - failure message
+include 'checkParameters.php';
 
-    $stmt = $db->prepare('SELECT tasks.id,tasks.name, userToTask.completed FROM tasks INNER JOIN userToTask ON tasks.id = userToTask.taskid WHERE tasks.missionid = ? AND userToTask.username = ?');
-    $stmt->bind_param('is', $missionid, $username);
-    $stmt->execute();
-    $stmt->bind_result($taskid, $taskname, $completed);
-    while ($stmt->fetch()) {
-        $taskname = utf8_encode($taskname);
-        $taskhead = array('taskid' => $taskid, 'taskname' => $taskname, 'completed' => ($completed == 0? 'false' : 'true'));
-        $data['tasks'][] = $taskhead;
+if ($paramsCheck) {
+    $username   = $_POST[$params[0]];
+    $sessionkey = $_POST[$params[1]];
+    $missionid  = $_POST[$params[2]];
+
+    // returns $db - database connection
+    // returns $dbCheck - database connection status
+    // returns $data - database connection failure message
+    include 'connectToDatabase.php';
+
+    if ($dbCheck) {
+
+        // returns $check - authentication status
+        // returns $data - authentication failure message
+        include 'checkSessionkey.php';
+
+        if($check) {
+
+            // Get Details about mission
+            $stmt = $db->prepare('SELECT *
+                                    FROM missions
+                                    WHERE id = ?');
+            $stmt->bind_param('i', $missionid);
+            $stmt->execute();
+            $stmt->bind_result($missionid, $owner, $missionname, $description, $deadline);
+            $stmt->fetch();
+            $stmt->close();
+
+            $owner = utf8_encode($owner);
+            $missionname = utf8_encode($missionname);
+            $description = utf8_encode($description);
+
+            $data = array(
+                'missionid' => $missionid,
+                'owner' => $owner,
+                'missionname' => $missionname,
+                'description' => $description,
+                'deadline' => $deadline,
+                'tasks' => array());
+            
+            // Get details about tasks from mission
+            $stmt = $db->prepare('SELECT tasks.id, tasks.name, userToTask.completed
+                                    FROM tasks
+                                        INNER JOIN userToTask
+                                            ON tasks.id = userToTask.taskid
+                                    WHERE tasks.missionid = ? AND userToTask.username = ?');
+            $stmt->bind_param('is', $missionid, $username);
+            $stmt->execute();
+            $stmt->bind_result($taskid, $taskname, $completed);
+            while ($stmt->fetch()) {
+                $taskname = utf8_encode($taskname);
+                $task = array('taskid' => $taskid, 'taskname' => $taskname, 'completed' => ($completed == 0 ? 'false' : 'true'));
+                $data['tasks'][] = $task;
+            }
+            $stmt->close();
+        }
     }
-    $stmt->close();
-    $json = json_encode($data);
 }
-echo $json;
+echo json_encode($data);
 ?>
 

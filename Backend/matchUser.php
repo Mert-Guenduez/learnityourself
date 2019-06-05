@@ -1,38 +1,46 @@
 <?php
 header('Content-Type: application/json;charset=utf-8');
 
-$username   = $_POST['username'];
-$matchuser   = $_POST['matchuser'];
-$sessionkey = $_POST['sessionkey'];
+$params = array(
+    'username',
+    'sessionkey',
+    'matchuser'
+);
 
-$db = new mysqli('localhost', 'XXX', 'XXX', 'XXX');
-if ($db->connect_errno > 0) {
-    die(json_encode(array('authentication' => 'false', 'error' => 'Unable to connect to database [' . $db->connect_error . ']')));
-}
-if (! isset($_POST['username'])) {
-	die(json_encode(array('authentication' => 'false', 'error' => 'username not set')));
-}
+$username   = $_POST[$params[0]];
+$sessionkey = $_POST[$params[1]];
+$matchuser  = $_POST[$params[2]];
 
-include 'checkSessionkey.php';
-$json = json_encode(array('authentication' => 'false', 'error' => 'Authentication failure'));
+// returns $db - database connection
+// returns $dbCheck - database connection status
+// returns $data - database connection failure message
+include 'connectToDatabase.php';
 
-if ($check) {
-    if (! isset($_POST['matchuser'])) {
-        $matchUser = '';
-    }
-	$stmt = $db->prepare('SELECT user_name FROM users WHERE user_name LIKE ?');
-    $matchuser = '%' . $matchuser . '%';
-	$stmt->bind_param('s', $matchuser);
-	$stmt->execute();
-	$stmt->bind_result($username);
+if ($dbCheck) {
 
-	$data = array();
-	while($stmt->fetch()) {
-	    $username = utf8_encode($username);
-	    $data[] = array('username' => $username);
+	// returns $check - authentication status
+	// returns $data - authentication failure message
+	include 'checkSessionkey.php';
+
+	if($check) {
+		if (! isset($_POST['matchuser'])) {
+			$matchuser = '';
+		}
+		$stmt = $db->prepare('SELECT user_name
+								FROM users
+								WHERE user_name LIKE ?');
+		$matchuser = '%' . $matchuser . '%';
+		$stmt->bind_param('s', $matchuser);
+		$stmt->execute();
+		$stmt->bind_result($username);
+
+		$data = array();
+		while($stmt->fetch()) {
+			$username = utf8_encode($username);
+			$data[] = array('username' => $username);
+		}
+		$stmt->close();
 	}
-    $stmt->close();
-	$json = json_encode($data);
 }
-echo $json;
+echo json_encode($data);
 ?>
