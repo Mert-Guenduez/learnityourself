@@ -47,6 +47,7 @@ public class LoginController {
             return;
         }
         String inputString=HTTPRequestHandler.getStringFromInputStream(in);
+        System.out.println("Login"+inputString);
         if(inputString.contains("false")){
             username_field.setError("Wrong Username or Password.");
         }else{

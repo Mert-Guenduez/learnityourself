@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> {
 
-    private final String DEFAULT_HOST ="https://91.205.173.109/";
+    private final String DEFAULT_HOST ="https://91.205.172.109/";
     private Context context;
 
     public void setContext(Context c){
