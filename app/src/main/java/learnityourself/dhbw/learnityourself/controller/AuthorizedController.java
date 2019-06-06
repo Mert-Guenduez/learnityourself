@@ -38,7 +38,7 @@ public abstract class AuthorizedController {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/login.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
+            in = handler.execute("login.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -55,7 +55,7 @@ public abstract class AuthorizedController {
 
     }
 
-    protected  User getUser(){
+    public User getUser(){
         return user;
     }
 }

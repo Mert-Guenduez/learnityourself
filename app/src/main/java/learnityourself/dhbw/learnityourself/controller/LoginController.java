@@ -32,7 +32,7 @@ public class LoginController {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/login.php","username",
+            in = handler.execute("login.php","username",
                     username_field.getText().toString(),"password",password_field.getText().toString()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();

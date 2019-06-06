@@ -17,6 +17,7 @@ import java.util.concurrent.ExecutionException;
 import learnityourself.dhbw.learnityourself.AddMissionMemberActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionInformationActivity;
+import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
@@ -40,7 +41,7 @@ public class ViewMissionInformationController extends AuthorizedController {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/allUsersFromMission.php","username",
+            in = handler.execute("allUsersFromMission.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionid", mission.getMissionid())
                     .get();
@@ -76,5 +77,24 @@ public class ViewMissionInformationController extends AuthorizedController {
 
     public User[] getUsers() {
         return users;
+    }
+
+    public void leaveMission() {
+
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        try {
+            handler.execute("leaveMission.php","username",
+                    user.getUsername(),"sessionkey", user.getSessionkey(),
+                    "missionid", mission.getMissionid())
+                    .get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Intent intent = new Intent(context, ViewMissionsActivity.class);
+        intent.putExtra("user", user);
+        context.startActivity(intent);
     }
 }

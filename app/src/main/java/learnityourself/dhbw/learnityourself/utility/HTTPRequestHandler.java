@@ -37,13 +37,13 @@ import learnityourself.dhbw.learnityourself.model.User;
 
 public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> {
 
-
+    private String host="https://91.205.172.109/";
 
     @Override
     protected InputStream doInBackground(String... inUrl) {
         URL url = null;
         try {
-            url = new URL(inUrl[0]);
+            url = new URL(host+inUrl[0]);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

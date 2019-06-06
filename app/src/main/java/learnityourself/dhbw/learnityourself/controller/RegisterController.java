@@ -31,7 +31,7 @@ public class RegisterController {
 
 
             try {
-                in = handler.execute("https://91.205.172.109/register.php", "username",  UserFactory.getObject().getUsername(), "password", password.getText().toString()).get();
+                in = handler.execute("register.php", "username",  UserFactory.getObject().getUsername(), "password", password.getText().toString()).get();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {

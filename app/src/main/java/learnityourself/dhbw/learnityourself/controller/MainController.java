@@ -79,7 +79,7 @@ public class MainController {
             HTTPRequestHandler handler = new HTTPRequestHandler();
             InputStream in  = null;
             try {
-                in = handler.execute("https://91.205.172.109/login.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
+                in = handler.execute("login.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
@@ -121,7 +121,7 @@ public class MainController {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/logout.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
+            in = handler.execute("logout.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -134,7 +134,7 @@ public class MainController {
         HTTPRequestHandler handler = new HTTPRequestHandler();
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/getUserPoints.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
+            in = handler.execute("getUserPoints.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
             JSONObject object = new JSONObject(HTTPRequestHandler.getStringFromInputStream(in));
             user.setPoints(object.getInt("user_points"));
         } catch (ExecutionException e) {
