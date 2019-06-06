@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.Editable;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
@@ -37,6 +38,10 @@ public class RegisterController {
                 e.printStackTrace();
             }
 
+        if(in==null){
+            Toast.makeText(context,"Invalid Host", Toast.LENGTH_SHORT).show();
+            return;
+        }
             String inputString=HTTPRequestHandler.getStringFromInputStream(in);
 
             if (inputString.equals("{\"response\":\"User already exists\"}")){
