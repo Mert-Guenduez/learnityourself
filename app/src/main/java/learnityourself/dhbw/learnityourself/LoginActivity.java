@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void openHostInput(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Title");
+        builder.setTitle("Enter Host");
         final EditText input = new EditText(this);
         input.setText(controller.getHost());
         input.setInputType(InputType.TYPE_CLASS_TEXT);
