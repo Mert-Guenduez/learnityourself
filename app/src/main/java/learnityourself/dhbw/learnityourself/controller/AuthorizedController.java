@@ -55,7 +55,7 @@ public abstract class AuthorizedController {
 
     }
 
-    protected  User getUser(){
+    public User getUser(){
         return user;
     }
 }

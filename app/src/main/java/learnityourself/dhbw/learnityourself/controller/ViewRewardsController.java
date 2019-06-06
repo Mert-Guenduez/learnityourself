@@ -97,6 +97,24 @@ public class ViewRewardsController extends AuthorizedController {
         rewardAdapter.updateResults(rewards);
     }
 
+    public void spendPointsOnRewards(int position) {
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        InputStream in  = null;
+        try {
+            in = handler.execute("spendPointsOnReward.php",
+                    "username", user.getUsername(),"sessionkey", user.getSessionkey(),
+                    "rewardid", Integer.toString(rewards[position].getRewardid())).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        init();
+        user.setPoints(user.getPoints() - rewards[position].getCost());
+        rewardAdapter.updateResults(rewards);
+    }
+
     public void createReward() {
         Intent intent = new Intent(context, CreateCustomRewardActivity.class);
         intent.putExtra("user", user);

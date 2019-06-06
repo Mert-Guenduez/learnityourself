@@ -17,28 +17,24 @@ public class ViewRewardsActivity extends AppCompatActivity {
     private ListView rewardListView;
     private TextView myPoints, myPointsNumber;
     private ViewRewardsController controller;
-    private User user;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_rewards);
         Intent intent = getIntent();
-        user = (User) intent.getSerializableExtra("user");
-        controller=new ViewRewardsController(user, this);
+        controller=new ViewRewardsController((User) getIntent().getSerializableExtra("user"), this);
         init();
     }
 
     void init() {
-
         myPoints = findViewById(R.id.myPoints_label);
         myPointsNumber = findViewById(R.id.myPointsNumber_label);
-
-        myPointsNumber.setText(user.getPoints() + "");
+        myPointsNumber.setText(controller.getUser().getPoints() + "");
         myPoints.setX(myPointsNumber.getTextScaleX() + 20);
         myPoints.setY(myPointsNumber.getScaleY() + 10);
 
         rewardListView = findViewById(R.id.ViewRewardsActivity).findViewById(R.id.reward_list);
-        RewardAdapter rewardAdapter = new RewardAdapter(this, user, controller);
+        RewardAdapter rewardAdapter = new RewardAdapter(this, controller, myPointsNumber);
         rewardListView.setAdapter(rewardAdapter);
         controller.setRewardAdapter(rewardAdapter);
     }
