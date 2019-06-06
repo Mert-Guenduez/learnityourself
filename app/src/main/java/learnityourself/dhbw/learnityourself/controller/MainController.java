@@ -86,7 +86,6 @@ public class MainController {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
             String inputString=HTTPRequestHandler.getStringFromInputStream(in);
 
             if(inputString.contains("true")) {

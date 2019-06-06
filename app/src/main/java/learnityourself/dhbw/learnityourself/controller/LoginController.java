@@ -47,13 +47,13 @@ public class LoginController {
             return;
         }
         String inputString=HTTPRequestHandler.getStringFromInputStream(in);
-        System.out.println("Login"+inputString);
         if(inputString.contains("false")){
             username_field.setError("Wrong Username or Password.");
         }else{
 
             Gson gson= new Gson();
             User user = gson.fromJson(inputString, User.class);
+            user.setUsername(username_field.getText().toString());
                 if(user != null){
                     Intent intent = new Intent(context, MainActivity.class);
                     intent.putExtra("user", user);
