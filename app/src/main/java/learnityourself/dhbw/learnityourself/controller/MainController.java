@@ -77,6 +77,7 @@ public class MainController {
 
         }else{
             HTTPRequestHandler handler = new HTTPRequestHandler();
+            handler.setContext(context);
             InputStream in  = null;
             try {
                 in = handler.execute("login.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
@@ -119,9 +120,9 @@ public class MainController {
 
     public void logout() {
         HTTPRequestHandler handler = new HTTPRequestHandler();
-        InputStream in  = null;
+        handler.setContext(context);
         try {
-            in = handler.execute("logout.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
+            handler.execute("logout.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -132,6 +133,7 @@ public class MainController {
 
     public void fetchUserPoints() {
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("getUserPoints.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();

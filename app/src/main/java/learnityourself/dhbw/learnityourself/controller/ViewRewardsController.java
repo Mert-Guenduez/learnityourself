@@ -35,6 +35,7 @@ public class ViewRewardsController extends AuthorizedController {
     @Override
     protected void init() {
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("allRewardsFromUser.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
@@ -80,6 +81,7 @@ public class ViewRewardsController extends AuthorizedController {
 
     public void deleteReward(int position) {
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("deleteReward.php","username", user.getUsername()

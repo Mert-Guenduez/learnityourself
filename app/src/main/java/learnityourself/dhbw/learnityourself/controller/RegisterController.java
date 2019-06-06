@@ -27,9 +27,8 @@ public class RegisterController {
         UserFactory.setUserName(username.getText().toString());
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in = null;
-
-
             try {
                 in = handler.execute("register.php", "username",  UserFactory.getObject().getUsername(), "password", password.getText().toString()).get();
             } catch (ExecutionException e) {

@@ -2,7 +2,6 @@ package learnityourself.dhbw.learnityourself.controller;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.ArrayMap;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -44,6 +43,7 @@ public class ViewMissionController extends AuthorizedController {
 
     public void loadTasks(){
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("allDetailsFromMission.php","username",
@@ -110,9 +110,10 @@ public class ViewMissionController extends AuthorizedController {
         Task newTask = TaskFactory.getObject();
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
-            in = handler.execute("createTask.php","username",
+            handler.execute("createTask.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionid", newTask.getMissionid(), "taskname", newTask.getTaskname(), "description",
                     newTask.getDescription(), "effort", newTask.getEffort()+"")
@@ -134,6 +135,7 @@ public class ViewMissionController extends AuthorizedController {
         Map<String, Integer> tasksPerUserMap;
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("getMissionTaskCompletion.php","username",
