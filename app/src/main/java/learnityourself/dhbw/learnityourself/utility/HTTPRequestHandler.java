@@ -51,6 +51,7 @@ public class HTTPRequestHandler extends AsyncTask<String, Integer, InputStream> 
         } catch (ProtocolException e) {
             e.printStackTrace();
         }
+        conn.setConnectTimeout(1000);
         conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
         conn.setRequestProperty("Content-Length", String.valueOf(postDataBytes.length));
         conn.setDoOutput(true);

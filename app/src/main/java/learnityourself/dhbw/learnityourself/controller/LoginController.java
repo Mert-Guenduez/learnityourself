@@ -62,7 +62,7 @@ public class LoginController {
     }
 
     public void setHost(String host) {
-        if(host.matches("https://[0-2][0-9][0-9].[0-2][0-9][0-9].[0-2][0-9][0-9].[0-2][0-9][0-9]/")){
+        if(host.isEmpty() || host.matches("https://[0-2][0-9][0-9].[0-2][0-9][0-9].[0-2][0-9][0-9].[0-2][0-9][0-9]/")){
             SharedPreferences settings = context.getSharedPreferences("LearnItYourself", 0);
             SharedPreferences.Editor editor = settings.edit();
             editor.putString("host", host);
