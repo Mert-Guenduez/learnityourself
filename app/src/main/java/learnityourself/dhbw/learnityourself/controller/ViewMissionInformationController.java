@@ -39,6 +39,7 @@ public class ViewMissionInformationController extends AuthorizedController {
     public void loadUsers(){
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("allUsersFromMission.php","username",
@@ -82,6 +83,7 @@ public class ViewMissionInformationController extends AuthorizedController {
     public void leaveMission() {
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         try {
             handler.execute("leaveMission.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),

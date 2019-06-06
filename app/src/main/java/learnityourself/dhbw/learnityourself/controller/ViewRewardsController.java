@@ -24,17 +24,16 @@ import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 public class ViewRewardsController extends AuthorizedController {
 
     Reward[] rewards;
-    Context context;
     RewardAdapter rewardAdapter;
 
     public ViewRewardsController (User user, Context context) {
         super(user, context);
-        this.context = context;
     }
 
     @Override
     protected void init() {
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("allRewardsFromUser.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
@@ -80,6 +79,7 @@ public class ViewRewardsController extends AuthorizedController {
 
     public void deleteReward(int position) {
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("deleteReward.php","username", user.getUsername()
@@ -97,9 +97,9 @@ public class ViewRewardsController extends AuthorizedController {
 
     public void spendPointsOnRewards(int position) {
         HTTPRequestHandler handler = new HTTPRequestHandler();
-        InputStream in  = null;
+        handler.setContext(context);
         try {
-            in = handler.execute("spendPointsOnReward.php",
+            handler.execute("spendPointsOnReward.php",
                     "username", user.getUsername(),"sessionkey", user.getSessionkey(),
                     "rewardid", Integer.toString(rewards[position].getRewardid())).get();
         } catch (ExecutionException e) {

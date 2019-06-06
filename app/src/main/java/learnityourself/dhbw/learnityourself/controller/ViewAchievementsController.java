@@ -9,11 +9,8 @@ import com.google.gson.GsonBuilder;
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 
-import learnityourself.dhbw.learnityourself.CreateMissionActivity;
 import learnityourself.dhbw.learnityourself.MainActivity;
-import learnityourself.dhbw.learnityourself.ViewMissionActivity;
 import learnityourself.dhbw.learnityourself.model.Achievement;
-import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 
@@ -26,6 +23,7 @@ public class ViewAchievementsController extends AuthorizedController{
     @Override
     protected void init() {
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("getUserAchievements.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();

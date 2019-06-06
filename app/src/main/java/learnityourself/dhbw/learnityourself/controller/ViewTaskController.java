@@ -36,6 +36,7 @@ public class ViewTaskController extends AuthorizedController{
 
     public void loadTaskDetail() {
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("allDetailsFromTask.php","username",
@@ -55,12 +56,13 @@ public class ViewTaskController extends AuthorizedController{
         String pointsToAdd = Integer.toString(task.getEffort());
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("completeTask.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),"taskid", task.getTaskid())
                     .get();
-            String inString = HTTPRequestHandler.getStringFromInputStream(in).toString();
+            String inString = HTTPRequestHandler.getStringFromInputStream(in);
             if(in != null && !inString.contains("error")){
                 Toast.makeText(context, "Congratulations for \n Completing this Task. \n You receive " +task.getEffort()+ " Points", Toast.LENGTH_LONG).show();
             }else{

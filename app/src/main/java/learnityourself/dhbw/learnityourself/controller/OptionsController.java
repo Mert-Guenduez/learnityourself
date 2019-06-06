@@ -1,13 +1,10 @@
 package learnityourself.dhbw.learnityourself.controller;
 
 import android.content.Context;
-import android.content.Intent;
 import android.widget.Toast;
 
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
-
-import learnityourself.dhbw.learnityourself.LoginActivity;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 
@@ -24,9 +21,8 @@ public class OptionsController extends AuthorizedController{
 
     public boolean setNewPassword(String oldPw, String newPw) {
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in = null;
-
-
         try {
             in = handler.execute("changePassword.php", "username",  user.getUsername(), "sessionkey", user.getSessionkey(),
                     "password", oldPw,"passwordNew", newPw).get();

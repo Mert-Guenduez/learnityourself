@@ -36,6 +36,7 @@ public abstract class AuthorizedController {
         }
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("login.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
@@ -44,7 +45,6 @@ public abstract class AuthorizedController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
         String inputString=HTTPRequestHandler.getStringFromInputStream(in);
 
         if(inputString.contains("true")) {

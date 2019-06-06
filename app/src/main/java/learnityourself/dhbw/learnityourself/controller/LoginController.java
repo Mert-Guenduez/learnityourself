@@ -2,7 +2,9 @@ package learnityourself.dhbw.learnityourself.controller;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -30,6 +32,7 @@ public class LoginController {
 
     public void login(EditText username_field, EditText password_field){
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
             in = handler.execute("login.php","username",
@@ -39,18 +42,37 @@ public class LoginController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        if(in==null){
+            Toast.makeText(context,"Invalid Host", Toast.LENGTH_SHORT).show();
+            return;
+        }
         String inputString=HTTPRequestHandler.getStringFromInputStream(in);
-
         if(inputString.contains("false")){
             username_field.setError("Wrong Username or Password.");
         }else{
 
             Gson gson= new Gson();
             User user = gson.fromJson(inputString, User.class);
-            Intent intent = new Intent(context, MainActivity.class);
-            intent.putExtra("user", user);
-            context.startActivity(intent);
+            user.setUsername(username_field.getText().toString());
+                if(user != null){
+                    Intent intent = new Intent(context, MainActivity.class);
+                    intent.putExtra("user", user);
+                    context.startActivity(intent);
+                }
         }
     }
+
+    public void setHost(String host) {
+            SharedPreferences settings = context.getSharedPreferences("LearnItYourself", 0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("host", host);
+            editor.apply();
+    }
+
+    public String getHost(){
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
+        return handler.getHost();
+    }
+
 }
