@@ -3,6 +3,8 @@ package learnityourself.dhbw.learnityourself.controller;
 import android.content.Context;
 import android.content.Intent;
 
+import com.google.gson.Gson;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,6 +21,7 @@ import learnityourself.dhbw.learnityourself.OptionsActivity;
 import learnityourself.dhbw.learnityourself.ViewAchievementsActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.ViewRewardsActivity;
+import learnityourself.dhbw.learnityourself.model.CompletedTaskInformation;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 import learnityourself.dhbw.learnityourself.utility.SSLHandler;
@@ -27,6 +30,7 @@ public class MainController {
 
     private User user;
     private Context context;
+    private CompletedTaskInformation[] completedTaskInformation;
 
     public MainController(User user, Context context){
         this.user = user;
@@ -145,6 +149,22 @@ public class MainController {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public void fetchCompletedTaskDates() {
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
+        InputStream in  = null;
+        try {
+            in = handler.execute("allCompletedTasksFromUser.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
+
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        completedTaskInformation = new Gson().fromJson(HTTPRequestHandler.getStringFromInputStream(in), CompletedTaskInformation[].class);
     }
 
     public void openOptions() {
