@@ -14,6 +14,9 @@ import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.LoginActivity;
@@ -151,12 +154,15 @@ public class MainController {
         }
     }
 
-    public void fetchCompletedTaskDates() {
+    public Map<Date, Integer> fetchCompletedTaskDates() {
+        Map<Date, Integer> completedTaskFromUserMap = new HashMap<>();
+
         HTTPRequestHandler handler = new HTTPRequestHandler();
         handler.setContext(context);
         InputStream in  = null;
         try {
-            in = handler.execute("allCompletedTasksFromUser.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
+            in = handler.execute("allCompletedTasksFromUser.php","username", user.getUsername(),
+                    "sessionkey",user.getSessionkey()).get();
 
         } catch (ExecutionException e) {
             e.printStackTrace();
@@ -165,6 +171,13 @@ public class MainController {
         }
 
         completedTaskInformation = new Gson().fromJson(HTTPRequestHandler.getStringFromInputStream(in), CompletedTaskInformation[].class);
+
+        for (int i = 0; i < completedTaskInformation.length; i++) {
+            CompletedTaskInformation completedTask = completedTaskInformation[i];
+            completedTaskFromUserMap.put(completedTask.getCompletedDate(), completedTask.getCount());
+        }
+
+        return completedTaskFromUserMap;
     }
 
     public void openOptions() {
