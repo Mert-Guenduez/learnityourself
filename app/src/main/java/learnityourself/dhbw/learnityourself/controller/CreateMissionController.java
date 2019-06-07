@@ -8,13 +8,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
-import learnityourself.dhbw.learnityourself.AddMissionMemberCreateMissionActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.modelFactories.MissionFactory;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
-import learnityourself.dhbw.learnityourself.utility.Helper;
 import learnityourself.dhbw.learnityourself.utility.MatchUser;
 
 public class CreateMissionController extends MatchUser {
@@ -94,9 +92,9 @@ public class CreateMissionController extends MatchUser {
         String seconds =""+(newMission.getDeadline().getTime() - new Date().getTime());
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
-        InputStream in  = null;
+        handler.setContext(context);
         try {
-            in = handler.execute("https://91.205.172.109/createMission.php","username",
+           handler.execute("createMission.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionname", newMission.getMissionname(), "description", newMission.getDescription(), "seconds", seconds,
                     "users", (membersString.length()==0)? null : membersString)

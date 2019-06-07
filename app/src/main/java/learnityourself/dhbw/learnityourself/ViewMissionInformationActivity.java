@@ -1,11 +1,16 @@
 package learnityourself.dhbw.learnityourself;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import org.json.JSONException;
@@ -54,7 +59,6 @@ public class ViewMissionInformationActivity extends AppCompatActivity {
             }
         }));
         init();
-
     }
 
     public void setDescription_textview() throws JSONException {
@@ -79,6 +83,31 @@ public class ViewMissionInformationActivity extends AppCompatActivity {
 
         userListView = (ListView) findViewById(R.id.missionMember_listview);
         userListView.setAdapter(new UserAdapter(this, controller.getUsers()));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_leave, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if (id == R.id.leave){
+            new AlertDialog.Builder(this)
+                    .setTitle("Leave Mission")
+                    .setMessage("Do you really want to leave the mission?")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            controller.leaveMission();
+                        }})
+                    .setNegativeButton(android.R.string.no, null).show();
+        }
+        return true;
     }
 
     @Override

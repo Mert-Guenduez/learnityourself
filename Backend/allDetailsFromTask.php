@@ -1,34 +1,54 @@
 <?php
-//ini_set('display_errors', 1);
 header('Content-Type: application/json; charset=utf8');
 
-$username   = $_POST['username'];
-$sessionkey = $_POST['sessionkey'];
-$taskid     = $_POST['taskid'];
+$params = array(
+    'username',
+    'sessionkey',
+    'taskid'
+);
 
-$db = new mysqli('localhost', 'XXX', 'XXX', 'XXX');
-if ($db->connect_errno > 0) {
-    die(json_encode(array('authentication' => 'false', 'error' => 'Unable to connect to database [' . $db->connect_error . ']')));
+// returns $paramsCheck - parameters all set true/false
+// returns $data - failure message
+include 'checkParameters.php';
+
+if ($paramsCheck) {
+    $username   = $_POST[$params[0]];
+    $sessionkey = $_POST[$params[1]];
+    $taskid     = $_POST[$params[2]];
+
+    // returns $db - database connection
+    // returns $dbCheck - database connection status
+    // returns $data - database connection failure message
+    include 'connectToDatabase.php';
+
+    if ($dbCheck) {
+
+        // returns $check - authentication status
+        // returns $data - authentication failure message
+        include 'checkSessionkey.php';
+
+        if($check) {
+
+            $stmt = $db->prepare('SELECT *
+                                    FROM tasks
+                                    WHERE id = ?');
+            $stmt->bind_param('i', $taskid);
+            $stmt->execute();
+            $stmt->bind_result($taskid, $missionid, $name, $description, $effort);
+            $stmt->fetch();
+            $stmt->close();
+
+            $description = utf8_encode($description);
+            $name = utf8_encode($name);
+
+            $data = array(
+                'taskid' => $taskid,
+                'missionid' => $missionid,
+                'name' => $name,
+                'description' => $description,
+                'effort' => $effort);
+        }
+    }
 }
-if (! isset($_POST['taskid'])) {
-    die(json_encode(array('error' => 'task identification not set')));
-}
-include 'checkSessionkey.php';
-$json = json_encode(array('authentication' => 'false', 'error' => 'Authentication failure'));
-
-if($check) {
-    $stmt = $db->prepare('SELECT * FROM tasks WHERE id = ?');
-    $stmt->bind_param('s', $taskid);
-    $stmt->execute();
-    $stmt->bind_result($taskid,$missionid, $name, $description, $effort);
-    $stmt->fetch();
-
-    $description = utf8_encode($description);
-    $name = utf8_encode($name);
-    $details = array('taskid' => $taskid, 'missionid' => $missionid, 'name' => $name, 'description' => $description, 'effort' => $effort);
-
-    $stmt->close();
-    $json = json_encode($details);
-}
-echo $json;
+echo json_encode($data);
 ?>

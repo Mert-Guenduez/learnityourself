@@ -36,15 +36,15 @@ public abstract class AuthorizedController {
         }
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/login.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
+            in = handler.execute("login.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //   Toast.makeText(MainActivity.this, getStringFromInputStream(in), Toast.LENGTH_SHORT).show();
         String inputString=HTTPRequestHandler.getStringFromInputStream(in);
 
         if(inputString.contains("true")) {

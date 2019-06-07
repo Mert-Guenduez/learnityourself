@@ -24,21 +24,19 @@ import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 public class ViewRewardsController extends AuthorizedController {
 
     Reward[] rewards;
-    Context context;
     RewardAdapter rewardAdapter;
 
     public ViewRewardsController (User user, Context context) {
         super(user, context);
-        this.context = context;
     }
 
     @Override
     protected void init() {
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/allRewardsFromUser.php",
-                    "username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
+            in = handler.execute("allRewardsFromUser.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -81,9 +79,10 @@ public class ViewRewardsController extends AuthorizedController {
 
     public void deleteReward(int position) {
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/deleteReward.php","username", user.getUsername()
+            in = handler.execute("deleteReward.php","username", user.getUsername()
                     ,"sessionkey", user.getSessionkey()
                     ,"rewardid", Integer.toString(rewards[position].getRewardid())).get();
         } catch (ExecutionException e) {
@@ -98,9 +97,9 @@ public class ViewRewardsController extends AuthorizedController {
 
     public void spendPointsOnRewards(int position) {
         HTTPRequestHandler handler = new HTTPRequestHandler();
-        InputStream in  = null;
+        handler.setContext(context);
         try {
-            in = handler.execute("https://91.205.172.109/spendPointsOnReward.php",
+            handler.execute("spendPointsOnReward.php",
                     "username", user.getUsername(),"sessionkey", user.getSessionkey(),
                     "rewardid", Integer.toString(rewards[position].getRewardid())).get();
         } catch (ExecutionException e) {

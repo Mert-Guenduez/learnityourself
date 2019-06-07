@@ -1,38 +1,64 @@
 <?php
-//ini_set('display_errors', 1);
 header('Content-Type: application/json; charset=utf8');
 
-$username   = $_POST['username'];
-$sessionkey = $_POST['sessionkey'];
+$params = array(
+    'username',
+    'sessionkey'
+);
 
-$db = new mysqli('localhost', 'XXX', 'XXX', 'XXX');
-if ($db->connect_errno > 0) {
-    die(json_encode(array('authentication' => 'false', 'error' => 'Unable to connect to database [' . $db->connect_error . ']')));
-}
+// returns $paramsCheck - parameters all set true/false
+// returns $data - failure message
+include 'checkParameters.php';
 
-include 'checkSessionkey.php';
-$json = json_encode(array('authentication' => 'false', 'error' => 'Authentication failure'));
+if ($paramsCheck) {
+    $username   = $_POST[$params[0]];
+    $sessionkey = $_POST[$params[1]];
 
-if($check) {
-    $stmt = $db->prepare('SELECT missionid FROM userToMission WHERE username = ?');
-    $stmt->bind_param('s', $username);
-    $stmt->execute();
-    $missionsToUser = $stmt->get_result();
-    $stmt->free_result();
-    $stmt->close();
+    // returns $db - database connection
+    // returns $dbCheck - database connection status
+    // returns $data - database connection failure message
+    include 'connectToDatabase.php';
 
-    $stmt = $db->prepare('SELECT id,missionname,deadline FROM missions WHERE id = ?');
-    $data = array();
-    while ($relation = $missionsToUser->fetch_assoc()) {
-        $stmt->bind_param('i', $relation['missionid']);
-        $stmt->execute();
-        $stmt->bind_result($missionid, $missionname, $deadline);
-        $stmt->fetch();
-        $missionname = utf8_encode($missionname);
-        $detail = array('missionid' => $missionid, 'missionname' => $missionname, 'deadline' => $deadline);
-        $data[] = $detail;
+    if ($dbCheck) {
+
+        // returns $check - authentication status
+        // returns $data - authentication failure message
+        include 'checkSessionkey.php';
+
+        if($check) {
+
+            // Get List of all missions from user
+            $stmt = $db->prepare('SELECT missionid
+                                    FROM userToMission
+                                    WHERE username = ?');
+            $stmt->bind_param('s', $username);
+            $stmt->execute();
+            $missionsToUser = $stmt->get_result();
+            $stmt->free_result();
+            $stmt->close();
+
+            // Get details from missions
+            $stmt = $db->prepare('SELECT id, missionname, deadline
+                                    FROM missions
+                                    WHERE id = ?');
+            $data = array();
+            while ($relation = $missionsToUser->fetch_assoc()) {
+                $stmt->bind_param('i', $relation['missionid']);
+                $stmt->execute();
+                $stmt->bind_result($missionid, $missionname, $deadline);
+                $stmt->fetch();
+
+                $missionname = utf8_encode($missionname);
+                $details = array(
+                    'missionid' => $missionid,
+                    'missionname' => $missionname,
+                    'deadline' => $deadline);
+
+                $data[] = $details;
+            }
+            $stmt->close();
+        }
     }
-    $json = json_encode($data);
 }
-echo $json;
+echo json_encode($data);
 ?>

@@ -47,9 +47,9 @@ public class CreateCustomRewardController extends AuthorizedController{
     private void createReward() {
         Reward newReward = RewardFactory.getObject();
         HTTPRequestHandler handler = new HTTPRequestHandler();
-        InputStream in  = null;
+        handler.setContext(context);
         try {
-            in = handler.execute("https://91.205.172.109/createCustomReward.php","username",
+            handler.execute("createCustomReward.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "title", newReward.getTitle(), "description", "", "cost", Integer.toString(newReward.getCost()))
                     .get();
@@ -59,15 +59,14 @@ public class CreateCustomRewardController extends AuthorizedController{
             e.printStackTrace();
         }
 
-        String inputString=HTTPRequestHandler.getStringFromInputStream(in);
     }
 
     private void editReward() {
         Reward newReward = RewardFactory.getObject();
         HTTPRequestHandler handler = new HTTPRequestHandler();
-        InputStream in  = null;
+        handler.setContext(context);
         try {
-            in = handler.execute("https://91.205.172.109/editReward.php","username",
+           handler.execute("editReward.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "rewardid", Integer.toString(rewards[rewardPosition].getRewardid()) ,
                     "title", newReward.getTitle(), "description", "", "cost", Integer.toString(newReward.getCost()))
@@ -78,7 +77,6 @@ public class CreateCustomRewardController extends AuthorizedController{
             e.printStackTrace();
         }
 
-        String inputString=HTTPRequestHandler.getStringFromInputStream(in);
     }
 
     public void keyBackHandler() {

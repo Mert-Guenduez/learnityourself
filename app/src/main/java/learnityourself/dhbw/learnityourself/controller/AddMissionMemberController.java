@@ -2,9 +2,6 @@ package learnityourself.dhbw.learnityourself.controller;
 
 import android.content.Context;
 import android.content.Intent;
-
-import com.google.gson.Gson;
-
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 
@@ -46,9 +43,10 @@ public class AddMissionMemberController extends MatchUser {
 
     public void addUser(String addUser){
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/addUserToMission.php","username",
+            in = handler.execute("addUserToMission.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "missionid", mission.getMissionid(), "adduser", addUser)
                     .get();

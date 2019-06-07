@@ -41,9 +41,9 @@ public class ManageTaskController extends AuthorizedController{
         task.setEffort(Integer.parseInt(effort));
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
-        InputStream in  = null;
+        handler.setContext(context);
         try {
-            in = handler.execute("https://91.205.172.109/updateTask.php","username",
+            handler.execute("updateTask.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(), "missionid", task.getMissionid(),
                     "taskname", task.getTaskname(), "taskid", task.getTaskid(), "description", task.getDescription(), "effort", Integer.toString(task.getEffort())).get();
         } catch (ExecutionException e) {

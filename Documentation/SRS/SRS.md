@@ -8,6 +8,7 @@
 | 22/Oct/18 | 0.20  | More detail to convention part | Mert Gündüz |
 | 23/Oct/18 | 0.21  | Added revision history, git commit convention and added content to user interface section | Jannik Adam |
 | 28/Oct/18 | 0.30  | Added more detail to several categories  | Mert Gündüz |
+| 04/06/19  | 0.40 | Added UC Diagram and Interfaces | Jonas H. |
 ## 1. Introduction
 ### 1.1 Purpose
 This Software Requirements Specification ought to give you 
@@ -23,9 +24,34 @@ This document is for internal use only and shall give directives for the project
 * **n/a**	not applicable
 * **tbd**	to be determined
 ### 1.4	References
-- [GitHub](https://github.com/Mert-Guenduez/learnityourself)
-- [Blog](https://learnityourselfdhbw.wordpress.com/)
-- [Overall Use case diagram](https://github.com/Mert-Guenduez/learnityourself/blob/master/UseCases.xml)
+| Title                                                                        | Date       | Publishing organization   |
+| -----------------------------------------------------------------------------|:----------:| ------------------------- |
+| [Blog](https://learnityourselfdhbw.wordpress.com)                            | Oct. 2018  | LearnItYourself Team      |
+| [GitHub Repository](https://github.com/Mert-Guenduez/learnityourself)        | Oct. 2018  | LearnItYourself Team      |
+| [UC_Add User](./UC/AddUser/UC_AddUser.md)                                    | Oct. 2018  | LearnItYourself Team      |
+| [UC_CreateMission](./UC/CreateMission/UC_CreateMission.md)                   | Nov. 2018  | LearnItYourself Team      |
+| [UC_ManageTasks](../UC/ManageTasks/UC_ManageTasks.md)                         | Nov. 2018  | LearnItYourself Team      |
+| [UC_Register](../UC/Register/UC_Register.md)                                  | Nov. 2018  | LearnItYourself Team      |
+| [UC_EditMissionMember](../UC/EditMissionMember/UC_EditMissionMember.md)       | Dez. 2018  | LearnItYourself Team      |
+| [UC_Login](../UC/Login/UC_Login.md)                                           | Dez. 2018  | LearnItYourself Team      |
+| [UC_ViewMissions](../UC/ViewMissions/UC_ViewMissions.md)                      | Dez. 2018  | LearnItYourself Team      |
+| [UC_ChangePassword](../UC/ChangePassword/UC_ChangePassword.md)                | Apr. 2019  | LearnItYourself Team      |
+| [UC_CompleteTask](../UC/CompleteTask/UC_CompleteTask.md)                      | Apr. 2019  | LearnItYourself Team      |
+| [UC_DeleteAccount](../UC/DeleteAccount/UC_DeleteAccount.md)                   | Apr. 2019  | LearnItYourself Team      |
+| [UC_EditMission](../UC/EditMission/UC_EditMission.md)                         | Apr. 2019  | LearnItYourself Team      |
+| [UC_LeaveMission](../UC/LeaveMission/UC_LeaveMission.md)                      | Apr. 2019  | LearnItYourself Team      |
+| [UC_Logout](../UC/Logout/UC_Logout.md)                                        | Apr. 2019  | LearnItYourself Team      |
+| [UC_ManageCustomRewards](../UC/ManageCustomRewards/UC_ManageCustomRewards.md) | Apr. 2019  | LearnItYourself Team      |
+| [UC_ReceiveAchievements](../UC/ReceiveAchievements/UC_ReceiveAchievements.md) | Apr. 2019  | LearnItYourself Team      |
+| [UC_SpendPointsOnRewards](../UC/SpendPointsOnRewards/UC_SpendPointsOnRewards.md) | Apr. 2019  | LearnItYourself Team      |
+| [UC_ViewMissionStatistic](../UC/ViewMissionStatistic/UC_ViewMissionStatistic.md) | Apr. 2019  | LearnItYourself Team      |
+| [UC_ViewStatistic](../UC/ViewStatistic/UC_ViewStatistic.md)                   | Apr. 2019       | LearnItYourself Team |
+| [ScoreSheet](../../UserTesting/ScoreSheet.xlsm)                                 | May. 2019       | LearnItYourself Team |
+| [ScoreCollection](../../UserTesting/ScoreCollection.csv)                        | May. 2019       | LearnItYourself Team |
+| [Test Plan](../Testplan.md)                                                   | Apr. 2019  | LearnItYourself Team      |
+| [SRS](../SRS/SRS.md                                     )                      | Oct. 2018  | LearnItYourself Team      |
+| [SAD](../SRA.md)                                                             | Oct. 2018  | LearnItYourself Team      |
+
 ### 1.5	Overview
 The next chapters will be structured as follows:
 The second chapter, Overall Description, gives an overview of the functionality of our app and a use case diagram.
@@ -33,10 +59,17 @@ The third chapter, the Requirements Specification lists all ressources needed fo
  
 
 ## 2. Overall Description
+
+### 2.1 Our Vision
 Learnityourself is an Android App that helps turn mundane tasks such as studying
 into a game, alone or with friends. We will use Java to develop the Frontend, which will
 communicate with a backend server using the RESTful API.  
-![use-cases.png](https://github.com/Mert-Guenduez/learnityourself/raw/master/UseCases.png)
+
+### 2.2 Usecases
+This Usecase Diagram shows the different Usecases we have planned on how they are organized
+![Usecase Diagram](https://raw.githubusercontent.com/Mert-Guenduez/learnityourself/jonas/Documentation/UC/UseCases_Overview.png)
+
+The individual Usecase Specifications can be seen [here](https://github.com/Mert-Guenduez/learnityourself/tree/jonas/Documentation/UC)
 
 ## 3.	Specific Requirements 
 ### 3.1	Functionality
@@ -77,23 +110,19 @@ The user can change the group properties even after the group has already been c
 The user can invite other users to join the mission.
 ##### 3.1.3.3 Manage Tasks
 Manage the Missions Tasks by editing or deleting existing tasks as well as creating new ones.
-[Manage Tasks](https://github.com/Mert-Guenduez/learnityourself/blob/master/UC_ManageTasks.md)
 ##### 3.1.3.4 Complete task
 The user can set a task as completed. In addition the user can reflect on him-/herself by giving a rating based on how well the task was completed.
 ##### 3.1.3.5	View statistics
 The user can look at dynamically created graphs comparing each user's progress.
-##### 3.1.3.6	Highscore
-The user receives points upon completing a task. These points are restricted to the group the task was completed in and are used as a way of comparison between users.
-##### 3.1.3.7	Get Points
+##### 3.1.3.6	Get Points
 The user receives in-game currency upon completing a task. The amount of money received is based on how long the task takes to complete.
 The currency system is independent of the groups and money will be allocated to the accounts. The user can spend the money for rewards.
-##### 3.1.3.8 Leave Mission
+##### 3.1.3.7 Leave Mission
 The user may leave a mission at any time.
 #### 3.1.4	Settings
-##### 3.1.4.1	Change username
-The user may change the username as long as the new one isn't taken already.
-##### 3.1.4.2	Show help
-The user can view instructions on how to use the app properly and view frequently asked questions.
+##### 3.1.4.1	Change password
+The user may change the account password.
+
 	
 ### 3.2	Usability 
 #### 3.2.1	Training time
@@ -158,16 +187,23 @@ Our App will have several Interfaces and pages depending on what the user intend
 When starting the application the user will see the login screen first. It contains a welcoming message, for example the latest changes
  that were made and can either login or register to our service, which leads to the overview screen.
  
-**Overview Screen**: After the user has logged in he is able to view his account settings, an overview of current active missions and has the opportunity to join or create a mission. 
-When selecting a mission, the user is redirected to the specific mission overview as a mission member. 
-Alternatively a settings button can be pressed, leading to the settings screen.
+ **Register Screen**:
+Here a guest can enter a Username and Password to create a new user account.
+ 
+**Main Screen**: After the user has logged in they will be on the main screen. On here they can see a statistic about their progress so far. From here they can get to the Settings, Missions or his Rewards by pressing a button. Additionally they can log out of the app.
 
-**Mission Screen**: Here the mission member can see a list of all tasks in this mission and modify the mission settings e.g. add tasks, edit Tasks, add users, leave mission and so on. If the mission member selects a task it displays more detail and can be individually set to be completed for this mission member.
+**Missions Screen**: On this screen a user can see all the Missions they are part off. By clicking on a mission they can get to the Mission Screen of that specific mission.
 
-**Settings Screen**: The settings screen is fairly simple so that the desired action is found quickly.
-For the functionalities, see **3.1.4 Settings**.
+**Mission Screen**: On here the User can see a graph that shows the progress of all Mission Members. They can either click on the top bar to get to the Mission details or click on a Task to get to that specific tasks details. Completed Tasks will be marked.
+
+**Task Screen**: Here the user can see and change a tasks details or press on 'Completed'
+
+**Task Screen**: On the rewards screen a user can create custom rewards and spend their points on it.
+
+**Settings Screen**: Here the user can change their password.
+
 #### 3.9.2	Hardware Interfaces
-n/a
+A working android phone is requiered to view and use the application. Alternatively an Android Emulator will work.
 
 #### 3.9.3	Software Interfaces
 n/a

@@ -13,7 +13,6 @@ import java.util.concurrent.ExecutionException;
 import learnityourself.dhbw.learnityourself.CreateMissionActivity;
 import learnityourself.dhbw.learnityourself.MainActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionActivity;
-import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.model.Mission;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
@@ -27,9 +26,10 @@ public class ViewMissionsController extends AuthorizedController{
     @Override
     protected void init() {
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/allMissionsFromUser.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
+            in = handler.execute("allMissionsFromUser.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
