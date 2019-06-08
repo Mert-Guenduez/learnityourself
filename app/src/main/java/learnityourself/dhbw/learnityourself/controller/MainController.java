@@ -154,8 +154,8 @@ public class MainController {
         }
     }
 
-    public Map<Date, Integer> fetchCompletedTaskDates() {
-        Map<Date, Integer> completedTaskFromUserMap = new HashMap<>();
+    public Map<String, Integer> fetchCompletedTaskDates() {
+        Map<String, Integer> completedTaskFromUserMap = new HashMap<>();
 
         HTTPRequestHandler handler = new HTTPRequestHandler();
         handler.setContext(context);
