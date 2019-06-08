@@ -26,6 +26,7 @@ import learnityourself.dhbw.learnityourself.model.Task;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.modelFactories.TaskFactory;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
+import learnityourself.dhbw.learnityourself.utility.Helper;
 
 public class ViewMissionController extends AuthorizedController {
 
@@ -88,6 +89,8 @@ public class ViewMissionController extends AuthorizedController {
     }
 
     public void clickTask(int position) {
+        Helper.getInstance().setMission(this.mission);
+
         Intent intent = new Intent(context, ViewTaskActivity.class);
         intent.putExtra("user", user);
         intent.putExtra("task", tasks[position]);
