@@ -52,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void createChart() {
         plot = (XYPlot) findViewById(R.id.plot2);
-        Map<Date, Integer> completedTaskFromUser = controller.fetchCompletedTaskDates();
+        Map<String, Integer> completedTaskFromUser = controller.fetchCompletedTaskDates();
 
-        List<Date> dateList = new ArrayList<>();
+        List<String> dateList = new ArrayList<>();
         dateList.addAll(completedTaskFromUser.keySet());
-        final Date[] dates = dateList.toArray(new Date[dateList.size()]);
+        final String[] dates = dateList.toArray(new String[dateList.size()]);
 
         Number[] amountOfCompletedTasks = new Number[dates.length];
 
@@ -70,10 +70,11 @@ public class MainActivity extends AppCompatActivity {
         plot.addSeries(series1, bf);
         BarRenderer renderer = plot.getRenderer(BarRenderer.class);
         renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_WIDTH, PixelUtils.dpToPix(10));
+
         plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.BOTTOM).setFormat(new Format() {
             @Override
             public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
-                int i = Math.round(((Number) obj).floatValue());
+                int i = Math.round(((Number) obj).intValue());
                 return toAppendTo.append(dates[i]);
             }
             @Override

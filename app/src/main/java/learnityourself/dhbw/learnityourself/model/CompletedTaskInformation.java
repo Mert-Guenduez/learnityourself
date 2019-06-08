@@ -3,14 +3,14 @@ package learnityourself.dhbw.learnityourself.model;
 import java.util.Date;
 
 public class CompletedTaskInformation {
-    private Date completedDate;
+    private String completedDate;
     private int count;
 
-    public Date getCompletedDate() {
+    public String getCompletedDate() {
         return completedDate;
     }
 
-    public void setCompletedDate(Date completedDate) {
+    public void setCompletedDate(String completedDate) {
         this.completedDate = completedDate;
     }
 

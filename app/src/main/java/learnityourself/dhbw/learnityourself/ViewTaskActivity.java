@@ -90,8 +90,6 @@ public class ViewTaskActivity extends AppCompatActivity {
         });
         if(task.getCompleted() != null){
             complete_task_button.setEnabled(!controller.getTask().getCompleted());
-        } else {
-            complete_task_button.setEnabled(false);
         }
 
     }
