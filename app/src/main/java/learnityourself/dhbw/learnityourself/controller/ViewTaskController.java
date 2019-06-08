@@ -48,8 +48,9 @@ public class ViewTaskController extends AuthorizedController{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        task = new Gson().fromJson(HTTPRequestHandler.getStringFromInputStream(in), Task.class);
-
+        String out = HTTPRequestHandler.getStringFromInputStream(in);
+        task = new Gson().fromJson(out, Task.class);
+        task.setTaskname(out.substring(out.indexOf("name\":\"")+7, out.indexOf("\",\"description")));
     }
 
     public void completeTask(){

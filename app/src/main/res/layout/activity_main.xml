@@ -8,12 +8,36 @@
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
+    <com.androidplot.xy.XYPlot
+        android:id="@+id/plot2"
+        style="@style/APDefacto.Dark"
+        android:layout_width="0dp"
+        android:layout_height="311dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:domainTitle=""
+        app:layout_constraintBottom_toTopOf="@+id/rewards_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointsLabel"
+        app:lineLabelRotationBottom="-45"
+        app:lineLabels="left|bottom"
+        app:rangeTitle="Tasks completed"
+        app:title="Task Progress" />
+
     <TextView
         android:id="@+id/mainUserLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="67dp"
         android:layout_marginBottom="19dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:text="Username"
         app:layout_constraintBottom_toTopOf="@+id/pointsLabel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,6 +52,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:textSize="16sp"
         android:text="Points"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,35 +60,38 @@
 
     <Button
         android:id="@+id/logout_button"
-        android:layout_width="205dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/rewards_button"
-        android:layout_width="0dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:text="Rewards"
-        app:layout_constraintBaseline_toBaselineOf="@+id/achievements_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/achievements_button"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/achievements_button"
-        android:layout_width="205dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="476dp"
+        android:layout_marginBottom="50dp"
         android:text="Achievements"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/missions_button"
-        android:layout_width="205dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:text="Missions"
         app:layout_constraintBaseline_toBaselineOf="@+id/logout_button"

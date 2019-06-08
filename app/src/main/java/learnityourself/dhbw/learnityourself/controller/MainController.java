@@ -3,6 +3,8 @@ package learnityourself.dhbw.learnityourself.controller;
 import android.content.Context;
 import android.content.Intent;
 
+import com.google.gson.Gson;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -12,6 +14,9 @@ import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import learnityourself.dhbw.learnityourself.LoginActivity;
@@ -19,6 +24,7 @@ import learnityourself.dhbw.learnityourself.OptionsActivity;
 import learnityourself.dhbw.learnityourself.ViewAchievementsActivity;
 import learnityourself.dhbw.learnityourself.ViewMissionsActivity;
 import learnityourself.dhbw.learnityourself.ViewRewardsActivity;
+import learnityourself.dhbw.learnityourself.model.CompletedTaskInformation;
 import learnityourself.dhbw.learnityourself.model.User;
 import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 import learnityourself.dhbw.learnityourself.utility.SSLHandler;
@@ -27,6 +33,7 @@ public class MainController {
 
     private User user;
     private Context context;
+    private CompletedTaskInformation[] completedTaskInformation;
 
     public MainController(User user, Context context){
         this.user = user;
@@ -145,6 +152,32 @@ public class MainController {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public Map<String, Integer> fetchCompletedTaskDates() {
+        Map<String, Integer> completedTaskFromUserMap = new HashMap<>();
+
+        HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
+        InputStream in  = null;
+        try {
+            in = handler.execute("allCompletedTasksFromUser.php","username", user.getUsername(),
+                    "sessionkey",user.getSessionkey()).get();
+
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        completedTaskInformation = new Gson().fromJson(HTTPRequestHandler.getStringFromInputStream(in), CompletedTaskInformation[].class);
+
+        for (int i = 0; i < completedTaskInformation.length; i++) {
+            CompletedTaskInformation completedTask = completedTaskInformation[i];
+            completedTaskFromUserMap.put(completedTask.getCompletedDate(), completedTask.getCount());
+        }
+
+        return completedTaskFromUserMap;
     }
 
     public void openOptions() {
