@@ -50,7 +50,21 @@ if ($paramsCheck) {
                                     WHERE taskid = ? AND username = ?');
             $stmt->bind_param('is', $taskid, $username);
             if($stmt->execute()){
-                $data = array('response' => 'Task successfully updated');
+                $stmt->close();
+                $stmt = $db->prepare('UPDATE users
+                                        INNER JOIN userToTask utt
+                                            ON utt.username = users.user_name
+                                        Inner JOIN tasks t
+                                            ON t.id = utt.taskid
+                                        SET users.points = users.points + t.effort                                        
+                                        WHERE t.id = ? AND users.user_name = ?');
+                $stmt->bind_param('is', $taskid, $username);
+                if ($stmt->execute()) {
+                    $data = array('response' => 'Task successfully updated');
+                }
+                else {
+                    $data = array('error' => 'Task updated, but no points added');
+                }
             }
             else{
                 $data = array('error' => 'Task could not be updated');
