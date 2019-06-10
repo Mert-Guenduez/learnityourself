@@ -47,8 +47,8 @@ if ($paramsCheck) {
             // Mark task as completed
             $stmt = $db->prepare('UPDATE userToTask
                                     SET completed = 1
-                                    WHERE taskid = ?');
-            $stmt->bind_param('i', $taskid);
+                                    WHERE taskid = ? AND username = ?');
+            $stmt->bind_param('is', $taskid, $username);
             if($stmt->execute()){
                 $data = array('response' => 'Task successfully updated');
             }
