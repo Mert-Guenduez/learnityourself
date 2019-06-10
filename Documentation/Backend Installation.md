@@ -45,4 +45,4 @@ After you have completed all steps above, you should be able to use our applicat
 
 You can change the default learnityourself server to your own in the login screen.
 Just hit the pen in the top right corner and enter the host address.
-Example: https://www.learnityourself.ml
+Example: https://www.learnityourself.ml/ or  https://91.205.172.109/
