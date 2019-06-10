@@ -19,9 +19,10 @@ public class MatchUser extends AuthorizedController {
 
     public User[] matchUser(String matchuser){
         HTTPRequestHandler handler = new HTTPRequestHandler();
+        handler.setContext(context);
         InputStream in  = null;
         try {
-            in = handler.execute("https://91.205.172.109/matchUser.php","username",
+            in = handler.execute("matchUser.php","username",
                     user.getUsername(),"sessionkey", user.getSessionkey(),
                     "matchuser", matchuser)
                     .get();
