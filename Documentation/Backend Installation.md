@@ -19,6 +19,8 @@ Install following components to your local machine or to a dedicated server:
 - Git
 - DBMS (SQL)
 
+You can also use XAMPP https://www.apachefriends.org/index.html to run the Apache Server as well as a MySQL Database
+
 ### 1.2 Cloning implementation
 
 git clone https://github.com/Mert-Guenduez/learnityourself.git
