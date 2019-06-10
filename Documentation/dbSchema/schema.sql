@@ -39,7 +39,7 @@ CREATE TABLE `missions` (
   PRIMARY KEY (`id`),
   KEY `owner` (`owner`),
   CONSTRAINT `missions_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `users` (`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `rewards` (
   PRIMARY KEY (`rewardid`),
   KEY `owner` (`owner`),
   CONSTRAINT `rewards_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `users` (`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `tasks` (
   PRIMARY KEY (`id`),
   KEY `tasks_fk0` (`missionid`),
   CONSTRAINT `tasks_fk0` FOREIGN KEY (`missionid`) REFERENCES `missions` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,6 +124,7 @@ CREATE TABLE `userToTask` (
   `username` varchar(255) NOT NULL,
   `taskid` int(11) NOT NULL,
   `completed` tinyint(1) DEFAULT NULL,
+  `completedDate` date DEFAULT NULL,
   PRIMARY KEY (`username`,`taskid`),
   KEY `userToTask_fk1` (`taskid`),
   CONSTRAINT `userToTask_fk0` FOREIGN KEY (`username`) REFERENCES `users` (`user_name`),
@@ -141,7 +142,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `user_name` varchar(255) NOT NULL,
   `user_password` varchar(255) NOT NULL,
-  `salt_hash` varchar(255) NOT NULL,
+  `salt_hash` varbinary(255) NOT NULL,
   `session_key` varchar(255) DEFAULT NULL,
   `session_timeout` datetime DEFAULT NULL,
   `points` int(255) NOT NULL DEFAULT '0',
@@ -158,4 +159,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-05 12:46:37
+-- Dump completed on 2019-06-11  1:24:49
