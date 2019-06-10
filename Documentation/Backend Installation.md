@@ -20,6 +20,7 @@ Install following components to your local machine or to a dedicated server:
 - DBMS (SQL)
 
 You can also use XAMPP https://www.apachefriends.org/index.html to run the Apache Server as well as a MySQL Database
+Simply put the php Files in the htdocs Directory and Run Apache as well as MySQL in the XAMPP Console
 
 ### 1.2 Cloning implementation
 
