@@ -46,7 +46,7 @@ if ($paramsCheck) {
             
             // Mark task as completed
             $stmt = $db->prepare('UPDATE userToTask
-                                    SET completed = 1
+                                    SET completed = 1, completedDate = NOW()
                                     WHERE taskid = ? AND username = ?');
             $stmt->bind_param('is', $taskid, $username);
             if($stmt->execute()){
