@@ -1,12 +1,12 @@
 Business Need				Jannik 5min
 	Vision, Usecases (Scope)
 	Agile, Weekly Sprints
-	Youtrack
 	Rup
 	FP real vs estimate
-Quality:					
+Quality:
+	Workflow[/Config] (Tools): Youtrack, Codecov, Git, Sonar....
 	Tests					Angelika
-	Tools / Automation (CI) /Codecov
+	Automation (CI)
 	
 
 	Risk Management	
