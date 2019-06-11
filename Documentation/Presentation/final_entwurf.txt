@@ -1,0 +1,23 @@
+Business Need				Jannik 5min
+	Vision, Usecases (Scope)
+	Agile, Weekly Sprints
+	Youtrack
+	Rup
+	FP real vs estimate
+Quality:
+	Risk Management			Angelika
+	Tests
+	(Configuration)
+	Automation (CI)
+
+	Architekture			Mert
+	Patterns (Factory)
+	Metrics
+	
+
+Technical					Jonas 5min
+	Class diagram
+	Extend of Functionality
+	Demo
+
+Max 20min
