@@ -97,7 +97,7 @@ if ($paramsCheck) {
                 $stmt = $db->prepare("INSERT INTO userToTask (username, taskid, completed)
                                         VALUES (?,?,0)");
                 while($singleTask = $taskList->fetch_assoc()) {
-                    $stmt->bind_param('si', $username, $singleTask['id']);
+                    $stmt->bind_param('si', $adduser, $singleTask['id']);
                     $stmt->execute();
                 }
                 $data = array('response' => 'User successfully added');
