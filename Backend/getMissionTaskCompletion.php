@@ -4,7 +4,7 @@ header('Content-Type: application/json; charset=utf8');
 $username   = $_POST['username'];
 $sessionkey = $_POST['sessionkey'];
 $missionid  = $_POST['missionid'];
-$db = new mysqli('localhost', 'XXX', 'XXX', 'XXX');
+$db = new mysqli('localhost', 'dblover', 'DDBPw1mnmk1337', 'learnityourself');
 if ($db->connect_errno > 0) {
     $data = array('authentication' => 'false', 'error' => 'Unable to connect to database [' . $db->connect_error . ']');}
 else {
