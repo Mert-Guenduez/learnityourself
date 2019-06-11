@@ -34,6 +34,7 @@ Create database tables according to following schema "learnityourself/Documentat
 ### 1.4 Configure database authentication
 
 Edit "connectToDatabase.php" in folder "learnityourself/Backend" to use your own database.
+You will need to create a user with a password for the database and enter these credentials as follows:
 
 Original:
 $db = new mysqli('localhost', 'DB_USER', 'DB_PWD', 'DB_NAME');
