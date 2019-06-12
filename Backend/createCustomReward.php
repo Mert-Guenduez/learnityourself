@@ -38,7 +38,17 @@ if ($paramsCheck) {
 									VALUES (?,?,?,?)');
 			$stmt->bind_param('sssi', $username, $title, $description, $cost);
 			if($stmt->execute()){
-				$data = array('response' => 'Reward successfully created');
+				$stmt->close();
+				$stmt = $db->prepare('UPDATE achievements
+										SET totalRewardsAdded = totalRewardsAdded + 1
+										WHERE username = ?');
+				$stmt->bind_param('s', $username);
+				if($stmt->execute()){
+					$data = array('response' => 'Reward successfully created');
+				}
+				else{
+					$data = array('response' => 'Reward successfully created, but could not update achievements');
+				}
 			}
 			else{
 				$data = array('error' => 'Error while trying to insert into rewards table');

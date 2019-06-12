@@ -28,16 +28,26 @@ if ($paramsCheck) {
         include 'checkSessionkey.php';
 
         if($check) {
-
+            $stmt = $db->prepare('SELECT COUNT(*) FROM rewards WHERE rewardid = ? AND owner = ?');
+            $stmt->bind_param('is', $rewardid, $username);
+            if($stmt->execute()){
+                $row = mysqli_fetch_array($stmt->get_result());
+                if($row[0] == 0){
+                    $data = array('response' => 'There was an error deleting the reward. Make sure the reward exists and that it belongs to you!');
+                    echo json_encode($data);
+                    return;
+                }
+            }
+            $stmt->close();
             $stmt = $db->prepare('DELETE
                                     FROM rewards
-                                    WHERE rewardid = ? AND owner = ?');
-            $stmt->bind_param('is', $rewardid, $username);
+                                    WHERE rewardid = ?');
+            $stmt->bind_param('i', $rewardid);
             if($stmt->execute()){
                 $data = array('response' => 'Reward successfully deleted');
             }
             else{
-                $data = array('response' => 'There was an error deleting the reward. Maybe you are trying to delete someone elses reward?');
+                $data = array('response' => 'There was an error deleting the reward.');
             }
             $stmt->close();
         }

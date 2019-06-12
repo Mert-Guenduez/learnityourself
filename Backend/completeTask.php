@@ -43,7 +43,22 @@ if ($paramsCheck) {
                 echo json_encode(array('error' => 'The task is not assigned to the user'));
                 return;
             }
-            
+            $stmt = $db->prepare('SELECT completed
+                                    FROM userToTask
+                                    WHERE taskid = ? AND username = ?');
+            $stmt->bind_param('is', $taskid, $username);
+            if($stmt->execute()){
+                $isCompleted = $stmt->get_result();
+                $stmt->close();
+                if(mysqli_fetch_array($isCompleted)[0] == 1){
+                    echo json_encode(array('error' => 'The task is already completed!'));
+                    return;
+                }
+            }
+            else{
+                echo json_encode(array('error' => 'Error when trying to access task'));
+                return;
+            }
             // Mark task as completed
             $stmt = $db->prepare('UPDATE userToTask
                                     SET completed = 1, completedDate = NOW()
@@ -60,10 +75,32 @@ if ($paramsCheck) {
                                         WHERE t.id = ? AND users.user_name = ?');
                 $stmt->bind_param('is', $taskid, $username);
                 if ($stmt->execute()) {
+                    $stmt->close();
+                    $stmt = $db->prepare('SELECT effort
+                                            FROM tasks                                      
+                                            WHERE id = ?');
+                    $stmt->bind_param('i', $taskid);
+                    if($stmt->execute()){
+                        $taskeffort = $stmt->get_result();
+                        $row = mysqli_fetch_array($taskeffort);
+                    $stmt = $db->prepare('UPDATE achievements
+                                            SET tasksCompleted = tasksCompleted + 1, totalEarnedPoints = totalEarnedPoints + ?
+                                            WHERE username = ?');
+                    $stmt->bind_param('is', $row[0], $username);
+                    if($stmt->execute()){
                     $data = array('response' => 'Task successfully updated');
+                    }
+                    else{
+                        echo $row[0];
+                        $data = array('response' => 'Task successfully updated, but could not update achievements');
+                    }
+                }
+                else{
+                    $data = array('response' => 'Task successfully updated, but could not select taskid');
+                }
                 }
                 else {
-                    $data = array('error' => 'Task updated, but no points added');
+                    $data = array('error' => 'Task updated, but no points added and no achievements updated.');
                 }
             }
             else{

@@ -57,9 +57,17 @@ $params = array(
                 $stmt->bind_param('sss', $username, $hashedpw, $salt_hash);
 
                 if($stmt->execute()){
-                        $data = array('response' => 'User successfully created');
+                        $stmt->close();
+                        $stmt = $db->prepare('INSERT INTO achievements (username) VALUES (?)');
+                        $stmt->bind_param('s', $username);
+                        if($stmt->execute()){
+                        $data = array('response' => 'User successfully created');    
+                        }
+                        else{
+                        $data = array('response' => 'User created, but could assign him to achievements');
+                        }
                 } else {
-                        $data = array('response' => 'Error while trying to insert into DB');
+                        $data = array('response' => 'Error while trying to insert into DB Table');
                 }
         }
 }
