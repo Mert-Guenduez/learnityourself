@@ -43,7 +43,7 @@ public class RegisterController {
             return;
         }
             String inputString=HTTPRequestHandler.getStringFromInputStream(in);
-
+            System.out.println(inputString);
             if (inputString.equals("{\"response\":\"User already exists\"}")){
                 username.setError("User already exists. Please enter another Username.");
             } else {

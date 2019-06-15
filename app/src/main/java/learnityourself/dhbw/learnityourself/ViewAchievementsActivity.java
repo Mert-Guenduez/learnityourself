@@ -24,7 +24,7 @@ public class ViewAchievementsActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_missions);
+        setContentView(R.layout.activity_view_achievements);
         Intent intent = getIntent();
         controller=new ViewAchievementsController((User) intent.getSerializableExtra("user"), this);
         init();
