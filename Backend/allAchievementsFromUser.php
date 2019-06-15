@@ -31,7 +31,6 @@ if ($paramsCheck) {
 			$stmt->bind_param('s', $username);
 			if($stmt->execute()){
                 $row = mysqli_fetch_array($stmt->get_result());
-                echo $row[0] . $row[1] . $row[2] . $row[3];
                 $data = array();
                 if($row[0] >= 1){
                     array_push($data, "Completed 1 Task");
