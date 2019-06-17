@@ -41,11 +41,9 @@ public class MainController {
         this.context = context;
         setSSL();
         if(checkAuthorized());
-    }
-
-    private void setUserPoints() {
 
     }
+
 
     private void setSSL(){
 
@@ -143,9 +141,7 @@ public class MainController {
         InputStream in  = null;
         try {
             in = handler.execute("getUserPoints.php","username", user.getUsername(),"sessionkey",user.getSessionkey()).get();
-            System.out.println("main"+ HTTPRequestHandler.getStringFromInputStream(in));
             JSONObject object = new JSONObject(HTTPRequestHandler.getStringFromInputStream(in));
-
             user.setPoints(object.getInt("user_points"));
         } catch (ExecutionException e) {
             e.printStackTrace();
