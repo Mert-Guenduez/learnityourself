@@ -75,6 +75,7 @@ public class CreateCustomRewardController extends AuthorizedController{
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
 
     }
