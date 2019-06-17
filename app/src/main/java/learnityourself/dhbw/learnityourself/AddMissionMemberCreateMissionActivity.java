@@ -66,12 +66,8 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
 
     public void setSearchUsername(final User[] matchUser){
         // TODO Array im controller füllen
-        System.out.println("POINT 3");
 
         updateSetSeachUsername(matchUser);
-
-        System.out.println("POINT 6");
-
 
         searchUsername.setOnItemClickListener(
                 new AdapterView.OnItemClickListener()
@@ -93,9 +89,6 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
                     }
                 }
         );
-
-        System.out.println("POINT 7");
-
 
     }
 
@@ -119,17 +112,12 @@ public class AddMissionMemberCreateMissionActivity extends AppCompatActivity {
 
     public void updateSetSeachUsername(User[] matchUser){
 
-        System.out.println("POINT 4");
-
-
         controller.setMatchUser(matchUser);
 
         editSetMember(matchUser);
 
         searchUsername = (ListView) findViewById(R.id.search_user_listview);
         searchUsername.setAdapter(new AddUserAdapter(this, matchUser));
-
-        System.out.println("POINT 5");
 
     }
 
