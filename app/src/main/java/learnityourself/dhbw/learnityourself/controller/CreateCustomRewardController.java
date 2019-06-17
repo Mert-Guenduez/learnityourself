@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
+import java.util.logging.Logger;
 
 import learnityourself.dhbw.learnityourself.ViewRewardsActivity;
 import learnityourself.dhbw.learnityourself.model.Reward;
@@ -15,18 +16,20 @@ import learnityourself.dhbw.learnityourself.utility.HTTPRequestHandler;
 public class CreateCustomRewardController extends AuthorizedController{
     private int rewardPosition;
     private Reward[] rewards;
+    Logger logger;
 
     public CreateCustomRewardController(User user, Context context, int rewardPosition, Reward[] rewards) {
         super(user, context);
         this.user = user;
         this.rewardPosition = rewardPosition;
         this.rewards = rewards;
+        logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
         RewardFactory.createNewObject();
     }
 
     @Override
     protected void init() {
-
+        //Empty Init
     }
 
     public void checkClickHandler () {
@@ -54,9 +57,10 @@ public class CreateCustomRewardController extends AuthorizedController{
                     "title", newReward.getTitle(), "description", "", "cost", Integer.toString(newReward.getCost()))
                     .get();
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            logger.warning(e.toString());
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            logger.warning(e.toString());
+            Thread.currentThread().interrupt();
         }
 
     }
@@ -72,9 +76,9 @@ public class CreateCustomRewardController extends AuthorizedController{
                     "title", newReward.getTitle(), "description", "", "cost", Integer.toString(newReward.getCost()))
                     .get();
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            logger.warning(e.toString());
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            logger.warning(e.toString());
             Thread.currentThread().interrupt();
         }
 
