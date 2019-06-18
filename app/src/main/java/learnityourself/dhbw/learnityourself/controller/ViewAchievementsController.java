@@ -26,15 +26,18 @@ public class ViewAchievementsController extends AuthorizedController{
         handler.setContext(context);
         InputStream in  = null;
         try {
-            in = handler.execute("getUserAchievements.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
+            in = handler.execute("allAchievementsFromUser.php","username", user.getUsername(),"sessionkey", user.getSessionkey()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         Gson gson = new GsonBuilder().create();
-        achievements = gson.fromJson(HTTPRequestHandler.getStringFromInputStream(in), Achievement[].class);
+        String[] achievementsStrings = gson.fromJson(HTTPRequestHandler.getStringFromInputStream(in), String[].class);
+        achievements = new Achievement[achievementsStrings.length];
+        for(int i=0; i<achievements.length; i++){
+            achievements[i] = new Achievement(achievementsStrings[i]);
+        }
     }
 
     public Achievement[] getAchievements(){

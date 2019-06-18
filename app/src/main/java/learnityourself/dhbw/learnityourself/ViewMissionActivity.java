@@ -66,11 +66,13 @@ public class ViewMissionActivity extends AppCompatActivity {
         Map<String, Integer> userToTasks = controller.getUserTasksMap();
         List<String> userNameList = new ArrayList<>();
         userNameList.addAll(userToTasks.keySet());
+        userNameList.add("");
         final String[] userNames = userNameList.toArray(new String[userNameList.size()]);
         Number[] amountOfTasks = new Number[userNames.length];
         for(int i=0; i<userNameList.size(); i++){
             amountOfTasks[i] = userToTasks.get(userNames[i]);
         }
+        amountOfTasks[userNameList.size()-1]=0;
 
         XYSeries series1 = new SimpleXYSeries(
                 Arrays.asList(amountOfTasks), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "");

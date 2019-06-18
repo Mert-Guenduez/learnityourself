@@ -41,11 +41,9 @@ public class MainController {
         this.context = context;
         setSSL();
         if(checkAuthorized());
-    }
-
-    private void setUserPoints() {
 
     }
+
 
     private void setSSL(){
 
