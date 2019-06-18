@@ -24,6 +24,24 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `learnityourself` /*!40100 DEFAULT CHAR
 USE `learnityourself`;
 
 --
+-- Table structure for table `achievements`
+--
+
+DROP TABLE IF EXISTS `achievements`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `achievements` (
+  `username` varchar(255) NOT NULL,
+  `tasksCompleted` int(11) DEFAULT '0',
+  `installedApp` int(11) DEFAULT '1',
+  `totalEarnedPoints` int(11) DEFAULT '0',
+  `totalRewardsAdded` int(11) DEFAULT '0',
+  KEY `username` (`username`),
+  CONSTRAINT `username` FOREIGN KEY (`username`) REFERENCES `users` (`user_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `missions`
 --
 
@@ -39,7 +57,7 @@ CREATE TABLE `missions` (
   PRIMARY KEY (`id`),
   KEY `owner` (`owner`),
   CONSTRAINT `missions_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `users` (`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +76,7 @@ CREATE TABLE `rewards` (
   PRIMARY KEY (`rewardid`),
   KEY `owner` (`owner`),
   CONSTRAINT `rewards_ibfk_1` FOREIGN KEY (`owner`) REFERENCES `users` (`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +95,7 @@ CREATE TABLE `tasks` (
   PRIMARY KEY (`id`),
   KEY `tasks_fk0` (`missionid`),
   CONSTRAINT `tasks_fk0` FOREIGN KEY (`missionid`) REFERENCES `missions` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,4 +177,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-11  1:24:49
+-- Dump completed on 2019-06-18  8:25:20
